@@ -6,15 +6,26 @@ Really good syntax highlighting for [markdown][] and [MDX][].
 
 <table>
 <tr valign="middle">
-<td width="50%" align="center" colspan="1">
-  <br>
-  <a href="https://wooorm.com/markdown-tm-language/"><img alt src="screenshot-md-dark.png"></a>
-  <br>
+<td align="center">
+  <a href="https://wooorm.com/markdown-tm-language/"><img alt src="screenshot-md-dark.png" width="650"></a>
 </td>
-<td width="50%" align="center" colspan="1">
-  <br>
-  <a href="https://wooorm.com/markdown-tm-language/"><img alt src="screenshot-mdx-light.png"></a>
-  <br>
+</tr>
+<tr>
+<td align="center">
+  Example of markdown highlighting (using GitHub dark mode theme)
+</td>
+</tr>
+</table>
+
+<table>
+<tr valign="middle">
+<td align="center">
+  <a href="https://wooorm.com/markdown-tm-language/"><img alt src="screenshot-mdx-light.png" width="650"></a>
+</td>
+</tr>
+<tr>
+<td align="center">
+  Example of MDX highlighting (using GitHub dark mode theme)
 </td>
 </tr>
 </table>
