@@ -1,0 +1,12 @@
+>---
+#^^^ source.md punctuation.definition.string.start.yaml
+>yaml: 1
+#^^^^^^^^ source.md meta.embedded.yaml
+>---
+#^^^ source.md punctuation.definition.string.end.yaml
+>
+># hi
+#^ source.md markup.heading.atx.1.md punctuation.definition.heading.md
+# ^ source.md markup.heading.atx.1.md
+#  ^^ source.md markup.heading.atx.1.md entity.name.section.md
+>

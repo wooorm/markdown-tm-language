@@ -1,0 +1,57 @@
+>a $$b$$ c.
+#^^ source.md meta.paragraph.md
+#  ^^ source.md meta.paragraph.md punctuation.definition.string.begin.math.md
+#    ^ source.md meta.paragraph.md markup.raw.math.md
+#     ^^ source.md meta.paragraph.md punctuation.definition.string.end.math.md
+#       ^^^^ source.md meta.paragraph.md
+>
+>More/less $$$a$$.
+#^^^^^^^^^^^^^^^^^^ source.md meta.paragraph.md
+>
+>Less/more $$a$$$.
+#^^^^^^^^^^^^^^^^^^ source.md meta.paragraph.md
+>
+>Less/More/Less $$ $$$ $$.
+#^^^^^^^^^^^^^^^ source.md meta.paragraph.md
+#               ^^ source.md meta.paragraph.md punctuation.definition.string.begin.math.md
+#                 ^^^^^ source.md meta.paragraph.md markup.raw.math.md
+#                      ^^ source.md meta.paragraph.md punctuation.definition.string.end.math.md
+#                        ^^ source.md meta.paragraph.md
+>
+>More/Less/More $$ $ $$.
+#^^^^^^^^^^^^^^^ source.md meta.paragraph.md
+#               ^^ source.md meta.paragraph.md punctuation.definition.string.begin.math.md
+#                 ^^^ source.md meta.paragraph.md markup.raw.math.md
+#                    ^^ source.md meta.paragraph.md punctuation.definition.string.end.math.md
+#                      ^^ source.md meta.paragraph.md
+>
+>Stuff $$a$$a$$.
+#^^^^^^ source.md meta.paragraph.md
+#      ^^ source.md meta.paragraph.md punctuation.definition.string.begin.math.md
+#        ^ source.md meta.paragraph.md markup.raw.math.md
+#         ^^ source.md meta.paragraph.md punctuation.definition.string.end.math.md
+#           ^^^^^ source.md meta.paragraph.md
+>
+>Stuff \$$a$$a$$.
+#^^^^^^ source.md meta.paragraph.md
+#      ^^ source.md meta.paragraph.md support.constant.character.escape.md
+#        ^^ source.md meta.paragraph.md
+#          ^^ source.md meta.paragraph.md punctuation.definition.string.begin.math.md
+#            ^ source.md meta.paragraph.md markup.raw.math.md
+#             ^^ source.md meta.paragraph.md punctuation.definition.string.end.math.md
+#               ^^ source.md meta.paragraph.md
+>
+>Stuff \$$$a$$$a$$$.
+#^^^^^^ source.md meta.paragraph.md
+#      ^^ source.md meta.paragraph.md support.constant.character.escape.md
+#        ^^^ source.md meta.paragraph.md
+#           ^^^ source.md meta.paragraph.md punctuation.definition.string.begin.math.md
+#              ^ source.md meta.paragraph.md markup.raw.math.md
+#               ^^^ source.md meta.paragraph.md punctuation.definition.string.end.math.md
+#                  ^^ source.md meta.paragraph.md
+>
+>a $$b
+#^^^^^^ source.md meta.paragraph.md
+>c$$ d.
+#^^^^^^^ source.md meta.paragraph.md
+>

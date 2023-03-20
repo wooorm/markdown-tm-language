@@ -1,0 +1,1869 @@
+# # Markdown TextMate language
+#
+# This file is the core grammar used to make TextMate languages
+# for markdown and MDX.
+# TextMate grammars are basically what syntax highlighting of *every* editor is
+# built on: VS Code, Atom, Sublime, TextMate.
+#
+# This file is authored by humans.
+# It is later processed by programs that perform several steps.
+#
+# ## How this file is processed
+#
+# ### Variables
+#
+# To make managing 150+ big expressions easier, we support reusable regex
+# parts in the form of `variables`.
+# They are used with a `var(xxx)` group, where in this case `xxx` refers
+# to a variable name that the whole will be replaced with.
+# The value is defined in this file too, at the `variables` record.
+#
+# Several of these values are injected when building by `build.js`.
+# This is for example used to include the list of known gemoji names.
+#
+# ### Rule injection
+#
+# The embedded grammars used in fenced code are injected.
+# The `commonmark-code-fenced-unknown` rule is copied and changed for about
+# 30 common languages.
+# Those are injected into the grammar and included in the
+# `commonmark-code-fenced` rule.
+#
+# ### Conditions
+#
+# Each rule can have an extra `if` field, which will be removed from the final
+# grammar.
+# This field can be set to one or more conditions (`string` or `Array<string>`),
+# which are enabled in `build.js`.
+# They can be used to drop rules that belong to extensions (such as GFM,
+# frontmatter, MDX).
+# If a grammar is generated without any of the conditions specified by `if`,
+# the rule will be dropped.
+#
+# ## How grammars work
+#
+# To learn more about developing and maintaining TextMate grammars,
+# see:
+#
+# * <https://www.apeth.com/nonblog/stories/textmatebundle.html>
+# * <https://macromates.com/manual/en/language_grammars>
+# * <https://gist.github.com/Aerijo/b8c82d647db783187804e86fa0a604a1>
+# * <https://gist.github.com/DamnedScholar/622926bcd222eb1ddc483d12103fd315>
+#
+# The grammar of the regexes used in grammars is *different* from the grammar
+# of JavaScript regexes.
+# Their grammar comes from `kkos/oniguruma`:
+#
+# * <https://github.com/kkos/oniguruma/blob/master/doc/RE>
+#   — regex docs
+# * <https://rubular.com>
+#   — regex playground
+#
+# ## How do grammars in Linguist work?
+#
+# Importantly, terribly, `github/linguist` *does not* use `kkos/oniguruma`, it
+# uses PCRE (Perl Compatible Regular Expressions), for performance reasons.
+# As we want to ship our grammars to `github/linguist`, the expressions here
+# need to be compatible with *both* oniguruma and PCRE.
+#
+# For more on PCRE, see:
+#
+# * <http://www.pcre.org/original/doc/html/pcrepattern.html>
+#
+# There are several differences.
+# An important one is that oniguruma is aware of Unicode, whereas PCRE is not
+# by default (and GitHub doesn’t enable Unicode), so in the former `\w` would
+# match unicode letters and numbers too, whereas the latter only matches ASCII.
+#
+# PCRE also doesn’t support longer Unicode character properties, so you need to
+# swap `\p{Cntrl}` for `\p{CC}`, `\p{Alnum}` for `[\p{L}\p{N}]`, `\p{Punct}`
+# for `\p{P}`, etcetera.
+#
+# Another difference is in how subpatterns can be called:
+# <https://github.com/github/linguist/issues/3291#issuecomment-381115027>.
+#
+# ## Inspiration
+#
+# This grammar is inspired by these ones around markdown:
+# [`microsoft/vscode-markdown-tm-grammar`][vscode],
+# [`textmate/markdown.tmbundle`][tm],
+# [`atom/language-gfm`][atom] (archived),
+# [`burodepeper/language-markdown`][bdp] (deprecated),
+# [`SublimeText-Markdown/MarkdownEditing`][mde], and more.
+# Some other interesting grammars to look at are:
+# [`sveltejs/language-tools`][svelte],
+# [`withastro/language-tools`][astro], and
+# [`microsoft/TypeScript-TmLanguage`][ts].
+#
+# [vscode]: https://github.com/microsoft/vscode-markdown-tm-grammar
+# [atom]: https://github.com/atom/language-gfm
+# [bdp]: https://github.com/burodepeper/language-markdown
+# [mde]: https://github.com/SublimeText-Markdown/MarkdownEditing
+# [tm]: https://github.com/textmate/markdown.tmbundle
+# [svelte]: https://github.com/sveltejs/language-tools
+# [astro]: https://github.com/withastro/language-tools
+# [ts]: https://github.com/microsoft/TypeScript-TmLanguage
+
+# Note: for info on `variables`, see above.
+variables:
+  before: 'see `build.js`'
+  character_reference_name_terminated: 'see `build.js`'
+  character_reference_name_unterminated: 'see `build.js`'
+  github_gemoji_name: 'see `build.js`'
+  html_basic_name: 'see `build.js`'
+  html_raw_name: 'see `build.js`'
+  before_indent: (?:^|\G)(?:[ ]{4}|\t)
+  blank_line: ^(?=[\t ]*$)
+  after: (?:[\t ]*$)
+  char_atext: (?:[0-9A-Za-z!"#$%&'*+\-\/=?^_`{|}~'])
+  char_atext_literal: (?:[0-9A-Za-z+\-\._])
+  char_cell: (?:[^\n\r\\\|]|\\[\\\|]?)
+  char_code_info_tick: (?:[^\t\n\r` ])
+  char_code_info_tilde: (?:[^\t\n\r ])
+  char_code_meta_tick: (?:[^\n\r`])
+  char_code_meta_tilde: (?:[^\n\r])
+  char_destination_enclosed: (?:[^\n<\\>]|\\[<\\>]?)
+  char_destination_raw: (?:[^\p{Cc}\ \\\(\)]|\\[\(\)\\]?)
+  char_directive_label: (?:[^\\\[\]]|\\[\\\[\]]?)
+  char_domain: (?:[\p{L}\p{N}]|-|[\._](?!var(url_trail)))
+  char_html_attribute_name: (?:[^\t\n\f\r />=])
+  char_label: (?:[^\[\\\]]|\\[\[\\\]]?)
+  char_label_footnote: (?:[^\t\n\r \[\\\]]|\\[\[\\\]]?)
+  char_path: (?:[^\t\n\r !"&'\(\)\*,\.:;<\?\]_~]|&(?![A-Za-z]*;var(url_trail))|[!"'\)\*,\.:;\?_~](?!var(url_trail)))
+  char_punctuation: (?:[!"#$%&'()*+,\-.\/:;<=>?@\[\\\]^_`{|}~])
+  char_title_double: (?:[^"\\]|\\["\\]?)
+  char_title_paren: (?:[^\)\\]|\\[\)\\]?)
+  char_title_single: (?:[^'\\]|\\['\\]?)
+  directive_name: (?:[A-Za-z][0-9A-Za-z\-_]*)
+  directive_attribute: var(directive_attribute_name)(?:[\t ]*=[\t ]*var(directive_attribute_value))?|[\.#]var(directive_attribute_value_shortcut)
+  directive_attribute_name: (?:[A-Za-z:_][0-9A-Za-z\-\.:_]*)
+  directive_attribute_value_shortcut: (?:[^\t\n\r "#'\.<=>`\}][^\t\n\r "#'\.<=>`\}]*)
+  directive_attribute_value: (?:"[^"]*"|'[^']*'|[^\t\n\r "'<=>`\}]+)
+  email_domain: (?:[0-9A-Za-z](?:[0-9A-Za-z-]{0,61}[0-9A-Za-z])?(?:\.[0-9A-Za-z](?:[0-9A-Za-z-]{0,61}[A-Za-z])?)*)
+  email_domain_literal: (?:(?:[0-9A-Za-z]|[-_](?!var(url_trail)))+(?:\.(?!var(url_trail))))+(?:[A-Za-z]|[-_](?!var(url_trail)))+
+  gh_project: (?:(?:\.git[0-9A-Za-z_-]|\.(?!git)|[0-9A-Za-z_-])+)
+  gh_user: (?:[0-9A-Za-z][0-9A-Za-z-]{0,38})
+  html_attribute_initializer: (?:[\t\n\f\r ]*=[\t\n\f\r ]*var(html_attribute_value))
+  html_attribute_initializer_capture: (?:[\t\n\f\r ]*(=)[\t\n\f\r ]*(?:(")([^"]*)(")|(')([^']*)(')|([^\t\n\f\r >]+)))
+  html_attribute_name: (?:=var(char_html_attribute_name)*|var(char_html_attribute_name)+)
+  html_attribute_value: (?:"[^"]*"|'[^']*'|[^\t\n\f\r >]+)
+  html_name: (?:[A-Za-z][^\t\n\f\r />]*)
+  html_rest: (?:(?:[\t\n\f\r ]+|var(html_attribute_name)var(html_attribute_initializer)?|\/)*)
+  # Used to differentiate between components and “raw” tag names
+  js_identifier_upper: (?:[_$[:upper:]][_$[:alnum:]]*)
+  js_identifier: (?:[_$[:alpha:]][_$[:alnum:]]*)
+  js_members: (?:var(js_identifier)(?:\s*\.\s*var(jsx_identifier))+)
+  jsx_namespace: (?:(var(jsx_identifier))\s*(:)\s*(var(jsx_identifier)))
+  jsx_identifier: (?:[_$[:alpha:]][-_$[:alnum:]]*)
+  ordered: (?:[*+-])
+  protocol: (?:[A-Za-z][+\-.0-9A-Za-z]{0,31})
+  tag_close: </[A-Za-z][-0-9A-Za-z]*[\t\n\r ]*>
+  tag_open: <[A-Za-z][-0-9A-Za-z]*(?:[\t\n\r ]+[:A-Z_a-z][\-\.0-9:A-Z_a-z]*(?:[\t\n\r ]*=[\t\n\r ]*(?:"[^"]*"|'[^']*'|[^\t\n\r "'\/<=>`]+))?)*(?:[\t\n\r ]*\/)?[\t\n\r ]*>
+  tasklist: \[[\t Xx]\](?=[\t\n\r ]+(?:$|[^\t\n\r ]))
+  unordered: (?:\.|\))
+  url_trail: (?:[!"'\)\*,\.:;<\?_~]*(?:[\s<]|\][\t\n \(\[]))
+
+patterns:
+  # We ignore a BOM, I don’t see them being highlighted in linguist grammars.
+  # We could investigate more in the future.
+  - if: frontmatter
+    include: '#markdown-frontmatter'
+  - include: '#markdown-sections'
+
+repository:
+  # Content types.
+  markdown-frontmatter:
+    if: frontmatter
+    # Frontmatter (stuff at the start of the document).
+    patterns:
+      - include: '#extension-toml'
+      - include: '#extension-yaml'
+  markdown-sections:
+    # Containers (things that eat from the margin) and flow (essentially blocks,
+    # things that parse whole lines).
+    patterns:
+      - include: '#commonmark-block-quote'
+      - include: '#commonmark-code-fenced'
+      - if: code-indented
+        include: '#commonmark-code-indented'
+      - # Note: has to be before `commonmark-definition`.
+        if: gfm
+        include: '#extension-gfm-footnote-definition'
+      - include: '#commonmark-definition'
+      - include: '#commonmark-heading-atx'
+      - # Note: has to be before `commonmark-heading-setext` / `commonmark-list-item`.
+        include: '#commonmark-thematic-break'
+      - include: '#commonmark-heading-setext'
+      - if: html
+        include: '#commonmark-html-flow'
+      - include: '#commonmark-list-item'
+      - if: directive
+        include: '#extension-directive-leaf'
+      - if: directive
+        include: '#extension-directive-container'
+      - if: gfm
+        include: '#extension-gfm-table'
+      - if: math
+        include: '#extension-math-flow'
+      - if: mdx
+        include: '#extension-mdx-esm'
+      - if: mdx
+        include: '#extension-mdx-expression-flow'
+      - if: mdx
+        include: '#extension-mdx-jsx-flow'
+      - # Note: has to come after everything else.
+        include: '#commonmark-paragraph'
+  markdown-string:
+    # String (stuff in a title, for example).
+    patterns:
+      - include: '#commonmark-character-escape'
+      - include: '#commonmark-character-reference'
+  markdown-text:
+    # Text (stuff in a paragraph, for example).
+    patterns:
+      - include: '#commonmark-attention'
+      - if: autolink
+        include: '#commonmark-autolink'
+      - include: '#commonmark-character-escape'
+      - include: '#commonmark-character-reference'
+      - include: '#commonmark-code-text'
+      - include: '#commonmark-hard-break-trailing'
+      - include: '#commonmark-hard-break-escape'
+      - if: html
+        include: '#commonmark-html-text'
+      - include: '#commonmark-label-end'
+      - # Note: has to be before `commonmark-label-start`.
+        if: gfm
+        include: '#extension-gfm-footnote-call'
+      - include: '#commonmark-label-start'
+      - if: directive
+        include: '#extension-directive-text'
+      - if: gfm
+        include: '#extension-gfm-autolink-literal'
+      - if: gfm
+        include: '#extension-gfm-strikethrough'
+      - if: github
+        include: '#extension-github-gemoji'
+      - if: github
+        include: '#extension-github-mention'
+      - if: github
+        include: '#extension-github-reference'
+      - if: math
+        include: '#extension-math-text'
+      - if: mdx
+        include: '#extension-mdx-expression-text'
+      - if: mdx
+        include: '#extension-mdx-jsx-text'
+  # Commonmark.
+  commonmark-autolink:
+    if: autolink
+    # Autolink.
+    # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/autolink.rs>
+    patterns:
+      # Email.
+      - match: (<)(var(char_atext)+@var(email_domain))(>)
+        captures:
+          1:
+            name: punctuation.definition.string.begin.autolink.var(suffix)
+          2:
+            name: string.other.link.autolink.email.var(suffix)
+          3:
+            name: punctuation.definition.string.end.autolink.var(suffix)
+      # Protocol.
+      - match: (<)(var(protocol):[^\p{Cc}\ ]*?)(>)
+        captures:
+          1:
+            name: punctuation.definition.string.begin.autolink.var(suffix)
+          2:
+            name: string.other.link.autolink.protocol.var(suffix)
+          3:
+            name: punctuation.definition.string.end.autolink.var(suffix)
+  commonmark-attention:
+    # Attention (strong, importance, emphasis, bold, italics).
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/attention.rs>.
+    #
+    # ## Notes
+    #
+    # Compared to other markdown grammars, we don’t try to figure out what the
+    # “whole” attention span is.
+    # How to parse that is incredibly complex and regexes, let alone per-line
+    # regexes such as used for TextMate, *cannot* parse them anyway.
+    patterns:
+      # Asterisks can open or close attention, *except* when they are preceded *and* followed by whitespace.
+      # Underscores are similar, *except* when they are preceded *and* followed by alphanumericals.
+      #
+      # 3 or more is both strong and emphasis:
+      - match: (?<=\S)\*{3,}|\*{3,}(?=\S)
+        name: punctuation.definition.string.strong.emphasis.asterisk.var(suffix)
+      - match: (?<=[\p{L}\p{N}])_{3,}(?![\p{L}\p{N}])|(?<=\p{P})_{3,}|(?<![\p{L}\p{N}]|\p{P})_{3,}(?!\s)
+        name: punctuation.definition.string.strong.emphasis.underscore.var(suffix)
+      # 2 is strong
+      - match: (?<=\S)\*{2}|\*{2}(?=\S)
+        name: punctuation.definition.string.strong.asterisk.var(suffix)
+      - match: (?<=[\p{L}\p{N}])_{2}(?![\p{L}\p{N}])|(?<=\p{P})_{2}|(?<![\p{L}\p{N}]|\p{P})_{2}(?!\s)
+        name: punctuation.definition.string.strong.underscore.var(suffix)
+      # 1 is emphasis
+      - match: (?<=\S)\*|\*(?=\S)
+        name: punctuation.definition.string.emphasis.asterisk.var(suffix)
+      - match: (?<=[\p{L}\p{N}])_(?![\p{L}\p{N}])|(?<=\p{P})_|(?<![\p{L}\p{N}]|\p{P})_(?!\s)
+        name: punctuation.definition.string.emphasis.underscore.var(suffix)
+  commonmark-block-quote:
+    begin: var(before)(>)[ ]?
+    beginCaptures:
+      0:
+        name: markup.quote.var(suffix)
+      1:
+        name: punctuation.definition.quote.begin.var(suffix)
+    patterns:
+      - include: '#markdown-sections'
+    # 👉 **Note**: This grammar does not support lazy lines.
+    while: var(before)(>)[ ]?
+    whileCaptures:
+      0:
+        name: markup.quote.var(suffix)
+      1:
+        name: punctuation.definition.quote.begin.var(suffix)
+  commonmark-character-escape:
+    # Character escape.
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/character_escape.rs>.
+    match: \\var(char_punctuation)
+    name: support.constant.character.escape.var(suffix)
+  commonmark-character-reference:
+    # Character reference.
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/character_reference.rs>.
+    #
+    # ## Notes
+    #
+    # Compared to other markdown grammars, we don’t inherit from HTML, and we
+    # follow actual CommonMark parsing rules (such as stopping at certain max
+    # sizes).
+    # We also have a list of *actually* valid character reference names
+    # (injected in build script).
+    #
+    # When changing patterns here, please also take a look at the
+    # `whatwg-html-data-character-reference*` patterns at the bottom of this
+    # file.
+    patterns:
+      # Named:
+      - include: '#whatwg-html-data-character-reference-named-terminated'
+      # Hexadecimal:
+      - match: (&)(#)([Xx])([0-9A-Fa-f]{1,6})(;)
+        name: constant.character-reference.numeric.hexadecimal.html
+        captures:
+          1:
+            name: punctuation.definition.character-reference.begin.html
+          2:
+            name: punctuation.definition.character-reference.numeric.html
+          3:
+            name: punctuation.definition.character-reference.numeric.hexadecimal.html
+          4:
+            name: constant.numeric.integer.hexadecimal.html
+          5:
+            name: punctuation.definition.character-reference.end.html
+      # Decimal:
+      - match: (&)(#)([0-9]{1,7})(;)
+        name: constant.character-reference.numeric.decimal.html
+        captures:
+          1:
+            name: punctuation.definition.character-reference.begin.html
+          2:
+            name: punctuation.definition.character-reference.numeric.html
+          3:
+            name: constant.numeric.integer.decimal.html
+          4:
+            name: punctuation.definition.character-reference.end.html
+  commonmark-code-fenced:
+    patterns:
+      # > 👉 **Note**: specific patterns for all common grammars will be
+      # > injected here.
+      - include: '#commonmark-code-fenced-unknown'
+  # > 👉 **Note**: specific rules for all common grammars will be
+  # > injected here.
+  # > They are generated based on `commonmark-code-fenced-unknown`, so be careful editing
+  # > this!
+  commonmark-code-fenced-unknown:
+    patterns:
+      # Backtick.
+      - begin: var(before)(`{3,})(?:[\t ]*(var(char_code_info_tick)+)(?:[\t ]+var(char_code_meta_tick)+)?)?var(after)
+        beginCaptures:
+          1:
+            name: punctuation.definition.string.begin.code.fenced.var(suffix)
+          2:
+            name: entity.name.function.var(suffix)
+        contentName: markup.raw.code.fenced.var(suffix)
+        end: var(before)(\1)var(after)
+        endCaptures:
+          1:
+            name: punctuation.definition.string.end.code.fenced.var(suffix)
+        name: markup.code.other.var(suffix)
+      # Tilde.
+      - begin: var(before)(~{3,})(?:[\t ]*(var(char_code_info_tilde)+)(?:[\t ]+var(char_code_meta_tilde)+)?)?var(after)
+        beginCaptures:
+          1:
+            name: punctuation.definition.string.begin.code.fenced.var(suffix)
+          2:
+            name: entity.name.function.var(suffix)
+        contentName: markup.raw.code.fenced.var(suffix)
+        end: var(before)(\1)var(after)
+        endCaptures:
+          1:
+            name: punctuation.definition.string.end.code.fenced.var(suffix)
+        name: markup.code.other.var(suffix)
+  commonmark-code-indented:
+    if: code-indented
+    match: var(before_indent)(.+?)$
+    captures:
+      1:
+        name: markup.raw.code.indented.var(suffix)
+    name: markup.code.other.var(suffix)
+  commonmark-code-text:
+    # Code (text)
+    # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/raw_text.rs>.
+    #
+    # Note: there’s a bug in this grammar, where in CommonMark an escaped
+    # backtick is allowed to precede the opening sequence, but that’s not
+    # supported in the regex.
+    #
+    # Note: this regex also does not support line endings.
+    # We could get around it with `begin` and `end` regexes, but then we run
+    # into the problem that TextMate grammars don’t need an `end`, and will
+    # just run indefinitely, whereas CommonMark does not form code if there is
+    # no end.
+    match: (?<!`)(`+)(?!`)(.+?)(?<!`)(\1)(?!`)
+    name: markup.code.other.var(suffix)
+    captures:
+      1:
+        name: punctuation.definition.string.begin.code.var(suffix)
+      2:
+        name: markup.raw.code.text.var(suffix)
+      3:
+        name: punctuation.definition.string.end.code.var(suffix)
+  commonmark-definition:
+    # Definition.
+    # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/definition.rs>.
+    # Note: several of these subpatterns are also in `label_end`.
+    match: var(before)(\[)(var(char_label)+?)(\])(:)[ \t]*(?:(<)(var(char_destination_enclosed)*)(>)|(\g<destination_raw>))(?:[\t ]+(?:(")(var(char_title_double)*)(")|(')(var(char_title_single)*)(')|(\()(var(char_title_paren)*)(\))))?$(?<destination_raw>(?!\<)(?:var(char_destination_raw)|\(\g<destination_raw>*\))+){0}
+    name: meta.link.reference.def.var(suffix)
+    captures:
+      # `[`
+      1:
+        name: punctuation.definition.string.start.var(suffix)
+      # `id`
+      2:
+        name: entity.name.identifier.var(suffix)
+        patterns:
+          - include: '#markdown-string'
+      # `]`
+      3:
+        name: punctuation.definition.string.end.var(suffix)
+      # `:`
+      4:
+        name: punctuation.separator.key-value.var(suffix)
+      # `<`
+      5:
+        name: punctuation.definition.string.begin.destination.var(suffix)
+      # `url`
+      6:
+        name: string.other.link.destination.var(suffix)
+        patterns:
+          - include: '#markdown-string'
+      # `>`
+      7:
+        name: punctuation.definition.string.end.destination.var(suffix)
+      # `url`
+      8:
+        name: string.other.link.destination.var(suffix)
+        patterns:
+          - include: '#markdown-string'
+      # `"`
+      9:
+        name: punctuation.definition.string.begin.var(suffix)
+      # `title`
+      10:
+        name: string.quoted.double.var(suffix)
+        patterns:
+          - include: '#markdown-string'
+      # `"`
+      11:
+        name: punctuation.definition.string.begin.var(suffix)
+      # `'`
+      12:
+        name: punctuation.definition.string.begin.var(suffix)
+      # `title`
+      13:
+        name: string.quoted.single.var(suffix)
+        patterns:
+          - include: '#markdown-string'
+      # `'`
+      14:
+        name: punctuation.definition.string.begin.var(suffix)
+      # `(`
+      15:
+        name: punctuation.definition.string.begin.var(suffix)
+      # `title`
+      16:
+        name: string.quoted.paren.var(suffix)
+        patterns:
+          - include: '#markdown-string'
+      # `)`
+      17:
+        name: punctuation.definition.string.end.var(suffix)
+  commonmark-hard-break-escape:
+    # Hard break (escape).
+    # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/hard_break_escape.rs>.
+    #
+    # Note: this also matches an escape at the end of a paragraph, or the end
+    # of a heading, which shouldn’t be highlighted.
+    match: \\$
+    name: support.constant.character.escape.line-ending.var(suffix)
+  commonmark-hard-break-trailing:
+    # Hard break (trailing).
+    # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/partial_whitespace.rs>.
+    #
+    # Note: this also matches an escape at the end of a paragraph, or the end
+    # of a heading, which shouldn’t be highlighted.
+    match: ( ){2,}$
+    name: carriage-return support.constant.character.escape.line-ending.var(suffix)
+  commonmark-heading-atx:
+    # Heading (ATX).
+    # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/heading_atx.rs>.
+    patterns:
+      - match: var(before)(#{1}(?!#))(?:[ \t]+([^\r\n]+?)(?:[ \t]+(#+?))?)?[ \t]*$
+        name: markup.heading.atx.1.var(suffix)
+        captures:
+          1:
+            name: punctuation.definition.heading.var(suffix)
+          2:
+            name: entity.name.section.var(suffix)
+            patterns:
+              - include: '#markdown-text'
+          3:
+            name: punctuation.definition.heading.var(suffix)
+      - match: var(before)(#{2}(?!#))(?:[ \t]+([^\r\n]+?)(?:[ \t]+(#+?))?)?[ \t]*$
+        name: markup.heading.atx.2.var(suffix)
+        captures:
+          1:
+            name: punctuation.definition.heading.var(suffix)
+          2:
+            name: entity.name.section.var(suffix)
+            patterns:
+              - include: '#markdown-text'
+          3:
+            name: punctuation.definition.heading.var(suffix)
+      - match: var(before)(#{3}(?!#))(?:[ \t]+([^\r\n]+?)(?:[ \t]+(#+?))?)?[ \t]*$
+        name: markup.heading.atx.2.var(suffix)
+        captures:
+          1:
+            name: punctuation.definition.heading.var(suffix)
+          2:
+            name: entity.name.section.var(suffix)
+            patterns:
+              - include: '#markdown-text'
+          3:
+            name: punctuation.definition.heading.var(suffix)
+      - match: var(before)(#{4}(?!#))(?:[ \t]+([^\r\n]+?)(?:[ \t]+(#+?))?)?[ \t]*$
+        name: markup.heading.atx.2.var(suffix)
+        captures:
+          1:
+            name: punctuation.definition.heading.var(suffix)
+          2:
+            name: entity.name.section.var(suffix)
+            patterns:
+              - include: '#markdown-text'
+          3:
+            name: punctuation.definition.heading.var(suffix)
+      - match: var(before)(#{5}(?!#))(?:[ \t]+([^\r\n]+?)(?:[ \t]+(#+?))?)?[ \t]*$
+        name: markup.heading.atx.2.var(suffix)
+        captures:
+          1:
+            name: punctuation.definition.heading.var(suffix)
+          2:
+            name: entity.name.section.var(suffix)
+            patterns:
+              - include: '#markdown-text'
+          3:
+            name: punctuation.definition.heading.var(suffix)
+      - match: var(before)(#{6}(?!#))(?:[ \t]+([^\r\n]+?)(?:[ \t]+(#+?))?)?[ \t]*$
+        name: markup.heading.atx.2.var(suffix)
+        captures:
+          1:
+            name: punctuation.definition.heading.var(suffix)
+          2:
+            name: entity.name.section.var(suffix)
+            patterns:
+              - include: '#markdown-text'
+          3:
+            name: punctuation.definition.heading.var(suffix)
+  commonmark-heading-setext:
+    # Heading (setext).
+    # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/heading_setext.rs>.
+    patterns:
+      - match: var(before)(={1,})[ \t]*$
+        name: markup.heading.setext.1.var(suffix)
+      - match: var(before)(-{1,})[ \t]*$
+        name: markup.heading.setext.2.var(suffix)
+  commonmark-html-flow:
+    if: html
+    # HTML (flow).
+    # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/html_flow.rs>.
+    # Note: the grammars here are *markdown*.
+    patterns:
+      # Comment (empty).
+      - match: var(before)<!---?>[^\n\r]*$
+        name: text.html.basic
+        captures:
+          0:
+            patterns:
+              - include: '#whatwg-html'
+      # Comment.
+      - begin: (?=var(before)<!--)
+        name: text.html.basic
+        patterns:
+          - include: '#whatwg-html'
+        end: (?<=-->)([^\n\r]*)$
+        endCaptures:
+          1:
+            patterns:
+              - include: '#whatwg-html'
+      # Instruction (empty).
+      - match: var(before)<\?>[^\n\r]*$
+        name: text.html.basic
+        captures:
+          0:
+            patterns:
+              - include: '#whatwg-html'
+      # Instruction.
+      - begin: (?=var(before)<\?)
+        name: text.html.basic
+        patterns:
+          - include: '#whatwg-html'
+        end: (?<=\?>)([^\n\r]*)$
+        endCaptures:
+          1:
+            patterns:
+              - include: '#whatwg-html'
+      # Declaration.
+      - begin: (?=var(before)<![A-Za-z])
+        name: text.html.basic
+        patterns:
+          - include: '#whatwg-html'
+        end: (?<=\>)([^\n\r]*)$
+        endCaptures:
+          1:
+            patterns:
+              - include: '#whatwg-html'
+      # CDATA.
+      - begin: (?=var(before)<!\[CDATA\[)
+        name: text.html.basic
+        patterns:
+          - include: '#whatwg-html'
+        end: (?<=\]\]>)([^\n\r]*)$
+        endCaptures:
+          1:
+            patterns:
+              - include: '#whatwg-html'
+      # Raw.
+      - begin: (?=var(before)<(?i:var(html_raw_name))[\t\n\r >])
+        name: text.html.basic
+        patterns:
+          - include: '#whatwg-html'
+        # Note: tag names do not need to match.
+        end: </(?i:var(html_raw_name))[^\n\r]*$
+        endCaptures:
+          0:
+            patterns:
+              - include: '#whatwg-html'
+      # Basic.
+      - begin: (?=var(before)</?(?i:var(html_basic_name))(?:[\t >]|\/>|$))
+        name: text.html.basic
+        patterns:
+          - include: '#whatwg-html'
+        end: ^(?=[\\t ]*$)
+      # Complete (close).
+      # Note: interruption not supported in this textmate grammar.
+      # Note: grammar is very much like the version from `commonmark-html-text`, with the
+      # exception of start and end.
+      - begin: (?=var(before)var(tag_close)var(after))
+        name: text.html.basic
+        patterns:
+          - include: '#whatwg-html'
+        end: var(blank_line)
+      # Complete (open).
+      # Note: interruption not supported in this textmate grammar.
+      # Note: grammar is very much like the version from `commonmark-html-text`, with the
+      # exception of start and end.
+      - begin: (?=var(before)var(tag_open)var(after))
+        name: text.html.basic
+        patterns:
+          - include: '#whatwg-html'
+        end: var(blank_line)
+  commonmark-html-text:
+    if: html
+    # HTML (text).
+    # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/html_text.rs>.
+    # Note: the grammars here are *markdown*.
+    patterns:
+      - match: <!--.*?-->
+        name: text.html.basic
+        captures:
+          0:
+            patterns:
+              - include: '#whatwg-html'
+      - match: <\?.*?\?>
+        name: text.html.basic
+        captures:
+          0:
+            patterns:
+              - include: '#whatwg-html'
+      - match: <![A-Za-z].*?>
+        name: text.html.basic
+        captures:
+          0:
+            patterns:
+              - include: '#whatwg-html'
+      - match: <!\[CDATA\[.*?\]\]>
+        name: text.html.basic
+        captures:
+          0:
+            patterns:
+              - include: '#whatwg-html'
+      - match: var(tag_close)
+        name: text.html.basic
+        captures:
+          0:
+            patterns:
+              - include: '#whatwg-html'
+      # Tag (open).
+      - match: var(tag_open)
+        name: text.html.basic
+        captures:
+          0:
+            patterns:
+              - include: '#whatwg-html'
+  commonmark-label-end:
+    # Label (end).
+    # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/label_end.rs>.
+    # Note: several of these subpatterns are also in `definition`.
+    patterns:
+      # Link end (resource)
+      - match: (\])(\()[\t ]*(?:(?:(<)(var(char_destination_enclosed)*)(>)|(\g<destination_raw>))(?:[\t ]+(?:(")(var(char_title_double)*)(")|(')(var(char_title_single)*)(')|(\()(var(char_title_paren)*)(\))))?)?[\t ]*(\))(?<destination_raw>(?!\<)(?:var(char_destination_raw)|\(\g<destination_raw>*\))+){0}
+        captures:
+          # `]`
+          1:
+            name: punctuation.definition.string.end.var(suffix)
+          # `(`
+          2:
+            name: punctuation.definition.string.start.var(suffix)
+          # `<`
+          3:
+            name: punctuation.definition.string.begin.destination.var(suffix)
+          # `url`
+          4:
+            name: string.other.link.destination.var(suffix)
+            patterns:
+              - include: '#markdown-string'
+          # `>`
+          5:
+            name: punctuation.definition.string.end.destination.var(suffix)
+          # `url`
+          6:
+            name: string.other.link.destination.var(suffix)
+            patterns:
+              - include: '#markdown-string'
+          # `"`
+          7:
+            name: punctuation.definition.string.begin.var(suffix)
+          # `title`
+          8:
+            name: string.quoted.double.var(suffix)
+            patterns:
+              - include: '#markdown-string'
+          # `"`
+          9:
+            name: punctuation.definition.string.begin.var(suffix)
+          # `'`
+          10:
+            name: punctuation.definition.string.begin.var(suffix)
+          # `title`
+          11:
+            name: string.quoted.single.var(suffix)
+            patterns:
+              - include: '#markdown-string'
+          # `'`
+          12:
+            name: punctuation.definition.string.begin.var(suffix)
+          # `(`
+          13:
+            name: punctuation.definition.string.begin.var(suffix)
+          # `title`
+          14:
+            name: string.quoted.paren.var(suffix)
+            patterns:
+              - include: '#markdown-string'
+          # `)`
+          15:
+            name: punctuation.definition.string.end.var(suffix)
+          # `)`
+          16:
+            name: punctuation.definition.string.end.var(suffix)
+      # # Link end (reference, full or collapsed)
+      - match: (\])(\[)(var(char_label)+?)(\])
+        captures:
+          # `]`
+          1:
+            name: punctuation.definition.string.end.var(suffix)
+          # `[`
+          2:
+            name: punctuation.definition.string.start.var(suffix)
+          # `id`
+          3:
+            name: entity.name.identifier.var(suffix)
+            patterns:
+              - include: '#markdown-string'
+          # `]`
+          4:
+            name: punctuation.definition.string.end.var(suffix)
+      # Link end (reference, shortcut)
+      - match: (\])
+        captures:
+          1:
+            name: punctuation.definition.string.end.var(suffix)
+  commonmark-label-start:
+    # Label (start link, start image).
+    # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/label_start_link.rs>,
+    # see: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/label_start_image.rs>.
+    patterns:
+      # Link start (image)
+      # Note: the `^` case is needed for when GFM footnotes are enabled.
+      # Even when an image start, followed by `^`, does not actually make a
+      # footnote call, but is ended by a label end, it creates a *link* on
+      # GH, not an image:
+      # `a![^ b](c)` -> `<p>a!<a href="c">^ b</a></p>`
+      - if: gfm
+        match: \!\[(?!\^)
+        name: punctuation.definition.string.begin.image.var(suffix)
+      - if: '!gfm'
+        match: \!\[
+        name: punctuation.definition.string.begin.image.var(suffix)
+      # Link start (link)
+      - match: \[
+        name: punctuation.definition.string.begin.link.var(suffix)
+  commonmark-list-item:
+    patterns:
+      # Unordered (`n = 5`):
+      - begin: var(before)(var(ordered))(?:[ ]{4}(?![ ])|\t)(var(tasklist))?
+        beginCaptures:
+          1:
+            name: variable.unordered.list.var(suffix)
+          2:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)(?:[ ]{4}|\t)[ ]{1}
+      # Unordered (`n = 4`):
+      - begin: var(before)(var(ordered))(?:[ ]{3}(?![ ]))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: variable.unordered.list.var(suffix)
+          2:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)(?:[ ]{4}|\t)
+      # Unordered (`n = 3`):
+      - begin: var(before)(var(ordered))(?:[ ]{2}(?![ ]))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: variable.unordered.list.var(suffix)
+          2:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)[ ]{3}
+      # Unordered (`n = 2`):
+      - begin: var(before)(var(ordered))(?:[ ]{1}|(?=\n))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: variable.unordered.list.var(suffix)
+          2:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)[ ]{2}
+      # Ordered (`n = 14`):
+      - begin: var(before)([0-9]{9})(var(unordered))(?:[ ]{4}(?![ ])|\t(?![\t ]))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: string.other.number.var(suffix)
+          2:
+            name: variable.ordered.list.var(suffix)
+          3:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)(?:[ ]{4}|\t){3}[ ]{2}
+      # Ordered (`n = 13`):
+      - begin: var(before)(?:([0-9]{9})(var(unordered))(?:[ ]{3}(?![ ]))|([0-9]{8})(var(unordered))(?:[ ]{4}(?![ ])))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: string.other.number.var(suffix)
+          2:
+            name: variable.ordered.list.var(suffix)
+          3:
+            name: string.other.number.var(suffix)
+          4:
+            name: variable.ordered.list.var(suffix)
+          5:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)(?:[ ]{4}|\t){3}[ ]{1}
+      # Ordered (`n = 12`):
+      - begin: var(before)(?:([0-9]{9})(var(unordered))(?:[ ]{2}(?![ ]))|([0-9]{8})(var(unordered))(?:[ ]{3}(?![ ]))|([0-9]{7})(var(unordered))(?:[ ]{4}(?![ ])))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: string.other.number.var(suffix)
+          2:
+            name: variable.ordered.list.var(suffix)
+          3:
+            name: string.other.number.var(suffix)
+          4:
+            name: variable.ordered.list.var(suffix)
+          5:
+            name: string.other.number.var(suffix)
+          6:
+            name: variable.ordered.list.var(suffix)
+          7:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)(?:[ ]{4}|\t){3}
+      # Ordered (`n = 11`):
+      - begin: var(before)(?:([0-9]{9})(var(unordered))(?:[ ]{1}|(?=[ \t]*\n))|([0-9]{8})(var(unordered))(?:[ ]{2}(?![ ]))|([0-9]{7})(var(unordered))(?:[ ]{3}(?![ ]))|([0-9]{6})(var(unordered))(?:[ ]{4}(?![ ])))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: string.other.number.var(suffix)
+          2:
+            name: variable.ordered.list.var(suffix)
+          3:
+            name: string.other.number.var(suffix)
+          4:
+            name: variable.ordered.list.var(suffix)
+          5:
+            name: string.other.number.var(suffix)
+          6:
+            name: variable.ordered.list.var(suffix)
+          7:
+            name: string.other.number.var(suffix)
+          8:
+            name: variable.ordered.list.var(suffix)
+          9:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)(?:[ ]{4}|\t){2}[ ]{3}
+      # Ordered (`n = 10`):
+      - begin: var(before)(?:([0-9]{8})(var(unordered))(?:[ ]{1}|(?=[ \t]*\n))|([0-9]{7})(var(unordered))(?:[ ]{2}(?![ ]))|([0-9]{6})(var(unordered))(?:[ ]{3}(?![ ]))|([0-9]{5})(var(unordered))(?:[ ]{4}(?![ ])))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: string.other.number.var(suffix)
+          2:
+            name: variable.ordered.list.var(suffix)
+          3:
+            name: string.other.number.var(suffix)
+          4:
+            name: variable.ordered.list.var(suffix)
+          5:
+            name: string.other.number.var(suffix)
+          6:
+            name: variable.ordered.list.var(suffix)
+          7:
+            name: string.other.number.var(suffix)
+          8:
+            name: variable.ordered.list.var(suffix)
+          9:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)(?:[ ]{4}|\t){2}[ ]{2}
+      # Ordered (`n = 9`):
+      - begin: var(before)(?:([0-9]{7})(var(unordered))(?:[ ]{1}|(?=[ \t]*\n))|([0-9]{6})(var(unordered))(?:[ ]{2}(?![ ]))|([0-9]{5})(var(unordered))(?:[ ]{3}(?![ ]))|([0-9]{4})(var(unordered))(?:[ ]{4}(?![ ])))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: string.other.number.var(suffix)
+          2:
+            name: variable.ordered.list.var(suffix)
+          3:
+            name: string.other.number.var(suffix)
+          4:
+            name: variable.ordered.list.var(suffix)
+          5:
+            name: string.other.number.var(suffix)
+          6:
+            name: variable.ordered.list.var(suffix)
+          7:
+            name: string.other.number.var(suffix)
+          8:
+            name: variable.ordered.list.var(suffix)
+          9:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)(?:[ ]{4}|\t){2}[ ]{1}
+      # Ordered (`n = 8`):
+      - begin: var(before)(?:([0-9]{6})(var(unordered))(?:[ ]{1}|(?=[ \t]*\n))|([0-9]{5})(var(unordered))(?:[ ]{2}(?![ ]))|([0-9]{4})(var(unordered))(?:[ ]{3}(?![ ]))|([0-9]{3})(var(unordered))(?:[ ]{4}(?![ ])))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: string.other.number.var(suffix)
+          2:
+            name: variable.ordered.list.var(suffix)
+          3:
+            name: string.other.number.var(suffix)
+          4:
+            name: variable.ordered.list.var(suffix)
+          5:
+            name: string.other.number.var(suffix)
+          6:
+            name: variable.ordered.list.var(suffix)
+          7:
+            name: string.other.number.var(suffix)
+          8:
+            name: variable.ordered.list.var(suffix)
+          9:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)(?:[ ]{4}|\t){2}
+      # Ordered (`n = 7`):
+      - begin: var(before)(?:([0-9]{5})(var(unordered))(?:[ ]{1}|(?=[ \t]*\n))|([0-9]{4})(var(unordered))(?:[ ]{2}(?![ ]))|([0-9]{3})(var(unordered))(?:[ ]{3}(?![ ]))|([0-9]{2})(var(unordered))(?:[ ]{4}(?![ ])))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: string.other.number.var(suffix)
+          2:
+            name: variable.ordered.list.var(suffix)
+          3:
+            name: string.other.number.var(suffix)
+          4:
+            name: variable.ordered.list.var(suffix)
+          5:
+            name: string.other.number.var(suffix)
+          6:
+            name: variable.ordered.list.var(suffix)
+          7:
+            name: string.other.number.var(suffix)
+          8:
+            name: variable.ordered.list.var(suffix)
+          9:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)(?:[ ]{4}|\t)[ ]{3}
+      # Ordered (`n = 6`):
+      - begin: var(before)(?:([0-9]{4})(var(unordered))(?:[ ]{1}|(?=[ \t]*\n))|([0-9]{3})(var(unordered))(?:[ ]{2}(?![ ]))|([0-9]{2})(var(unordered))(?:[ ]{3}(?![ ]))|([0-9]{1})(var(unordered))(?:[ ]{4}(?![ ])))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: string.other.number.var(suffix)
+          2:
+            name: variable.ordered.list.var(suffix)
+          3:
+            name: string.other.number.var(suffix)
+          4:
+            name: variable.ordered.list.var(suffix)
+          5:
+            name: string.other.number.var(suffix)
+          6:
+            name: variable.ordered.list.var(suffix)
+          7:
+            name: string.other.number.var(suffix)
+          8:
+            name: variable.ordered.list.var(suffix)
+          9:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)(?:[ ]{4}|\t)[ ]{2}
+      # Ordered (`n = 5`):
+      - begin: var(before)(?:([0-9]{3})(var(unordered))(?:[ ]{1}|(?=[ \t]*\n))|([0-9]{2})(var(unordered))(?:[ ]{2}(?![ ]))|([0-9]{1})(var(unordered))(?:[ ]{3}(?![ ])))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: string.other.number.var(suffix)
+          2:
+            name: variable.ordered.list.var(suffix)
+          3:
+            name: string.other.number.var(suffix)
+          4:
+            name: variable.ordered.list.var(suffix)
+          5:
+            name: string.other.number.var(suffix)
+          6:
+            name: variable.ordered.list.var(suffix)
+          7:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)(?:[ ]{4}|\t)[ ]{1}
+      # Ordered (`n = 4`):
+      - begin: var(before)(?:([0-9]{2})(var(unordered))(?:[ ]{1}|(?=[ \t]*\n))|([0-9])(var(unordered))(?:[ ]{2}(?![ ])))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: string.other.number.var(suffix)
+          2:
+            name: variable.ordered.list.var(suffix)
+          3:
+            name: string.other.number.var(suffix)
+          4:
+            name: variable.ordered.list.var(suffix)
+          5:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)(?:[ ]{4}|\t)
+      # Ordered (`n = 3`):
+      - begin: var(before)([0-9])(var(unordered))(?:[ ]{1}|(?=[ \t]*\n))(var(tasklist))?
+        beginCaptures:
+          1:
+            name: string.other.number.var(suffix)
+          2:
+            name: variable.ordered.list.var(suffix)
+          3:
+            name: keyword.other.tasklist.var(suffix)
+        patterns:
+          - include: '#markdown-sections'
+        while: var(blank_line)|(?:^|\G)[ ]{3}
+  commonmark-paragraph:
+    # Paragraph
+    # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/paragraph.rs>,
+    begin: var(before)(?![\t\n\r ])
+    name: meta.paragraph.var(suffix)
+    patterns:
+      - include: '#markdown-text'
+    # We end at `$`, but we include indented lines too.
+    # Assuming the next line is also a paragraph, it will be a *separate*
+    # paragraph, but that doesn’t matter, because TextMate is per-line anyway.
+    while: var(before_indent)
+  commonmark-thematic-break:
+    # Thematic break (horizontal rule).
+    # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/thematic_break.rs>.
+    match: var(before)([-*_])[ \t]*(?:\1[ \t]*){2,}$
+    name: meta.separator.var(suffix)
+  # Extensions to markdown.
+  extension-directive-text:
+    if: directive
+    # See <https://github.com/micromark/micromark-extension-directive/blob/b8a6ad4/dev/lib/directive-text.js>
+    match: (?<!:)(:)(var(directive_name))(?![0-9A-Za-z\-_:])(?:(\[)(\g<directive_label>*)(\]))?(?:(\{)((?:var(directive_attribute)|[\t ])*)(\}))?(?<directive_label>var(char_directive_label)|\[\g<directive_label>*\]){0}
+    name: meta.tag.${2:/downcase}.var(suffix)
+    captures:
+      1:
+        name: punctuation.definition.string.begin.directive.var(suffix)
+      2:
+        name: entity.name.function.var(suffix)
+      3:
+        name: punctuation.definition.string.begin.directive.label.var(suffix)
+      4:
+        patterns:
+          - include: '#markdown-text'
+      5:
+        name: punctuation.definition.string.end.directive.label.var(suffix)
+      6:
+        name: punctuation.definition.string.begin.directive.attributes.var(suffix)
+      7:
+        patterns:
+          - include: '#extension-directive-attribute'
+      8:
+        name: punctuation.definition.string.end.directive.attributes.var(suffix)
+  extension-directive-leaf:
+    if: directive
+    # See <https://github.com/micromark/micromark-extension-directive/blob/b8a6ad4/dev/lib/directive-text.js>
+    match: var(before)(:{2})(var(directive_name))(?:(\[)(\g<directive_label>*)(\]))?(?:(\{)((?:var(directive_attribute)|[\t ])*)(\}))?var(after)(?<directive_label>var(char_directive_label)|\[\g<directive_label>*\]){0}
+    name: meta.tag.${2:/downcase}.var(suffix)
+    captures:
+      1:
+        name: punctuation.definition.string.begin.directive.var(suffix)
+      2:
+        name: entity.name.function.var(suffix)
+      3:
+        name: punctuation.definition.string.begin.directive.label.var(suffix)
+      4:
+        patterns:
+          - include: '#markdown-text'
+      5:
+        name: punctuation.definition.string.end.directive.label.var(suffix)
+      6:
+        name: punctuation.definition.string.begin.directive.attributes.var(suffix)
+      7:
+        patterns:
+          - include: '#extension-directive-attribute'
+      8:
+        name: punctuation.definition.string.end.directive.attributes.var(suffix)
+  extension-directive-container:
+    if: directive
+    begin: var(before)(:{3,})(var(directive_name))(?:(\[)(\g<directive_label>*)(\]))?(?:(\{)((?:var(directive_attribute)|[\t ])*)(\}))?var(after)(?<directive_label>var(char_directive_label)|\[\g<directive_label>*\]){0}
+    beginCaptures:
+      1:
+        name: punctuation.definition.string.begin.directive.var(suffix)
+      2:
+        name: entity.name.function.var(suffix)
+      3:
+        name: punctuation.definition.string.begin.directive.label.var(suffix)
+      4:
+        patterns:
+          - include: '#markdown-text'
+      5:
+        name: punctuation.definition.string.end.directive.label.var(suffix)
+      6:
+        name: punctuation.definition.string.begin.directive.attributes.var(suffix)
+      7:
+        patterns:
+          - include: '#extension-directive-attribute'
+      8:
+        name: punctuation.definition.string.end.directive.attributes.var(suffix)
+    patterns:
+      - include: '#markdown-sections'
+    end: var(before)(\1)var(after)
+    endCaptures:
+      1:
+        name: punctuation.definition.string.end.directive.var(suffix)
+  extension-directive-attribute:
+    if: directive
+    # See <https://github.com/micromark/micromark-extension-directive/blob/b8a6ad4/dev/lib/directive-text.js>
+    match: (var(directive_attribute_name))(?:[\t ]*(=)[\t ]*(?:(")([^"]*)(")|(')([^']*)(')|([^\t\n\r "'<=>`\}]+)))?|(\.)(var(directive_attribute_value_shortcut))|(#)(var(directive_attribute_value_shortcut))
+    captures:
+      1: # `name`
+        name: entity.other.attribute-name.var(suffix)
+      2: # `=`
+        name: punctuation.separator.key-value.var(suffix)
+      3: # `"`
+        name: punctuation.definition.string.begin.var(suffix)
+      4: # `value`
+        name: string.quoted.double.var(suffix)
+        patterns:
+          - include: '#whatwg-html-data-character-reference'
+      5: # `"`
+        name: punctuation.definition.string.end.var(suffix)
+      6: # `'`
+        name: punctuation.definition.string.begin.var(suffix)
+      7: # `value`
+        name: string.quoted.single.var(suffix)
+        patterns:
+          - include: '#whatwg-html-data-character-reference'
+      8: # `'`
+        name: punctuation.definition.string.end.var(suffix)
+      9: # `value`
+        name: string.unquoted.var(suffix)
+        patterns:
+          - include: '#whatwg-html-data-character-reference'
+      10: # `.`
+        name: entity.other.attribute-name.class.var(suffix)
+      11: # `shortcut`
+        name: string.unquoted.var(suffix)
+        patterns:
+          - include: '#whatwg-html-data-character-reference'
+      12: # `#`
+        name: entity.other.attribute-name.id.var(suffix)
+      13: # `shortcut`
+        name: string.unquoted.var(suffix)
+        patterns:
+          - include: '#whatwg-html-data-character-reference'
+  extension-gfm-autolink-literal:
+    if: gfm
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/gfm_autolink_literal.rs>
+    patterns:
+      # www
+      - match: (?<=^|[\t\n\r \(\*\_\[\]~])(?=(?i:www)\.[^\n\r])(?:var(char_domain)+\g<path>?)?(?<path>(?:var(char_path)|\(\g<path>*\))+){0}
+        name: string.other.link.autolink.literal.www.var(suffix)
+      # http
+      - match: (?<=^|[^A-Za-z])(?i:https?://)(?=[\p{L}\p{N}])(?:var(char_domain)+\g<path>?)?(?<path>(?:var(char_path)|\(\g<path>*\))+){0}
+        name: string.other.link.autolink.literal.http.var(suffix)
+      # email
+      - match: (?<=^|[^A-Za-z/])(?i:mailto:|xmpp:)?var(char_atext_literal)+@var(email_domain_literal)
+        name: string.other.link.autolink.literal.email.var(suffix)
+  extension-gfm-footnote-call:
+    if: gfm
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/gfm_label_start_footnote.rs>.
+    match: (\[)(\^)(var(char_label_footnote)+)(\])
+    captures:
+      1:
+        name: punctuation.definition.string.begin.link.var(suffix)
+      2:
+        name: punctuation.definition.string.begin.footnote.var(suffix)
+      3:
+        name: entity.name.identifier.var(suffix)
+        patterns:
+          - include: '#markdown-string'
+      4:
+        name: punctuation.definition.string.end.footnote.var(suffix)
+  extension-gfm-footnote-definition:
+    if: gfm
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/gfm_footnote_definition.rs>.
+    begin: var(before)(\[)(\^)(var(char_label_footnote)+)(\])(:)[\t ]*
+    beginCaptures:
+      1:
+        name: punctuation.definition.string.begin.link.var(suffix)
+      2:
+        name: punctuation.definition.string.begin.footnote.var(suffix)
+      3:
+        name: entity.name.identifier.var(suffix)
+        patterns:
+          - include: '#markdown-string'
+      4:
+        name: punctuation.definition.string.end.footnote.var(suffix)
+    patterns:
+      - include: '#markdown-sections'
+    while: var(blank_line)|var(before_indent)
+  extension-gfm-strikethrough:
+    if: gfm
+    # Strikethrough is like asterisks from `commonmark-attention`.
+    # <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/attention.rs>
+    match: (?<=\S)(?<!~)~{1,2}(?!~)|(?<!~)~{1,2}(?=\S)(?!~)
+    name: punctuation.definition.deleted.strikethrough.var(suffix)
+  extension-gfm-table:
+    if: gfm
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/gfm_table.rs>.
+    begin: var(before)(?=\|[^\n\r]+\|[ \t]*$)
+    patterns:
+      - match: (?<=\||(?:^|\G))[\t ]*(var(char_cell)+?)[\t ]*(?=\||$)
+        captures:
+          1:
+            patterns:
+              - include: '#markdown-text'
+      - match: (?:\|)
+        name: markup.list.table-delimiter.var(suffix)
+    end: var(blank_line)
+  extension-github-gemoji:
+    if: github
+    match: (:)(var(github_gemoji_name))(:)
+    name: string.emoji.var(suffix)
+    captures:
+      1:
+        name: punctuation.definition.gemoji.begin.var(suffix)
+      2:
+        name: keyword.control.gemoji.var(suffix)
+      3:
+        name: punctuation.definition.gemoji.end.var(suffix)
+  extension-github-mention:
+    if: github
+    match: (?<![0-9A-Za-z_`])(@)(var(gh_user)(?:\/var(gh_user))?)(?![0-9A-Za-z_`])
+    name: string.mention.var(suffix)
+    captures:
+      1:
+        name: punctuation.definition.mention.begin.var(suffix)
+      2:
+        name: string.other.link.mention.var(suffix)
+  extension-github-reference:
+    if: github
+    patterns:
+      - match: (?<![0-9A-Za-z_])(?:((?i:ghsa-|cve-))([A-Za-z0-9]+)|((?i:gh-|#))([0-9]+))(?![0-9A-Za-z_])
+        name: string.reference.var(suffix)
+        captures:
+          1:
+            name: punctuation.definition.reference.begin.var(suffix)
+          2:
+            name: string.other.link.reference.security-advisory.var(suffix)
+          3:
+            name: punctuation.definition.reference.begin.var(suffix)
+          4:
+            name: string.other.link.reference.issue-or-pr.var(suffix)
+      - match: (?<![^\t\n\r \(@\[\{])(var(gh_user)(?:\/var(gh_project))?)(#)([0-9]+)(?![0-9A-Za-z_])
+        name: string.reference.var(suffix)
+        captures:
+          1:
+            name: string.other.link.reference.user.var(suffix)
+          2:
+            name: punctuation.definition.reference.begin.var(suffix)
+          3:
+            name: string.other.link.reference.issue-or-pr.var(suffix)
+  extension-math-flow:
+    if: math
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/raw_flow.rs>.
+    patterns:
+      - begin: var(before)(\${2,})[^\n\r\$]*?$
+        beginCaptures:
+          1:
+            name: punctuation.definition.string.begin.math.flow.var(suffix)
+          2:
+            name: entity.name.function.var(suffix)
+        contentName: markup.raw.math.flow.var(suffix)
+        end: var(before)(\1)var(after)
+        endCaptures:
+          1:
+            name: punctuation.definition.string.end.math.flow.var(suffix)
+        name: markup.code.other.var(suffix)
+  extension-math-text:
+    if: math
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/raw_text.rs>.
+    # Note: for users who don’t use a math extension, 2 or more dollars are required.
+    # Otherwise we’d classify all dollars as math.
+    match: (?<!\$)(\${2,})(?!\$)(.+?)(?<!\$)(\1)(?!\$)
+    captures:
+      1:
+        name: punctuation.definition.string.begin.math.var(suffix)
+      2:
+        name: markup.raw.math.var(suffix)
+      3:
+        name: punctuation.definition.string.end.math.var(suffix)
+  extension-mdx-esm:
+    if: mdx
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/mdx_esm.rs>.
+    # Intentional that there’s no whitespace before keyword.
+    begin: (?:^|\G)(?=(?i:export|import)[ ])
+    end: var(blank_line)
+    patterns:
+      # Just include all statements: The ES grammar is smart enough to stop at the correct end.
+      - include: 'source.tsx#statements'
+  extension-mdx-expression-flow:
+    if: mdx
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/mdx_expression_flow.rs>.
+    begin: var(before)(\{)
+    beginCaptures:
+      1:
+        name: punctuation.definition.string.begin.expression.var(suffix).js
+    end: (\})var(after)
+    endCaptures:
+      1:
+        name: punctuation.definition.string.begin.expression.var(suffix).js
+    patterns:
+      - include: 'source.tsx#expression'
+  extension-mdx-expression-text:
+    if: mdx
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/mdx_expression_flow.rs>.
+    begin: \{
+    beginCaptures:
+      0:
+        name: punctuation.definition.string.begin.expression.var(suffix).js
+    end: \}
+    endCaptures:
+      0:
+        name: punctuation.definition.string.begin.expression.var(suffix).js
+    patterns:
+      - include: 'source.tsx#expression'
+  extension-mdx-jsx-flow:
+    if: mdx
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/mdx_jsx_flow.rs>.
+    begin: (?<=^|\G|\>)[\t ]*(<)(?=(?![\t\n\r ]))(?:\s*(/))?(?:\s*(?:var(jsx_namespace)|(var(js_members))|(var(js_identifier_upper))|(var(jsx_identifier))))?
+    beginCaptures:
+      1:
+        name: punctuation.definition.tag.end.jsx
+      2:
+        name: punctuation.definition.tag.closing.jsx
+      3:
+        name: entity.name.tag.namespace.jsx
+      4:
+        name: punctuation.separator.namespace.jsx
+      5:
+        name: entity.name.tag.local.jsx
+      6:
+        name: support.class.component.jsx
+      7:
+        name: support.class.component.jsx
+      8:
+        name: entity.name.tag.jsx
+    patterns:
+      - include: 'source.tsx#jsx-tag-attributes'
+    end: (?:(\/)\s*)?(>)
+    endCaptures:
+      1:
+        name: punctuation.definition.tag.self-closing.jsx
+      2:
+        name: punctuation.definition.tag.end.jsx
+  extension-mdx-jsx-text:
+    if: mdx
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/mdx_jsx_text.rs>.
+    begin: (<)(?=(?![\t\n\r ]))(?:\s*(/))?(?:\s*(?:var(jsx_namespace)|(var(js_members))|(var(js_identifier_upper))|(var(jsx_identifier))))?
+    beginCaptures:
+      1:
+        name: punctuation.definition.tag.end.jsx
+      2:
+        name: punctuation.definition.tag.closing.jsx
+      3:
+        name: entity.name.tag.namespace.jsx
+      4:
+        name: punctuation.separator.namespace.jsx
+      5:
+        name: entity.name.tag.local.jsx
+      6:
+        name: support.class.component.jsx
+      7:
+        name: support.class.component.jsx
+      8:
+        name: entity.name.tag.jsx
+    patterns:
+      - include: 'source.tsx#jsx-tag-attributes'
+    end: (?:(\/)\s*)?(>)
+    endCaptures:
+      1:
+        name: punctuation.definition.tag.self-closing.jsx
+      2:
+        name: punctuation.definition.tag.end.jsx
+  extension-toml:
+    if: frontmatter
+    # TOML.
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/frontmatter.rs>.
+    begin: \A\+{3}$
+    end: ^\+{3}$
+    beginCaptures:
+      0:
+        name: punctuation.definition.string.start.toml
+    endCaptures:
+      0:
+        name: punctuation.definition.string.end.toml
+    contentName: meta.embedded.toml
+    patterns:
+      - include: source.toml
+  extension-yaml:
+    if: frontmatter
+    # TOML.
+    # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/frontmatter.rs>.
+    begin: \A-{3}$
+    end: ^-{3}$
+    beginCaptures:
+      0:
+        name: punctuation.definition.string.start.yaml
+    endCaptures:
+      0:
+        name: punctuation.definition.string.end.yaml
+    contentName: meta.embedded.yaml
+    patterns:
+      - include: source.yaml
+
+  # Spec-compliant HTML grammar (which is very different from CommonMark’s HTML rules).
+  whatwg-html:
+    if: html
+    patterns:
+      - include: '#whatwg-html-data-character-reference'
+      - include: '#whatwg-html-data-comment'
+      - include: '#whatwg-html-data-comment-bogus'
+      - include: '#whatwg-html-rawtext-tag'
+      - include: '#whatwg-html-rawtext-tag-style'
+      - include: '#whatwg-html-rcdata-tag'
+      - include: '#whatwg-html-script-data-tag'
+      - include: '#whatwg-html-data-tag'
+  whatwg-html-data-character-reference:
+    if:
+      - directive
+      - html
+    patterns:
+      - include: '#whatwg-html-data-character-reference-named-terminated'
+      - include: '#whatwg-html-data-character-reference-named-unterminated'
+      - include: '#whatwg-html-data-character-reference-numeric-hexadecimal'
+      - include: '#whatwg-html-data-character-reference-numeric-decimal'
+  whatwg-html-data-character-reference-named-terminated:
+    # Note: this grammar is reused in `commonmark-character-reference`, it
+    # can’t be removed if html/directives are turned off.
+    match: (&)(var(character_reference_name_terminated))(;)
+    name: constant.character-reference.named.html
+    captures:
+      1:
+        name: punctuation.definition.character-reference.begin.html
+      2:
+        name: keyword.control.character-reference.html
+      3:
+        name: punctuation.definition.character-reference.end.html
+  whatwg-html-data-character-reference-named-unterminated:
+    if:
+      - directive
+      - html
+    match: (&)(var(character_reference_name_unterminated))
+    name: constant.character-reference.named.html
+    captures:
+      1:
+        name: punctuation.definition.character-reference.begin.html
+      2:
+        name: keyword.control.character-reference.html
+  whatwg-html-data-character-reference-numeric-hexadecimal:
+    if:
+      - directive
+      - html
+    match: (&)(#)([Xx])([A-Fa-f0-9]*)(;)?
+    name: constant.character-reference.numeric.hexadecimal.html
+    captures:
+      1:
+        name: punctuation.definition.character-reference.begin.html
+      2:
+        name: punctuation.definition.character-reference.numeric.html
+      3:
+        name: punctuation.definition.character-reference.numeric.hexadecimal.html
+      4:
+        name: constant.numeric.integer.hexadecimal.html
+      5:
+        name: punctuation.definition.character-reference.end.html
+  whatwg-html-data-character-reference-numeric-decimal:
+    if:
+      - directive
+      - html
+    match: (&)(#)([0-9]*)(;)?
+    name: constant.character-reference.numeric.decimal.html
+    captures:
+      1:
+        name: punctuation.definition.character-reference.begin.html
+      2:
+        name: punctuation.definition.character-reference.numeric.html
+      3:
+        name: constant.numeric.integer.decimal.html
+      4:
+        name: punctuation.definition.character-reference.end.html
+  whatwg-html-data-comment:
+    if: html
+    patterns:
+      # comment start state (empty)
+      - # Note: not enough closing dashes is a parse error, but allowed.
+        match: (<!--)(>|->)
+        captures:
+          1:
+            name: punctuation.definition.comment.start.html
+          2:
+            name: punctuation.definition.comment.end.html
+        name: comment.block.html
+      # comment start state (normal)
+      - begin: (<!--)
+        # Note: Closing `!` is a parse error, but allowed.
+        end: (--!?>)
+        beginCaptures:
+          1:
+            name: punctuation.definition.comment.start.html
+        endCaptures:
+          1:
+            name: punctuation.definition.comment.end.html
+        name: comment.block.html
+  whatwg-html-data-comment-bogus:
+    if: html
+    patterns:
+      # Bogus comments
+      # Note: we ignore the doctype case and don’t support foreign content, so
+      # we go straight to bogus comments
+      - begin: (<!)
+        # Note: Closing `!` is a parse error, but allowed.
+        end: (>)
+        beginCaptures:
+          1:
+            name: punctuation.definition.comment.start.html
+        endCaptures:
+          1:
+            name: punctuation.definition.comment.end.html
+        name: comment.block.html
+      # This is a bogus comment, quite like the `<!` case above.
+      - begin: (<\?)
+        end: (>)
+        beginCaptures:
+          1:
+            name: punctuation.definition.comment.start.html
+        endCaptures:
+          1:
+            name: punctuation.definition.comment.end.html
+        name: comment.block.html
+  whatwg-html-data-tag:
+    if: html
+    patterns:
+      # 13.2.5.6 Tag open state
+      # See: <https://html.spec.whatwg.org/multipage/parsing.html#tag-open-state>
+      # Open or closing tag.
+      - match: (<)(/)?(var(html_name))(var(html_rest))(>)
+        name: meta.tag.${3:/downcase}.html
+        captures:
+          1:
+            name: punctuation.definition.tag.begin.html
+          2:
+            name: punctuation.definition.tag.closing.html
+          3:
+            name: entity.name.tag.html
+          4:
+            patterns:
+              - include: '#whatwg-html-attribute'
+              - include: '#whatwg-html-self-closing-start-tag'
+          5:
+            name: punctuation.definition.tag.end.html
+      # It’s not actually a comment, it just disappears, but I guess “comment”
+      # is the closest term for that.
+      - match: </>
+        name: comment.block.html
+      - begin: (?:</)
+        beginCaptures:
+          0:
+            name: punctuation.definition.comment.start.html
+        end: (?:>)
+        endCaptures:
+          0:
+            name: punctuation.definition.comment.end.html
+        name: comment.block.html
+  whatwg-html-rawtext-tag:
+    if: html
+    # RAWTEXT elements.
+    # <https://html.spec.whatwg.org/multipage/parsing.html#rawtext-state>
+    # Note: `style` is separate, to allow for embedded CSS.
+    # Note: `noscript` removed, to support it actually including elements if scripting is off.
+    begin: <((?i:iframe|noembed|noframes|xmp))(?![A-Za-z])var(html_rest)>
+    beginCaptures:
+      0:
+        patterns:
+          - include: '#whatwg-html-data-tag'
+    contentName: markup.raw.text.html
+    end: (?=</(?i:\1)(?:[\t\n\f\r \/>]|$))
+  whatwg-html-rawtext-tag-style:
+    if: html
+    # Like `whatwg-html-rawtext-tag`, but for `style`, CSS specific.
+    begin: <((?i:style))(?![A-Za-z])var(html_rest)>
+    beginCaptures:
+      0:
+        patterns:
+          - include: '#whatwg-html-data-tag'
+    patterns:
+      - include: source.css
+    end: (?=</(?i:\1)(?:[\t\n\f\r \/>]|$))
+  whatwg-html-rcdata-tag:
+    if: html
+    # RCDATA elements.
+    # <https://html.spec.whatwg.org/multipage/parsing.html#rcdata-state>
+    begin: <((?i:textarea|title))(?![A-Za-z])var(html_rest)>
+    beginCaptures:
+      0:
+        patterns:
+          - include: '#whatwg-html-data-tag'
+    contentName: markup.raw.text.html
+    patterns:
+      - include: '#whatwg-html-data-character-reference'
+    end: (?=</(?i:\1)(?:[\t\n\f\r \/>]|$))
+  whatwg-html-script-data-tag:
+    if: html
+    # Script data.
+    # <https://html.spec.whatwg.org/multipage/parsing.html#script-data-state>
+    # Idea: we could add support for `application/ld+json`, or even `text/coffeescript`, `text/(?:x-handlebars|(?:x-(?:handlebars-)?|ng-)?template|html|ractive)`, `application/graphql`?
+    # Currently JS specific.
+    begin: <((?i:script))(?![A-Za-z])var(html_rest)>
+    beginCaptures:
+      0:
+        patterns:
+          - include: '#whatwg-html-data-tag'
+    patterns:
+      # Script data also supports HTML comments, but as those are included in
+      # `source.js`, we don’t need to worry about them!
+      - include: source.js
+    end: (?=</(?i:\1)(?:[\t\n\f\r \/>]|$))
+  whatwg-html-attribute:
+    if: html
+    patterns:
+      - include: '#whatwg-html-attribute-event-handler'
+      - include: '#whatwg-html-attribute-style'
+      - include: '#whatwg-html-attribute-unknown'
+  whatwg-html-attribute-event-handler:
+    if: html
+    match: ((?i:on[a-z]+))var(html_attribute_initializer_capture)
+    captures:
+      # `key`
+      1:
+        name: entity.other.attribute-name.html.var(suffix)
+      # `=`
+      2:
+        name: punctuation.separator.key-value.html.var(suffix)
+      # `"`
+      3:
+        name: punctuation.definition.string.begin.html.var(suffix)
+      # `value`
+      4:
+        name: string.quoted.double.html.var(suffix)
+        patterns:
+          - include: '#whatwg-html-data-character-reference'
+          - include: source.js
+      # `"`
+      5:
+        name: punctuation.definition.string.begin.html.var(suffix)
+      # `'`
+      6:
+        name: punctuation.definition.string.begin.html.var(suffix)
+      # `value`
+      7:
+        name: string.quoted.single.html.var(suffix)
+        patterns:
+          - include: '#whatwg-html-data-character-reference'
+          - include: source.js
+      # `'`
+      8:
+        name: punctuation.definition.string.begin.html.var(suffix)
+      # `value`
+      9:
+        name: string.unquoted.html.var(suffix)
+        patterns:
+          - include: '#whatwg-html-data-character-reference'
+          - include: source.js
+  whatwg-html-attribute-style:
+    if: html
+    match: ((?i:style))var(html_attribute_initializer_capture)
+    captures:
+      # `key`
+      1:
+        name: entity.other.attribute-name.html.var(suffix)
+      # `=`
+      2:
+        name: punctuation.separator.key-value.html.var(suffix)
+      # `"`
+      3:
+        name: punctuation.definition.string.begin.html.var(suffix)
+      # `value`
+      4:
+        name: string.quoted.double.html.var(suffix)
+        patterns:
+          - include: '#whatwg-html-data-character-reference'
+          - # Note: this name is included in frequent used CSS grammars:
+            # * <https://github.com/atom/language-css>
+            # * <https://github.com/microsoft/vscode-css>
+            include: source.css#rule-list-innards
+      # `"`
+      5:
+        name: punctuation.definition.string.begin.html.var(suffix)
+      # `'`
+      6:
+        name: punctuation.definition.string.begin.html.var(suffix)
+      # `value`
+      7:
+        name: string.quoted.single.html.var(suffix)
+        patterns:
+          - include: '#whatwg-html-data-character-reference'
+          - include: source.css#rule-list-innards
+      # `'`
+      8:
+        name: punctuation.definition.string.begin.html.var(suffix)
+      # `value`
+      9:
+        name: string.unquoted.html.var(suffix)
+        patterns:
+          - include: '#whatwg-html-data-character-reference'
+          - include: source.css#rule-list-innards
+  whatwg-html-attribute-unknown:
+    if: html
+    match: (var(html_attribute_name))var(html_attribute_initializer_capture)?
+    captures:
+      # `key`
+      1:
+        name: entity.other.attribute-name.html.var(suffix)
+      # `=`
+      2:
+        name: punctuation.separator.key-value.html.var(suffix)
+      # `"`
+      3:
+        name: punctuation.definition.string.begin.html.var(suffix)
+      # `value`
+      4:
+        name: string.quoted.double.html.var(suffix)
+        patterns:
+          - include: '#whatwg-html-data-character-reference'
+      # `"`
+      5:
+        name: punctuation.definition.string.begin.html.var(suffix)
+      # `'`
+      6:
+        name: punctuation.definition.string.begin.html.var(suffix)
+      # `value`
+      7:
+        name: string.quoted.single.html.var(suffix)
+        patterns:
+          - include: '#whatwg-html-data-character-reference'
+      # `'`
+      8:
+        name: punctuation.definition.string.begin.html.var(suffix)
+      # `value`
+      9:
+        name: string.unquoted.html.var(suffix)
+        patterns:
+          - include: '#whatwg-html-data-character-reference'
+  whatwg-html-self-closing-start-tag:
+    if: html
+    match: \/
+    name: punctuation.definition.tag.self-closing.html

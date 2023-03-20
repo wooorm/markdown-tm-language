@@ -1,0 +1,27 @@
+>a &#123; b
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md constant.character-reference.numeric.decimal.html punctuation.definition.character-reference.begin.html
+#   ^ source.md meta.paragraph.md constant.character-reference.numeric.decimal.html punctuation.definition.character-reference.numeric.html
+#    ^^^ source.md meta.paragraph.md constant.character-reference.numeric.decimal.html constant.numeric.integer.decimal.html
+#       ^ source.md meta.paragraph.md constant.character-reference.numeric.decimal.html punctuation.definition.character-reference.end.html
+#        ^^^ source.md meta.paragraph.md
+>
+>c &#x12a3; d
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md constant.character-reference.numeric.hexadecimal.html punctuation.definition.character-reference.begin.html
+#   ^ source.md meta.paragraph.md constant.character-reference.numeric.hexadecimal.html punctuation.definition.character-reference.numeric.html
+#    ^ source.md meta.paragraph.md constant.character-reference.numeric.hexadecimal.html punctuation.definition.character-reference.numeric.hexadecimal.html
+#     ^^^^ source.md meta.paragraph.md constant.character-reference.numeric.hexadecimal.html constant.numeric.integer.hexadecimal.html
+#         ^ source.md meta.paragraph.md constant.character-reference.numeric.hexadecimal.html punctuation.definition.character-reference.end.html
+#          ^^^ source.md meta.paragraph.md
+>
+>e &amp; f
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md constant.character-reference.named.html punctuation.definition.character-reference.begin.html
+#   ^^^ source.md meta.paragraph.md constant.character-reference.named.html keyword.control.character-reference.html
+#      ^ source.md meta.paragraph.md constant.character-reference.named.html punctuation.definition.character-reference.end.html
+#       ^^^ source.md meta.paragraph.md
+>
+>g &xxx; h.
+#^^^^^^^^^^^ source.md meta.paragraph.md
+>

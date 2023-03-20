@@ -1,0 +1,52 @@
+>Left letter:
+#^^^^^^^^^^^^^ source.md meta.paragraph.md
+>
+>ax*xb
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#   ^^^ source.md meta.paragraph.md
+>
+>ax* b
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#   ^^^ source.md meta.paragraph.md
+>
+>ax*.b
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#   ^^^ source.md meta.paragraph.md
+>
+>Left whitespace:
+#^^^^^^^^^^^^^^^^^ source.md meta.paragraph.md
+>
+>a *xb
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#   ^^^ source.md meta.paragraph.md
+>
+>a * b
+#^^^^^^ source.md meta.paragraph.md
+>
+>a *.b
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#   ^^^ source.md meta.paragraph.md
+>
+>Left punc:
+#^^^^^^^^^^^ source.md meta.paragraph.md
+>
+>a.*xb
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#   ^^^ source.md meta.paragraph.md
+>
+>a.* b
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#   ^^^ source.md meta.paragraph.md
+>
+>a.*.b
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#   ^^^ source.md meta.paragraph.md
+>

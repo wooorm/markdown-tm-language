@@ -1,0 +1,50 @@
+>Left letter:
+#^^^^^^^^^^^^^ source.md meta.paragraph.md
+>
+>ax_xb
+#^^^^^^ source.md meta.paragraph.md
+>
+>ax_ b
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.underscore.md
+#   ^^^ source.md meta.paragraph.md
+>
+>ax_.b
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.underscore.md
+#   ^^^ source.md meta.paragraph.md
+>
+>Left whitespace:
+#^^^^^^^^^^^^^^^^^ source.md meta.paragraph.md
+>
+>a _xb
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.underscore.md
+#   ^^^ source.md meta.paragraph.md
+>
+>a _ b
+#^^^^^^ source.md meta.paragraph.md
+>
+>a _.b
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.underscore.md
+#   ^^^ source.md meta.paragraph.md
+>
+>Left punc:
+#^^^^^^^^^^^ source.md meta.paragraph.md
+>
+>a._xb
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.underscore.md
+#   ^^^ source.md meta.paragraph.md
+>
+>a._ b
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.underscore.md
+#   ^^^ source.md meta.paragraph.md
+>
+>a._.b
+#^^ source.md meta.paragraph.md
+#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.underscore.md
+#   ^^^ source.md meta.paragraph.md
+>

@@ -1,0 +1,12 @@
+>+++
+#^^^ source.md punctuation.definition.string.start.toml
+>name = "hi"
+#^^^^^^^^^^^^ source.md meta.embedded.toml
+>+++
+#^^^ source.md punctuation.definition.string.end.toml
+>
+># hi
+#^ source.md markup.heading.atx.1.md punctuation.definition.heading.md
+# ^ source.md markup.heading.atx.1.md
+#  ^^ source.md markup.heading.atx.1.md entity.name.section.md
+>

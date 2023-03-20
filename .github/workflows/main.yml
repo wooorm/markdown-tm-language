@@ -1,0 +1,23 @@
+name: main
+on:
+  push:
+    branches:
+      - main
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: node
+      - run: npm install
+      - run: npm test
+      - uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          branch: gh-pages
+          folder: example
+          single-commit: true
+          commit-message: .
+          git-config-name: Titus Wormer
+          git-config-email: tituswormer@gmail.com
