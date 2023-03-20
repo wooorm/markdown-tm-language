@@ -25,7 +25,7 @@ Really good syntax highlighting for [markdown][] and [MDX][].
 </tr>
 <tr>
 <td align="center">
-  Example of MDX highlighting (using GitHub dark mode theme)
+  Example of MDX highlighting (using GitHub light mode theme)
 </td>
 </tr>
 </table>
