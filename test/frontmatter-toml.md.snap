@@ -1,9 +1,9 @@
 >+++
-#^^^ source.md punctuation.definition.string.start.toml
+#^^^ source.md string.other.begin.toml
 >name = "hi"
 #^^^^^^^^^^^^ source.md meta.embedded.toml
 >+++
-#^^^ source.md punctuation.definition.string.end.toml
+#^^^ source.md string.other.end.toml
 >
 ># hi
 #^ source.md markup.heading.atx.1.md punctuation.definition.heading.md

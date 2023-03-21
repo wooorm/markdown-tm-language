@@ -161,13 +161,13 @@ const grammar = {
             "(<)((?:[0-9A-Za-z!\"#$%&'*+\\-\\/=?^_`{|}~'])+@(?:[0-9A-Za-z](?:[0-9A-Za-z-]{0,61}[0-9A-Za-z])?(?:\\.[0-9A-Za-z](?:[0-9A-Za-z-]{0,61}[A-Za-z])?)*))(>)",
           captures: {
             1: {
-              name: 'punctuation.definition.string.begin.autolink.md'
+              name: 'string.other.begin.autolink.md'
             },
             2: {
               name: 'string.other.link.autolink.email.md'
             },
             3: {
-              name: 'punctuation.definition.string.end.autolink.md'
+              name: 'string.other.end.autolink.md'
             }
           }
         },
@@ -175,13 +175,13 @@ const grammar = {
           match: '(<)((?:[A-Za-z][+\\-.0-9A-Za-z]{0,31}):[^\\p{Cc}\\ ]*?)(>)',
           captures: {
             1: {
-              name: 'punctuation.definition.string.begin.autolink.md'
+              name: 'string.other.begin.autolink.md'
             },
             2: {
               name: 'string.other.link.autolink.protocol.md'
             },
             3: {
-              name: 'punctuation.definition.string.end.autolink.md'
+              name: 'string.other.end.autolink.md'
             }
           }
         }
@@ -191,30 +191,30 @@ const grammar = {
       patterns: [
         {
           match: '(?<=\\S)\\*{3,}|\\*{3,}(?=\\S)',
-          name: 'punctuation.definition.string.strong.emphasis.asterisk.md'
+          name: 'string.other.strong.emphasis.asterisk.md'
         },
         {
           match:
             '(?<=[\\p{L}\\p{N}])_{3,}(?![\\p{L}\\p{N}])|(?<=\\p{P})_{3,}|(?<![\\p{L}\\p{N}]|\\p{P})_{3,}(?!\\s)',
-          name: 'punctuation.definition.string.strong.emphasis.underscore.md'
+          name: 'string.other.strong.emphasis.underscore.md'
         },
         {
           match: '(?<=\\S)\\*{2}|\\*{2}(?=\\S)',
-          name: 'punctuation.definition.string.strong.asterisk.md'
+          name: 'string.other.strong.asterisk.md'
         },
         {
           match:
             '(?<=[\\p{L}\\p{N}])_{2}(?![\\p{L}\\p{N}])|(?<=\\p{P})_{2}|(?<![\\p{L}\\p{N}]|\\p{P})_{2}(?!\\s)',
-          name: 'punctuation.definition.string.strong.underscore.md'
+          name: 'string.other.strong.underscore.md'
         },
         {
           match: '(?<=\\S)\\*|\\*(?=\\S)',
-          name: 'punctuation.definition.string.emphasis.asterisk.md'
+          name: 'string.other.emphasis.asterisk.md'
         },
         {
           match:
             '(?<=[\\p{L}\\p{N}])_(?![\\p{L}\\p{N}])|(?<=\\p{P})_|(?<![\\p{L}\\p{N}]|\\p{P})_(?!\\s)',
-          name: 'punctuation.definition.string.emphasis.underscore.md'
+          name: 'string.other.emphasis.underscore.md'
         }
       ]
     },
@@ -245,7 +245,7 @@ const grammar = {
     },
     'commonmark-character-escape': {
       match: '\\\\(?:[!"#$%&\'()*+,\\-.\\/:;<=>?@\\[\\\\\\]^_`{|}~])',
-      name: 'support.constant.character.escape.md'
+      name: 'constant.language.character-escape.md'
     },
     'commonmark-character-reference': {
       patterns: [
@@ -254,7 +254,7 @@ const grammar = {
         },
         {
           match: '(&)(#)([Xx])([0-9A-Fa-f]{1,6})(;)',
-          name: 'constant.character-reference.numeric.hexadecimal.html',
+          name: 'constant.language.character-reference.numeric.hexadecimal.html',
           captures: {
             1: {
               name: 'punctuation.definition.character-reference.begin.html'
@@ -275,7 +275,7 @@ const grammar = {
         },
         {
           match: '(&)(#)([0-9]{1,7})(;)',
-          name: 'constant.character-reference.numeric.decimal.html',
+          name: 'constant.language.character-reference.numeric.decimal.html',
           captures: {
             1: {
               name: 'punctuation.definition.character-reference.begin.html'
@@ -415,7 +415,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?:[^\\t\\n\\r` ])+)(?:[\\t ]+(?:[^\\n\\r`])+)?)?(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -425,7 +425,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.other.md'
@@ -435,7 +435,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?:[^\\t\\n\\r ])+)(?:[\\t ]+(?:[^\\n\\r])+)?)?(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -445,7 +445,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.other.md'
@@ -466,13 +466,13 @@ const grammar = {
       name: 'markup.code.other.md',
       captures: {
         1: {
-          name: 'punctuation.definition.string.begin.code.md'
+          name: 'string.other.begin.code.md'
         },
         2: {
           name: 'markup.raw.code.text.md'
         },
         3: {
-          name: 'punctuation.definition.string.end.code.md'
+          name: 'string.other.end.code.md'
         }
       }
     },
@@ -482,7 +482,7 @@ const grammar = {
       name: 'meta.link.reference.def.md',
       captures: {
         1: {
-          name: 'punctuation.definition.string.start.md'
+          name: 'string.other.begin.md'
         },
         2: {
           name: 'entity.name.identifier.md',
@@ -493,13 +493,13 @@ const grammar = {
           ]
         },
         3: {
-          name: 'punctuation.definition.string.end.md'
+          name: 'string.other.end.md'
         },
         4: {
           name: 'punctuation.separator.key-value.md'
         },
         5: {
-          name: 'punctuation.definition.string.begin.destination.md'
+          name: 'string.other.begin.destination.md'
         },
         6: {
           name: 'string.other.link.destination.md',
@@ -510,7 +510,7 @@ const grammar = {
           ]
         },
         7: {
-          name: 'punctuation.definition.string.end.destination.md'
+          name: 'string.other.end.destination.md'
         },
         8: {
           name: 'string.other.link.destination.md',
@@ -521,7 +521,7 @@ const grammar = {
           ]
         },
         9: {
-          name: 'punctuation.definition.string.begin.md'
+          name: 'string.other.begin.md'
         },
         10: {
           name: 'string.quoted.double.md',
@@ -532,10 +532,10 @@ const grammar = {
           ]
         },
         11: {
-          name: 'punctuation.definition.string.begin.md'
+          name: 'string.other.end.md'
         },
         12: {
-          name: 'punctuation.definition.string.begin.md'
+          name: 'string.other.begin.md'
         },
         13: {
           name: 'string.quoted.single.md',
@@ -546,10 +546,10 @@ const grammar = {
           ]
         },
         14: {
-          name: 'punctuation.definition.string.begin.md'
+          name: 'string.other.end.md'
         },
         15: {
-          name: 'punctuation.definition.string.begin.md'
+          name: 'string.other.begin.md'
         },
         16: {
           name: 'string.quoted.paren.md',
@@ -560,17 +560,17 @@ const grammar = {
           ]
         },
         17: {
-          name: 'punctuation.definition.string.end.md'
+          name: 'string.other.end.md'
         }
       }
     },
     'commonmark-hard-break-escape': {
       match: '\\\\$',
-      name: 'support.constant.character.escape.line-ending.md'
+      name: 'constant.language.character-escape.line-ending.md'
     },
     'commonmark-hard-break-trailing': {
       match: '( ){2,}$',
-      name: 'carriage-return support.constant.character.escape.line-ending.md'
+      name: 'carriage-return constant.language.character-escape.line-ending.md'
     },
     'commonmark-heading-atx': {
       patterns: [
@@ -963,13 +963,13 @@ const grammar = {
             '(\\])(\\()[\\t ]*(?:(?:(<)((?:[^\\n<\\\\>]|\\\\[<\\\\>]?)*)(>)|(\\g<destination_raw>))(?:[\\t ]+(?:(")((?:[^"\\\\]|\\\\["\\\\]?)*)(")|(\')((?:[^\'\\\\]|\\\\[\'\\\\]?)*)(\')|(\\()((?:[^\\)\\\\]|\\\\[\\)\\\\]?)*)(\\))))?)?[\\t ]*(\\))(?<destination_raw>(?!\\<)(?:(?:[^\\p{Cc}\\ \\\\\\(\\)]|\\\\[\\(\\)\\\\]?)|\\(\\g<destination_raw>*\\))+){0}',
           captures: {
             1: {
-              name: 'punctuation.definition.string.end.md'
+              name: 'string.other.end.md'
             },
             2: {
-              name: 'punctuation.definition.string.start.md'
+              name: 'string.other.begin.md'
             },
             3: {
-              name: 'punctuation.definition.string.begin.destination.md'
+              name: 'string.other.begin.destination.md'
             },
             4: {
               name: 'string.other.link.destination.md',
@@ -980,7 +980,7 @@ const grammar = {
               ]
             },
             5: {
-              name: 'punctuation.definition.string.end.destination.md'
+              name: 'string.other.end.destination.md'
             },
             6: {
               name: 'string.other.link.destination.md',
@@ -991,7 +991,7 @@ const grammar = {
               ]
             },
             7: {
-              name: 'punctuation.definition.string.begin.md'
+              name: 'string.other.begin.md'
             },
             8: {
               name: 'string.quoted.double.md',
@@ -1002,10 +1002,10 @@ const grammar = {
               ]
             },
             9: {
-              name: 'punctuation.definition.string.begin.md'
+              name: 'string.other.end.md'
             },
             10: {
-              name: 'punctuation.definition.string.begin.md'
+              name: 'string.other.begin.md'
             },
             11: {
               name: 'string.quoted.single.md',
@@ -1016,10 +1016,10 @@ const grammar = {
               ]
             },
             12: {
-              name: 'punctuation.definition.string.begin.md'
+              name: 'string.other.end.md'
             },
             13: {
-              name: 'punctuation.definition.string.begin.md'
+              name: 'string.other.begin.md'
             },
             14: {
               name: 'string.quoted.paren.md',
@@ -1030,10 +1030,10 @@ const grammar = {
               ]
             },
             15: {
-              name: 'punctuation.definition.string.end.md'
+              name: 'string.other.end.md'
             },
             16: {
-              name: 'punctuation.definition.string.end.md'
+              name: 'string.other.end.md'
             }
           }
         },
@@ -1041,10 +1041,10 @@ const grammar = {
           match: '(\\])(\\[)((?:[^\\[\\\\\\]]|\\\\[\\[\\\\\\]]?)+?)(\\])',
           captures: {
             1: {
-              name: 'punctuation.definition.string.end.md'
+              name: 'string.other.end.md'
             },
             2: {
-              name: 'punctuation.definition.string.start.md'
+              name: 'string.other.begin.md'
             },
             3: {
               name: 'entity.name.identifier.md',
@@ -1055,7 +1055,7 @@ const grammar = {
               ]
             },
             4: {
-              name: 'punctuation.definition.string.end.md'
+              name: 'string.other.end.md'
             }
           }
         },
@@ -1063,7 +1063,7 @@ const grammar = {
           match: '(\\])',
           captures: {
             1: {
-              name: 'punctuation.definition.string.end.md'
+              name: 'string.other.end.md'
             }
           }
         }
@@ -1073,11 +1073,11 @@ const grammar = {
       patterns: [
         {
           match: '\\!\\[(?!\\^)',
-          name: 'punctuation.definition.string.begin.image.md'
+          name: 'string.other.begin.image.md'
         },
         {
           match: '\\[',
-          name: 'punctuation.definition.string.begin.link.md'
+          name: 'string.other.begin.link.md'
         }
       ]
     },
@@ -1573,13 +1573,13 @@ const grammar = {
       name: 'meta.tag.${2:/downcase}.md',
       captures: {
         1: {
-          name: 'punctuation.definition.string.begin.directive.md'
+          name: 'string.other.begin.directive.md'
         },
         2: {
           name: 'entity.name.function.md'
         },
         3: {
-          name: 'punctuation.definition.string.begin.directive.label.md'
+          name: 'string.other.begin.directive.label.md'
         },
         4: {
           patterns: [
@@ -1589,10 +1589,10 @@ const grammar = {
           ]
         },
         5: {
-          name: 'punctuation.definition.string.end.directive.label.md'
+          name: 'string.other.end.directive.label.md'
         },
         6: {
-          name: 'punctuation.definition.string.begin.directive.attributes.md'
+          name: 'string.other.begin.directive.attributes.md'
         },
         7: {
           patterns: [
@@ -1602,7 +1602,7 @@ const grammar = {
           ]
         },
         8: {
-          name: 'punctuation.definition.string.end.directive.attributes.md'
+          name: 'string.other.end.directive.attributes.md'
         }
       }
     },
@@ -1612,13 +1612,13 @@ const grammar = {
       name: 'meta.tag.${2:/downcase}.md',
       captures: {
         1: {
-          name: 'punctuation.definition.string.begin.directive.md'
+          name: 'string.other.begin.directive.md'
         },
         2: {
           name: 'entity.name.function.md'
         },
         3: {
-          name: 'punctuation.definition.string.begin.directive.label.md'
+          name: 'string.other.begin.directive.label.md'
         },
         4: {
           patterns: [
@@ -1628,10 +1628,10 @@ const grammar = {
           ]
         },
         5: {
-          name: 'punctuation.definition.string.end.directive.label.md'
+          name: 'string.other.end.directive.label.md'
         },
         6: {
-          name: 'punctuation.definition.string.begin.directive.attributes.md'
+          name: 'string.other.begin.directive.attributes.md'
         },
         7: {
           patterns: [
@@ -1641,7 +1641,7 @@ const grammar = {
           ]
         },
         8: {
-          name: 'punctuation.definition.string.end.directive.attributes.md'
+          name: 'string.other.end.directive.attributes.md'
         }
       }
     },
@@ -1650,13 +1650,13 @@ const grammar = {
         '(?:^|\\G)[ ]{0,3}(:{3,})((?:[A-Za-z][0-9A-Za-z\\-_]*))(?:(\\[)(\\g<directive_label>*)(\\]))?(?:(\\{)((?:(?:[A-Za-z:_][0-9A-Za-z\\-\\.:_]*)(?:[\\t ]*=[\\t ]*(?:"[^"]*"|\'[^\']*\'|[^\\t\\n\\r "\'<=>`\\}]+))?|[\\.#](?:[^\\t\\n\\r "#\'\\.<=>`\\}][^\\t\\n\\r "#\'\\.<=>`\\}]*)|[\\t ])*)(\\}))?(?:[\\t ]*$)(?<directive_label>(?:[^\\\\\\[\\]]|\\\\[\\\\\\[\\]]?)|\\[\\g<directive_label>*\\]){0}',
       beginCaptures: {
         1: {
-          name: 'punctuation.definition.string.begin.directive.md'
+          name: 'string.other.begin.directive.md'
         },
         2: {
           name: 'entity.name.function.md'
         },
         3: {
-          name: 'punctuation.definition.string.begin.directive.label.md'
+          name: 'string.other.begin.directive.label.md'
         },
         4: {
           patterns: [
@@ -1666,10 +1666,10 @@ const grammar = {
           ]
         },
         5: {
-          name: 'punctuation.definition.string.end.directive.label.md'
+          name: 'string.other.end.directive.label.md'
         },
         6: {
-          name: 'punctuation.definition.string.begin.directive.attributes.md'
+          name: 'string.other.begin.directive.attributes.md'
         },
         7: {
           patterns: [
@@ -1679,7 +1679,7 @@ const grammar = {
           ]
         },
         8: {
-          name: 'punctuation.definition.string.end.directive.attributes.md'
+          name: 'string.other.end.directive.attributes.md'
         }
       },
       patterns: [
@@ -1690,7 +1690,7 @@ const grammar = {
       end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
       endCaptures: {
         1: {
-          name: 'punctuation.definition.string.end.directive.md'
+          name: 'string.other.end.directive.md'
         }
       }
     },
@@ -1705,7 +1705,7 @@ const grammar = {
           name: 'punctuation.separator.key-value.md'
         },
         3: {
-          name: 'punctuation.definition.string.begin.md'
+          name: 'string.other.begin.md'
         },
         4: {
           name: 'string.quoted.double.md',
@@ -1716,10 +1716,10 @@ const grammar = {
           ]
         },
         5: {
-          name: 'punctuation.definition.string.end.md'
+          name: 'string.other.end.md'
         },
         6: {
-          name: 'punctuation.definition.string.begin.md'
+          name: 'string.other.begin.md'
         },
         7: {
           name: 'string.quoted.single.md',
@@ -1730,7 +1730,7 @@ const grammar = {
           ]
         },
         8: {
-          name: 'punctuation.definition.string.end.md'
+          name: 'string.other.end.md'
         },
         9: {
           name: 'string.unquoted.md',
@@ -1787,10 +1787,10 @@ const grammar = {
       match: '(\\[)(\\^)((?:[^\\t\\n\\r \\[\\\\\\]]|\\\\[\\[\\\\\\]]?)+)(\\])',
       captures: {
         1: {
-          name: 'punctuation.definition.string.begin.link.md'
+          name: 'string.other.begin.link.md'
         },
         2: {
-          name: 'punctuation.definition.string.begin.footnote.md'
+          name: 'string.other.begin.footnote.md'
         },
         3: {
           name: 'entity.name.identifier.md',
@@ -1801,7 +1801,7 @@ const grammar = {
           ]
         },
         4: {
-          name: 'punctuation.definition.string.end.footnote.md'
+          name: 'string.other.end.footnote.md'
         }
       }
     },
@@ -1810,10 +1810,10 @@ const grammar = {
         '(?:^|\\G)[ ]{0,3}(\\[)(\\^)((?:[^\\t\\n\\r \\[\\\\\\]]|\\\\[\\[\\\\\\]]?)+)(\\])(:)[\\t ]*',
       beginCaptures: {
         1: {
-          name: 'punctuation.definition.string.begin.link.md'
+          name: 'string.other.begin.link.md'
         },
         2: {
-          name: 'punctuation.definition.string.begin.footnote.md'
+          name: 'string.other.begin.footnote.md'
         },
         3: {
           name: 'entity.name.identifier.md',
@@ -1824,7 +1824,7 @@ const grammar = {
           ]
         },
         4: {
-          name: 'punctuation.definition.string.end.footnote.md'
+          name: 'string.other.end.footnote.md'
         }
       },
       patterns: [
@@ -1935,7 +1935,7 @@ const grammar = {
           begin: '(?:^|\\G)[ ]{0,3}(\\${2,})[^\\n\\r\\$]*?$',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.math.flow.md'
+              name: 'string.other.begin.math.flow.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -1945,7 +1945,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.math.flow.md'
+              name: 'string.other.end.math.flow.md'
             }
           },
           name: 'markup.code.other.md'
@@ -1956,13 +1956,13 @@ const grammar = {
       match: '(?<!\\$)(\\${2,})(?!\\$)(.+?)(?<!\\$)(\\1)(?!\\$)',
       captures: {
         1: {
-          name: 'punctuation.definition.string.begin.math.md'
+          name: 'string.other.begin.math.md'
         },
         2: {
           name: 'markup.raw.math.md'
         },
         3: {
-          name: 'punctuation.definition.string.end.math.md'
+          name: 'string.other.end.math.md'
         }
       }
     },
@@ -1971,12 +1971,12 @@ const grammar = {
       end: '^\\+{3}$',
       beginCaptures: {
         0: {
-          name: 'punctuation.definition.string.start.toml'
+          name: 'string.other.begin.toml'
         }
       },
       endCaptures: {
         0: {
-          name: 'punctuation.definition.string.end.toml'
+          name: 'string.other.end.toml'
         }
       },
       contentName: 'meta.embedded.toml',
@@ -1991,12 +1991,12 @@ const grammar = {
       end: '^-{3}$',
       beginCaptures: {
         0: {
-          name: 'punctuation.definition.string.start.yaml'
+          name: 'string.other.begin.yaml'
         }
       },
       endCaptures: {
         0: {
-          name: 'punctuation.definition.string.end.yaml'
+          name: 'string.other.end.yaml'
         }
       },
       contentName: 'meta.embedded.yaml',
@@ -2053,7 +2053,7 @@ const grammar = {
     'whatwg-html-data-character-reference-named-terminated': {
       match:
         '(&)((?:C(?:(?:o(?:unterClockwiseCo)?|lockwiseCo)ntourIntegra|cedi)|(?:(?:Not(?:S(?:quareSu(?:per|b)set|u(?:cceeds|(?:per|b)set))|Precedes|Greater|Tilde|Less)|Not(?:Righ|Lef)tTriangle|(?:Not(?:(?:Succeed|Precede|Les)s|Greater)|(?:Precede|Succeed)s|Less)Slant|SquareSu(?:per|b)set|(?:Not(?:Greater|Tilde)|Tilde|Less)Full|RightTriangle|LeftTriangle|Greater(?:Slant|Full)|Precedes|Succeeds|Superset|NotHump|Subset|Tilde|Hump)Equ|int(?:er)?c|DotEqu)a|DoubleContourIntegra|(?:n(?:short)?parall|shortparall|p(?:arall|rur))e|(?:rightarrowta|l(?:eftarrowta|ced|ata|Ata)|sced|rata|perm|rced|rAta|ced)i|Proportiona|smepars|e(?:qvpars|pars|xc|um)|Integra|suphso|rarr[pt]|n(?:pars|tg)|l(?:arr[pt]|cei)|Rarrt|(?:hybu|fora)l|ForAl|[GKLNR-Tcknt]cedi|rcei|iexc|gime|fras|[uy]um|oso|dso|ium|Ium)l|D(?:o(?:uble(?:(?:L(?:ong(?:Left)?R|eftR)ight|L(?:ongL)?eft|UpDown|Right|Up)Arrow|Do(?:wnArrow|t))|wn(?:ArrowUpA|TeeA|a)rrow)|iacriticalDot|strok|ashv|cy)|(?:(?:(?:N(?:(?:otN)?estedGreater|ot(?:Greater|Less))|Less(?:Equal)?)Great|GreaterGreat|l[lr]corn|mark|east)e|Not(?:Double)?VerticalBa|(?:Not(?:Righ|Lef)tTriangleB|(?:(?:Righ|Lef)tDown|Right(?:Up)?|Left(?:Up)?)VectorB|RightTriangleB|Left(?:Triangle|Arrow)B|RightArrowB|V(?:er(?:ticalB|b)|b)|UpArrowB|l(?:ur(?:ds|u)h|dr(?:us|d)h|trP|owb|H)|profal|r(?:ulu|dld)h|b(?:igst|rvb)|(?:wed|ve[er])b|s(?:wn|es)w|n(?:wne|ese|sp|hp)|gtlP|d(?:oll|uh|H)|(?:hor|ov)b|u(?:dh|H)|r(?:lh|H)|ohb|hb|St)a|D(?:o(?:wn(?:(?:Left(?:Right|Tee)|RightTee)Vecto|(?:(?:Righ|Lef)tVector|Arrow)Ba)|ubleVerticalBa)|a(?:gge|r)|sc|f)|(?:(?:(?:Righ|Lef)tDown|(?:Righ|Lef)tUp)Tee|(?:Righ|Lef)tUpDown)Vecto|VerticalSeparato|(?:Left(?:Right|Tee)|RightTee)Vecto|less(?:eqq?)?gt|e(?:qslantgt|sc)|(?:RightF|LeftF|[lr]f)loo|u(?:[lr]corne|ar)|timesba|(?:plusa|cirs|apa)ci|U(?:arroci|f)|(?:dzigr|s(?:u(?:pl|br)|imr|[lr])|zigr|angz|nvH|l(?:tl|B)|r[Br])ar|UnderBa|(?:plus|harr|top|mid|of)ci|O(?:verBa|sc|f)|dd?agge|s(?:olba|sc)|g(?:t(?:rar|ci)|sc|f)|c(?:opys|u(?:po|ep)|sc|f)|(?:n(?:(?:v[lr]|w|r)A|l[Aa]|h[Aa]|eA)|x[hlr][Aa]|u(?:ua|da|A)|s[ew]A|rla|o[lr]a|rba|rAa|l[Ablr]a|h(?:oa|A)|era|d(?:ua|A)|cra|vA)r|o(?:lci|sc|ro|pa)|ropa|roar|l(?:o(?:pa|ar)|sc|Ar)|i(?:ma|s)c|ltci|dd?ar|a(?:ma|s)c|R(?:Bar|sc|f)|I(?:mac|f)|(?:u(?:ma|s)|oma|ema|Oma|Ema|[wyz]s|qs|ks|fs|Zs|Ys|Xs|Ws|Vs|Us|Ss|Qs|Ns|Ms|Ks|Is|Gs|Fs|Cs|Bs)c|Umac|x(?:sc|f)|v(?:sc|f)|rsc|n(?:ld|f)|m(?:sc|ld|ac|f)|rAr|h(?:sc|f)|b(?:sc|f)|psc|P(?:sc|f)|L(?:sc|ar|f)|jsc|J(?:sc|f)|E(?:sc|f)|[HT]sc|[yz]f|wf|tf|qf|pf|kf|jf|Zf|Yf|Xf|Wf|Vf|Tf|Sf|Qf|Nf|Mf|Kf|Hf|Gf|Ff|Cf|Bf)r|(?:Diacritical(?:Double)?A|[EINOSYZaisz]a)cute|(?:(?:N(?:egative(?:VeryThin|Thi(?:ck|n))|onBreaking)|NegativeMedium|ZeroWidth|VeryThin|Medium|Thi(?:ck|n))Spac|Filled(?:Very)?SmallSquar|Empty(?:Very)?SmallSquar|(?:N(?:ot(?:Succeeds|Greater|Tilde|Less)T|t)|DiacriticalT|VerticalT|PrecedesT|SucceedsT|NotEqualT|GreaterT|TildeT|EqualT|LessT|at|Ut|It)ild|(?:(?:DiacriticalG|[EIOUaiu]g)ra|(?:u|U)?bre|(?:o|e)?gra)v|(?:doublebar|curly|big|x)wedg|H(?:orizontalLin|ilbertSpac)|Double(?:Righ|Lef)tTe|(?:(?:measured|uw)ang|exponentia|dwang|ssmi|fema)l|(?:Poincarepla|reali|pho|oli)n|(?:black)?lozeng|(?:VerticalL|(?:prof|imag)l)in|SmallCircl|(?:black|dot)squar|rmoustach|l(?:moustach|angl)|(?:b(?:ack)?pr|(?:tri|xo)t|[qt]pr)im|[Tt]herefor|(?:DownB|[Gag]b)rev|(?:infint|nv[lr]tr)i|b(?:arwedg|owti)|an(?:dslop|gl)|(?:cu(?:rly)?v|rthr|lthr|b(?:ig|ar)v|xv)e|n(?:s(?:qsu[bp]|ccu)|prcu)|orslop|NewLin|maltes|Becaus|rangl|incar|(?:otil|Otil|t(?:ra|il))d|[inu]tild|s(?:mil|imn)|(?:sc|pr)cu|Wedg|Prim|Brev)e|(?:CloseCurly(?:Double)?Quo|OpenCurly(?:Double)?Quo|[ry]?acu)te|(?:Reverse(?:Up)?|Up)Equilibrium|C(?:apitalDifferentialD|(?:oproduc|(?:ircleD|enterD|d)o)t|on(?:grue|i)nt|conint|upCap|o(?:lone|pf)|OPY|hi)|(?:(?:(?:left)?rightsquig|(?:longleftr|twoheadr|nleftr|nLeftr|longr|hookr|nR|Rr)ight|(?:twohead|hook)left|longleft|updown|Updown|nright|Right|nleft|nLeft|down|up|Up)a|L(?:(?:ong(?:left)?righ|(?:ong)?lef)ta|eft(?:(?:right)?a|RightA|TeeA))|RightTeeA|LongLeftA|UpTeeA)rrow|(?:(?:RightArrow|Short|Upper|Lower)Left|(?:L(?:eftArrow|o(?:wer|ng))|LongLeft|Short|Upper)Right|ShortUp)Arrow|(?:b(?:lacktriangle(?:righ|lef)|ulle|no)|RightDoubleBracke|RightAngleBracke|Left(?:Doub|Ang)leBracke|(?:vartriangle|downharpoon|c(?:ircl|urv)earrow|upharpoon|looparrow)righ|(?:vartriangle|downharpoon|c(?:ircl|urv)earrow|upharpoon|looparrow|mapsto)lef|(?:UnderBrack|OverBrack|emptys|targ|Sups)e|diamondsui|c(?:ircledas|lubsui|are)|(?:spade|heart)sui|(?:(?:c(?:enter|t)|lmi|ino)d|(?:Triple|mD)D|n(?:otin|e)d|(?:ncong|doteq|su[bp]e|e[gl]s)d|l(?:ess|t)d|isind|c(?:ong|up|ap)?d|b(?:igod|N)|t(?:(?:ri)?d|opb)|s(?:ub|im)d|midd|g(?:tr?)?d|Lmid|DotD|(?:xo|ut|z)d|e(?:s?d|rD|fD|DD)|dtd|Zd|Id|Gd|Ed)o|realpar|i(?:magpar|iin)|S(?:uchTha|qr)|su[bp]mul|(?:(?:lt|i)que|gtque|(?:mid|low)a|e(?:que|xi))s|Produc|s(?:updo|e[cx])|r(?:parg|ec)|lparl|vangr|hamil|(?:homt|[lr]fis|ufis|dfis)h|phmma|t(?:wix|in)|quo|o(?:do|as)|fla|eDo)t|(?:(?:Square)?Intersecti|(?:straight|back|var)epsil|SquareUni|expectati|upsil|epsil|Upsil|eq?col|Epsil|(?:omic|Omic|rca|lca|eca|Sca|[NRTt]ca|Lca|Eca|[Zdz]ca|Dca)r|scar|ncar|herc|ccar|Ccar|iog|Iog)on|Not(?:S(?:quareSu(?:per|b)set|u(?:cceeds|(?:per|b)set))|Precedes|Greater|Tilde|Less)?|(?:(?:(?:Not(?:Reverse)?|Reverse)E|comp|E)leme|NotCongrue|(?:n[gl]|l)eqsla|geqsla|q(?:uat)?i|perc|iiii|coni|cwi|awi|oi)nt|(?:(?:rightleftharpo|leftrightharpo|quaterni)on|(?:(?:N(?:ot(?:NestedLess|Greater|Less)|estedLess)L|(?:eqslant|gtr(?:eqq?)?)l|LessL)e|Greater(?:Equal)?Le|cro)s|(?:rightright|leftleft|upup)arrow|rightleftarrow|(?:(?:(?:righ|lef)tthree|divideon|b(?:igo|ox)|[lr]o)t|InvisibleT)ime|downdownarrow|(?:(?:smallset|tri|dot|box)m|PlusM)inu|(?:RoundImpli|complex|Impli|Otim)e|C(?:ircle(?:Time|Minu|Plu)|ayley|ros)|(?:rationa|mode)l|NotExist|(?:(?:UnionP|MinusP|(?:b(?:ig[ou]|ox)|tri|s(?:u[bp]|im)|dot|xu|mn)p)l|(?:xo|u)pl|o(?:min|pl)|ropl|lopl|epl)u|otimesa|integer|e(?:linter|qual)|setminu|rarrbf|larrb?f|olcros|rarrf|mstpo|lesge|gesle|Exist|[lr]time|strn|napo|fltn|ccap|apo)s|(?:b(?:(?:lack|ig)triangledow|etwee)|(?:righ|lef)tharpoondow|(?:triangle|mapsto)dow|(?:nv|i)infi|ssetm|plusm|lagra|d(?:[lr]cor|isi)|c(?:ompf|aro)|s?frow|(?:hyph|curr)e|kgree|thor|ogo|ye)n|Not(?:Righ|Lef)tTriangle|(?:Up(?:Arrow)?|Short)DownArrow|(?:(?:n(?:triangle(?:righ|lef)t|succ|prec)|(?:trianglerigh|trianglelef|sqsu[bp]se|ques)t|backsim)e|lvertneq|gvertneq|(?:suc|pre)cneq|a(?:pprox|symp)e|(?:succ|prec|vee)e|circe)q|(?:UnderParenthes|OverParenthes|xn)is|(?:(?:Righ|Lef)tDown|Right(?:Up)?|Left(?:Up)?)Vector|D(?:o(?:wn(?:RightVector|LeftVector|Arrow|Tee)|t)|el|D)|l(?:eftrightarrows|br(?:k(?:sl[du]|e)|ac[ek])|tri[ef]|s(?:im[eg]|qb|h)|hard|a(?:tes|ngd|p)|o[pz]f|rm|gE|fr|eg|cy)|(?:NotHumpDownHum|(?:righ|lef)tharpoonu|big(?:(?:triangle|sqc)u|c[au])|HumpDownHum|m(?:apstou|lc)|(?:capbr|xsq)cu|smash|rarr[al]|(?:weie|sha)r|larrl|velli|(?:thin|punc)s|h(?:elli|airs)|(?:u[lr]c|vp)ro|d[lr]cro|c(?:upc[au]|apc[au])|thka|scna|prn?a|oper|n(?:ums|va|cu|bs)|ens|xc[au]|Ma)p|l(?:eftrightarrow|e(?:ftarrow|s(?:dot)?)?|moust|a(?:rrb?|te?|ng)|t(?:ri)?|sim|par|oz|l|g)|n(?:triangle(?:righ|lef)t|succ|prec)|SquareSu(?:per|b)set|(?:I(?:nvisibleComm|ot)|(?:varthe|iio)t|varkapp|(?:vars|S)igm|(?:diga|mco)mm|Cedill|lambd|Lambd|delt|Thet|omeg|Omeg|Kapp|Delt|nabl|zet|to[es]|rdc|ldc|iot|Zet|Bet|Et)a|b(?:lacktriangle|arwed|u(?:mpe?|ll)|sol|o(?:x[HVhv]|t)|brk|ne)|(?:trianglerigh|trianglelef|sqsu[bp]se|ques)t|RightT(?:riangl|e)e|(?:(?:varsu[bp]setn|su(?:psetn?|bsetn?))eq|nsu[bp]seteq|colone|(?:wedg|sim)e|nsime|lneq|gneq)q|DifferentialD|(?:(?:fall|ris)ingdots|(?:suc|pre)ccurly|ddots)eq|A(?:pplyFunction|ssign|(?:tild|grav|brev)e|acute|o(?:gon|pf)|lpha|(?:mac|sc|f)r|c(?:irc|y)|ring|Elig|uml|nd|MP)|(?:varsu[bp]setn|su(?:psetn?|bsetn?))eq|L(?:eft(?:T(?:riangl|e)e|Arrow)|l)|G(?:reaterEqual|amma)|E(?:xponentialE|quilibrium|sim|cy|TH|NG)|(?:(?:RightCeil|LeftCeil|varnoth|ar|Ur)in|(?:b(?:ack)?co|uri)n|vzigza|roan|loan|ffli|amal|sun|rin|n(?:tl|an)|Ran|Lan)g|(?:thick|succn?|precn?|less|g(?:tr|n)|ln|n)approx|(?:s(?:traightph|em)|(?:rtril|xu|u[lr]|xd|v[lr])tr|varph|l[lr]tr|b(?:sem|eps)|Ph)i|(?:circledd|osl|n(?:v[Dd]|V[Dd]|d)|hsl|V(?:vd|D)|Osl|v[Dd]|md)ash|(?:(?:RuleDelay|imp|cuw)e|(?:n(?:s(?:hort)?)?|short|rn)mi|D(?:Dotrah|iamon)|(?:i(?:nt)?pr|peri)o|odsol|llhar|c(?:opro|irmi)|(?:capa|anda|pou)n|Barwe|napi|api)d|(?:cu(?:rlyeq(?:suc|pre)|es)|telre|[ou]dbla|Udbla|Odbla|radi|lesc|gesc|dbla)c|(?:circled|big|eq|[is]|c|x|a|S|[hw]|W|H|G|E|C)circ|rightarrow|R(?:ightArrow|arr|e)|Pr(?:oportion)?|(?:longmapst|varpropt|p(?:lustw|ropt)|varrh|numer|(?:rsa|lsa|sb)qu|m(?:icr|h)|[lr]aqu|bdqu|eur)o|UnderBrace|ImaginaryI|B(?:ernoullis|a(?:ckslash|rv)|umpeq|cy)|(?:(?:Laplace|Mellin|zee)tr|Fo(?:uriertr|p)|(?:profsu|ssta)r|ordero|origo|[ps]op|nop|mop|i(?:op|mo)|h(?:op|al)|f(?:op|no)|dop|bop|Rop|Pop|Nop|Lop|Iop|Hop|Dop|[GJKMOQSTV-Zgjkoqvwyz]op|Bop)f|nsu[bp]seteq|t(?:ri(?:angleq|e)|imesd|he(?:tav|re4)|au)|O(?:verBrace|r)|(?:(?:pitchfo|checkma|t(?:opfo|b)|rob|rbb|l[bo]b)r|intlarh|b(?:brktbr|l(?:oc|an))|perten|NoBrea|rarrh|s[ew]arh|n[ew]arh|l(?:arrh|hbl)|uhbl|Hace)k|(?:NotCupC|(?:mu(?:lti)?|x)m|cupbrc)ap|t(?:riangle|imes|heta|opf?)|Precedes|Succeeds|Superset|NotEqual|(?:n(?:atural|exist|les)|s(?:qc[au]p|mte)|prime)s|c(?:ir(?:cled[RS]|[Ee])|u(?:rarrm|larrp|darr[lr]|ps)|o(?:mmat|pf)|aps|hi)|b(?:sol(?:hsu)?b|ump(?:eq|E)|ox(?:box|[Vv][HLRhlr]|[Hh][DUdu]|[DUdu][LRlr])|e(?:rnou|t[ah])|lk(?:34|1[24])|cy)|(?:l(?:esdot|squ|dqu)o|rsquo|rdquo|ngt)r|a(?:n(?:g(?:msda[a-h]|st|e)|d[dv])|st|p[Ee]|mp|fr|c[Edy])|(?:g(?:esdoto|E)|[lr]haru)l|(?:angrtvb|lrhar|nis)d|(?:(?:th(?:ic)?k|succn?|p(?:r(?:ecn?|n)?|lus)|rarr|l(?:ess|arr)|su[bp]|par|scn|g(?:tr|n)|ne|sc|n[glv]|ln|eq?)si|thetasy|ccupss|alefsy|botto)m|trpezium|(?:hks[ew]|dr?bk|bk)arow|(?:(?:[lr]a|d|c)empty|b(?:nequi|empty)|plank|nequi|odi)v|(?:(?:sc|rp|n)pol|point|fpart)int|(?:c(?:irf|wco)|awco)nint|PartialD|n(?:s(?:u[bp](?:set)?|c)|rarr|ot(?:ni|in)?|warr|e(?:arr)?|a(?:tur|p)|vlt|p(?:re?|ar)|um?|l[et]|ge|i)|n(?:atural|exist|les)|d(?:i(?:am(?:ond)?|v(?:ide)?)|tri|ash|ot|d)|backsim|l(?:esdot|squ|dqu)o|g(?:esdoto|E)|U(?:p(?:Arrow|si)|nion|arr)|angrtvb|p(?:l(?:anckh|us(?:d[ou]|[be]))|ar(?:sl|t)|r(?:od|nE|E)|erp|iv|m)|n(?:ot(?:niv[a-c]|in(?:v[a-c]|E))|rarr[cw]|s(?:u[bp][Ee]|c[er])|part|v(?:le|g[et])|g(?:es|E)|c(?:ap|y)|apE|lE|iv|Ll|Gg)|m(?:inus(?:du|b)|ale|cy|p)|rbr(?:k(?:sl[du]|e)|ac[ek])|(?:suphsu|tris|rcu|lcu)b|supdsub|(?:s[ew]a|n[ew]a)rrow|(?:b(?:ecaus|sim)|n(?:[lr]tri|bump)|csu[bp])e|equivDD|u(?:rcorn|lcorn|psi)|timesb|s(?:u(?:p(?:set)?|b(?:set)?)|q(?:su[bp]|u)|i(?:gma|m)|olb?|dot|mt|fr|ce?)|p(?:l(?:anck|us)|r(?:op|ec?)?|ara?|i)|o(?:times|r(?:d(?:er)?)?)|m(?:i(?:nusd?|d)|a(?:p(?:sto)?|lt)|u)|rmoust|g(?:e(?:s(?:dot|l)?|q)?|sim|n(?:ap|e)|t|l|g)|(?:spade|heart)s|c(?:u(?:rarr|larr|p)|o(?:m(?:ma|p)|lon|py|ng)|lubs|heck|cups|irc?|ent|ap)|colone|a(?:p(?:prox)?|n(?:g(?:msd|rt)?|d)|symp|f|c)|S(?:quare|u[bp]|c)|Subset|b(?:ecaus|sim)|vsu[bp]n[Ee]|s(?:u(?:psu[bp]|b(?:su[bp]|n[Ee]|E)|pn[Ee]|p[1-3E]|m)|q(?:u(?:ar[ef]|f)|su[bp]e)|igma[fv]|etmn|dot[be]|par|mid|hc?y|c[Ey])|f(?:rac(?:78|5[68]|45|3[458]|2[35]|1[2-68])|fr)|e(?:m(?:sp1[34]|ptyv)|psiv|c(?:irc|y)|t[ah]|ng|ll|fr|e)|(?:kappa|isins|vBar|fork|rho|phi|n[GL]t)v|divonx|V(?:dashl|ee)|gammad|G(?:ammad|cy|[Tgt])|[Ldhlt]strok|[HT]strok|(?:c(?:ylct|hc)|(?:s(?:oft|hch)|hard|S(?:OFT|HCH)|jser|J(?:ser|uk)|HARD|tsh|TSH|juk|iuk|I(?:uk|[EO])|zh|yi|nj|lj|k[hj]|gj|dj|ZH|Y[AIU]|NJ|LJ|K[HJ]|GJ|D[JSZ])c|ubrc|Ubrc|(?:yu|i[eo]|dz|v|p|f)c|TSc|SHc|CHc|Vc|Pc|Mc|Fc)y|(?:(?:wre|jm)at|dalet|a(?:ngs|le)p|imat|[lr]ds)h|[CLRUceglnou]acute|ff?llig|(?:f(?:fi|[ij])|sz|oe|ij|ae|OE|IJ)lig|r(?:a(?:tio|rr|ng)|tri|par|eal)|s[ew]arr|s(?:qc[au]p|mte)|prime|rarrb|i(?:n(?:fin|t)?|sin|t|i|c)|e(?:quiv|m(?:pty|sp)|p(?:si|ar)|cir|l|g)|kappa|isins|ncong|doteq|(?:wedg|sim)e|nsime|rsquo|rdquo|[lr]haru|V(?:dash|ert)|Tilde|lrhar|gamma|Equal|UpTee|n(?:[lr]tri|bump)|C(?:olon|up|ap)|v(?:arpi|ert)|u(?:psih|ml)|vnsu[bp]|r(?:tri[ef]|e(?:als|g)|a(?:rr[cw]|ng[de]|ce)|sh|lm|x)|rhard|sim[gl]E|i(?:sin[Ev]|mage|f[fr]|cy)|harrw|(?:n[gl]|l)eqq|g(?:sim[el]|tcc|e(?:qq|l)|nE|l[Eaj]|gg|ap)|ocirc|starf|utrif|d(?:trif|i(?:ams|e)|ashv|sc[ry]|fr|eg)|[du]har[lr]|T(?:HORN|a[bu])|(?:TRAD|[gl]vn)E|odash|[EUaeu]o(?:gon|pf)|alpha|[IJOUYgjuy]c(?:irc|y)|v(?:arr|ee)|succ|sim[gl]|harr|ln(?:ap|e)|lesg|(?:n[gl]|l)eq|ocir|star|utri|vBar|fork|su[bp]e|nsim|lneq|gneq|csu[bp]|zwn?j|yacy|x(?:opf|i)|scnE|o(?:r(?:d[fm]|v)|mid|lt|hm|gt|fr|cy|S)|scap|rsqb|ropf|ltcc|tsc[ry]|QUOT|[EOUYao]uml|rho|phi|n[GL]t|e[gl]s|ngt|I(?:nt|m)|nis|rfr|rcy|lnE|lEg|ufr|S(?:um|cy)|R(?:sh|ho)|psi|Ps?i|[NRTt]cy|L(?:sh|cy|[Tt])|kcy|Kcy|Hat|REG|[Zdz]cy|wr|lE|wp|Xi|Nu|Mu)(;)',
-      name: 'constant.character-reference.named.html',
+      name: 'constant.language.character-reference.named.html',
       captures: {
         1: {
           name: 'punctuation.definition.character-reference.begin.html'
@@ -2069,7 +2069,7 @@ const grammar = {
     'whatwg-html-data-character-reference-named-unterminated': {
       match:
         '(&)(frac(?:34|1[24])|(?:plusm|thor|ye)n|(?:middo|iques|sec|quo|no|g)t|c(?:urren|opy|ent)|brvbar|oslash|Oslash|(?:ccedi|Ccedi|iexc|cedi|um)l|(?:(?:divi|[NOano]til)d|[EIOUaeiou]grav)e|[EIOUYaeiouy]acute|A(?:(?:tild|grav)e|acute|circ|ring|Elig|uml|MP)|times|p(?:ound|ara)|micro|raquo|l(?:aquo|t)|THORN|acirc|[EIOUeiou]circ|acute|(?:arin|[dr]e)g|(?:sz|ae)lig|sup[1-3]|ord[fm]|macr|nbsp|(?:QUO|[GL])T|COPY|[EIOUaeiouy]uml|shy|amp|REG|eth|ETH)',
-      name: 'constant.character-reference.named.html',
+      name: 'constant.language.character-reference.named.html',
       captures: {
         1: {
           name: 'punctuation.definition.character-reference.begin.html'
@@ -2081,7 +2081,7 @@ const grammar = {
     },
     'whatwg-html-data-character-reference-numeric-hexadecimal': {
       match: '(&)(#)([Xx])([A-Fa-f0-9]*)(;)?',
-      name: 'constant.character-reference.numeric.hexadecimal.html',
+      name: 'constant.language.character-reference.numeric.hexadecimal.html',
       captures: {
         1: {
           name: 'punctuation.definition.character-reference.begin.html'
@@ -2102,7 +2102,7 @@ const grammar = {
     },
     'whatwg-html-data-character-reference-numeric-decimal': {
       match: '(&)(#)([0-9]*)(;)?',
-      name: 'constant.character-reference.numeric.decimal.html',
+      name: 'constant.language.character-reference.numeric.decimal.html',
       captures: {
         1: {
           name: 'punctuation.definition.character-reference.begin.html'
@@ -2332,7 +2332,7 @@ const grammar = {
           name: 'punctuation.separator.key-value.html.md'
         },
         3: {
-          name: 'punctuation.definition.string.begin.html.md'
+          name: 'string.other.begin.html.md'
         },
         4: {
           name: 'string.quoted.double.html.md',
@@ -2346,10 +2346,10 @@ const grammar = {
           ]
         },
         5: {
-          name: 'punctuation.definition.string.begin.html.md'
+          name: 'string.other.end.html.md'
         },
         6: {
-          name: 'punctuation.definition.string.begin.html.md'
+          name: 'string.other.begin.html.md'
         },
         7: {
           name: 'string.quoted.single.html.md',
@@ -2363,7 +2363,7 @@ const grammar = {
           ]
         },
         8: {
-          name: 'punctuation.definition.string.begin.html.md'
+          name: 'string.other.end.html.md'
         },
         9: {
           name: 'string.unquoted.html.md',
@@ -2389,7 +2389,7 @@ const grammar = {
           name: 'punctuation.separator.key-value.html.md'
         },
         3: {
-          name: 'punctuation.definition.string.begin.html.md'
+          name: 'string.other.begin.html.md'
         },
         4: {
           name: 'string.quoted.double.html.md',
@@ -2403,10 +2403,10 @@ const grammar = {
           ]
         },
         5: {
-          name: 'punctuation.definition.string.begin.html.md'
+          name: 'string.other.end.html.md'
         },
         6: {
-          name: 'punctuation.definition.string.begin.html.md'
+          name: 'string.other.begin.html.md'
         },
         7: {
           name: 'string.quoted.single.html.md',
@@ -2420,7 +2420,7 @@ const grammar = {
           ]
         },
         8: {
-          name: 'punctuation.definition.string.begin.html.md'
+          name: 'string.other.end.html.md'
         },
         9: {
           name: 'string.unquoted.html.md',
@@ -2446,7 +2446,7 @@ const grammar = {
           name: 'punctuation.separator.key-value.html.md'
         },
         3: {
-          name: 'punctuation.definition.string.begin.html.md'
+          name: 'string.other.begin.html.md'
         },
         4: {
           name: 'string.quoted.double.html.md',
@@ -2457,10 +2457,10 @@ const grammar = {
           ]
         },
         5: {
-          name: 'punctuation.definition.string.begin.html.md'
+          name: 'string.other.end.html.md'
         },
         6: {
-          name: 'punctuation.definition.string.begin.html.md'
+          name: 'string.other.begin.html.md'
         },
         7: {
           name: 'string.quoted.single.html.md',
@@ -2471,7 +2471,7 @@ const grammar = {
           ]
         },
         8: {
-          name: 'punctuation.definition.string.begin.html.md'
+          name: 'string.other.end.html.md'
         },
         9: {
           name: 'string.unquoted.html.md',
@@ -2494,7 +2494,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:dtrace|dtrace\\x2dscript|oncrpc|rpc|rpcgen|unified\\x2dparallel\\x2dc|x\\x2dbitmap|x\\x2dpixmap|xdr|\\.?(?:c|cats|cl|d|h|idc|opencl|pm|upc|x|xbm|xpm|xs)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2504,7 +2504,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.c.md',
@@ -2519,7 +2519,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:dtrace|dtrace\\x2dscript|oncrpc|rpc|rpcgen|unified\\x2dparallel\\x2dc|x\\x2dbitmap|x\\x2dpixmap|xdr|\\.?(?:c|cats|cl|d|h|idc|opencl|pm|upc|x|xbm|xpm|xs)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2529,7 +2529,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.c.md',
@@ -2548,7 +2548,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:ags|ags\\x2dscript|asymptote|c\\+\\+|edje\\x2ddata\\x2dcollection|game\\x2dmaker\\x2dlanguage|swig|\\.?(?:asc|ash|asy|c\\+\\+|cc|cp|cpp|cppm|cxx|edc|gml|h|h\\+\\+|hh|hpp|hxx|i|inc|inl|ino|ipp|ixx|metal|re|tcc|tpp)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2558,7 +2558,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.cpp.md',
@@ -2576,7 +2576,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:ags|ags\\x2dscript|asymptote|c\\+\\+|edje\\x2ddata\\x2dcollection|game\\x2dmaker\\x2dlanguage|swig|\\.?(?:asc|ash|asy|c\\+\\+|cc|cp|cpp|cppm|cxx|edc|gml|h|h\\+\\+|hh|hpp|hxx|i|inc|inl|ino|ipp|ixx|metal|re|tcc|tpp)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2586,7 +2586,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.cpp.md',
@@ -2608,7 +2608,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:beef|c#|cakescript|csharp|\\.?(?:bf|cake|cs|csx|eq|linq|uno)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2618,7 +2618,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.cs.md',
@@ -2633,7 +2633,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:beef|c#|cakescript|csharp|\\.?(?:bf|cake|cs|csx|eq|linq|uno)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2643,7 +2643,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.cs.md',
@@ -2662,7 +2662,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?css))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2672,7 +2672,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.css.md',
@@ -2687,7 +2687,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?css))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2697,7 +2697,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.css.md',
@@ -2716,7 +2716,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:udiff|\\.?(?:diff|patch)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2726,7 +2726,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.diff.md',
@@ -2741,7 +2741,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:udiff|\\.?(?:diff|patch)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2751,7 +2751,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.diff.md',
@@ -2770,7 +2770,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:golang|\\.?go))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2780,7 +2780,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.go.md',
@@ -2795,7 +2795,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:golang|\\.?go))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2805,7 +2805,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.go.md',
@@ -2824,7 +2824,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?(?:gql|graphql|graphqls)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2834,7 +2834,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.graphql.md',
@@ -2849,7 +2849,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?(?:gql|graphql|graphqls)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2859,7 +2859,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.graphql.md',
@@ -2878,7 +2878,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?(?:hta|htm|html|html\\.hl|inc|kit|mtml|xht|xhtml)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2888,7 +2888,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.html.md',
@@ -2903,7 +2903,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?(?:hta|htm|html|html\\.hl|inc|kit|mtml|xht|xhtml)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2913,7 +2913,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.html.md',
@@ -2932,7 +2932,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:altium|altium\\x2ddesigner|dosini|\\.?(?:cfg|cnf|dof|ini|lektorproject|outjob|pcbdoc|prefs|prjpcb|pro|properties|schdoc|url)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2942,7 +2942,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.ini.md',
@@ -2957,7 +2957,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:altium|altium\\x2ddesigner|dosini|\\.?(?:cfg|cnf|dof|ini|lektorproject|outjob|pcbdoc|prefs|prjpcb|pro|properties|schdoc|url)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2967,7 +2967,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.ini.md',
@@ -2986,7 +2986,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:apex|chuck|unrealscript|\\.?(?:ck|cls|jav|java|jsh|uc)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -2996,7 +2996,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.java.md',
@@ -3011,7 +3011,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:apex|chuck|unrealscript|\\.?(?:ck|cls|jav|java|jsh|uc)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3021,7 +3021,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.java.md',
@@ -3040,7 +3040,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:cycript|javascript\\+erb|json\\x2dwith\\x2dcomments|node|qt\\x2dscript|\\.?(?:_js|bones|cjs|code\\x2dsnippets|cy|es|es6|frag|gs|jake|javascript|js|js\\.erb|jsb|jscad|jsfl|jslib|jsm|json5|jsonc|jsonld|jspre|jss|jsx|mjs|njs|pac|qs|sjs|ssjs|sublime\\x2dbuild|sublime\\x2dcommands|sublime\\x2dcompletions|sublime\\x2dkeymap|sublime\\x2dmacro|sublime\\x2dmenu|sublime\\x2dmousemap|sublime\\x2dproject|sublime\\x2dsettings|sublime\\x2dtheme|sublime\\x2dworkspace|sublime_metrics|sublime_session|xsjs|xsjslib)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3050,7 +3050,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.js.md',
@@ -3065,7 +3065,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:cycript|javascript\\+erb|json\\x2dwith\\x2dcomments|node|qt\\x2dscript|\\.?(?:_js|bones|cjs|code\\x2dsnippets|cy|es|es6|frag|gs|jake|javascript|js|js\\.erb|jsb|jscad|jsfl|jslib|jsm|json5|jsonc|jsonld|jspre|jss|jsx|mjs|njs|pac|qs|sjs|ssjs|sublime\\x2dbuild|sublime\\x2dcommands|sublime\\x2dcompletions|sublime\\x2dkeymap|sublime\\x2dmacro|sublime\\x2dmenu|sublime\\x2dmousemap|sublime\\x2dproject|sublime\\x2dsettings|sublime\\x2dtheme|sublime\\x2dworkspace|sublime_metrics|sublime_session|xsjs|xsjslib)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3075,7 +3075,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.js.md',
@@ -3094,7 +3094,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:ecere\\x2dprojects|ipython\\x2dnotebook|jupyter\\x2dnotebook|max|max/msp|maxmsp|oasv2\\x2djson|oasv3\\x2djson|\\.?(?:4dform|4dproject|avsc|epj|geojson|gltf|har|ice|ipynb|json|json|json|json\\x2dtmlanguage|jsonl|maxhelp|maxpat|maxproj|mcmeta|mxt|pat|tfstate|tfstate\\.backup|topojson|webapp|webmanifest|yy|yyp)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3104,7 +3104,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.json.md',
@@ -3119,7 +3119,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:ecere\\x2dprojects|ipython\\x2dnotebook|jupyter\\x2dnotebook|max|max/msp|maxmsp|oasv2\\x2djson|oasv3\\x2djson|\\.?(?:4dform|4dproject|avsc|epj|geojson|gltf|har|ice|ipynb|json|json|json|json\\x2dtmlanguage|jsonl|maxhelp|maxpat|maxproj|mcmeta|mxt|pat|tfstate|tfstate\\.backup|topojson|webapp|webmanifest|yy|yyp)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3129,7 +3129,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.json.md',
@@ -3148,7 +3148,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:kotlin|\\.?(?:kt|ktm|kts)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3158,7 +3158,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.kotlin.md',
@@ -3173,7 +3173,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:kotlin|\\.?(?:kt|ktm|kts)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3183,7 +3183,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.kotlin.md',
@@ -3202,7 +3202,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:less\\x2dcss|\\.?less))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3212,7 +3212,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.less.md',
@@ -3227,7 +3227,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:less\\x2dcss|\\.?less))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3237,7 +3237,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.less.md',
@@ -3256,7 +3256,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?(?:fcgi|lua|nse|p8|pd_lua|rbxs|rockspec|wlua)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3266,7 +3266,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.lua.md',
@@ -3281,7 +3281,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?(?:fcgi|lua|nse|p8|pd_lua|rbxs|rockspec|wlua)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3291,7 +3291,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.lua.md',
@@ -3310,7 +3310,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:bsdmake|mf|\\.?(?:d|mak|make|makefile|mk|mkfile)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3320,7 +3320,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.makefile.md',
@@ -3335,7 +3335,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:bsdmake|mf|\\.?(?:d|mak|make|makefile|mk|mkfile)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3345,7 +3345,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.makefile.md',
@@ -3364,7 +3364,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:pandoc|rmarkdown|\\.?(?:livemd|markdown|md|mdown|mdwn|mkd|mkdn|mkdown|qmd|rmd|ronn|scd|workbook)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3374,7 +3374,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.md.md',
@@ -3395,7 +3395,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:pandoc|rmarkdown|\\.?(?:livemd|markdown|md|mdown|mdwn|mkd|mkdn|mkdown|qmd|rmd|ronn|scd|workbook)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3405,7 +3405,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.md.md',
@@ -3430,7 +3430,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?mdx))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3440,7 +3440,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.mdx.md',
@@ -3455,7 +3455,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?mdx))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3465,7 +3465,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.mdx.md',
@@ -3484,7 +3484,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:obj\\x2dc|objc|objective\\x2dc|objectivec|\\.?(?:h|m)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3494,7 +3494,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.objc.md',
@@ -3509,7 +3509,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:obj\\x2dc|objc|objective\\x2dc|objectivec|\\.?(?:h|m)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3519,7 +3519,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.objc.md',
@@ -3538,7 +3538,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:cperl|\\.?(?:al|cgi|fcgi|perl|ph|pl|plx|pm|psgi|t)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3548,7 +3548,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.perl.md',
@@ -3563,7 +3563,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:cperl|\\.?(?:al|cgi|fcgi|perl|ph|pl|plx|pm|psgi|t)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3573,7 +3573,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.perl.md',
@@ -3592,7 +3592,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:html\\+php|\\.?(?:aw|ctp|fcgi|inc|php|php3|php4|php5|phps|phpt|phtml)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3602,7 +3602,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.php.md',
@@ -3617,7 +3617,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:html\\+php|\\.?(?:aw|ctp|fcgi|inc|php|php3|php4|php5|phps|phpt|phtml)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3627,7 +3627,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.php.md',
@@ -3646,7 +3646,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:bazel|easybuild|python|python3|rusthon|snakemake|starlark|xonsh|\\.?(?:bzl|cgi|eb|fcgi|gyp|gypi|lmi|py|py3|pyde|pyi|pyp|pyt|pyw|rpy|sage|sagews|smk|snakefile|spec|star|tac|wsgi|xpy|xsh)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3656,7 +3656,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.python.md',
@@ -3671,7 +3671,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:bazel|easybuild|python|python3|rusthon|snakemake|starlark|xonsh|\\.?(?:bzl|cgi|eb|fcgi|gyp|gypi|lmi|py|py3|pyde|pyi|pyp|pyt|pyw|rpy|sage|sagews|smk|snakefile|spec|star|tac|wsgi|xpy|xsh)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3681,7 +3681,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.python.md',
@@ -3700,7 +3700,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:rscript|splus|\\.?(?:r|rd|rsx)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3710,7 +3710,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.r.md',
@@ -3725,7 +3725,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:rscript|splus|\\.?(?:r|rd|rsx)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3735,7 +3735,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.r.md',
@@ -3754,7 +3754,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:jruby|macruby|\\.?(?:builder|druby|duby|eye|fcgi|gemspec|god|jbuilder|mirah|mspec|pluginspec|podspec|prawn|rabl|rake|rb|rbi|rbuild|rbw|rbx|ru|ruby|spec|thor|watchr)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3764,7 +3764,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.ruby.md',
@@ -3779,7 +3779,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:jruby|macruby|\\.?(?:builder|druby|duby|eye|fcgi|gemspec|god|jbuilder|mirah|mspec|pluginspec|podspec|prawn|rabl|rake|rb|rbi|rbuild|rbw|rbx|ru|ruby|spec|thor|watchr)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3789,7 +3789,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.ruby.md',
@@ -3808,7 +3808,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:rust|\\.?(?:rs|rs\\.in)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3818,7 +3818,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.rust.md',
@@ -3833,7 +3833,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:rust|\\.?(?:rs|rs\\.in)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3843,7 +3843,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.rust.md',
@@ -3862,7 +3862,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?scss))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3872,7 +3872,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.scss.md',
@@ -3887,7 +3887,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?scss))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3897,7 +3897,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.scss.md',
@@ -3916,7 +3916,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:abuild|alpine\\x2dabuild|apkbuild|gentoo\\x2debuild|gentoo\\x2declass|openrc|openrc\\x2drunscript|shell|shell\\x2dscript|\\.?(?:bash|bats|cgi|command|csh|ebuild|eclass|fcgi|ksh|sh|sh\\.in|tcsh|tmux|tool|zsh|zsh\\x2dtheme)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3926,7 +3926,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.shell.md',
@@ -3941,7 +3941,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:abuild|alpine\\x2dabuild|apkbuild|gentoo\\x2debuild|gentoo\\x2declass|openrc|openrc\\x2drunscript|shell|shell\\x2dscript|\\.?(?:bash|bats|cgi|command|csh|ebuild|eclass|fcgi|ksh|sh|sh\\.in|tcsh|tmux|tool|zsh|zsh\\x2dtheme)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3951,7 +3951,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.shell.md',
@@ -3970,7 +3970,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:plpgsql|sqlpl|\\.?(?:cql|db2|ddl|inc|mysql|pgsql|prc|sql|sql|sql|tab|udf|viw)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -3980,7 +3980,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.sql.md',
@@ -3995,7 +3995,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:plpgsql|sqlpl|\\.?(?:cql|db2|ddl|inc|mysql|pgsql|prc|sql|sql|sql|tab|udf|viw)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4005,7 +4005,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.sql.md',
@@ -4024,7 +4024,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?svg))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4034,7 +4034,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.svg.md',
@@ -4052,7 +4052,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?svg))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4062,7 +4062,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.svg.md',
@@ -4084,7 +4084,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?swift))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4094,7 +4094,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.swift.md',
@@ -4109,7 +4109,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?swift))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4119,7 +4119,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.swift.md',
@@ -4138,7 +4138,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?toml))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4148,7 +4148,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.toml.md',
@@ -4163,7 +4163,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?toml))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4173,7 +4173,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.toml.md',
@@ -4192,7 +4192,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:typescript|\\.?(?:cts|mts|ts)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4202,7 +4202,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.ts.md',
@@ -4217,7 +4217,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:typescript|\\.?(?:cts|mts|ts)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4227,7 +4227,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.ts.md',
@@ -4246,7 +4246,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?tsx))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4256,7 +4256,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.tsx.md',
@@ -4271,7 +4271,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?tsx))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4281,7 +4281,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.tsx.md',
@@ -4300,7 +4300,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:classic\\x2dvisual\\x2dbasic|fb|freebasic|realbasic|vb\\x2d\\.net|vb\\x2d6|vb\\.net|vb6|vbnet|vbscript|visual\\x2dbasic|visual\\x2dbasic\\x2d\\.net|visual\\x2dbasic\\x2d6|visual\\x2dbasic\\x2d6\\.0|visual\\x2dbasic\\x2dclassic|visual\\x2dbasic\\x2dfor\\x2dapplications|\\.?(?:bas|bas|bi|cls|cls|ctl|dsr|frm|frm|rbbas|rbfrm|rbmnu|rbres|rbtbar|rbuistate|vb|vba|vbhtml|vbs)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4310,7 +4310,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.vbnet.md',
@@ -4325,7 +4325,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:classic\\x2dvisual\\x2dbasic|fb|freebasic|realbasic|vb\\x2d\\.net|vb\\x2d6|vb\\.net|vb6|vbnet|vbscript|visual\\x2dbasic|visual\\x2dbasic\\x2d\\.net|visual\\x2dbasic\\x2d6|visual\\x2dbasic\\x2d6\\.0|visual\\x2dbasic\\x2dclassic|visual\\x2dbasic\\x2dfor\\x2dapplications|\\.?(?:bas|bas|bi|cls|cls|ctl|dsr|frm|frm|rbbas|rbfrm|rbmnu|rbres|rbtbar|rbuistate|vb|vba|vbhtml|vbs)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4335,7 +4335,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.vbnet.md',
@@ -4354,7 +4354,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:collada|eagle|labview|web\\x2dontology\\x2dlanguage|xpages|\\.?(?:adml|admx|ant|axaml|axml|brd|builds|ccproj|ccxml|clixml|cproject|cscfg|csdef|csl|csproj|ct|dae|depproj|dita|ditamap|ditaval|dll\\.config|dotsettings|filters|fsproj|fxml|glade|gml|gmx|grxml|gst|hzp|iml|ivy|jelly|jsproj|kml|launch|lvclass|lvlib|lvproj|mdpolicy|mjml|mm|mod|mxml|natvis|ncl|ndproj|nproj|nuspec|odd|osm|owl|pkgproj|pluginspec|proj|props|ps1xml|psc1|pt|qhelp|rdf|res|resx|rs|rss|sch|sch|scxml|sfproj|shproj|srdf|storyboard|sublime\\x2dsnippet|sw|targets|tml|ts|ui|urdf|ux|vbproj|vcxproj|vsixmanifest|vssettings|vstemplate|vxml|wixproj|workflow|wsdl|wsf|wxi|wxl|wxs|x3d|xacro|xaml|xib|xlf|xliff|xmi|xml|xml\\.dist|xmp|xpl|xproc|xproj|xsd|xsp\\x2dconfig|xsp\\.metadata|xspec|xul|zcml)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4364,7 +4364,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.xml.md',
@@ -4379,7 +4379,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:collada|eagle|labview|web\\x2dontology\\x2dlanguage|xpages|\\.?(?:adml|admx|ant|axaml|axml|brd|builds|ccproj|ccxml|clixml|cproject|cscfg|csdef|csl|csproj|ct|dae|depproj|dita|ditamap|ditaval|dll\\.config|dotsettings|filters|fsproj|fxml|glade|gml|gmx|grxml|gst|hzp|iml|ivy|jelly|jsproj|kml|launch|lvclass|lvlib|lvproj|mdpolicy|mjml|mm|mod|mxml|natvis|ncl|ndproj|nproj|nuspec|odd|osm|owl|pkgproj|pluginspec|proj|props|ps1xml|psc1|pt|qhelp|rdf|res|resx|rs|rss|sch|sch|scxml|sfproj|shproj|srdf|storyboard|sublime\\x2dsnippet|sw|targets|tml|ts|ui|urdf|ux|vbproj|vcxproj|vsixmanifest|vssettings|vstemplate|vxml|wixproj|workflow|wsdl|wsf|wxi|wxl|wxs|x3d|xacro|xaml|xib|xlf|xliff|xmi|xml|xml\\.dist|xmp|xpl|xproc|xproj|xsd|xsp\\x2dconfig|xsp\\.metadata|xspec|xul|zcml)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4389,7 +4389,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.xml.md',
@@ -4408,7 +4408,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:jar\\x2dmanifest|kaitai\\x2dstruct|oasv2\\x2dyaml|oasv3\\x2dyaml|unity3d\\x2dasset|\\.?(?:anim|asset|ksy|lookml|mask|mat|meta|mir|model\\.lkml|prefab|raml|reek|rviz|sublime\\x2dsyntax|syntax|unity|view\\.lkml|yaml|yaml|yaml|yaml\\x2dtmlanguage|yaml\\.sed|yml|yml|yml|yml\\.mysql)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4418,7 +4418,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.yaml.md',
@@ -4433,7 +4433,7 @@ const grammar = {
             '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:jar\\x2dmanifest|kaitai\\x2dstruct|oasv2\\x2dyaml|oasv3\\x2dyaml|unity3d\\x2dasset|\\.?(?:anim|asset|ksy|lookml|mask|mat|meta|mir|model\\.lkml|prefab|raml|reek|rviz|sublime\\x2dsyntax|syntax|unity|view\\.lkml|yaml|yaml|yaml|yaml\\x2dtmlanguage|yaml\\.sed|yml|yml|yml|yml\\.mysql)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
+              name: 'string.other.begin.code.fenced.md'
             },
             2: {
               name: 'entity.name.function.md'
@@ -4443,7 +4443,7 @@ const grammar = {
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
+              name: 'string.other.end.code.fenced.md'
             }
           },
           name: 'markup.code.yaml.md',

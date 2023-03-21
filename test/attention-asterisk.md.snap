@@ -3,17 +3,17 @@
 >
 >ax*xb
 #^^ source.md meta.paragraph.md
-#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#  ^ source.md meta.paragraph.md string.other.emphasis.asterisk.md
 #   ^^^ source.md meta.paragraph.md
 >
 >ax* b
 #^^ source.md meta.paragraph.md
-#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#  ^ source.md meta.paragraph.md string.other.emphasis.asterisk.md
 #   ^^^ source.md meta.paragraph.md
 >
 >ax*.b
 #^^ source.md meta.paragraph.md
-#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#  ^ source.md meta.paragraph.md string.other.emphasis.asterisk.md
 #   ^^^ source.md meta.paragraph.md
 >
 >Left whitespace:
@@ -21,7 +21,7 @@
 >
 >a *xb
 #^^ source.md meta.paragraph.md
-#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#  ^ source.md meta.paragraph.md string.other.emphasis.asterisk.md
 #   ^^^ source.md meta.paragraph.md
 >
 >a * b
@@ -29,7 +29,7 @@
 >
 >a *.b
 #^^ source.md meta.paragraph.md
-#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#  ^ source.md meta.paragraph.md string.other.emphasis.asterisk.md
 #   ^^^ source.md meta.paragraph.md
 >
 >Left punc:
@@ -37,16 +37,16 @@
 >
 >a.*xb
 #^^ source.md meta.paragraph.md
-#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#  ^ source.md meta.paragraph.md string.other.emphasis.asterisk.md
 #   ^^^ source.md meta.paragraph.md
 >
 >a.* b
 #^^ source.md meta.paragraph.md
-#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#  ^ source.md meta.paragraph.md string.other.emphasis.asterisk.md
 #   ^^^ source.md meta.paragraph.md
 >
 >a.*.b
 #^^ source.md meta.paragraph.md
-#  ^ source.md meta.paragraph.md punctuation.definition.string.emphasis.asterisk.md
+#  ^ source.md meta.paragraph.md string.other.emphasis.asterisk.md
 #   ^^^ source.md meta.paragraph.md
 >

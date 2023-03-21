@@ -264,20 +264,20 @@ repository:
       - match: (<)(var(char_atext)+@var(email_domain))(>)
         captures:
           1:
-            name: punctuation.definition.string.begin.autolink.var(suffix)
+            name: string.other.begin.autolink.var(suffix)
           2:
             name: string.other.link.autolink.email.var(suffix)
           3:
-            name: punctuation.definition.string.end.autolink.var(suffix)
+            name: string.other.end.autolink.var(suffix)
       # Protocol.
       - match: (<)(var(protocol):[^\p{Cc}\ ]*?)(>)
         captures:
           1:
-            name: punctuation.definition.string.begin.autolink.var(suffix)
+            name: string.other.begin.autolink.var(suffix)
           2:
             name: string.other.link.autolink.protocol.var(suffix)
           3:
-            name: punctuation.definition.string.end.autolink.var(suffix)
+            name: string.other.end.autolink.var(suffix)
   commonmark-attention:
     # Attention (strong, importance, emphasis, bold, italics).
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/attention.rs>.
@@ -294,19 +294,19 @@ repository:
       #
       # 3 or more is both strong and emphasis:
       - match: (?<=\S)\*{3,}|\*{3,}(?=\S)
-        name: punctuation.definition.string.strong.emphasis.asterisk.var(suffix)
+        name: string.other.strong.emphasis.asterisk.var(suffix)
       - match: (?<=[\p{L}\p{N}])_{3,}(?![\p{L}\p{N}])|(?<=\p{P})_{3,}|(?<![\p{L}\p{N}]|\p{P})_{3,}(?!\s)
-        name: punctuation.definition.string.strong.emphasis.underscore.var(suffix)
+        name: string.other.strong.emphasis.underscore.var(suffix)
       # 2 is strong
       - match: (?<=\S)\*{2}|\*{2}(?=\S)
-        name: punctuation.definition.string.strong.asterisk.var(suffix)
+        name: string.other.strong.asterisk.var(suffix)
       - match: (?<=[\p{L}\p{N}])_{2}(?![\p{L}\p{N}])|(?<=\p{P})_{2}|(?<![\p{L}\p{N}]|\p{P})_{2}(?!\s)
-        name: punctuation.definition.string.strong.underscore.var(suffix)
+        name: string.other.strong.underscore.var(suffix)
       # 1 is emphasis
       - match: (?<=\S)\*|\*(?=\S)
-        name: punctuation.definition.string.emphasis.asterisk.var(suffix)
+        name: string.other.emphasis.asterisk.var(suffix)
       - match: (?<=[\p{L}\p{N}])_(?![\p{L}\p{N}])|(?<=\p{P})_|(?<![\p{L}\p{N}]|\p{P})_(?!\s)
-        name: punctuation.definition.string.emphasis.underscore.var(suffix)
+        name: string.other.emphasis.underscore.var(suffix)
   commonmark-block-quote:
     begin: var(before)(>)[ ]?
     beginCaptures:
@@ -327,7 +327,7 @@ repository:
     # Character escape.
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/character_escape.rs>.
     match: \\var(char_punctuation)
-    name: support.constant.character.escape.var(suffix)
+    name: constant.language.character-escape.var(suffix)
   commonmark-character-reference:
     # Character reference.
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/character_reference.rs>.
@@ -348,7 +348,7 @@ repository:
       - include: '#whatwg-html-data-character-reference-named-terminated'
       # Hexadecimal:
       - match: (&)(#)([Xx])([0-9A-Fa-f]{1,6})(;)
-        name: constant.character-reference.numeric.hexadecimal.html
+        name: constant.language.character-reference.numeric.hexadecimal.html
         captures:
           1:
             name: punctuation.definition.character-reference.begin.html
@@ -362,7 +362,7 @@ repository:
             name: punctuation.definition.character-reference.end.html
       # Decimal:
       - match: (&)(#)([0-9]{1,7})(;)
-        name: constant.character-reference.numeric.decimal.html
+        name: constant.language.character-reference.numeric.decimal.html
         captures:
           1:
             name: punctuation.definition.character-reference.begin.html
@@ -387,27 +387,27 @@ repository:
       - begin: var(before)(`{3,})(?:[\t ]*(var(char_code_info_tick)+)(?:[\t ]+var(char_code_meta_tick)+)?)?var(after)
         beginCaptures:
           1:
-            name: punctuation.definition.string.begin.code.fenced.var(suffix)
+            name: string.other.begin.code.fenced.var(suffix)
           2:
             name: entity.name.function.var(suffix)
         contentName: markup.raw.code.fenced.var(suffix)
         end: var(before)(\1)var(after)
         endCaptures:
           1:
-            name: punctuation.definition.string.end.code.fenced.var(suffix)
+            name: string.other.end.code.fenced.var(suffix)
         name: markup.code.other.var(suffix)
       # Tilde.
       - begin: var(before)(~{3,})(?:[\t ]*(var(char_code_info_tilde)+)(?:[\t ]+var(char_code_meta_tilde)+)?)?var(after)
         beginCaptures:
           1:
-            name: punctuation.definition.string.begin.code.fenced.var(suffix)
+            name: string.other.begin.code.fenced.var(suffix)
           2:
             name: entity.name.function.var(suffix)
         contentName: markup.raw.code.fenced.var(suffix)
         end: var(before)(\1)var(after)
         endCaptures:
           1:
-            name: punctuation.definition.string.end.code.fenced.var(suffix)
+            name: string.other.end.code.fenced.var(suffix)
         name: markup.code.other.var(suffix)
   commonmark-code-indented:
     if: code-indented
@@ -433,11 +433,11 @@ repository:
     name: markup.code.other.var(suffix)
     captures:
       1:
-        name: punctuation.definition.string.begin.code.var(suffix)
+        name: string.other.begin.code.var(suffix)
       2:
         name: markup.raw.code.text.var(suffix)
       3:
-        name: punctuation.definition.string.end.code.var(suffix)
+        name: string.other.end.code.var(suffix)
   commonmark-definition:
     # Definition.
     # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/definition.rs>.
@@ -447,7 +447,7 @@ repository:
     captures:
       # `[`
       1:
-        name: punctuation.definition.string.start.var(suffix)
+        name: string.other.begin.var(suffix)
       # `id`
       2:
         name: entity.name.identifier.var(suffix)
@@ -455,13 +455,13 @@ repository:
           - include: '#markdown-string'
       # `]`
       3:
-        name: punctuation.definition.string.end.var(suffix)
+        name: string.other.end.var(suffix)
       # `:`
       4:
         name: punctuation.separator.key-value.var(suffix)
       # `<`
       5:
-        name: punctuation.definition.string.begin.destination.var(suffix)
+        name: string.other.begin.destination.var(suffix)
       # `url`
       6:
         name: string.other.link.destination.var(suffix)
@@ -469,7 +469,7 @@ repository:
           - include: '#markdown-string'
       # `>`
       7:
-        name: punctuation.definition.string.end.destination.var(suffix)
+        name: string.other.end.destination.var(suffix)
       # `url`
       8:
         name: string.other.link.destination.var(suffix)
@@ -477,7 +477,7 @@ repository:
           - include: '#markdown-string'
       # `"`
       9:
-        name: punctuation.definition.string.begin.var(suffix)
+        name: string.other.begin.var(suffix)
       # `title`
       10:
         name: string.quoted.double.var(suffix)
@@ -485,10 +485,10 @@ repository:
           - include: '#markdown-string'
       # `"`
       11:
-        name: punctuation.definition.string.begin.var(suffix)
+        name: string.other.end.var(suffix)
       # `'`
       12:
-        name: punctuation.definition.string.begin.var(suffix)
+        name: string.other.begin.var(suffix)
       # `title`
       13:
         name: string.quoted.single.var(suffix)
@@ -496,10 +496,10 @@ repository:
           - include: '#markdown-string'
       # `'`
       14:
-        name: punctuation.definition.string.begin.var(suffix)
+        name: string.other.end.var(suffix)
       # `(`
       15:
-        name: punctuation.definition.string.begin.var(suffix)
+        name: string.other.begin.var(suffix)
       # `title`
       16:
         name: string.quoted.paren.var(suffix)
@@ -507,7 +507,7 @@ repository:
           - include: '#markdown-string'
       # `)`
       17:
-        name: punctuation.definition.string.end.var(suffix)
+        name: string.other.end.var(suffix)
   commonmark-hard-break-escape:
     # Hard break (escape).
     # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/hard_break_escape.rs>.
@@ -515,7 +515,7 @@ repository:
     # Note: this also matches an escape at the end of a paragraph, or the end
     # of a heading, which shouldn’t be highlighted.
     match: \\$
-    name: support.constant.character.escape.line-ending.var(suffix)
+    name: constant.language.character-escape.line-ending.var(suffix)
   commonmark-hard-break-trailing:
     # Hard break (trailing).
     # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/partial_whitespace.rs>.
@@ -523,7 +523,7 @@ repository:
     # Note: this also matches an escape at the end of a paragraph, or the end
     # of a heading, which shouldn’t be highlighted.
     match: ( ){2,}$
-    name: carriage-return support.constant.character.escape.line-ending.var(suffix)
+    name: carriage-return constant.language.character-escape.line-ending.var(suffix)
   commonmark-heading-atx:
     # Heading (ATX).
     # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/heading_atx.rs>.
@@ -750,13 +750,13 @@ repository:
         captures:
           # `]`
           1:
-            name: punctuation.definition.string.end.var(suffix)
+            name: string.other.end.var(suffix)
           # `(`
           2:
-            name: punctuation.definition.string.start.var(suffix)
+            name: string.other.begin.var(suffix)
           # `<`
           3:
-            name: punctuation.definition.string.begin.destination.var(suffix)
+            name: string.other.begin.destination.var(suffix)
           # `url`
           4:
             name: string.other.link.destination.var(suffix)
@@ -764,7 +764,7 @@ repository:
               - include: '#markdown-string'
           # `>`
           5:
-            name: punctuation.definition.string.end.destination.var(suffix)
+            name: string.other.end.destination.var(suffix)
           # `url`
           6:
             name: string.other.link.destination.var(suffix)
@@ -772,7 +772,7 @@ repository:
               - include: '#markdown-string'
           # `"`
           7:
-            name: punctuation.definition.string.begin.var(suffix)
+            name: string.other.begin.var(suffix)
           # `title`
           8:
             name: string.quoted.double.var(suffix)
@@ -780,10 +780,10 @@ repository:
               - include: '#markdown-string'
           # `"`
           9:
-            name: punctuation.definition.string.begin.var(suffix)
+            name: string.other.end.var(suffix)
           # `'`
           10:
-            name: punctuation.definition.string.begin.var(suffix)
+            name: string.other.begin.var(suffix)
           # `title`
           11:
             name: string.quoted.single.var(suffix)
@@ -791,10 +791,10 @@ repository:
               - include: '#markdown-string'
           # `'`
           12:
-            name: punctuation.definition.string.begin.var(suffix)
+            name: string.other.end.var(suffix)
           # `(`
           13:
-            name: punctuation.definition.string.begin.var(suffix)
+            name: string.other.begin.var(suffix)
           # `title`
           14:
             name: string.quoted.paren.var(suffix)
@@ -802,19 +802,19 @@ repository:
               - include: '#markdown-string'
           # `)`
           15:
-            name: punctuation.definition.string.end.var(suffix)
+            name: string.other.end.var(suffix)
           # `)`
           16:
-            name: punctuation.definition.string.end.var(suffix)
+            name: string.other.end.var(suffix)
       # # Link end (reference, full or collapsed)
       - match: (\])(\[)(var(char_label)+?)(\])
         captures:
           # `]`
           1:
-            name: punctuation.definition.string.end.var(suffix)
+            name: string.other.end.var(suffix)
           # `[`
           2:
-            name: punctuation.definition.string.start.var(suffix)
+            name: string.other.begin.var(suffix)
           # `id`
           3:
             name: entity.name.identifier.var(suffix)
@@ -822,12 +822,12 @@ repository:
               - include: '#markdown-string'
           # `]`
           4:
-            name: punctuation.definition.string.end.var(suffix)
+            name: string.other.end.var(suffix)
       # Link end (reference, shortcut)
       - match: (\])
         captures:
           1:
-            name: punctuation.definition.string.end.var(suffix)
+            name: string.other.end.var(suffix)
   commonmark-label-start:
     # Label (start link, start image).
     # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/label_start_link.rs>,
@@ -841,13 +841,13 @@ repository:
       # `a![^ b](c)` -> `<p>a!<a href="c">^ b</a></p>`
       - if: gfm
         match: \!\[(?!\^)
-        name: punctuation.definition.string.begin.image.var(suffix)
+        name: string.other.begin.image.var(suffix)
       - if: '!gfm'
         match: \!\[
-        name: punctuation.definition.string.begin.image.var(suffix)
+        name: string.other.begin.image.var(suffix)
       # Link start (link)
       - match: \[
-        name: punctuation.definition.string.begin.link.var(suffix)
+        name: string.other.begin.link.var(suffix)
   commonmark-list-item:
     patterns:
       # Unordered (`n = 5`):
@@ -1154,23 +1154,23 @@ repository:
     name: meta.tag.${2:/downcase}.var(suffix)
     captures:
       1:
-        name: punctuation.definition.string.begin.directive.var(suffix)
+        name: string.other.begin.directive.var(suffix)
       2:
         name: entity.name.function.var(suffix)
       3:
-        name: punctuation.definition.string.begin.directive.label.var(suffix)
+        name: string.other.begin.directive.label.var(suffix)
       4:
         patterns:
           - include: '#markdown-text'
       5:
-        name: punctuation.definition.string.end.directive.label.var(suffix)
+        name: string.other.end.directive.label.var(suffix)
       6:
-        name: punctuation.definition.string.begin.directive.attributes.var(suffix)
+        name: string.other.begin.directive.attributes.var(suffix)
       7:
         patterns:
           - include: '#extension-directive-attribute'
       8:
-        name: punctuation.definition.string.end.directive.attributes.var(suffix)
+        name: string.other.end.directive.attributes.var(suffix)
   extension-directive-leaf:
     if: directive
     # See <https://github.com/micromark/micromark-extension-directive/blob/b8a6ad4/dev/lib/directive-text.js>
@@ -1178,51 +1178,51 @@ repository:
     name: meta.tag.${2:/downcase}.var(suffix)
     captures:
       1:
-        name: punctuation.definition.string.begin.directive.var(suffix)
+        name: string.other.begin.directive.var(suffix)
       2:
         name: entity.name.function.var(suffix)
       3:
-        name: punctuation.definition.string.begin.directive.label.var(suffix)
+        name: string.other.begin.directive.label.var(suffix)
       4:
         patterns:
           - include: '#markdown-text'
       5:
-        name: punctuation.definition.string.end.directive.label.var(suffix)
+        name: string.other.end.directive.label.var(suffix)
       6:
-        name: punctuation.definition.string.begin.directive.attributes.var(suffix)
+        name: string.other.begin.directive.attributes.var(suffix)
       7:
         patterns:
           - include: '#extension-directive-attribute'
       8:
-        name: punctuation.definition.string.end.directive.attributes.var(suffix)
+        name: string.other.end.directive.attributes.var(suffix)
   extension-directive-container:
     if: directive
     begin: var(before)(:{3,})(var(directive_name))(?:(\[)(\g<directive_label>*)(\]))?(?:(\{)((?:var(directive_attribute)|[\t ])*)(\}))?var(after)(?<directive_label>var(char_directive_label)|\[\g<directive_label>*\]){0}
     beginCaptures:
       1:
-        name: punctuation.definition.string.begin.directive.var(suffix)
+        name: string.other.begin.directive.var(suffix)
       2:
         name: entity.name.function.var(suffix)
       3:
-        name: punctuation.definition.string.begin.directive.label.var(suffix)
+        name: string.other.begin.directive.label.var(suffix)
       4:
         patterns:
           - include: '#markdown-text'
       5:
-        name: punctuation.definition.string.end.directive.label.var(suffix)
+        name: string.other.end.directive.label.var(suffix)
       6:
-        name: punctuation.definition.string.begin.directive.attributes.var(suffix)
+        name: string.other.begin.directive.attributes.var(suffix)
       7:
         patterns:
           - include: '#extension-directive-attribute'
       8:
-        name: punctuation.definition.string.end.directive.attributes.var(suffix)
+        name: string.other.end.directive.attributes.var(suffix)
     patterns:
       - include: '#markdown-sections'
     end: var(before)(\1)var(after)
     endCaptures:
       1:
-        name: punctuation.definition.string.end.directive.var(suffix)
+        name: string.other.end.directive.var(suffix)
   extension-directive-attribute:
     if: directive
     # See <https://github.com/micromark/micromark-extension-directive/blob/b8a6ad4/dev/lib/directive-text.js>
@@ -1233,21 +1233,21 @@ repository:
       2: # `=`
         name: punctuation.separator.key-value.var(suffix)
       3: # `"`
-        name: punctuation.definition.string.begin.var(suffix)
+        name: string.other.begin.var(suffix)
       4: # `value`
         name: string.quoted.double.var(suffix)
         patterns:
           - include: '#whatwg-html-data-character-reference'
       5: # `"`
-        name: punctuation.definition.string.end.var(suffix)
+        name: string.other.end.var(suffix)
       6: # `'`
-        name: punctuation.definition.string.begin.var(suffix)
+        name: string.other.begin.var(suffix)
       7: # `value`
         name: string.quoted.single.var(suffix)
         patterns:
           - include: '#whatwg-html-data-character-reference'
       8: # `'`
-        name: punctuation.definition.string.end.var(suffix)
+        name: string.other.end.var(suffix)
       9: # `value`
         name: string.unquoted.var(suffix)
         patterns:
@@ -1283,30 +1283,30 @@ repository:
     match: (\[)(\^)(var(char_label_footnote)+)(\])
     captures:
       1:
-        name: punctuation.definition.string.begin.link.var(suffix)
+        name: string.other.begin.link.var(suffix)
       2:
-        name: punctuation.definition.string.begin.footnote.var(suffix)
+        name: string.other.begin.footnote.var(suffix)
       3:
         name: entity.name.identifier.var(suffix)
         patterns:
           - include: '#markdown-string'
       4:
-        name: punctuation.definition.string.end.footnote.var(suffix)
+        name: string.other.end.footnote.var(suffix)
   extension-gfm-footnote-definition:
     if: gfm
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/gfm_footnote_definition.rs>.
     begin: var(before)(\[)(\^)(var(char_label_footnote)+)(\])(:)[\t ]*
     beginCaptures:
       1:
-        name: punctuation.definition.string.begin.link.var(suffix)
+        name: string.other.begin.link.var(suffix)
       2:
-        name: punctuation.definition.string.begin.footnote.var(suffix)
+        name: string.other.begin.footnote.var(suffix)
       3:
         name: entity.name.identifier.var(suffix)
         patterns:
           - include: '#markdown-string'
       4:
-        name: punctuation.definition.string.end.footnote.var(suffix)
+        name: string.other.end.footnote.var(suffix)
     patterns:
       - include: '#markdown-sections'
     while: var(blank_line)|var(before_indent)
@@ -1379,14 +1379,14 @@ repository:
       - begin: var(before)(\${2,})[^\n\r\$]*?$
         beginCaptures:
           1:
-            name: punctuation.definition.string.begin.math.flow.var(suffix)
+            name: string.other.begin.math.flow.var(suffix)
           2:
             name: entity.name.function.var(suffix)
         contentName: markup.raw.math.flow.var(suffix)
         end: var(before)(\1)var(after)
         endCaptures:
           1:
-            name: punctuation.definition.string.end.math.flow.var(suffix)
+            name: string.other.end.math.flow.var(suffix)
         name: markup.code.other.var(suffix)
   extension-math-text:
     if: math
@@ -1396,11 +1396,11 @@ repository:
     match: (?<!\$)(\${2,})(?!\$)(.+?)(?<!\$)(\1)(?!\$)
     captures:
       1:
-        name: punctuation.definition.string.begin.math.var(suffix)
+        name: string.other.begin.math.var(suffix)
       2:
         name: markup.raw.math.var(suffix)
       3:
-        name: punctuation.definition.string.end.math.var(suffix)
+        name: string.other.end.math.var(suffix)
   extension-mdx-esm:
     if: mdx
     name: meta.embedded.tsx
@@ -1418,11 +1418,11 @@ repository:
     begin: var(before)(\{)
     beginCaptures:
       1:
-        name: punctuation.definition.string.begin.expression.var(suffix).js
+        name: string.other.begin.expression.var(suffix).js
     end: (\})var(after)
     endCaptures:
       1:
-        name: punctuation.definition.string.begin.expression.var(suffix).js
+        name: string.other.begin.expression.var(suffix).js
     patterns:
       - include: 'source.tsx#expression'
   extension-mdx-expression-text:
@@ -1432,11 +1432,11 @@ repository:
     begin: \{
     beginCaptures:
       0:
-        name: punctuation.definition.string.begin.expression.var(suffix).js
+        name: string.other.begin.expression.var(suffix).js
     end: \}
     endCaptures:
       0:
-        name: punctuation.definition.string.begin.expression.var(suffix).js
+        name: string.other.begin.expression.var(suffix).js
     patterns:
       - include: 'source.tsx#expression'
   extension-mdx-jsx-flow:
@@ -1515,10 +1515,10 @@ repository:
     end: ^\+{3}$
     beginCaptures:
       0:
-        name: punctuation.definition.string.start.toml
+        name: string.other.begin.toml
     endCaptures:
       0:
-        name: punctuation.definition.string.end.toml
+        name: string.other.end.toml
     contentName: meta.embedded.toml
     patterns:
       - include: source.toml
@@ -1530,10 +1530,10 @@ repository:
     end: ^-{3}$
     beginCaptures:
       0:
-        name: punctuation.definition.string.start.yaml
+        name: string.other.begin.yaml
     endCaptures:
       0:
-        name: punctuation.definition.string.end.yaml
+        name: string.other.end.yaml
     contentName: meta.embedded.yaml
     patterns:
       - include: source.yaml
@@ -1563,7 +1563,7 @@ repository:
     # Note: this grammar is reused in `commonmark-character-reference`, it
     # can’t be removed if html/directives are turned off.
     match: (&)(var(character_reference_name_terminated))(;)
-    name: constant.character-reference.named.html
+    name: constant.language.character-reference.named.html
     captures:
       1:
         name: punctuation.definition.character-reference.begin.html
@@ -1576,7 +1576,7 @@ repository:
       - directive
       - html
     match: (&)(var(character_reference_name_unterminated))
-    name: constant.character-reference.named.html
+    name: constant.language.character-reference.named.html
     captures:
       1:
         name: punctuation.definition.character-reference.begin.html
@@ -1587,7 +1587,7 @@ repository:
       - directive
       - html
     match: (&)(#)([Xx])([A-Fa-f0-9]*)(;)?
-    name: constant.character-reference.numeric.hexadecimal.html
+    name: constant.language.character-reference.numeric.hexadecimal.html
     captures:
       1:
         name: punctuation.definition.character-reference.begin.html
@@ -1604,7 +1604,7 @@ repository:
       - directive
       - html
     match: (&)(#)([0-9]*)(;)?
-    name: constant.character-reference.numeric.decimal.html
+    name: constant.language.character-reference.numeric.decimal.html
     captures:
       1:
         name: punctuation.definition.character-reference.begin.html
@@ -1768,7 +1768,7 @@ repository:
         name: punctuation.separator.key-value.html.var(suffix)
       # `"`
       3:
-        name: punctuation.definition.string.begin.html.var(suffix)
+        name: string.other.begin.html.var(suffix)
       # `value`
       4:
         name: string.quoted.double.html.var(suffix)
@@ -1777,10 +1777,10 @@ repository:
           - include: source.js
       # `"`
       5:
-        name: punctuation.definition.string.begin.html.var(suffix)
+        name: string.other.end.html.var(suffix)
       # `'`
       6:
-        name: punctuation.definition.string.begin.html.var(suffix)
+        name: string.other.begin.html.var(suffix)
       # `value`
       7:
         name: string.quoted.single.html.var(suffix)
@@ -1789,7 +1789,7 @@ repository:
           - include: source.js
       # `'`
       8:
-        name: punctuation.definition.string.begin.html.var(suffix)
+        name: string.other.end.html.var(suffix)
       # `value`
       9:
         name: string.unquoted.html.var(suffix)
@@ -1808,7 +1808,7 @@ repository:
         name: punctuation.separator.key-value.html.var(suffix)
       # `"`
       3:
-        name: punctuation.definition.string.begin.html.var(suffix)
+        name: string.other.begin.html.var(suffix)
       # `value`
       4:
         name: string.quoted.double.html.var(suffix)
@@ -1820,10 +1820,10 @@ repository:
             include: source.css#rule-list-innards
       # `"`
       5:
-        name: punctuation.definition.string.begin.html.var(suffix)
+        name: string.other.end.html.var(suffix)
       # `'`
       6:
-        name: punctuation.definition.string.begin.html.var(suffix)
+        name: string.other.begin.html.var(suffix)
       # `value`
       7:
         name: string.quoted.single.html.var(suffix)
@@ -1832,7 +1832,7 @@ repository:
           - include: source.css#rule-list-innards
       # `'`
       8:
-        name: punctuation.definition.string.begin.html.var(suffix)
+        name: string.other.end.html.var(suffix)
       # `value`
       9:
         name: string.unquoted.html.var(suffix)
@@ -1851,7 +1851,7 @@ repository:
         name: punctuation.separator.key-value.html.var(suffix)
       # `"`
       3:
-        name: punctuation.definition.string.begin.html.var(suffix)
+        name: string.other.begin.html.var(suffix)
       # `value`
       4:
         name: string.quoted.double.html.var(suffix)
@@ -1859,10 +1859,10 @@ repository:
           - include: '#whatwg-html-data-character-reference'
       # `"`
       5:
-        name: punctuation.definition.string.begin.html.var(suffix)
+        name: string.other.end.html.var(suffix)
       # `'`
       6:
-        name: punctuation.definition.string.begin.html.var(suffix)
+        name: string.other.begin.html.var(suffix)
       # `value`
       7:
         name: string.quoted.single.html.var(suffix)
@@ -1870,7 +1870,7 @@ repository:
           - include: '#whatwg-html-data-character-reference'
       # `'`
       8:
-        name: punctuation.definition.string.begin.html.var(suffix)
+        name: string.other.end.html.var(suffix)
       # `value`
       9:
         name: string.unquoted.html.var(suffix)
