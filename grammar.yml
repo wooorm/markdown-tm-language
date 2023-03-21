@@ -1403,6 +1403,7 @@ repository:
         name: punctuation.definition.string.end.math.var(suffix)
   extension-mdx-esm:
     if: mdx
+    name: meta.embedded.tsx
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/mdx_esm.rs>.
     # Intentional that there’s no whitespace before keyword.
     begin: (?:^|\G)(?=(?i:export|import)[ ])
@@ -1412,6 +1413,7 @@ repository:
       - include: 'source.tsx#statements'
   extension-mdx-expression-flow:
     if: mdx
+    name: meta.embedded.tsx
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/mdx_expression_flow.rs>.
     begin: var(before)(\{)
     beginCaptures:
@@ -1425,6 +1427,7 @@ repository:
       - include: 'source.tsx#expression'
   extension-mdx-expression-text:
     if: mdx
+    name: meta.embedded.tsx
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/mdx_expression_flow.rs>.
     begin: \{
     beginCaptures:

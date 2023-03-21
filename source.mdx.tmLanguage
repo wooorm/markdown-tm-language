@@ -2203,6 +2203,8 @@
       </dict>
       <key>extension-mdx-esm</key>
       <dict>
+        <key>name</key>
+        <string>meta.embedded.tsx</string>
         <key>begin</key>
         <string>(?:^|\G)(?=(?i:export|import)[ ])</string>
         <key>end</key>
@@ -2217,6 +2219,8 @@
       </dict>
       <key>extension-mdx-expression-flow</key>
       <dict>
+        <key>name</key>
+        <string>meta.embedded.tsx</string>
         <key>begin</key>
         <string>(?:^|\G)[\t ]*(\{)</string>
         <key>beginCaptures</key>
@@ -2247,6 +2251,8 @@
       </dict>
       <key>extension-mdx-expression-text</key>
       <dict>
+        <key>name</key>
+        <string>meta.embedded.tsx</string>
         <key>begin</key>
         <string>\{</string>
         <key>beginCaptures</key>

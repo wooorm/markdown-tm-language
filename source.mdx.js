@@ -1466,6 +1466,7 @@ const grammar = {
       }
     },
     'extension-mdx-esm': {
+      name: 'meta.embedded.tsx',
       begin: '(?:^|\\G)(?=(?i:export|import)[ ])',
       end: '^(?=[\\t ]*$)',
       patterns: [
@@ -1475,6 +1476,7 @@ const grammar = {
       ]
     },
     'extension-mdx-expression-flow': {
+      name: 'meta.embedded.tsx',
       begin: '(?:^|\\G)[\\t ]*(\\{)',
       beginCaptures: {
         1: {
@@ -1494,6 +1496,7 @@ const grammar = {
       ]
     },
     'extension-mdx-expression-text': {
+      name: 'meta.embedded.tsx',
       begin: '\\{',
       beginCaptures: {
         0: {
