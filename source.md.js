@@ -299,19 +299,13 @@ const grammar = {
           include: '#commonmark-code-fenced-c'
         },
         {
-          include: '#commonmark-code-fenced-c++'
+          include: '#commonmark-code-fenced-cpp'
         },
         {
           include: '#commonmark-code-fenced-cs'
         },
         {
           include: '#commonmark-code-fenced-css'
-        },
-        {
-          include: '#commonmark-code-fenced-less'
-        },
-        {
-          include: '#commonmark-code-fenced-scss'
         },
         {
           include: '#commonmark-code-fenced-diff'
@@ -321,6 +315,9 @@ const grammar = {
         },
         {
           include: '#commonmark-code-fenced-graphql'
+        },
+        {
+          include: '#commonmark-code-fenced-html'
         },
         {
           include: '#commonmark-code-fenced-ini'
@@ -338,6 +335,9 @@ const grammar = {
           include: '#commonmark-code-fenced-kotlin'
         },
         {
+          include: '#commonmark-code-fenced-less'
+        },
+        {
           include: '#commonmark-code-fenced-lua'
         },
         {
@@ -353,6 +353,9 @@ const grammar = {
           include: '#commonmark-code-fenced-perl'
         },
         {
+          include: '#commonmark-code-fenced-php'
+        },
+        {
           include: '#commonmark-code-fenced-python'
         },
         {
@@ -365,10 +368,16 @@ const grammar = {
           include: '#commonmark-code-fenced-rust'
         },
         {
+          include: '#commonmark-code-fenced-scss'
+        },
+        {
           include: '#commonmark-code-fenced-shell'
         },
         {
           include: '#commonmark-code-fenced-sql'
+        },
+        {
+          include: '#commonmark-code-fenced-svg'
         },
         {
           include: '#commonmark-code-fenced-swift'
@@ -383,19 +392,10 @@ const grammar = {
           include: '#commonmark-code-fenced-vbnet'
         },
         {
-          include: '#commonmark-code-fenced-yaml'
-        },
-        {
-          include: '#commonmark-code-fenced-basic'
-        },
-        {
-          include: '#commonmark-code-fenced-php'
-        },
-        {
           include: '#commonmark-code-fenced-xml'
         },
         {
-          include: '#commonmark-code-fenced-svg'
+          include: '#commonmark-code-fenced-yaml'
         },
         {
           include: '#commonmark-code-fenced-unknown'
@@ -2535,7 +2535,7 @@ const grammar = {
         }
       ]
     },
-    'commonmark-code-fenced-c++': {
+    'commonmark-code-fenced-cpp': {
       patterns: [
         {
           begin:
@@ -2548,14 +2548,14 @@ const grammar = {
               name: 'entity.name.function.md'
             }
           },
-          contentName: 'meta.embedded.c++',
+          contentName: 'meta.embedded.cpp',
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'punctuation.definition.string.end.code.fenced.md'
             }
           },
-          name: 'markup.code.c++.md',
+          name: 'markup.code.cpp.md',
           patterns: [
             {
               include: 'source.c++'
@@ -2573,14 +2573,14 @@ const grammar = {
               name: 'entity.name.function.md'
             }
           },
-          contentName: 'meta.embedded.c++',
+          contentName: 'meta.embedded.cpp',
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'punctuation.definition.string.end.code.fenced.md'
             }
           },
-          name: 'markup.code.c++.md',
+          name: 'markup.code.cpp.md',
           patterns: [
             {
               include: 'source.c++'
@@ -2692,114 +2692,6 @@ const grammar = {
           patterns: [
             {
               include: 'source.css'
-            }
-          ]
-        }
-      ]
-    },
-    'commonmark-code-fenced-less': {
-      patterns: [
-        {
-          begin:
-            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:less\\x2dcss|\\.?less))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
-          beginCaptures: {
-            1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
-            },
-            2: {
-              name: 'entity.name.function.md'
-            }
-          },
-          contentName: 'meta.embedded.less',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
-          endCaptures: {
-            1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
-            }
-          },
-          name: 'markup.code.less.md',
-          patterns: [
-            {
-              include: 'source.css.less'
-            }
-          ]
-        },
-        {
-          begin:
-            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:less\\x2dcss|\\.?less))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
-          beginCaptures: {
-            1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
-            },
-            2: {
-              name: 'entity.name.function.md'
-            }
-          },
-          contentName: 'meta.embedded.less',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
-          endCaptures: {
-            1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
-            }
-          },
-          name: 'markup.code.less.md',
-          patterns: [
-            {
-              include: 'source.css.less'
-            }
-          ]
-        }
-      ]
-    },
-    'commonmark-code-fenced-scss': {
-      patterns: [
-        {
-          begin:
-            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?scss))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
-          beginCaptures: {
-            1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
-            },
-            2: {
-              name: 'entity.name.function.md'
-            }
-          },
-          contentName: 'meta.embedded.scss',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
-          endCaptures: {
-            1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
-            }
-          },
-          name: 'markup.code.scss.md',
-          patterns: [
-            {
-              include: 'source.css.scss'
-            }
-          ]
-        },
-        {
-          begin:
-            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?scss))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
-          beginCaptures: {
-            1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
-            },
-            2: {
-              name: 'entity.name.function.md'
-            }
-          },
-          contentName: 'meta.embedded.scss',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
-          endCaptures: {
-            1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
-            }
-          },
-          name: 'markup.code.scss.md',
-          patterns: [
-            {
-              include: 'source.css.scss'
             }
           ]
         }
@@ -2962,6 +2854,60 @@ const grammar = {
           patterns: [
             {
               include: 'source.graphql'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-html': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?(?:hta|htm|html|html\\.hl|inc|kit|mtml|xht|xhtml)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.md'
+            },
+            2: {
+              name: 'entity.name.function.md'
+            }
+          },
+          contentName: 'meta.embedded.html',
+          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.md'
+            }
+          },
+          name: 'markup.code.html.md',
+          patterns: [
+            {
+              include: 'text.html.basic'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?(?:hta|htm|html|html\\.hl|inc|kit|mtml|xht|xhtml)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.md'
+            },
+            2: {
+              name: 'entity.name.function.md'
+            }
+          },
+          contentName: 'meta.embedded.html',
+          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.md'
+            }
+          },
+          name: 'markup.code.html.md',
+          patterns: [
+            {
+              include: 'text.html.basic'
             }
           ]
         }
@@ -3237,6 +3183,60 @@ const grammar = {
         }
       ]
     },
+    'commonmark-code-fenced-less': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:less\\x2dcss|\\.?less))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.md'
+            },
+            2: {
+              name: 'entity.name.function.md'
+            }
+          },
+          contentName: 'meta.embedded.less',
+          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.md'
+            }
+          },
+          name: 'markup.code.less.md',
+          patterns: [
+            {
+              include: 'source.css.less'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:less\\x2dcss|\\.?less))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.md'
+            },
+            2: {
+              name: 'entity.name.function.md'
+            }
+          },
+          contentName: 'meta.embedded.less',
+          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.md'
+            }
+          },
+          name: 'markup.code.less.md',
+          patterns: [
+            {
+              include: 'source.css.less'
+            }
+          ]
+        }
+      ]
+    },
     'commonmark-code-fenced-lua': {
       patterns: [
         {
@@ -3507,6 +3507,60 @@ const grammar = {
         }
       ]
     },
+    'commonmark-code-fenced-php': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:html\\+php|\\.?(?:aw|ctp|fcgi|inc|php|php3|php4|php5|phps|phpt|phtml)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.md'
+            },
+            2: {
+              name: 'entity.name.function.md'
+            }
+          },
+          contentName: 'meta.embedded.php',
+          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.md'
+            }
+          },
+          name: 'markup.code.php.md',
+          patterns: [
+            {
+              include: 'text.html.php'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:html\\+php|\\.?(?:aw|ctp|fcgi|inc|php|php3|php4|php5|phps|phpt|phtml)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.md'
+            },
+            2: {
+              name: 'entity.name.function.md'
+            }
+          },
+          contentName: 'meta.embedded.php',
+          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.md'
+            }
+          },
+          name: 'markup.code.php.md',
+          patterns: [
+            {
+              include: 'text.html.php'
+            }
+          ]
+        }
+      ]
+    },
     'commonmark-code-fenced-python': {
       patterns: [
         {
@@ -3723,6 +3777,60 @@ const grammar = {
         }
       ]
     },
+    'commonmark-code-fenced-scss': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?scss))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.md'
+            },
+            2: {
+              name: 'entity.name.function.md'
+            }
+          },
+          contentName: 'meta.embedded.scss',
+          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.md'
+            }
+          },
+          name: 'markup.code.scss.md',
+          patterns: [
+            {
+              include: 'source.css.scss'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?scss))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.md'
+            },
+            2: {
+              name: 'entity.name.function.md'
+            }
+          },
+          contentName: 'meta.embedded.scss',
+          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.md'
+            }
+          },
+          name: 'markup.code.scss.md',
+          patterns: [
+            {
+              include: 'source.css.scss'
+            }
+          ]
+        }
+      ]
+    },
     'commonmark-code-fenced-shell': {
       patterns: [
         {
@@ -3826,6 +3934,60 @@ const grammar = {
           patterns: [
             {
               include: 'source.sql'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-svg': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?svg))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.md'
+            },
+            2: {
+              name: 'entity.name.function.md'
+            }
+          },
+          contentName: 'meta.embedded.svg',
+          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.md'
+            }
+          },
+          name: 'markup.code.svg.md',
+          patterns: [
+            {
+              include: 'text.xml.svg'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?svg))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.md'
+            },
+            2: {
+              name: 'entity.name.function.md'
+            }
+          },
+          contentName: 'meta.embedded.svg',
+          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.md'
+            }
+          },
+          name: 'markup.code.svg.md',
+          patterns: [
+            {
+              include: 'text.xml.svg'
             }
           ]
         }
@@ -4047,168 +4209,6 @@ const grammar = {
         }
       ]
     },
-    'commonmark-code-fenced-yaml': {
-      patterns: [
-        {
-          begin:
-            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:jar\\x2dmanifest|kaitai\\x2dstruct|oasv2\\x2dyaml|oasv3\\x2dyaml|unity3d\\x2dasset|\\.?(?:anim|asset|ksy|lookml|mask|mat|meta|mir|model\\.lkml|prefab|raml|reek|rviz|sublime\\x2dsyntax|syntax|unity|view\\.lkml|yaml|yaml|yaml|yaml\\x2dtmlanguage|yaml\\.sed|yml|yml|yml|yml\\.mysql)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
-          beginCaptures: {
-            1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
-            },
-            2: {
-              name: 'entity.name.function.md'
-            }
-          },
-          contentName: 'meta.embedded.yaml',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
-          endCaptures: {
-            1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
-            }
-          },
-          name: 'markup.code.yaml.md',
-          patterns: [
-            {
-              include: 'source.yaml'
-            }
-          ]
-        },
-        {
-          begin:
-            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:jar\\x2dmanifest|kaitai\\x2dstruct|oasv2\\x2dyaml|oasv3\\x2dyaml|unity3d\\x2dasset|\\.?(?:anim|asset|ksy|lookml|mask|mat|meta|mir|model\\.lkml|prefab|raml|reek|rviz|sublime\\x2dsyntax|syntax|unity|view\\.lkml|yaml|yaml|yaml|yaml\\x2dtmlanguage|yaml\\.sed|yml|yml|yml|yml\\.mysql)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
-          beginCaptures: {
-            1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
-            },
-            2: {
-              name: 'entity.name.function.md'
-            }
-          },
-          contentName: 'meta.embedded.yaml',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
-          endCaptures: {
-            1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
-            }
-          },
-          name: 'markup.code.yaml.md',
-          patterns: [
-            {
-              include: 'source.yaml'
-            }
-          ]
-        }
-      ]
-    },
-    'commonmark-code-fenced-basic': {
-      patterns: [
-        {
-          begin:
-            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?(?:hta|htm|html|html\\.hl|inc|kit|mtml|xht|xhtml)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
-          beginCaptures: {
-            1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
-            },
-            2: {
-              name: 'entity.name.function.md'
-            }
-          },
-          contentName: 'meta.embedded.basic',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
-          endCaptures: {
-            1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
-            }
-          },
-          name: 'markup.code.basic.md',
-          patterns: [
-            {
-              include: 'text.html.basic'
-            }
-          ]
-        },
-        {
-          begin:
-            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?(?:hta|htm|html|html\\.hl|inc|kit|mtml|xht|xhtml)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
-          beginCaptures: {
-            1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
-            },
-            2: {
-              name: 'entity.name.function.md'
-            }
-          },
-          contentName: 'meta.embedded.basic',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
-          endCaptures: {
-            1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
-            }
-          },
-          name: 'markup.code.basic.md',
-          patterns: [
-            {
-              include: 'text.html.basic'
-            }
-          ]
-        }
-      ]
-    },
-    'commonmark-code-fenced-php': {
-      patterns: [
-        {
-          begin:
-            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:html\\+php|\\.?(?:aw|ctp|fcgi|inc|php|php3|php4|php5|phps|phpt|phtml)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
-          beginCaptures: {
-            1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
-            },
-            2: {
-              name: 'entity.name.function.md'
-            }
-          },
-          contentName: 'meta.embedded.php',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
-          endCaptures: {
-            1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
-            }
-          },
-          name: 'markup.code.php.md',
-          patterns: [
-            {
-              include: 'text.html.php'
-            }
-          ]
-        },
-        {
-          begin:
-            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:html\\+php|\\.?(?:aw|ctp|fcgi|inc|php|php3|php4|php5|phps|phpt|phtml)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
-          beginCaptures: {
-            1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
-            },
-            2: {
-              name: 'entity.name.function.md'
-            }
-          },
-          contentName: 'meta.embedded.php',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
-          endCaptures: {
-            1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
-            }
-          },
-          name: 'markup.code.php.md',
-          patterns: [
-            {
-              include: 'text.html.php'
-            }
-          ]
-        }
-      ]
-    },
     'commonmark-code-fenced-xml': {
       patterns: [
         {
@@ -4263,11 +4263,11 @@ const grammar = {
         }
       ]
     },
-    'commonmark-code-fenced-svg': {
+    'commonmark-code-fenced-yaml': {
       patterns: [
         {
           begin:
-            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?svg))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
+            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:jar\\x2dmanifest|kaitai\\x2dstruct|oasv2\\x2dyaml|oasv3\\x2dyaml|unity3d\\x2dasset|\\.?(?:anim|asset|ksy|lookml|mask|mat|meta|mir|model\\.lkml|prefab|raml|reek|rviz|sublime\\x2dsyntax|syntax|unity|view\\.lkml|yaml|yaml|yaml|yaml\\x2dtmlanguage|yaml\\.sed|yml|yml|yml|yml\\.mysql)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
               name: 'punctuation.definition.string.begin.code.fenced.md'
@@ -4276,23 +4276,23 @@ const grammar = {
               name: 'entity.name.function.md'
             }
           },
-          contentName: 'meta.embedded.svg',
+          contentName: 'meta.embedded.yaml',
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'punctuation.definition.string.end.code.fenced.md'
             }
           },
-          name: 'markup.code.svg.md',
+          name: 'markup.code.yaml.md',
           patterns: [
             {
-              include: 'text.xml.svg'
+              include: 'source.yaml'
             }
           ]
         },
         {
           begin:
-            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?svg))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
+            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:jar\\x2dmanifest|kaitai\\x2dstruct|oasv2\\x2dyaml|oasv3\\x2dyaml|unity3d\\x2dasset|\\.?(?:anim|asset|ksy|lookml|mask|mat|meta|mir|model\\.lkml|prefab|raml|reek|rviz|sublime\\x2dsyntax|syntax|unity|view\\.lkml|yaml|yaml|yaml|yaml\\x2dtmlanguage|yaml\\.sed|yml|yml|yml|yml\\.mysql)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
               name: 'punctuation.definition.string.begin.code.fenced.md'
@@ -4301,17 +4301,17 @@ const grammar = {
               name: 'entity.name.function.md'
             }
           },
-          contentName: 'meta.embedded.svg',
+          contentName: 'meta.embedded.yaml',
           end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'punctuation.definition.string.end.code.fenced.md'
             }
           },
-          name: 'markup.code.svg.md',
+          name: 'markup.code.yaml.md',
           patterns: [
             {
-              include: 'text.xml.svg'
+              include: 'source.yaml'
             }
           ]
         }

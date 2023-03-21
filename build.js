@@ -99,10 +99,20 @@ const grammar = parse(doc)
 // Figure out embedded grammars.
 const embeddedGrammars = [...common, sourceTsx]
   .map((d) => {
+    const id = d.scopeName.split('.').pop()
+    assert(id, 'expected `id`')
     const grammar = {
       scopeName: d.scopeName,
       extensions: d.extensions,
-      names: d.names
+      names: d.names,
+      id:
+        id === 'basic'
+          ? 'html'
+          : id === 'c++'
+          ? 'cpp'
+          : id === 'gfm'
+          ? 'md'
+          : id
     }
 
     // Remove `.tsx`, that’s weird!
@@ -119,7 +129,7 @@ const embeddedGrammars = [...common, sourceTsx]
 
     return grammar
   })
-  .sort((a, b) => a.scopeName.localeCompare(b.scopeName))
+  .sort((a, b) => a.id.localeCompare(b.id))
 
 // Inject grammars for code blocks with embedded grammars.
 assert(grammar.repository, 'expected `repository`')
@@ -153,10 +163,7 @@ assert(
 const includes = []
 
 for (const embedded of embeddedGrammars) {
-  const name = embedded.scopeName.split('.').pop()
-
-  assert(name, 'expected `name`')
-  const id = 'commonmark-code-fenced-' + name
+  const id = 'commonmark-code-fenced-' + embedded.id
 
   const extensions = embedded.extensions
     .map((d) => d.slice(1))
@@ -188,8 +195,8 @@ for (const embedded of embeddedGrammars) {
   backtickCopy.begin = backtickCopy.begin
     .replace(/var\(char_code_info_tick\)\+/, regex)
     .replace(/\)\?\)\?/, ')?)')
-  backtickCopy.contentName = 'meta.embedded.' + name
-  backtickCopy.name = 'markup.code.' + name + '.var(suffix)'
+  backtickCopy.contentName = 'meta.embedded.' + embedded.id
+  backtickCopy.name = 'markup.code.' + embedded.id + '.var(suffix)'
   backtickCopy.patterns = [{include: embedded.scopeName}]
 
   assert(tildeCopy.begin, 'expected begin')

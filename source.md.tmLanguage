@@ -429,7 +429,7 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#commonmark-code-fenced-c++</string>
+            <string>#commonmark-code-fenced-cpp</string>
           </dict>
           <dict>
             <key>include</key>
@@ -438,14 +438,6 @@
           <dict>
             <key>include</key>
             <string>#commonmark-code-fenced-css</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#commonmark-code-fenced-less</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#commonmark-code-fenced-scss</string>
           </dict>
           <dict>
             <key>include</key>
@@ -458,6 +450,10 @@
           <dict>
             <key>include</key>
             <string>#commonmark-code-fenced-graphql</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#commonmark-code-fenced-html</string>
           </dict>
           <dict>
             <key>include</key>
@@ -481,6 +477,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#commonmark-code-fenced-less</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#commonmark-code-fenced-lua</string>
           </dict>
           <dict>
@@ -501,6 +501,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#commonmark-code-fenced-php</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#commonmark-code-fenced-python</string>
           </dict>
           <dict>
@@ -517,11 +521,19 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#commonmark-code-fenced-scss</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#commonmark-code-fenced-shell</string>
           </dict>
           <dict>
             <key>include</key>
             <string>#commonmark-code-fenced-sql</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#commonmark-code-fenced-svg</string>
           </dict>
           <dict>
             <key>include</key>
@@ -541,23 +553,11 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#commonmark-code-fenced-yaml</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#commonmark-code-fenced-basic</string>
-          </dict>
-          <dict>
-            <key>include</key>
-            <string>#commonmark-code-fenced-php</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#commonmark-code-fenced-xml</string>
           </dict>
           <dict>
             <key>include</key>
-            <string>#commonmark-code-fenced-svg</string>
+            <string>#commonmark-code-fenced-yaml</string>
           </dict>
           <dict>
             <key>include</key>
@@ -3804,7 +3804,7 @@
           </dict>
         </array>
       </dict>
-      <key>commonmark-code-fenced-c++</key>
+      <key>commonmark-code-fenced-cpp</key>
       <dict>
         <key>patterns</key>
         <array>
@@ -3825,7 +3825,7 @@
               </dict>
             </dict>
             <key>contentName</key>
-            <string>meta.embedded.c++</string>
+            <string>meta.embedded.cpp</string>
             <key>end</key>
             <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -3837,7 +3837,7 @@
               </dict>
             </dict>
             <key>name</key>
-            <string>markup.code.c++.md</string>
+            <string>markup.code.cpp.md</string>
             <key>patterns</key>
             <array>
               <dict>
@@ -3863,7 +3863,7 @@
               </dict>
             </dict>
             <key>contentName</key>
-            <string>meta.embedded.c++</string>
+            <string>meta.embedded.cpp</string>
             <key>end</key>
             <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -3875,7 +3875,7 @@
               </dict>
             </dict>
             <key>name</key>
-            <string>markup.code.c++.md</string>
+            <string>markup.code.cpp.md</string>
             <key>patterns</key>
             <array>
               <dict>
@@ -4045,170 +4045,6 @@
               <dict>
                 <key>include</key>
                 <string>source.css</string>
-              </dict>
-            </array>
-          </dict>
-        </array>
-      </dict>
-      <key>commonmark-code-fenced-less</key>
-      <dict>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>begin</key>
-            <string>(?:^|\G)[ ]{0,3}(`{3,})(?:[\t ]*((?i:less\x2dcss|\.?less))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.begin.code.fenced.md</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.function.md</string>
-              </dict>
-            </dict>
-            <key>contentName</key>
-            <string>meta.embedded.less</string>
-            <key>end</key>
-            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.end.code.fenced.md</string>
-              </dict>
-            </dict>
-            <key>name</key>
-            <string>markup.code.less.md</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>source.css.less</string>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>begin</key>
-            <string>(?:^|\G)[ ]{0,3}(~{3,})(?:[\t ]*((?i:less\x2dcss|\.?less))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.begin.code.fenced.md</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.function.md</string>
-              </dict>
-            </dict>
-            <key>contentName</key>
-            <string>meta.embedded.less</string>
-            <key>end</key>
-            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.end.code.fenced.md</string>
-              </dict>
-            </dict>
-            <key>name</key>
-            <string>markup.code.less.md</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>source.css.less</string>
-              </dict>
-            </array>
-          </dict>
-        </array>
-      </dict>
-      <key>commonmark-code-fenced-scss</key>
-      <dict>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>begin</key>
-            <string>(?:^|\G)[ ]{0,3}(`{3,})(?:[\t ]*((?i:\.?scss))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.begin.code.fenced.md</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.function.md</string>
-              </dict>
-            </dict>
-            <key>contentName</key>
-            <string>meta.embedded.scss</string>
-            <key>end</key>
-            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.end.code.fenced.md</string>
-              </dict>
-            </dict>
-            <key>name</key>
-            <string>markup.code.scss.md</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>source.css.scss</string>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>begin</key>
-            <string>(?:^|\G)[ ]{0,3}(~{3,})(?:[\t ]*((?i:\.?scss))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.begin.code.fenced.md</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.function.md</string>
-              </dict>
-            </dict>
-            <key>contentName</key>
-            <string>meta.embedded.scss</string>
-            <key>end</key>
-            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.end.code.fenced.md</string>
-              </dict>
-            </dict>
-            <key>name</key>
-            <string>markup.code.scss.md</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>source.css.scss</string>
               </dict>
             </array>
           </dict>
@@ -4455,6 +4291,88 @@
               <dict>
                 <key>include</key>
                 <string>source.graphql</string>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
+      <key>commonmark-code-fenced-html</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[ ]{0,3}(`{3,})(?:[\t ]*((?i:\.?(?:hta|htm|html|html\.hl|inc|kit|mtml|xht|xhtml)))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.md</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.md</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.html</string>
+            <key>end</key>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.md</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.html.md</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>text.html.basic</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[ ]{0,3}(~{3,})(?:[\t ]*((?i:\.?(?:hta|htm|html|html\.hl|inc|kit|mtml|xht|xhtml)))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.md</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.md</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.html</string>
+            <key>end</key>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.md</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.html.md</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>text.html.basic</string>
               </dict>
             </array>
           </dict>
@@ -4870,6 +4788,88 @@
           </dict>
         </array>
       </dict>
+      <key>commonmark-code-fenced-less</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[ ]{0,3}(`{3,})(?:[\t ]*((?i:less\x2dcss|\.?less))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.md</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.md</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.less</string>
+            <key>end</key>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.md</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.less.md</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>source.css.less</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[ ]{0,3}(~{3,})(?:[\t ]*((?i:less\x2dcss|\.?less))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.md</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.md</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.less</string>
+            <key>end</key>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.md</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.less.md</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>source.css.less</string>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
       <key>commonmark-code-fenced-lua</key>
       <dict>
         <key>patterns</key>
@@ -5280,6 +5280,88 @@
           </dict>
         </array>
       </dict>
+      <key>commonmark-code-fenced-php</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[ ]{0,3}(`{3,})(?:[\t ]*((?i:html\+php|\.?(?:aw|ctp|fcgi|inc|php|php3|php4|php5|phps|phpt|phtml)))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.md</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.md</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.php</string>
+            <key>end</key>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.md</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.php.md</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>text.html.php</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[ ]{0,3}(~{3,})(?:[\t ]*((?i:html\+php|\.?(?:aw|ctp|fcgi|inc|php|php3|php4|php5|phps|phpt|phtml)))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.md</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.md</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.php</string>
+            <key>end</key>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.md</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.php.md</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>text.html.php</string>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
       <key>commonmark-code-fenced-python</key>
       <dict>
         <key>patterns</key>
@@ -5608,6 +5690,88 @@
           </dict>
         </array>
       </dict>
+      <key>commonmark-code-fenced-scss</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[ ]{0,3}(`{3,})(?:[\t ]*((?i:\.?scss))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.md</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.md</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.scss</string>
+            <key>end</key>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.md</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.scss.md</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>source.css.scss</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[ ]{0,3}(~{3,})(?:[\t ]*((?i:\.?scss))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.md</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.md</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.scss</string>
+            <key>end</key>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.md</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.scss.md</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>source.css.scss</string>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
       <key>commonmark-code-fenced-shell</key>
       <dict>
         <key>patterns</key>
@@ -5767,6 +5931,88 @@
               <dict>
                 <key>include</key>
                 <string>source.sql</string>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
+      <key>commonmark-code-fenced-svg</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[ ]{0,3}(`{3,})(?:[\t ]*((?i:\.?svg))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.md</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.md</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.svg</string>
+            <key>end</key>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.md</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.svg.md</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>text.xml.svg</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[ ]{0,3}(~{3,})(?:[\t ]*((?i:\.?svg))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.md</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.md</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.svg</string>
+            <key>end</key>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.md</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.svg.md</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>text.xml.svg</string>
               </dict>
             </array>
           </dict>
@@ -6100,252 +6346,6 @@
           </dict>
         </array>
       </dict>
-      <key>commonmark-code-fenced-yaml</key>
-      <dict>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>begin</key>
-            <string>(?:^|\G)[ ]{0,3}(`{3,})(?:[\t ]*((?i:jar\x2dmanifest|kaitai\x2dstruct|oasv2\x2dyaml|oasv3\x2dyaml|unity3d\x2dasset|\.?(?:anim|asset|ksy|lookml|mask|mat|meta|mir|model\.lkml|prefab|raml|reek|rviz|sublime\x2dsyntax|syntax|unity|view\.lkml|yaml|yaml|yaml|yaml\x2dtmlanguage|yaml\.sed|yml|yml|yml|yml\.mysql)))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.begin.code.fenced.md</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.function.md</string>
-              </dict>
-            </dict>
-            <key>contentName</key>
-            <string>meta.embedded.yaml</string>
-            <key>end</key>
-            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.end.code.fenced.md</string>
-              </dict>
-            </dict>
-            <key>name</key>
-            <string>markup.code.yaml.md</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>source.yaml</string>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>begin</key>
-            <string>(?:^|\G)[ ]{0,3}(~{3,})(?:[\t ]*((?i:jar\x2dmanifest|kaitai\x2dstruct|oasv2\x2dyaml|oasv3\x2dyaml|unity3d\x2dasset|\.?(?:anim|asset|ksy|lookml|mask|mat|meta|mir|model\.lkml|prefab|raml|reek|rviz|sublime\x2dsyntax|syntax|unity|view\.lkml|yaml|yaml|yaml|yaml\x2dtmlanguage|yaml\.sed|yml|yml|yml|yml\.mysql)))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.begin.code.fenced.md</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.function.md</string>
-              </dict>
-            </dict>
-            <key>contentName</key>
-            <string>meta.embedded.yaml</string>
-            <key>end</key>
-            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.end.code.fenced.md</string>
-              </dict>
-            </dict>
-            <key>name</key>
-            <string>markup.code.yaml.md</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>source.yaml</string>
-              </dict>
-            </array>
-          </dict>
-        </array>
-      </dict>
-      <key>commonmark-code-fenced-basic</key>
-      <dict>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>begin</key>
-            <string>(?:^|\G)[ ]{0,3}(`{3,})(?:[\t ]*((?i:\.?(?:hta|htm|html|html\.hl|inc|kit|mtml|xht|xhtml)))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.begin.code.fenced.md</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.function.md</string>
-              </dict>
-            </dict>
-            <key>contentName</key>
-            <string>meta.embedded.basic</string>
-            <key>end</key>
-            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.end.code.fenced.md</string>
-              </dict>
-            </dict>
-            <key>name</key>
-            <string>markup.code.basic.md</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>text.html.basic</string>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>begin</key>
-            <string>(?:^|\G)[ ]{0,3}(~{3,})(?:[\t ]*((?i:\.?(?:hta|htm|html|html\.hl|inc|kit|mtml|xht|xhtml)))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.begin.code.fenced.md</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.function.md</string>
-              </dict>
-            </dict>
-            <key>contentName</key>
-            <string>meta.embedded.basic</string>
-            <key>end</key>
-            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.end.code.fenced.md</string>
-              </dict>
-            </dict>
-            <key>name</key>
-            <string>markup.code.basic.md</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>text.html.basic</string>
-              </dict>
-            </array>
-          </dict>
-        </array>
-      </dict>
-      <key>commonmark-code-fenced-php</key>
-      <dict>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>begin</key>
-            <string>(?:^|\G)[ ]{0,3}(`{3,})(?:[\t ]*((?i:html\+php|\.?(?:aw|ctp|fcgi|inc|php|php3|php4|php5|phps|phpt|phtml)))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.begin.code.fenced.md</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.function.md</string>
-              </dict>
-            </dict>
-            <key>contentName</key>
-            <string>meta.embedded.php</string>
-            <key>end</key>
-            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.end.code.fenced.md</string>
-              </dict>
-            </dict>
-            <key>name</key>
-            <string>markup.code.php.md</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>text.html.php</string>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>begin</key>
-            <string>(?:^|\G)[ ]{0,3}(~{3,})(?:[\t ]*((?i:html\+php|\.?(?:aw|ctp|fcgi|inc|php|php3|php4|php5|phps|phpt|phtml)))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.begin.code.fenced.md</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.function.md</string>
-              </dict>
-            </dict>
-            <key>contentName</key>
-            <string>meta.embedded.php</string>
-            <key>end</key>
-            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.end.code.fenced.md</string>
-              </dict>
-            </dict>
-            <key>name</key>
-            <string>markup.code.php.md</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>text.html.php</string>
-              </dict>
-            </array>
-          </dict>
-        </array>
-      </dict>
       <key>commonmark-code-fenced-xml</key>
       <dict>
         <key>patterns</key>
@@ -6428,13 +6428,13 @@
           </dict>
         </array>
       </dict>
-      <key>commonmark-code-fenced-svg</key>
+      <key>commonmark-code-fenced-yaml</key>
       <dict>
         <key>patterns</key>
         <array>
           <dict>
             <key>begin</key>
-            <string>(?:^|\G)[ ]{0,3}(`{3,})(?:[\t ]*((?i:\.?svg))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(`{3,})(?:[\t ]*((?i:jar\x2dmanifest|kaitai\x2dstruct|oasv2\x2dyaml|oasv3\x2dyaml|unity3d\x2dasset|\.?(?:anim|asset|ksy|lookml|mask|mat|meta|mir|model\.lkml|prefab|raml|reek|rviz|sublime\x2dsyntax|syntax|unity|view\.lkml|yaml|yaml|yaml|yaml\x2dtmlanguage|yaml\.sed|yml|yml|yml|yml\.mysql)))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -6449,7 +6449,7 @@
               </dict>
             </dict>
             <key>contentName</key>
-            <string>meta.embedded.svg</string>
+            <string>meta.embedded.yaml</string>
             <key>end</key>
             <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6461,18 +6461,18 @@
               </dict>
             </dict>
             <key>name</key>
-            <string>markup.code.svg.md</string>
+            <string>markup.code.yaml.md</string>
             <key>patterns</key>
             <array>
               <dict>
                 <key>include</key>
-                <string>text.xml.svg</string>
+                <string>source.yaml</string>
               </dict>
             </array>
           </dict>
           <dict>
             <key>begin</key>
-            <string>(?:^|\G)[ ]{0,3}(~{3,})(?:[\t ]*((?i:\.?svg))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(~{3,})(?:[\t ]*((?i:jar\x2dmanifest|kaitai\x2dstruct|oasv2\x2dyaml|oasv3\x2dyaml|unity3d\x2dasset|\.?(?:anim|asset|ksy|lookml|mask|mat|meta|mir|model\.lkml|prefab|raml|reek|rviz|sublime\x2dsyntax|syntax|unity|view\.lkml|yaml|yaml|yaml|yaml\x2dtmlanguage|yaml\.sed|yml|yml|yml|yml\.mysql)))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
             <key>beginCaptures</key>
             <dict>
               <key>1</key>
@@ -6487,7 +6487,7 @@
               </dict>
             </dict>
             <key>contentName</key>
-            <string>meta.embedded.svg</string>
+            <string>meta.embedded.yaml</string>
             <key>end</key>
             <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6499,12 +6499,12 @@
               </dict>
             </dict>
             <key>name</key>
-            <string>markup.code.svg.md</string>
+            <string>markup.code.yaml.md</string>
             <key>patterns</key>
             <array>
               <dict>
                 <key>include</key>
-                <string>text.xml.svg</string>
+                <string>source.yaml</string>
               </dict>
             </array>
           </dict>
