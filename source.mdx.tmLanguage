@@ -2266,7 +2266,7 @@
       <key>extension-mdx-jsx-flow</key>
       <dict>
         <key>begin</key>
-        <string>(?&lt;=^|\G|\&gt;)[\t ]*(&lt;)(?=(?![\t\n\r ]))(?:\s*(/))?(?:\s*(?:(?:((?:[_$[:alpha:]][-_$[:alnum:]]*))\s*(:)\s*((?:[_$[:alpha:]][-_$[:alnum:]]*)))|((?:(?:[_$[:alpha:]][_$[:alnum:]]*)(?:\s*\.\s*(?:[_$[:alpha:]][-_$[:alnum:]]*))+))|((?:[_$[:upper:]][_$[:alnum:]]*))|((?:[_$[:alpha:]][-_$[:alnum:]]*))))?</string>
+        <string>(?&lt;=^|\G|\&gt;)[\t ]*(&lt;)(?=(?![\t\n\r ]))(?:\s*(/))?(?:\s*(?:(?:((?:[_$[:alpha:]][-_$[:alnum:]]*))\s*(:)\s*((?:[_$[:alpha:]][-_$[:alnum:]]*)))|((?:(?:[_$[:alpha:]][_$[:alnum:]]*)(?:\s*\.\s*(?:[_$[:alpha:]][-_$[:alnum:]]*))+))|((?:[_$[:upper:]][_$[:alnum:]]*))|((?:[_$[:alpha:]][-_$[:alnum:]]*)))(?=[\s\/\&gt;\{]))?</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -2314,7 +2314,27 @@
         <array>
           <dict>
             <key>include</key>
-            <string>source.tsx#jsx-tag-attributes</string>
+            <string>source.tsx#jsx-tag-attribute-name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>source.tsx#jsx-tag-attribute-assignment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>source.tsx#jsx-string-double-quoted</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>source.tsx#jsx-string-single-quoted</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>source.tsx#jsx-evaluated-code</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>source.tsx#jsx-tag-attributes-illegal</string>
           </dict>
         </array>
         <key>end</key>
@@ -2336,7 +2356,7 @@
       <key>extension-mdx-jsx-text</key>
       <dict>
         <key>begin</key>
-        <string>(&lt;)(?=(?![\t\n\r ]))(?:\s*(/))?(?:\s*(?:(?:((?:[_$[:alpha:]][-_$[:alnum:]]*))\s*(:)\s*((?:[_$[:alpha:]][-_$[:alnum:]]*)))|((?:(?:[_$[:alpha:]][_$[:alnum:]]*)(?:\s*\.\s*(?:[_$[:alpha:]][-_$[:alnum:]]*))+))|((?:[_$[:upper:]][_$[:alnum:]]*))|((?:[_$[:alpha:]][-_$[:alnum:]]*))))?</string>
+        <string>(&lt;)(?=(?![\t\n\r ]))(?:\s*(/))?(?:\s*(?:(?:((?:[_$[:alpha:]][-_$[:alnum:]]*))\s*(:)\s*((?:[_$[:alpha:]][-_$[:alnum:]]*)))|((?:(?:[_$[:alpha:]][_$[:alnum:]]*)(?:\s*\.\s*(?:[_$[:alpha:]][-_$[:alnum:]]*))+))|((?:[_$[:upper:]][_$[:alnum:]]*))|((?:[_$[:alpha:]][-_$[:alnum:]]*)))(?=[\s\/\&gt;\{]))?</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
@@ -2384,7 +2404,27 @@
         <array>
           <dict>
             <key>include</key>
-            <string>source.tsx#jsx-tag-attributes</string>
+            <string>source.tsx#jsx-tag-attribute-name</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>source.tsx#jsx-tag-attribute-assignment</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>source.tsx#jsx-string-double-quoted</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>source.tsx#jsx-string-single-quoted</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>source.tsx#jsx-evaluated-code</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>source.tsx#jsx-tag-attributes-illegal</string>
           </dict>
         </array>
         <key>end</key>

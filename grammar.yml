@@ -1439,7 +1439,7 @@ repository:
   extension-mdx-jsx-flow:
     if: mdx
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/mdx_jsx_flow.rs>.
-    begin: (?<=^|\G|\>)[\t ]*(<)(?=(?![\t\n\r ]))(?:\s*(/))?(?:\s*(?:var(jsx_namespace)|(var(js_members))|(var(js_identifier_upper))|(var(jsx_identifier))))?
+    begin: (?<=^|\G|\>)[\t ]*(<)(?=(?![\t\n\r ]))(?:\s*(/))?(?:\s*(?:var(jsx_namespace)|(var(js_members))|(var(js_identifier_upper))|(var(jsx_identifier)))(?=[\s\/\>\{]))?
     beginCaptures:
       1:
         name: punctuation.definition.tag.end.jsx
@@ -1458,7 +1458,12 @@ repository:
       8:
         name: entity.name.tag.jsx
     patterns:
-      - include: 'source.tsx#jsx-tag-attributes'
+      - include: 'source.tsx#jsx-tag-attribute-name'
+      - include: 'source.tsx#jsx-tag-attribute-assignment'
+      - include: 'source.tsx#jsx-string-double-quoted'
+      - include: 'source.tsx#jsx-string-single-quoted'
+      - include: 'source.tsx#jsx-evaluated-code'
+      - include: 'source.tsx#jsx-tag-attributes-illegal'
     end: (?:(\/)\s*)?(>)
     endCaptures:
       1:
@@ -1468,7 +1473,7 @@ repository:
   extension-mdx-jsx-text:
     if: mdx
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/mdx_jsx_text.rs>.
-    begin: (<)(?=(?![\t\n\r ]))(?:\s*(/))?(?:\s*(?:var(jsx_namespace)|(var(js_members))|(var(js_identifier_upper))|(var(jsx_identifier))))?
+    begin: (<)(?=(?![\t\n\r ]))(?:\s*(/))?(?:\s*(?:var(jsx_namespace)|(var(js_members))|(var(js_identifier_upper))|(var(jsx_identifier)))(?=[\s\/\>\{]))?
     beginCaptures:
       1:
         name: punctuation.definition.tag.end.jsx
@@ -1487,7 +1492,12 @@ repository:
       8:
         name: entity.name.tag.jsx
     patterns:
-      - include: 'source.tsx#jsx-tag-attributes'
+      - include: 'source.tsx#jsx-tag-attribute-name'
+      - include: 'source.tsx#jsx-tag-attribute-assignment'
+      - include: 'source.tsx#jsx-string-double-quoted'
+      - include: 'source.tsx#jsx-string-single-quoted'
+      - include: 'source.tsx#jsx-evaluated-code'
+      - include: 'source.tsx#jsx-tag-attributes-illegal'
     end: (?:(\/)\s*)?(>)
     endCaptures:
       1:
