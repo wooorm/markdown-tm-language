@@ -17,7 +17,12 @@
   ],
   "sideEffects": false,
   "type": "module",
-  "files": [],
+  "files": [
+    "source.md.js",
+    "source.md.tmLanguage",
+    "source.mdx.js",
+    "source.mdx.tmLanguage"
+  ],
   "devDependencies": {
     "@types/node": "^18.0.0",
     "@types/plist": "^3.0.0",
