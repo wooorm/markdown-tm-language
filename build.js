@@ -49,6 +49,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import {common} from '@wooorm/starry-night'
 import sourceTsx from '@wooorm/starry-night/lang/source.tsx.js'
+import sourceToml from '@wooorm/starry-night/lang/source.toml.js'
 import {characterEntities} from 'character-entities'
 import {characterEntitiesLegacy} from 'character-entities-legacy'
 import escapeStringRegexp from 'escape-string-regexp'
@@ -97,7 +98,7 @@ const grammar = parse(doc)
 
 // Rule injection
 // Figure out embedded grammars.
-const embeddedGrammars = [...common, sourceTsx].map((d) => {
+const embeddedGrammars = [...common, sourceToml, sourceTsx].map((d) => {
   const id = d.scopeName.split('.').pop()
   assert(id, 'expected `id`')
   const grammar = {

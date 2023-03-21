@@ -545,6 +545,10 @@
           </dict>
           <dict>
             <key>include</key>
+            <string>#commonmark-code-fenced-toml</string>
+          </dict>
+          <dict>
+            <key>include</key>
             <string>#commonmark-code-fenced-ts</string>
           </dict>
           <dict>
@@ -6181,6 +6185,88 @@
               <dict>
                 <key>include</key>
                 <string>source.swift</string>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
+      <key>commonmark-code-fenced-toml</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[ ]{0,3}(`{3,})(?:[\t ]*((?i:\.?toml))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.md</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.md</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.toml</string>
+            <key>end</key>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.md</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.toml.md</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>source.toml</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[ ]{0,3}(~{3,})(?:[\t ]*((?i:\.?toml))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.md</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.md</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.toml</string>
+            <key>end</key>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.md</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.toml.md</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>source.toml</string>
               </dict>
             </array>
           </dict>

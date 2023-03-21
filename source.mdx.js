@@ -333,6 +333,9 @@ const grammar = {
           include: '#commonmark-code-fenced-swift'
         },
         {
+          include: '#commonmark-code-fenced-toml'
+        },
+        {
           include: '#commonmark-code-fenced-ts'
         },
         {
@@ -3298,6 +3301,60 @@ const grammar = {
           patterns: [
             {
               include: 'source.swift'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-toml': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:\\.?toml))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx'
+            }
+          },
+          contentName: 'meta.embedded.toml',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.toml.mdx',
+          patterns: [
+            {
+              include: 'source.toml'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:\\.?toml))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx'
+            }
+          },
+          contentName: 'meta.embedded.toml',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.toml.mdx',
+          patterns: [
+            {
+              include: 'source.toml'
             }
           ]
         }
