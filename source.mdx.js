@@ -294,6 +294,9 @@ const grammar = {
           include: '#commonmark-code-fenced-md'
         },
         {
+          include: '#commonmark-code-fenced-mdx'
+        },
+        {
           include: '#commonmark-code-fenced-objc'
         },
         {
@@ -2593,6 +2596,60 @@ const grammar = {
           patterns: [
             {
               include: 'source.md'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-mdx': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:\\.?mdx))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx'
+            }
+          },
+          contentName: 'meta.embedded.mdx',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.mdx.mdx',
+          patterns: [
+            {
+              include: 'source.mdx'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:\\.?mdx))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx'
+            }
+          },
+          contentName: 'meta.embedded.mdx',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.mdx.mdx',
+          patterns: [
+            {
+              include: 'source.mdx'
             }
           ]
         }

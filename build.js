@@ -97,39 +97,40 @@ const grammar = parse(doc)
 
 // Rule injection
 // Figure out embedded grammars.
-const embeddedGrammars = [...common, sourceTsx]
-  .map((d) => {
-    const id = d.scopeName.split('.').pop()
-    assert(id, 'expected `id`')
-    const grammar = {
-      scopeName: d.scopeName,
-      extensions: d.extensions,
-      names: d.names,
-      id:
-        id === 'basic'
-          ? 'html'
-          : id === 'c++'
-          ? 'cpp'
-          : id === 'gfm'
-          ? 'md'
-          : id
-    }
+const embeddedGrammars = [...common, sourceTsx].map((d) => {
+  const id = d.scopeName.split('.').pop()
+  assert(id, 'expected `id`')
+  const grammar = {
+    scopeName: d.scopeName,
+    extensions: d.extensions,
+    names: d.names,
+    id:
+      id === 'basic' ? 'html' : id === 'c++' ? 'cpp' : id === 'gfm' ? 'md' : id
+  }
 
-    // Remove `.tsx`, that’s weird!
-    if (grammar.scopeName === 'text.xml') {
-      grammar.extensions = grammar.extensions.filter((d) => d !== '.tsx')
-    }
+  // Remove `.tsx`, that’s weird!
+  if (grammar.scopeName === 'text.xml') {
+    grammar.extensions = grammar.extensions.filter((d) => d !== '.tsx')
+  }
 
-    if (grammar.scopeName === 'source.gfm') {
-      // Change scope name.
-      grammar.scopeName = 'source.md'
-      // Remove `.mdx`.
-      grammar.extensions = grammar.extensions.filter((d) => d !== '.mdx')
-    }
+  if (grammar.scopeName === 'source.gfm') {
+    // Change scope name.
+    grammar.scopeName = 'source.md'
+    // Remove `.mdx`.
+    grammar.extensions = grammar.extensions.filter((d) => d !== '.mdx')
+  }
 
-    return grammar
-  })
-  .sort((a, b) => a.id.localeCompare(b.id))
+  return grammar
+})
+
+embeddedGrammars.push({
+  scopeName: 'source.mdx',
+  extensions: ['.mdx'],
+  names: ['mdx'],
+  id: 'mdx'
+})
+
+embeddedGrammars.sort((a, b) => a.id.localeCompare(b.id))
 
 // Inject grammars for code blocks with embedded grammars.
 assert(grammar.repository, 'expected `repository`')
