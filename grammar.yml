@@ -384,12 +384,17 @@ repository:
   commonmark-code-fenced-unknown:
     patterns:
       # Backtick.
-      - begin: var(before)(`{3,})(?:[\t ]*(var(char_code_info_tick)+)(?:[\t ]+var(char_code_meta_tick)+)?)?var(after)
+      - begin: var(before)(`{3,})(?:[\t ]*(var(char_code_info_tick)+)(?:[\t ]+(var(char_code_meta_tick)+))?)?var(after)
         beginCaptures:
           1:
             name: string.other.begin.code.fenced.var(suffix)
           2:
             name: entity.name.function.var(suffix)
+            patterns:
+              - include: '#markdown-string'
+          3:
+            patterns:
+              - include: '#markdown-string'
         contentName: markup.raw.code.fenced.var(suffix)
         end: var(before)(\1)var(after)
         endCaptures:
@@ -397,12 +402,17 @@ repository:
             name: string.other.end.code.fenced.var(suffix)
         name: markup.code.other.var(suffix)
       # Tilde.
-      - begin: var(before)(~{3,})(?:[\t ]*(var(char_code_info_tilde)+)(?:[\t ]+var(char_code_meta_tilde)+)?)?var(after)
+      - begin: var(before)(~{3,})(?:[\t ]*(var(char_code_info_tilde)+)(?:[\t ]+(var(char_code_meta_tilde)+))?)?var(after)
         beginCaptures:
           1:
             name: string.other.begin.code.fenced.var(suffix)
           2:
             name: entity.name.function.var(suffix)
+            patterns:
+              - include: '#markdown-string'
+          3:
+            patterns:
+              - include: '#markdown-string'
         contentName: markup.raw.code.fenced.var(suffix)
         end: var(before)(\1)var(after)
         endCaptures:
@@ -1376,12 +1386,13 @@ repository:
     if: math
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/raw_flow.rs>.
     patterns:
-      - begin: var(before)(\${2,})[^\n\r\$]*?$
+      - begin: var(before)(\${2,})([^\n\r\$]*)$
         beginCaptures:
           1:
             name: string.other.begin.math.flow.var(suffix)
           2:
-            name: entity.name.function.var(suffix)
+            patterns:
+              - include: '#markdown-string'
         contentName: markup.raw.math.flow.var(suffix)
         end: var(before)(\1)var(after)
         endCaptures:
