@@ -317,9 +317,6 @@ const grammar = {
           include: '#commonmark-code-fenced-diff'
         },
         {
-          include: '#commonmark-code-fenced-md'
-        },
-        {
           include: '#commonmark-code-fenced-go'
         },
         {
@@ -345,6 +342,9 @@ const grammar = {
         },
         {
           include: '#commonmark-code-fenced-makefile'
+        },
+        {
+          include: '#commonmark-code-fenced-md'
         },
         {
           include: '#commonmark-code-fenced-objc'
@@ -375,6 +375,9 @@ const grammar = {
         },
         {
           include: '#commonmark-code-fenced-ts'
+        },
+        {
+          include: '#commonmark-code-fenced-tsx'
         },
         {
           include: '#commonmark-code-fenced-vbnet'
@@ -2856,60 +2859,6 @@ const grammar = {
         }
       ]
     },
-    'commonmark-code-fenced-md': {
-      patterns: [
-        {
-          begin:
-            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:pandoc|rmarkdown|\\.?(?:livemd|markdown|md|mdown|mdwn|mkd|mkdn|mkdown|qmd|rmd|ronn|scd|workbook)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
-          beginCaptures: {
-            1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
-            },
-            2: {
-              name: 'entity.name.function.md'
-            }
-          },
-          contentName: 'meta.embedded.md',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
-          endCaptures: {
-            1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
-            }
-          },
-          name: 'markup.code.md.md',
-          patterns: [
-            {
-              include: 'source.md'
-            }
-          ]
-        },
-        {
-          begin:
-            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:pandoc|rmarkdown|\\.?(?:livemd|markdown|md|mdown|mdwn|mkd|mkdn|mkdown|qmd|rmd|ronn|scd|workbook)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
-          beginCaptures: {
-            1: {
-              name: 'punctuation.definition.string.begin.code.fenced.md'
-            },
-            2: {
-              name: 'entity.name.function.md'
-            }
-          },
-          contentName: 'meta.embedded.md',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
-          endCaptures: {
-            1: {
-              name: 'punctuation.definition.string.end.code.fenced.md'
-            }
-          },
-          name: 'markup.code.md.md',
-          patterns: [
-            {
-              include: 'source.md'
-            }
-          ]
-        }
-      ]
-    },
     'commonmark-code-fenced-go': {
       patterns: [
         {
@@ -3391,6 +3340,60 @@ const grammar = {
           patterns: [
             {
               include: 'source.makefile'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-md': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:pandoc|rmarkdown|\\.?(?:livemd|markdown|md|mdown|mdwn|mkd|mkdn|mkdown|qmd|rmd|ronn|scd|workbook)))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.md'
+            },
+            2: {
+              name: 'entity.name.function.md'
+            }
+          },
+          contentName: 'meta.embedded.md',
+          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.md'
+            }
+          },
+          name: 'markup.code.md.md',
+          patterns: [
+            {
+              include: 'source.md'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:pandoc|rmarkdown|\\.?(?:livemd|markdown|md|mdown|mdwn|mkd|mkdn|mkdown|qmd|rmd|ronn|scd|workbook)))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.md'
+            },
+            2: {
+              name: 'entity.name.function.md'
+            }
+          },
+          contentName: 'meta.embedded.md',
+          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.md'
+            }
+          },
+          name: 'markup.code.md.md',
+          patterns: [
+            {
+              include: 'source.md'
             }
           ]
         }
@@ -3931,6 +3934,60 @@ const grammar = {
           patterns: [
             {
               include: 'source.ts'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-tsx': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:\\.?tsx))(?:[\\t ]+(?:[^\\n\\r`])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.md'
+            },
+            2: {
+              name: 'entity.name.function.md'
+            }
+          },
+          contentName: 'meta.embedded.tsx',
+          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.md'
+            }
+          },
+          name: 'markup.code.tsx.md',
+          patterns: [
+            {
+              include: 'source.tsx'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:\\.?tsx))(?:[\\t ]+(?:[^\\n\\r])+)?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'punctuation.definition.string.begin.code.fenced.md'
+            },
+            2: {
+              name: 'entity.name.function.md'
+            }
+          },
+          contentName: 'meta.embedded.tsx',
+          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'punctuation.definition.string.end.code.fenced.md'
+            }
+          },
+          name: 'markup.code.tsx.md',
+          patterns: [
+            {
+              include: 'source.tsx'
             }
           ]
         }

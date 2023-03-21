@@ -48,6 +48,7 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import {common} from '@wooorm/starry-night'
+import sourceTsx from '@wooorm/starry-night/lang/source.tsx.js'
 import {characterEntities} from 'character-entities'
 import {characterEntitiesLegacy} from 'character-entities-legacy'
 import escapeStringRegexp from 'escape-string-regexp'
@@ -96,27 +97,29 @@ const grammar = parse(doc)
 
 // Rule injection
 // Figure out embedded grammars.
-const embeddedGrammars = common.map((d) => {
-  const grammar = {
-    scopeName: d.scopeName,
-    extensions: d.extensions,
-    names: d.names
-  }
+const embeddedGrammars = [...common, sourceTsx]
+  .map((d) => {
+    const grammar = {
+      scopeName: d.scopeName,
+      extensions: d.extensions,
+      names: d.names
+    }
 
-  // Remove `.tsx`, that’s weird!
-  if (grammar.scopeName === 'text.xml') {
-    grammar.extensions = grammar.extensions.filter((d) => d !== '.tsx')
-  }
+    // Remove `.tsx`, that’s weird!
+    if (grammar.scopeName === 'text.xml') {
+      grammar.extensions = grammar.extensions.filter((d) => d !== '.tsx')
+    }
 
-  if (grammar.scopeName === 'source.gfm') {
-    // Change scope name
-    grammar.scopeName = 'source.md'
-    // Remove `.mdx`.
-    grammar.extensions = grammar.extensions.filter((d) => d !== '.mdx')
-  }
+    if (grammar.scopeName === 'source.gfm') {
+      // Change scope name.
+      grammar.scopeName = 'source.md'
+      // Remove `.mdx`.
+      grammar.extensions = grammar.extensions.filter((d) => d !== '.mdx')
+    }
 
-  return grammar
-})
+    return grammar
+  })
+  .sort((a, b) => a.scopeName.localeCompare(b.scopeName))
 
 // Inject grammars for code blocks with embedded grammars.
 assert(grammar.repository, 'expected `repository`')

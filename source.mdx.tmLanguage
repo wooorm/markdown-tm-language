@@ -383,10 +383,6 @@
           </dict>
           <dict>
             <key>include</key>
-            <string>#commonmark-code-fenced-md</string>
-          </dict>
-          <dict>
-            <key>include</key>
             <string>#commonmark-code-fenced-go</string>
           </dict>
           <dict>
@@ -420,6 +416,10 @@
           <dict>
             <key>include</key>
             <string>#commonmark-code-fenced-makefile</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#commonmark-code-fenced-md</string>
           </dict>
           <dict>
             <key>include</key>
@@ -460,6 +460,10 @@
           <dict>
             <key>include</key>
             <string>#commonmark-code-fenced-ts</string>
+          </dict>
+          <dict>
+            <key>include</key>
+            <string>#commonmark-code-fenced-tsx</string>
           </dict>
           <dict>
             <key>include</key>
@@ -3106,88 +3110,6 @@
           </dict>
         </array>
       </dict>
-      <key>commonmark-code-fenced-md</key>
-      <dict>
-        <key>patterns</key>
-        <array>
-          <dict>
-            <key>begin</key>
-            <string>(?:^|\G)[\t ]*(`{3,})(?:[\t ]*((?i:pandoc|rmarkdown|\.?(?:livemd|markdown|md|mdown|mdwn|mkd|mkdn|mkdown|qmd|rmd|ronn|scd|workbook)))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.begin.code.fenced.mdx</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.function.mdx</string>
-              </dict>
-            </dict>
-            <key>contentName</key>
-            <string>meta.embedded.md</string>
-            <key>end</key>
-            <string>(?:^|\G)[\t ]*(\1)(?:[\t ]*$)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.end.code.fenced.mdx</string>
-              </dict>
-            </dict>
-            <key>name</key>
-            <string>markup.code.md.mdx</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>source.md</string>
-              </dict>
-            </array>
-          </dict>
-          <dict>
-            <key>begin</key>
-            <string>(?:^|\G)[\t ]*(~{3,})(?:[\t ]*((?i:pandoc|rmarkdown|\.?(?:livemd|markdown|md|mdown|mdwn|mkd|mkdn|mkdown|qmd|rmd|ronn|scd|workbook)))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.begin.code.fenced.mdx</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>name</key>
-                <string>entity.name.function.mdx</string>
-              </dict>
-            </dict>
-            <key>contentName</key>
-            <string>meta.embedded.md</string>
-            <key>end</key>
-            <string>(?:^|\G)[\t ]*(\1)(?:[\t ]*$)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>punctuation.definition.string.end.code.fenced.mdx</string>
-              </dict>
-            </dict>
-            <key>name</key>
-            <string>markup.code.md.mdx</string>
-            <key>patterns</key>
-            <array>
-              <dict>
-                <key>include</key>
-                <string>source.md</string>
-              </dict>
-            </array>
-          </dict>
-        </array>
-      </dict>
       <key>commonmark-code-fenced-go</key>
       <dict>
         <key>patterns</key>
@@ -3921,6 +3843,88 @@
               <dict>
                 <key>include</key>
                 <string>source.makefile</string>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
+      <key>commonmark-code-fenced-md</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[\t ]*(`{3,})(?:[\t ]*((?i:pandoc|rmarkdown|\.?(?:livemd|markdown|md|mdown|mdwn|mkd|mkdn|mkdown|qmd|rmd|ronn|scd|workbook)))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.mdx</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.mdx</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.md</string>
+            <key>end</key>
+            <string>(?:^|\G)[\t ]*(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.mdx</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.md.mdx</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>source.md</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[\t ]*(~{3,})(?:[\t ]*((?i:pandoc|rmarkdown|\.?(?:livemd|markdown|md|mdown|mdwn|mkd|mkdn|mkdown|qmd|rmd|ronn|scd|workbook)))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.mdx</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.mdx</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.md</string>
+            <key>end</key>
+            <string>(?:^|\G)[\t ]*(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.mdx</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.md.mdx</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>source.md</string>
               </dict>
             </array>
           </dict>
@@ -4741,6 +4745,88 @@
               <dict>
                 <key>include</key>
                 <string>source.ts</string>
+              </dict>
+            </array>
+          </dict>
+        </array>
+      </dict>
+      <key>commonmark-code-fenced-tsx</key>
+      <dict>
+        <key>patterns</key>
+        <array>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[\t ]*(`{3,})(?:[\t ]*((?i:\.?tsx))(?:[\t ]+(?:[^\n\r`])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.mdx</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.mdx</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.tsx</string>
+            <key>end</key>
+            <string>(?:^|\G)[\t ]*(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.mdx</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.tsx.mdx</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>source.tsx</string>
+              </dict>
+            </array>
+          </dict>
+          <dict>
+            <key>begin</key>
+            <string>(?:^|\G)[\t ]*(~{3,})(?:[\t ]*((?i:\.?tsx))(?:[\t ]+(?:[^\n\r])+)?)(?:[\t ]*$)</string>
+            <key>beginCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.begin.code.fenced.mdx</string>
+              </dict>
+              <key>2</key>
+              <dict>
+                <key>name</key>
+                <string>entity.name.function.mdx</string>
+              </dict>
+            </dict>
+            <key>contentName</key>
+            <string>meta.embedded.tsx</string>
+            <key>end</key>
+            <string>(?:^|\G)[\t ]*(\1)(?:[\t ]*$)</string>
+            <key>endCaptures</key>
+            <dict>
+              <key>1</key>
+              <dict>
+                <key>name</key>
+                <string>punctuation.definition.string.end.code.fenced.mdx</string>
+              </dict>
+            </dict>
+            <key>name</key>
+            <string>markup.code.tsx.mdx</string>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>source.tsx</string>
               </dict>
             </array>
           </dict>
