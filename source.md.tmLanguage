@@ -3852,6 +3852,10 @@
                 <key>include</key>
                 <string>source.c++</string>
               </dict>
+              <dict>
+                <key>include</key>
+                <string>source.cpp</string>
+              </dict>
             </array>
           </dict>
           <dict>
@@ -3889,6 +3893,10 @@
               <dict>
                 <key>include</key>
                 <string>source.c++</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>source.cpp</string>
               </dict>
             </array>
           </dict>
@@ -5082,6 +5090,14 @@
                 <key>include</key>
                 <string>source.md</string>
               </dict>
+              <dict>
+                <key>include</key>
+                <string>source.gfm</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>text.html.markdown</string>
+              </dict>
             </array>
           </dict>
           <dict>
@@ -5119,6 +5135,14 @@
               <dict>
                 <key>include</key>
                 <string>source.md</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>source.gfm</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>text.html.markdown</string>
               </dict>
             </array>
           </dict>
@@ -6066,6 +6090,10 @@
                 <key>include</key>
                 <string>text.xml.svg</string>
               </dict>
+              <dict>
+                <key>include</key>
+                <string>text.xml</string>
+              </dict>
             </array>
           </dict>
           <dict>
@@ -6103,6 +6131,10 @@
               <dict>
                 <key>include</key>
                 <string>text.xml.svg</string>
+              </dict>
+              <dict>
+                <key>include</key>
+                <string>text.xml</string>
               </dict>
             </array>
           </dict>

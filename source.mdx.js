@@ -1764,6 +1764,9 @@ const grammar = {
           patterns: [
             {
               include: 'source.c++'
+            },
+            {
+              include: 'source.cpp'
             }
           ]
         },
@@ -1789,6 +1792,9 @@ const grammar = {
           patterns: [
             {
               include: 'source.c++'
+            },
+            {
+              include: 'source.cpp'
             }
           ]
         }
@@ -2574,6 +2580,12 @@ const grammar = {
           patterns: [
             {
               include: 'source.md'
+            },
+            {
+              include: 'source.gfm'
+            },
+            {
+              include: 'text.html.markdown'
             }
           ]
         },
@@ -2599,6 +2611,12 @@ const grammar = {
           patterns: [
             {
               include: 'source.md'
+            },
+            {
+              include: 'source.gfm'
+            },
+            {
+              include: 'text.html.markdown'
             }
           ]
         }
@@ -3222,6 +3240,9 @@ const grammar = {
           patterns: [
             {
               include: 'text.xml.svg'
+            },
+            {
+              include: 'text.xml'
             }
           ]
         },
@@ -3247,6 +3268,9 @@ const grammar = {
           patterns: [
             {
               include: 'text.xml.svg'
+            },
+            {
+              include: 'text.xml'
             }
           ]
         }

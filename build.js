@@ -99,24 +99,32 @@ const grammar = parse(doc)
 // Rule injection
 // Figure out embedded grammars.
 const embeddedGrammars = [...common, sourceToml, sourceTsx].map((d) => {
-  const id = d.scopeName.split('.').pop()
+  let id = d.scopeName.split('.').pop()
   assert(id, 'expected `id`')
+  id = id === 'basic' ? 'html' : id === 'c++' ? 'cpp' : id === 'gfm' ? 'md' : id
+
   const grammar = {
-    scopeName: d.scopeName,
+    scopeNames: [d.scopeName],
     extensions: d.extensions,
     names: d.names,
-    id:
-      id === 'basic' ? 'html' : id === 'c++' ? 'cpp' : id === 'gfm' ? 'md' : id
+    id
   }
 
   // Remove `.tsx`, that’s weird!
-  if (grammar.scopeName === 'text.xml') {
+  if (id === 'xml') {
     grammar.extensions = grammar.extensions.filter((d) => d !== '.tsx')
   }
 
-  if (grammar.scopeName === 'source.gfm') {
-    // Change scope name.
-    grammar.scopeName = 'source.md'
+  if (id === 'cpp') {
+    grammar.scopeNames.push('source.cpp')
+  }
+
+  if (id === 'svg') {
+    grammar.scopeNames.push('text.xml')
+  }
+
+  if (id === 'md') {
+    grammar.scopeNames = ['source.md', 'source.gfm', 'text.html.markdown']
     // Remove `.mdx`.
     grammar.extensions = grammar.extensions.filter((d) => d !== '.mdx')
   }
@@ -125,7 +133,7 @@ const embeddedGrammars = [...common, sourceToml, sourceTsx].map((d) => {
 })
 
 embeddedGrammars.push({
-  scopeName: 'source.mdx',
+  scopeNames: ['source.mdx'],
   extensions: ['.mdx'],
   names: ['mdx'],
   id: 'mdx'
@@ -199,7 +207,7 @@ for (const embedded of embeddedGrammars) {
     .replace(/\)\?\)\?/, ')?)')
   backtickCopy.contentName = 'meta.embedded.' + embedded.id
   backtickCopy.name = 'markup.code.' + embedded.id + '.var(suffix)'
-  backtickCopy.patterns = [{include: embedded.scopeName}]
+  backtickCopy.patterns = embedded.scopeNames.map((d) => ({include: d}))
 
   assert(tildeCopy.begin, 'expected begin')
   tildeCopy.begin = tildeCopy.begin
