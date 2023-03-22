@@ -493,7 +493,7 @@ for (const language of languages) {
   await fs.writeFile(
     new URL(filename + '.tmLanguage', import.meta.url),
     // @ts-expect-error: fine, it’s serializable.
-    plist.build(tmLanguage)
+    plist.build(tmLanguage) + '\n'
   )
   await fs.writeFile(
     new URL(filename + '.js', import.meta.url),
