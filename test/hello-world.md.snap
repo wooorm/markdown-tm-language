@@ -1,5 +1,5 @@
 ># Hello world!
-#^ source.md markup.heading.atx.1.md punctuation.definition.heading.md
-# ^ source.md markup.heading.atx.1.md
-#  ^^^^^^^^^^^^ source.md markup.heading.atx.1.md entity.name.section.md
+#^ text.md markup.heading.atx.1.md punctuation.definition.heading.md
+# ^ text.md markup.heading.atx.1.md
+#  ^^^^^^^^^^^^ text.md markup.heading.atx.1.md entity.name.section.md
 >

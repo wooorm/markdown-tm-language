@@ -1,15 +1,15 @@
 >asd
-#^^^^ source.md meta.paragraph.md
+#^^^^ text.md meta.paragraph.md
 >
 >---
-#^^^ source.md meta.separator.md
+#^^^ text.md meta.separator.md
 >
 >* * *
-#^^^^^ source.md meta.separator.md
+#^^^^^ text.md meta.separator.md
 >
 > -----
-#^^^^^^ source.md meta.separator.md
+#^^^^^^ text.md meta.separator.md
 >
 >____________
-#^^^^^^^^^^^^ source.md meta.separator.md
+#^^^^^^^^^^^^ text.md meta.separator.md
 >

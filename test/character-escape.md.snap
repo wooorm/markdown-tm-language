@@ -1,26 +1,26 @@
 >a \- b.
-#^^ source.md meta.paragraph.md
-#  ^^ source.md meta.paragraph.md constant.language.character-escape.md
-#    ^^^^ source.md meta.paragraph.md
+#^^ text.md meta.paragraph.md
+#  ^^ text.md meta.paragraph.md constant.language.character-escape.md
+#    ^^^^ text.md meta.paragraph.md
 >
 >c \! d.
-#^^ source.md meta.paragraph.md
-#  ^^ source.md meta.paragraph.md constant.language.character-escape.md
-#    ^^^^ source.md meta.paragraph.md
+#^^ text.md meta.paragraph.md
+#  ^^ text.md meta.paragraph.md constant.language.character-escape.md
+#    ^^^^ text.md meta.paragraph.md
 >
 >e \\ f.
-#^^ source.md meta.paragraph.md
-#  ^^ source.md meta.paragraph.md constant.language.character-escape.md
-#    ^^^^ source.md meta.paragraph.md
+#^^ text.md meta.paragraph.md
+#  ^^ text.md meta.paragraph.md constant.language.character-escape.md
+#    ^^^^ text.md meta.paragraph.md
 >
 >g \a h.
-#^^^^^^^^ source.md meta.paragraph.md
+#^^^^^^^^ text.md meta.paragraph.md
 >
 >i \\\ j.
-#^^ source.md meta.paragraph.md
-#  ^^ source.md meta.paragraph.md constant.language.character-escape.md
-#    ^^^^^ source.md meta.paragraph.md
+#^^ text.md meta.paragraph.md
+#  ^^ text.md meta.paragraph.md constant.language.character-escape.md
+#    ^^^^^ text.md meta.paragraph.md
 >
 >k \ l.
-#^^^^^^^ source.md meta.paragraph.md
+#^^^^^^^ text.md meta.paragraph.md
 >

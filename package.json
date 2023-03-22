@@ -18,8 +18,8 @@
   "sideEffects": false,
   "type": "module",
   "files": [
-    "source.md.js",
-    "source.md.tmLanguage",
+    "text.md.js",
+    "text.md.tmLanguage",
     "source.mdx.js",
     "source.mdx.tmLanguage"
   ],
@@ -58,7 +58,7 @@
     "build": "tsc --build --clean && tsc --build && type-coverage",
     "format": "remark . -qfo && prettier . -w --loglevel warn && xo --fix",
     "#": "Do `npm run test-api -- --updateSnapshot` to update snapshots",
-    "test-api": "vscode-tmgrammar-snap -s source.md -g source.md.tmLanguage -g test/source.toml.json -g test/source.yaml.json test/**/*.md",
+    "test-api": "vscode-tmgrammar-snap -s text.md -g text.md.tmLanguage -g test/source.toml.json -g test/source.yaml.json test/**/*.md",
     "test": "npm run generate && npm run generate:example && npm run build && npm run format && npm run test-api"
   },
   "prettier": {

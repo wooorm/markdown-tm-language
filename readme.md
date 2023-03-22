@@ -64,7 +64,7 @@ You can use these grammars in your code editor or with
 
 ### `starry-night`
 
-You can currently use the `source.md.js` and `source.mdx.js` files in this repo
+You can currently use the `text.md.js` and `source.mdx.js` files in this repo
 with [`starry-night`][starry-night].
 The plan is to get these grammars into GitHub, at which point they’ll be in
 `starry-night` proper.

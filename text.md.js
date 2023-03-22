@@ -1,7 +1,7 @@
 /* eslint-disable no-template-curly-in-string */
 /** @type {import("@wooorm/starry-night").Grammar} */
 const grammar = {
-  scopeName: 'source.md',
+  scopeName: 'text.md',
   extensions: [
     '.livemd',
     '.markdown',
@@ -3804,7 +3804,7 @@ const grammar = {
           name: 'markup.code.md.md',
           patterns: [
             {
-              include: 'source.md'
+              include: 'text.md'
             },
             {
               include: 'source.gfm'
@@ -3847,7 +3847,7 @@ const grammar = {
           name: 'markup.code.md.md',
           patterns: [
             {
-              include: 'source.md'
+              include: 'text.md'
             },
             {
               include: 'source.gfm'

@@ -1,12 +1,12 @@
 >---
-#^^^ source.md string.other.begin.yaml
+#^^^ text.md string.other.begin.yaml
 >yaml: 1
-#^^^^^^^^ source.md meta.embedded.yaml
+#^^^^^^^^ text.md meta.embedded.yaml
 >---
-#^^^ source.md string.other.end.yaml
+#^^^ text.md string.other.end.yaml
 >
 ># hi
-#^ source.md markup.heading.atx.1.md punctuation.definition.heading.md
-# ^ source.md markup.heading.atx.1.md
-#  ^^ source.md markup.heading.atx.1.md entity.name.section.md
+#^ text.md markup.heading.atx.1.md punctuation.definition.heading.md
+# ^ text.md markup.heading.atx.1.md
+#  ^^ text.md markup.heading.atx.1.md entity.name.section.md
 >

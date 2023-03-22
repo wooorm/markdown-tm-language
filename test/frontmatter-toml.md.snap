@@ -1,12 +1,12 @@
 >+++
-#^^^ source.md string.other.begin.toml
+#^^^ text.md string.other.begin.toml
 >name = "hi"
-#^^^^^^^^^^^^ source.md meta.embedded.toml
+#^^^^^^^^^^^^ text.md meta.embedded.toml
 >+++
-#^^^ source.md string.other.end.toml
+#^^^ text.md string.other.end.toml
 >
 ># hi
-#^ source.md markup.heading.atx.1.md punctuation.definition.heading.md
-# ^ source.md markup.heading.atx.1.md
-#  ^^ source.md markup.heading.atx.1.md entity.name.section.md
+#^ text.md markup.heading.atx.1.md punctuation.definition.heading.md
+# ^ text.md markup.heading.atx.1.md
+#  ^^ text.md markup.heading.atx.1.md entity.name.section.md
 >

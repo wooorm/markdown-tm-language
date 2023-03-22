@@ -3006,7 +3006,7 @@ const grammar = {
           name: 'markup.code.md.mdx',
           patterns: [
             {
-              include: 'source.md'
+              include: 'text.md'
             },
             {
               include: 'source.gfm'
@@ -3049,7 +3049,7 @@ const grammar = {
           name: 'markup.code.md.mdx',
           patterns: [
             {
-              include: 'source.md'
+              include: 'text.md'
             },
             {
               include: 'source.gfm'

@@ -5688,7 +5688,7 @@
             <array>
               <dict>
                 <key>include</key>
-                <string>source.md</string>
+                <string>text.md</string>
               </dict>
               <dict>
                 <key>include</key>
@@ -5751,7 +5751,7 @@
             <array>
               <dict>
                 <key>include</key>
-                <string>source.md</string>
+                <string>text.md</string>
               </dict>
               <dict>
                 <key>include</key>
@@ -7979,6 +7979,6 @@
       </dict>
     </dict>
     <key>scopeName</key>
-    <string>source.md</string>
+    <string>text.md</string>
   </dict>
 </plist>

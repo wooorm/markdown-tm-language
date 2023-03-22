@@ -20,11 +20,11 @@
  *
  *   Used in the `tmLanguage` file.
  * @property {string} scopeName
- *   Name of scope, such as `source.md`.
+ *   Name of scope, such as `text.md`.
  *
  *   When `source.mdx`, the suffix of all rules will be `.mdx`.
  * @property {string | undefined} [filename]
- *   Name of file, such as `source.md`.
+ *   Name of file, such as `text.md`.
  *
  *   Defaults to `scopeName`.
  * @property {Array<string>} extensions
@@ -124,7 +124,7 @@ const embeddedGrammars = [...common, sourceToml, sourceTsx].map((d) => {
   }
 
   if (id === 'md') {
-    grammar.scopeNames = ['source.md', 'source.gfm', 'text.html.markdown']
+    grammar.scopeNames = ['text.md', 'source.gfm', 'text.html.markdown']
     // Remove `.mdx`.
     grammar.extensions = grammar.extensions.filter((d) => d !== '.mdx')
   }
@@ -282,7 +282,7 @@ const languages = [
     // Especially, because we also care about MDX.
     //
     // So, we go with the same mechanism, but don’t force GFM:
-    scopeName: 'source.md',
+    scopeName: 'text.md',
 
     // Extensions for markdown (from `github/linguist`).
     extensions: [

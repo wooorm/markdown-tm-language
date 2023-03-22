@@ -17,7 +17,7 @@ import sourceTsx from '@wooorm/starry-night/lang/source.tsx.js'
 import sourceYaml from '@wooorm/starry-night/lang/source.yaml.js'
 import textHtmlBasic from '@wooorm/starry-night/lang/text.html.basic.js'
 import textXmlSvg from '@wooorm/starry-night/lang/text.xml.svg.js'
-import sourceMd from '../source.md.js'
+import sourceMd from '../text.md.js'
 import sourceMdx from '../source.mdx.js'
 
 const grammars = [
@@ -395,7 +395,7 @@ Promise.all([starryPromise]).then(([y]) => {
 function Playground() {
   const [mdx, setMdx] = React.useState(false)
   const [text, setText] = React.useState(mdx ? sampleMdx : sampleMarkdown)
-  const scope = mdx ? 'source.mdx' : 'source.md'
+  const scope = mdx ? 'source.mdx' : 'text.md'
 
   return (
     <div>
