@@ -2036,7 +2036,7 @@
         <key>match</key>
         <string>(?&lt;=\S)(?&lt;!~)~{1,2}(?!~)|(?&lt;!~)~{1,2}(?=\S)(?!~)</string>
         <key>name</key>
-        <string>punctuation.definition.deleted.strikethrough.mdx</string>
+        <string>string.other.strikethrough.mdx</string>
       </dict>
       <key>extension-gfm-table</key>
       <dict>

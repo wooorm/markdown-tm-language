@@ -2773,7 +2773,7 @@
         <key>match</key>
         <string>(?&lt;=\S)(?&lt;!~)~{1,2}(?!~)|(?&lt;!~)~{1,2}(?=\S)(?!~)</string>
         <key>name</key>
-        <string>punctuation.definition.deleted.strikethrough.md</string>
+        <string>string.other.strikethrough.md</string>
       </dict>
       <key>extension-gfm-table</key>
       <dict>

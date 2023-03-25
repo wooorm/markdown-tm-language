@@ -1359,7 +1359,7 @@ const grammar = {
     },
     'extension-gfm-strikethrough': {
       match: '(?<=\\S)(?<!~)~{1,2}(?!~)|(?<!~)~{1,2}(?=\\S)(?!~)',
-      name: 'punctuation.definition.deleted.strikethrough.mdx'
+      name: 'string.other.strikethrough.mdx'
     },
     'extension-gfm-table': {
       begin: '(?:^|\\G)[\\t ]*(?=\\|[^\\n\\r]+\\|[ \\t]*$)',

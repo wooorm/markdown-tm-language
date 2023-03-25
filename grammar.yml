@@ -1326,7 +1326,7 @@ repository:
     # Strikethrough is like asterisks from `commonmark-attention`.
     # <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/attention.rs>
     match: (?<=\S)(?<!~)~{1,2}(?!~)|(?<!~)~{1,2}(?=\S)(?!~)
-    name: punctuation.definition.deleted.strikethrough.var(suffix)
+    name: string.other.strikethrough.var(suffix)
   extension-gfm-table:
     if: gfm
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/gfm_table.rs>.

@@ -3,17 +3,17 @@
 >
 >ax~xb
 #^^ text.md meta.paragraph.md
-#  ^ text.md meta.paragraph.md punctuation.definition.deleted.strikethrough.md
+#  ^ text.md meta.paragraph.md string.other.strikethrough.md
 #   ^^^ text.md meta.paragraph.md
 >
 >ax~ b
 #^^ text.md meta.paragraph.md
-#  ^ text.md meta.paragraph.md punctuation.definition.deleted.strikethrough.md
+#  ^ text.md meta.paragraph.md string.other.strikethrough.md
 #   ^^^ text.md meta.paragraph.md
 >
 >ax~.b
 #^^ text.md meta.paragraph.md
-#  ^ text.md meta.paragraph.md punctuation.definition.deleted.strikethrough.md
+#  ^ text.md meta.paragraph.md string.other.strikethrough.md
 #   ^^^ text.md meta.paragraph.md
 >
 >Left whitespace:
@@ -21,7 +21,7 @@
 >
 >a ~xb
 #^^ text.md meta.paragraph.md
-#  ^ text.md meta.paragraph.md punctuation.definition.deleted.strikethrough.md
+#  ^ text.md meta.paragraph.md string.other.strikethrough.md
 #   ^^^ text.md meta.paragraph.md
 >
 >a ~ b
@@ -29,7 +29,7 @@
 >
 >a ~.b
 #^^ text.md meta.paragraph.md
-#  ^ text.md meta.paragraph.md punctuation.definition.deleted.strikethrough.md
+#  ^ text.md meta.paragraph.md string.other.strikethrough.md
 #   ^^^ text.md meta.paragraph.md
 >
 >Left punc:
@@ -37,16 +37,16 @@
 >
 >a.~xb
 #^^ text.md meta.paragraph.md
-#  ^ text.md meta.paragraph.md punctuation.definition.deleted.strikethrough.md
+#  ^ text.md meta.paragraph.md string.other.strikethrough.md
 #   ^^^ text.md meta.paragraph.md
 >
 >a.~ b
 #^^ text.md meta.paragraph.md
-#  ^ text.md meta.paragraph.md punctuation.definition.deleted.strikethrough.md
+#  ^ text.md meta.paragraph.md string.other.strikethrough.md
 #   ^^^ text.md meta.paragraph.md
 >
 >a.~.b
 #^^ text.md meta.paragraph.md
-#  ^ text.md meta.paragraph.md punctuation.definition.deleted.strikethrough.md
+#  ^ text.md meta.paragraph.md string.other.strikethrough.md
 #   ^^^ text.md meta.paragraph.md
 >

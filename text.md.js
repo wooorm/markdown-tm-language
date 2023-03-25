@@ -1860,7 +1860,7 @@ const grammar = {
     },
     'extension-gfm-strikethrough': {
       match: '(?<=\\S)(?<!~)~{1,2}(?!~)|(?<!~)~{1,2}(?=\\S)(?!~)',
-      name: 'punctuation.definition.deleted.strikethrough.md'
+      name: 'string.other.strikethrough.md'
     },
     'extension-gfm-table': {
       begin: '(?:^|\\G)[ ]{0,3}(?=\\|[^\\n\\r]+\\|[ \\t]*$)',
