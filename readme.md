@@ -73,10 +73,13 @@ The plan is to get these grammars into GitHub, at which point they’ll be in
 
 The plan is to get these grammars into Shiki, at which point you can use them
 from there.
+Tracking issue for the MDX grammar:
+[shikijs/shiki#447](https://github.com/shikijs/shiki/pull/447).
 
 ### VS Code
 
-To do.
+For the MDX grammar, use:
+[`vscode-mdx`](https://github.com/mdx-js/mdx-analyzer/tree/main/packages/vscode-mdx).
 
 ### Sublime and TextMate
 
