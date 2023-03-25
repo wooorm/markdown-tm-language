@@ -1504,13 +1504,13 @@ const grammar = {
       ]
     },
     'extension-mdx-expression-flow': {
-      name: 'meta.embedded.tsx',
       begin: '(?:^|\\G)[\\t ]*(\\{)',
       beginCaptures: {
         1: {
           name: 'string.other.begin.expression.mdx.js'
         }
       },
+      contentName: 'meta.embedded.tsx',
       end: '(\\})(?:[\\t ]*$)',
       endCaptures: {
         1: {
@@ -1524,13 +1524,13 @@ const grammar = {
       ]
     },
     'extension-mdx-expression-text': {
-      name: 'meta.embedded.tsx',
       begin: '\\{',
       beginCaptures: {
         0: {
           name: 'string.other.begin.expression.mdx.js'
         }
       },
+      contentName: 'meta.embedded.tsx',
       end: '\\}',
       endCaptures: {
         0: {

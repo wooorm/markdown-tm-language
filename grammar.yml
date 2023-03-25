@@ -1426,12 +1426,12 @@ repository:
       - include: 'source.tsx#statements'
   extension-mdx-expression-flow:
     if: mdx
-    name: meta.embedded.tsx
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/mdx_expression_flow.rs>.
     begin: var(before)(\{)
     beginCaptures:
       1:
         name: string.other.begin.expression.var(suffix).js
+    contentName: meta.embedded.tsx
     end: (\})var(after)
     endCaptures:
       1:
@@ -1440,12 +1440,12 @@ repository:
       - include: 'source.tsx#expression'
   extension-mdx-expression-text:
     if: mdx
-    name: meta.embedded.tsx
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/mdx_expression_flow.rs>.
     begin: \{
     beginCaptures:
       0:
         name: string.other.begin.expression.var(suffix).js
+    contentName: meta.embedded.tsx
     end: \}
     endCaptures:
       0:
