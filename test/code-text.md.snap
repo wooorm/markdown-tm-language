@@ -1,7 +1,7 @@
 >a `b` c.
 #^^ text.md meta.paragraph.md
 #  ^ text.md meta.paragraph.md markup.code.other.md string.other.begin.code.md
-#   ^ text.md meta.paragraph.md markup.code.other.md markup.raw.code.text.md
+#   ^ text.md meta.paragraph.md markup.code.other.md markup.raw.code.md markup.inline.raw.code.md
 #    ^ text.md meta.paragraph.md markup.code.other.md string.other.end.code.md
 #     ^^^^ text.md meta.paragraph.md
 >
@@ -14,21 +14,21 @@
 >Less/More/Less ` `` `.
 #^^^^^^^^^^^^^^^ text.md meta.paragraph.md
 #               ^ text.md meta.paragraph.md markup.code.other.md string.other.begin.code.md
-#                ^^^^ text.md meta.paragraph.md markup.code.other.md markup.raw.code.text.md
+#                ^^^^ text.md meta.paragraph.md markup.code.other.md markup.raw.code.md markup.inline.raw.code.md
 #                    ^ text.md meta.paragraph.md markup.code.other.md string.other.end.code.md
 #                     ^^ text.md meta.paragraph.md
 >
 >More/Less/More `` ` ``.
 #^^^^^^^^^^^^^^^ text.md meta.paragraph.md
 #               ^^ text.md meta.paragraph.md markup.code.other.md string.other.begin.code.md
-#                 ^^^ text.md meta.paragraph.md markup.code.other.md markup.raw.code.text.md
+#                 ^^^ text.md meta.paragraph.md markup.code.other.md markup.raw.code.md markup.inline.raw.code.md
 #                    ^^ text.md meta.paragraph.md markup.code.other.md string.other.end.code.md
 #                      ^^ text.md meta.paragraph.md
 >
 >Stuff `a`a`.
 #^^^^^^ text.md meta.paragraph.md
 #      ^ text.md meta.paragraph.md markup.code.other.md string.other.begin.code.md
-#       ^ text.md meta.paragraph.md markup.code.other.md markup.raw.code.text.md
+#       ^ text.md meta.paragraph.md markup.code.other.md markup.raw.code.md markup.inline.raw.code.md
 #        ^ text.md meta.paragraph.md markup.code.other.md string.other.end.code.md
 #         ^^^^ text.md meta.paragraph.md
 >
@@ -37,7 +37,7 @@
 #      ^^ text.md meta.paragraph.md constant.language.character-escape.md
 #        ^ text.md meta.paragraph.md
 #         ^ text.md meta.paragraph.md markup.code.other.md string.other.begin.code.md
-#          ^ text.md meta.paragraph.md markup.code.other.md markup.raw.code.text.md
+#          ^ text.md meta.paragraph.md markup.code.other.md markup.raw.code.md markup.inline.raw.code.md
 #           ^ text.md meta.paragraph.md markup.code.other.md string.other.end.code.md
 #            ^^ text.md meta.paragraph.md
 >
@@ -46,7 +46,7 @@
 #      ^^ text.md meta.paragraph.md constant.language.character-escape.md
 #        ^^ text.md meta.paragraph.md
 #          ^ text.md meta.paragraph.md markup.code.other.md string.other.begin.code.md
-#           ^ text.md meta.paragraph.md markup.code.other.md markup.raw.code.text.md
+#           ^ text.md meta.paragraph.md markup.code.other.md markup.raw.code.md markup.inline.raw.code.md
 #            ^ text.md meta.paragraph.md markup.code.other.md string.other.end.code.md
 #             ^^ text.md meta.paragraph.md
 >

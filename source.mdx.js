@@ -431,7 +431,7 @@ const grammar = {
           name: 'string.other.begin.code.mdx'
         },
         2: {
-          name: 'markup.raw.code.text.mdx'
+          name: 'markup.raw.code.mdx markup.inline.raw.code.mdx'
         },
         3: {
           name: 'string.other.end.code.mdx'
@@ -1486,7 +1486,7 @@ const grammar = {
           name: 'string.other.begin.math.mdx'
         },
         2: {
-          name: 'markup.raw.math.mdx'
+          name: 'markup.raw.math.mdx markup.inline.raw.math.mdx'
         },
         3: {
           name: 'string.other.end.math.mdx'

@@ -706,7 +706,7 @@
           <key>2</key>
           <dict>
             <key>name</key>
-            <string>markup.raw.code.text.md</string>
+            <string>markup.raw.code.md markup.inline.raw.code.md</string>
           </dict>
           <key>3</key>
           <dict>
@@ -2968,7 +2968,7 @@
           <key>2</key>
           <dict>
             <key>name</key>
-            <string>markup.raw.math.md</string>
+            <string>markup.raw.math.md markup.inline.raw.math.md</string>
           </dict>
           <key>3</key>
           <dict>

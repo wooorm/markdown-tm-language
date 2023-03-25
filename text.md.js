@@ -493,7 +493,7 @@ const grammar = {
           name: 'string.other.begin.code.md'
         },
         2: {
-          name: 'markup.raw.code.text.md'
+          name: 'markup.raw.code.md markup.inline.raw.code.md'
         },
         3: {
           name: 'string.other.end.code.md'
@@ -1987,7 +1987,7 @@ const grammar = {
           name: 'string.other.begin.math.md'
         },
         2: {
-          name: 'markup.raw.math.md'
+          name: 'markup.raw.math.md markup.inline.raw.math.md'
         },
         3: {
           name: 'string.other.end.math.md'

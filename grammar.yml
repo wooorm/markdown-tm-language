@@ -445,7 +445,8 @@ repository:
       1:
         name: string.other.begin.code.var(suffix)
       2:
-        name: markup.raw.code.text.var(suffix)
+        # GitHub selects `markup.raw`, VS Code uses `markup.inline.raw`.
+        name: markup.raw.code.var(suffix) markup.inline.raw.code.var(suffix)
       3:
         name: string.other.end.code.var(suffix)
   commonmark-definition:
@@ -1409,7 +1410,8 @@ repository:
       1:
         name: string.other.begin.math.var(suffix)
       2:
-        name: markup.raw.math.var(suffix)
+        # GitHub selects `markup.raw`, VS Code uses `markup.inline.raw`.
+        name: markup.raw.math.var(suffix) markup.inline.raw.math.var(suffix)
       3:
         name: string.other.end.math.var(suffix)
   extension-mdx-esm:

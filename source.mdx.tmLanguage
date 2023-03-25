@@ -621,7 +621,7 @@
           <key>2</key>
           <dict>
             <key>name</key>
-            <string>markup.raw.code.text.mdx</string>
+            <string>markup.raw.code.mdx markup.inline.raw.code.mdx</string>
           </dict>
           <key>3</key>
           <dict>
@@ -2231,7 +2231,7 @@
           <key>2</key>
           <dict>
             <key>name</key>
-            <string>markup.raw.math.mdx</string>
+            <string>markup.raw.math.mdx markup.inline.raw.math.mdx</string>
           </dict>
           <key>3</key>
           <dict>
