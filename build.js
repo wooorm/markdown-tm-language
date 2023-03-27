@@ -203,14 +203,14 @@ for (const embedded of embeddedGrammars) {
   const extensionsSource =
     extensions.length === 0
       ? ''
-      : '\\.?' +
+      : '(?:.*\\.)?' +
         (extensions.length === 1
           ? extensions[0]
           : '(?:' + extensions.join('|') + ')')
   const extensionsWithDotSource =
     extensionsWithDot.length === 0
       ? ''
-      : '\\.' +
+      : '.*\\.' +
         (extensionsWithDot.length === 1
           ? extensionsWithDot[0]
           : '(?:' + extensionsWithDot.join('|') + ')')
