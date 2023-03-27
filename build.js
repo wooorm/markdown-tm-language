@@ -98,43 +98,53 @@ const grammar = parse(doc)
 
 // Rule injection
 // Figure out embedded grammars.
-const embeddedGrammars = [...common, sourceToml, sourceTsx].map((d) => {
-  let id = d.scopeName.split('.').pop()
-  assert(id, 'expected `id`')
-  id = id === 'basic' ? 'html' : id === 'c++' ? 'cpp' : id === 'gfm' ? 'md' : id
+const embeddedGrammars = [...common, sourceToml, sourceTsx]
+  .map((d) => {
+    let id = d.scopeName.split('.').pop()
+    assert(id, 'expected `id`')
+    id =
+      id === 'basic' ? 'html' : id === 'c++' ? 'cpp' : id === 'gfm' ? 'md' : id
 
-  const grammar = {
-    scopeNames: [d.scopeName],
-    extensions: d.extensions,
-    names: d.names,
-    id
-  }
+    const grammar = {
+      scopeNames: [d.scopeName],
+      extensions: d.extensions,
+      extensionsWithDot: d.extensionsWithDot || [],
+      names: d.names,
+      id
+    }
 
-  // Remove `.tsx`, that’s weird!
-  if (id === 'xml') {
-    grammar.extensions = grammar.extensions.filter((d) => d !== '.tsx')
-  }
+    // Remove `.tsx`, that’s weird!
+    if (id === 'xml') {
+      grammar.extensions = grammar.extensions.filter((d) => d !== '.tsx')
+    }
 
-  if (id === 'cpp') {
-    grammar.scopeNames.push('source.cpp')
-  }
+    if (id === 'cpp') {
+      grammar.scopeNames.push('source.cpp')
+    }
 
-  if (id === 'svg') {
-    grammar.scopeNames.push('text.xml')
-  }
+    if (id === 'svg') {
+      grammar.scopeNames.push('text.xml')
+    }
 
-  if (id === 'md') {
-    grammar.scopeNames = ['text.md', 'source.gfm', 'text.html.markdown']
-    // Remove `.mdx`.
-    grammar.extensions = grammar.extensions.filter((d) => d !== '.mdx')
-  }
+    if (id === 'md') {
+      grammar.scopeNames = ['text.md', 'source.gfm', 'text.html.markdown']
+      // Remove `.mdx`.
+      grammar.extensions = grammar.extensions.filter((d) => d !== '.mdx')
+    }
 
-  return grammar
-})
+    return grammar
+  })
+  .filter(
+    (d) =>
+      d.names.length > 0 ||
+      d.extensions.length > 0 ||
+      (d.extensionsWithDot && d.extensionsWithDot.length > 0)
+  )
 
 embeddedGrammars.push({
   scopeNames: ['source.mdx'],
   extensions: ['.mdx'],
+  extensionsWithDot: [],
   names: ['mdx'],
   id: 'mdx'
 })
@@ -179,6 +189,10 @@ for (const embedded of embeddedGrammars) {
     .map((d) => d.slice(1))
     .sort()
     .map((d) => escapeStringRegexp(d))
+  const extensionsWithDot = embedded.extensionsWithDot
+    .map((d) => d.slice(1))
+    .sort()
+    .map((d) => escapeStringRegexp(d))
   const uniqueNames = embedded.names
     .filter((d) => !extensions.includes(d))
     .sort()
@@ -187,16 +201,24 @@ for (const embedded of embeddedGrammars) {
   // Dot is optional for extensions.
   // . const extensionsSource = '\\.?(?:' + regexgen(extensions).source + ')'
   const extensionsSource =
-    '\\.?' +
-    (extensions.length === 1
-      ? extensions[0]
-      : '(?:' + extensions.join('|') + ')')
+    extensions.length === 0
+      ? ''
+      : '\\.?' +
+        (extensions.length === 1
+          ? extensions[0]
+          : '(?:' + extensions.join('|') + ')')
+  const extensionsWithDotSource =
+    extensionsWithDot.length === 0
+      ? ''
+      : '\\.' +
+        (extensionsWithDot.length === 1
+          ? extensionsWithDot[0]
+          : '(?:' + extensionsWithDot.join('|') + ')')
   const regex =
     '(?i:' +
-    (uniqueNames.length > 0
-      ? // . ? regexgen(uniqueNames).source + '|' + extensionsSource
-        uniqueNames.join('|') + '|' + extensionsSource
-      : extensionsSource) +
+    [...uniqueNames, extensionsSource, extensionsWithDotSource]
+      .filter(Boolean)
+      .join('|') +
     ')'
 
   const backtickCopy = structuredClone(backtick)
