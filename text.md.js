@@ -1954,31 +1954,27 @@ const grammar = {
       ]
     },
     'extension-math-flow': {
-      patterns: [
-        {
-          begin: '(?:^|\\G)[ ]{0,3}(\\${2,})([^\\n\\r\\$]*)$',
-          beginCaptures: {
-            1: {
-              name: 'string.other.begin.math.flow.md'
-            },
-            2: {
-              patterns: [
-                {
-                  include: '#markdown-string'
-                }
-              ]
+      begin: '(?:^|\\G)[ ]{0,3}(\\${2,})([^\\n\\r\\$]*)$',
+      beginCaptures: {
+        1: {
+          name: 'string.other.begin.math.flow.md'
+        },
+        2: {
+          patterns: [
+            {
+              include: '#markdown-string'
             }
-          },
-          contentName: 'markup.raw.math.flow.md',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
-          endCaptures: {
-            1: {
-              name: 'string.other.end.math.flow.md'
-            }
-          },
-          name: 'markup.code.other.md'
+          ]
         }
-      ]
+      },
+      contentName: 'markup.raw.math.flow.md',
+      end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+      endCaptures: {
+        1: {
+          name: 'string.other.end.math.flow.md'
+        }
+      },
+      name: 'markup.code.other.md'
     },
     'extension-math-text': {
       match: '(?<!\\$)(\\${2,})(?!\\$)(.+?)(?<!\\$)(\\1)(?!\\$)',

@@ -1453,31 +1453,27 @@ const grammar = {
       ]
     },
     'extension-math-flow': {
-      patterns: [
-        {
-          begin: '(?:^|\\G)[\\t ]*(\\${2,})([^\\n\\r\\$]*)$',
-          beginCaptures: {
-            1: {
-              name: 'string.other.begin.math.flow.mdx'
-            },
-            2: {
-              patterns: [
-                {
-                  include: '#markdown-string'
-                }
-              ]
+      begin: '(?:^|\\G)[\\t ]*(\\${2,})([^\\n\\r\\$]*)$',
+      beginCaptures: {
+        1: {
+          name: 'string.other.begin.math.flow.mdx'
+        },
+        2: {
+          patterns: [
+            {
+              include: '#markdown-string'
             }
-          },
-          contentName: 'markup.raw.math.flow.mdx',
-          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
-          endCaptures: {
-            1: {
-              name: 'string.other.end.math.flow.mdx'
-            }
-          },
-          name: 'markup.code.other.mdx'
+          ]
         }
-      ]
+      },
+      contentName: 'markup.raw.math.flow.mdx',
+      end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+      endCaptures: {
+        1: {
+          name: 'string.other.end.math.flow.mdx'
+        }
+      },
+      name: 'markup.code.other.mdx'
     },
     'extension-math-text': {
       match: '(?<!\\$)(\\${2,})(?!\\$)(.+?)(?<!\\$)(\\1)(?!\\$)',

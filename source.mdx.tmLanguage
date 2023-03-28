@@ -2177,45 +2177,40 @@
       </dict>
       <key>extension-math-flow</key>
       <dict>
-        <key>patterns</key>
-        <array>
+        <key>begin</key>
+        <string>(?:^|\G)[\t ]*(\${2,})([^\n\r\$]*)$</string>
+        <key>beginCaptures</key>
+        <dict>
+          <key>1</key>
           <dict>
-            <key>begin</key>
-            <string>(?:^|\G)[\t ]*(\${2,})([^\n\r\$]*)$</string>
-            <key>beginCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>string.other.begin.math.flow.mdx</string>
-              </dict>
-              <key>2</key>
-              <dict>
-                <key>patterns</key>
-                <array>
-                  <dict>
-                    <key>include</key>
-                    <string>#markdown-string</string>
-                  </dict>
-                </array>
-              </dict>
-            </dict>
-            <key>contentName</key>
-            <string>markup.raw.math.flow.mdx</string>
-            <key>end</key>
-            <string>(?:^|\G)[\t ]*(\1)(?:[\t ]*$)</string>
-            <key>endCaptures</key>
-            <dict>
-              <key>1</key>
-              <dict>
-                <key>name</key>
-                <string>string.other.end.math.flow.mdx</string>
-              </dict>
-            </dict>
             <key>name</key>
-            <string>markup.code.other.mdx</string>
+            <string>string.other.begin.math.flow.mdx</string>
           </dict>
-        </array>
+          <key>2</key>
+          <dict>
+            <key>patterns</key>
+            <array>
+              <dict>
+                <key>include</key>
+                <string>#markdown-string</string>
+              </dict>
+            </array>
+          </dict>
+        </dict>
+        <key>contentName</key>
+        <string>markup.raw.math.flow.mdx</string>
+        <key>end</key>
+        <string>(?:^|\G)[\t ]*(\1)(?:[\t ]*$)</string>
+        <key>endCaptures</key>
+        <dict>
+          <key>1</key>
+          <dict>
+            <key>name</key>
+            <string>string.other.end.math.flow.mdx</string>
+          </dict>
+        </dict>
+        <key>name</key>
+        <string>markup.code.other.mdx</string>
       </dict>
       <key>extension-math-text</key>
       <dict>

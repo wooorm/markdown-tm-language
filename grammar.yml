@@ -1386,20 +1386,25 @@ repository:
   extension-math-flow:
     if: math
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/raw_flow.rs>.
-    patterns:
-      - begin: var(before)(\${2,})([^\n\r\$]*)$
-        beginCaptures:
-          1:
-            name: string.other.begin.math.flow.var(suffix)
-          2:
-            patterns:
-              - include: '#markdown-string'
-        contentName: markup.raw.math.flow.var(suffix)
-        end: var(before)(\1)var(after)
-        endCaptures:
-          1:
-            name: string.other.end.math.flow.var(suffix)
-        name: markup.code.other.var(suffix)
+    begin: var(before)(\${2,})([^\n\r\$]*)$
+    beginCaptures:
+      1:
+        name: string.other.begin.math.flow.var(suffix)
+      2:
+        patterns:
+          - include: '#markdown-string'
+    contentName: markup.raw.math.flow.var(suffix)
+    # LaTeX grammar is broken, see:
+    # <https://github.com/github/linguist/discussions/6345>
+    #
+    # contentName: meta.embedded.latex
+    # patterns:
+    #   - include: text.tex.latex
+    end: var(before)(\1)var(after)
+    endCaptures:
+      1:
+        name: string.other.end.math.flow.var(suffix)
+    name: markup.code.other.var(suffix)
   extension-math-text:
     if: math
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/raw_text.rs>.
