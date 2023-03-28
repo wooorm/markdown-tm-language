@@ -1629,7 +1629,7 @@ const grammar = {
       ]
     },
     'commonmark-paragraph': {
-      begin: '(?:^|\\G)[ ]{0,3}(?![\\t\\n\\r ])',
+      begin: '(?![\\t ]*$)',
       name: 'meta.paragraph.md',
       patterns: [
         {

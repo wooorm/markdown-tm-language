@@ -1976,7 +1976,7 @@
       <key>commonmark-paragraph</key>
       <dict>
         <key>begin</key>
-        <string>(?:^|\G)[\t ]*(?![\t\n\r ])</string>
+        <string>(?![\t ]*$)</string>
         <key>name</key>
         <string>meta.paragraph.mdx</string>
         <key>patterns</key>

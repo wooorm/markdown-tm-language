@@ -2410,7 +2410,7 @@
       <key>commonmark-paragraph</key>
       <dict>
         <key>begin</key>
-        <string>(?:^|\G)[ ]{0,3}(?![\t\n\r ])</string>
+        <string>(?![\t ]*$)</string>
         <key>name</key>
         <string>meta.paragraph.md</string>
         <key>patterns</key>

@@ -1325,7 +1325,7 @@ const grammar = {
       ]
     },
     'commonmark-paragraph': {
-      begin: '(?:^|\\G)[\\t ]*(?![\\t\\n\\r ])',
+      begin: '(?![\\t ]*$)',
       name: 'meta.paragraph.mdx',
       patterns: [
         {

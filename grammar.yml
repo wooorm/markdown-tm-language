@@ -1144,7 +1144,7 @@ repository:
   commonmark-paragraph:
     # Paragraph
     # See: <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/paragraph.rs>,
-    begin: var(before)(?![\t\n\r ])
+    begin: (?![\t ]*$)
     name: meta.paragraph.var(suffix)
     patterns:
       - include: '#markdown-text'
