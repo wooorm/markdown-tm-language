@@ -25,7 +25,7 @@
 #
 # The embedded grammars used in fenced code are injected.
 # The `commonmark-code-fenced-unknown` rule is copied and changed for about
-# 30 common languages.
+# 55 common languages.
 # Those are injected into the grammar and included in the
 # `commonmark-code-fenced` rule.
 #

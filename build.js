@@ -48,8 +48,25 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import {common} from '@wooorm/starry-night'
+import sourceClojure from '@wooorm/starry-night/lang/source.clojure.js'
+import sourceCoffee from '@wooorm/starry-night/lang/source.coffee.js'
+import sourceCssLess from '@wooorm/starry-night/lang/source.css.less.js'
+import sourceDockerfile from '@wooorm/starry-night/lang/source.dockerfile.js'
+import sourceElixir from '@wooorm/starry-night/lang/source.elixir.js'
+import sourceElm from '@wooorm/starry-night/lang/source.elm.js'
+import sourceErlang from '@wooorm/starry-night/lang/source.erlang.js'
+import sourceGitconfig from '@wooorm/starry-night/lang/source.gitconfig.js'
+import sourceHaskell from '@wooorm/starry-night/lang/source.haskell.js'
+import sourceJulia from '@wooorm/starry-night/lang/source.julia.js'
+import sourceRaku from '@wooorm/starry-night/lang/source.raku.js'
+import sourceScala from '@wooorm/starry-night/lang/source.scala.js'
 import sourceTsx from '@wooorm/starry-night/lang/source.tsx.js'
 import sourceToml from '@wooorm/starry-night/lang/source.toml.js'
+import textHtmlAsciidoc from '@wooorm/starry-night/lang/text.html.asciidoc.js'
+import textHtmlMarkdownSourceGfmApib from '@wooorm/starry-night/lang/text.html.markdown.source.gfm.apib.js'
+import textHtmlPhp from '@wooorm/starry-night/lang/text.html.php.js'
+import textPythonConsole from '@wooorm/starry-night/lang/text.python.console.js'
+import textShellSession from '@wooorm/starry-night/lang/text.shell-session.js'
 import {characterEntities} from 'character-entities'
 import {characterEntitiesLegacy} from 'character-entities-legacy'
 import escapeStringRegexp from 'escape-string-regexp'
@@ -98,7 +115,28 @@ const grammar = parse(doc)
 
 // Rule injection
 // Figure out embedded grammars.
-const embeddedGrammars = [...common, sourceToml, sourceTsx]
+const embeddedGrammars = [
+  ...common,
+  sourceClojure,
+  sourceCoffee,
+  sourceCssLess,
+  sourceDockerfile,
+  sourceElixir,
+  sourceElm,
+  sourceErlang,
+  sourceGitconfig,
+  sourceHaskell,
+  sourceJulia,
+  sourceRaku,
+  sourceScala,
+  sourceTsx,
+  sourceToml,
+  textHtmlAsciidoc,
+  textHtmlMarkdownSourceGfmApib,
+  textHtmlPhp,
+  textPythonConsole,
+  textShellSession
+]
   .map((d) => {
     let id = d.scopeName.split('.').pop()
     assert(id, 'expected `id`')
@@ -150,6 +188,66 @@ embeddedGrammars.push({
 })
 
 embeddedGrammars.sort((a, b) => a.id.localeCompare(b.id))
+
+/**
+ * The grammars included in:
+ * <https://github.com/atom/language-gfm>
+ */
+const gfm = [
+  'source.c',
+  'source.clojure',
+  'source.coffee',
+  'source.cpp',
+  'source.cs',
+  'source.css',
+  'source.css.less',
+  'source.diff',
+  'source.dockerfile',
+  'source.elixir',
+  'source.elm',
+  'source.erlang',
+  'source.gfm',
+  'source.gitconfig',
+  'source.go',
+  'source.graphql',
+  'source.haskell',
+  'source.java',
+  'source.js',
+  'source.json',
+  'source.julia',
+  'source.kotlin',
+  'source.makefile',
+  'source.objc',
+  'source.perl',
+  'source.python',
+  'source.r',
+  'source.raku',
+  'source.ruby',
+  'source.rust',
+  'source.scala',
+  'source.shell',
+  'source.sql',
+  'source.swift',
+  'source.toml',
+  'source.ts',
+  'source.yaml',
+  'text.html.asciidoc',
+  'text.html.basic',
+  'text.html.markdown.source.gfm.apib',
+  // Turned off: this could be embedded in `language-gfm`, but not actually used in linguist.
+  // See: <https://github.com/atom/language-gfm/commit/513f85f9ff44b43e80d0962fcb9e0b516d121c43>.
+  // 'text.html.markdown.source.gfm.mson',
+  'text.html.php',
+  'text.python.console',
+  'text.shell-session',
+  'text.xml'
+]
+
+// Make sure we embed everything that `atom/language-gfm` did.
+for (const scopeName of gfm) {
+  const found = embeddedGrammars.find((d) => d.scopeNames.includes(scopeName))
+  assert(found, scopeName)
+}
 
 // Inject grammars for code blocks with embedded grammars.
 assert(grammar.repository, 'expected `repository`')

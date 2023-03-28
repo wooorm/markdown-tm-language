@@ -243,7 +243,22 @@ const grammar = {
     'commonmark-code-fenced': {
       patterns: [
         {
+          include: '#commonmark-code-fenced-apib'
+        },
+        {
+          include: '#commonmark-code-fenced-asciidoc'
+        },
+        {
           include: '#commonmark-code-fenced-c'
+        },
+        {
+          include: '#commonmark-code-fenced-clojure'
+        },
+        {
+          include: '#commonmark-code-fenced-coffee'
+        },
+        {
+          include: '#commonmark-code-fenced-console'
         },
         {
           include: '#commonmark-code-fenced-cpp'
@@ -258,10 +273,28 @@ const grammar = {
           include: '#commonmark-code-fenced-diff'
         },
         {
+          include: '#commonmark-code-fenced-dockerfile'
+        },
+        {
+          include: '#commonmark-code-fenced-elixir'
+        },
+        {
+          include: '#commonmark-code-fenced-elm'
+        },
+        {
+          include: '#commonmark-code-fenced-erlang'
+        },
+        {
+          include: '#commonmark-code-fenced-gitconfig'
+        },
+        {
           include: '#commonmark-code-fenced-go'
         },
         {
           include: '#commonmark-code-fenced-graphql'
+        },
+        {
+          include: '#commonmark-code-fenced-haskell'
         },
         {
           include: '#commonmark-code-fenced-html'
@@ -279,7 +312,13 @@ const grammar = {
           include: '#commonmark-code-fenced-json'
         },
         {
+          include: '#commonmark-code-fenced-julia'
+        },
+        {
           include: '#commonmark-code-fenced-kotlin'
+        },
+        {
+          include: '#commonmark-code-fenced-less'
         },
         {
           include: '#commonmark-code-fenced-less'
@@ -306,10 +345,16 @@ const grammar = {
           include: '#commonmark-code-fenced-php'
         },
         {
+          include: '#commonmark-code-fenced-php'
+        },
+        {
           include: '#commonmark-code-fenced-python'
         },
         {
           include: '#commonmark-code-fenced-r'
+        },
+        {
+          include: '#commonmark-code-fenced-raku'
         },
         {
           include: '#commonmark-code-fenced-ruby'
@@ -318,10 +363,16 @@ const grammar = {
           include: '#commonmark-code-fenced-rust'
         },
         {
+          include: '#commonmark-code-fenced-scala'
+        },
+        {
           include: '#commonmark-code-fenced-scss'
         },
         {
           include: '#commonmark-code-fenced-shell'
+        },
+        {
+          include: '#commonmark-code-fenced-shell-session'
         },
         {
           include: '#commonmark-code-fenced-sql'
@@ -1713,6 +1764,162 @@ const grammar = {
         }
       }
     },
+    'commonmark-code-fenced-apib': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:api\\x2dblueprint|(?:.*\\.)?apib))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.apib',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.apib.mdx',
+          patterns: [
+            {
+              include: 'text.html.markdown.source.gfm.apib'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:api\\x2dblueprint|(?:.*\\.)?apib))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.apib',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.apib.mdx',
+          patterns: [
+            {
+              include: 'text.html.markdown.source.gfm.apib'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-asciidoc': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:(?:.*\\.)?(?:adoc|asciidoc)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.asciidoc',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.asciidoc.mdx',
+          patterns: [
+            {
+              include: 'text.html.asciidoc'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:(?:.*\\.)?(?:adoc|asciidoc)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.asciidoc',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.asciidoc.mdx',
+          patterns: [
+            {
+              include: 'text.html.asciidoc'
+            }
+          ]
+        }
+      ]
+    },
     'commonmark-code-fenced-c': {
       patterns: [
         {
@@ -1786,6 +1993,240 @@ const grammar = {
           patterns: [
             {
               include: 'source.c'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-clojure': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:clojure|rouge|(?:.*\\.)?(?:boot|cl2|clj|cljc|cljs|cljs\\.hl|cljscm|cljx|edn|hic|rg|wisp)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.clojure',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.clojure.mdx',
+          patterns: [
+            {
+              include: 'source.clojure'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:clojure|rouge|(?:.*\\.)?(?:boot|cl2|clj|cljc|cljs|cljs\\.hl|cljscm|cljx|edn|hic|rg|wisp)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.clojure',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.clojure.mdx',
+          patterns: [
+            {
+              include: 'source.clojure'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-coffee': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:coffee\\x2dscript|coffeescript|(?:.*\\.)?(?:_coffee|cjsx|coffee|cson|em|emberscript|iced)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.coffee',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.coffee.mdx',
+          patterns: [
+            {
+              include: 'source.coffee'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:coffee\\x2dscript|coffeescript|(?:.*\\.)?(?:_coffee|cjsx|coffee|cson|em|emberscript|iced)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.coffee',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.coffee.mdx',
+          patterns: [
+            {
+              include: 'source.coffee'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-console': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:pycon|python\\x2dconsole))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.console',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.console.mdx',
+          patterns: [
+            {
+              include: 'text.python.console'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:pycon|python\\x2dconsole))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.console',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.console.mdx',
+          patterns: [
+            {
+              include: 'text.python.console'
             }
           ]
         }
@@ -2109,6 +2550,396 @@ const grammar = {
         }
       ]
     },
+    'commonmark-code-fenced-dockerfile': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:containerfile|(?:.*\\.)?dockerfile))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.dockerfile',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.dockerfile.mdx',
+          patterns: [
+            {
+              include: 'source.dockerfile'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:containerfile|(?:.*\\.)?dockerfile))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.dockerfile',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.dockerfile.mdx',
+          patterns: [
+            {
+              include: 'source.dockerfile'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-elixir': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:elixir|(?:.*\\.)?(?:ex|exs)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.elixir',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.elixir.mdx',
+          patterns: [
+            {
+              include: 'source.elixir'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:elixir|(?:.*\\.)?(?:ex|exs)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.elixir',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.elixir.mdx',
+          patterns: [
+            {
+              include: 'source.elixir'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-elm': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:(?:.*\\.)?elm))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.elm',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.elm.mdx',
+          patterns: [
+            {
+              include: 'source.elm'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:(?:.*\\.)?elm))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.elm',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.elm.mdx',
+          patterns: [
+            {
+              include: 'source.elm'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-erlang': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:erlang|(?:.*\\.)?(?:app|app\\.src|erl|es|escript|hrl|xrl|yrl)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.erlang',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.erlang.mdx',
+          patterns: [
+            {
+              include: 'source.erlang'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:erlang|(?:.*\\.)?(?:app|app\\.src|erl|es|escript|hrl|xrl|yrl)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.erlang',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.erlang.mdx',
+          patterns: [
+            {
+              include: 'source.erlang'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-gitconfig': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:git\\x2dconfig|gitmodules|(?:.*\\.)?gitconfig))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.gitconfig',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.gitconfig.mdx',
+          patterns: [
+            {
+              include: 'source.gitconfig'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:git\\x2dconfig|gitmodules|(?:.*\\.)?gitconfig))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.gitconfig',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.gitconfig.mdx',
+          patterns: [
+            {
+              include: 'source.gitconfig'
+            }
+          ]
+        }
+      ]
+    },
     'commonmark-code-fenced-go': {
       patterns: [
         {
@@ -2260,6 +3091,84 @@ const grammar = {
           patterns: [
             {
               include: 'source.graphql'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-haskell': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:c2hs|c2hs\\x2dhaskell|frege|haskell|(?:.*\\.)?(?:chs|dhall|hs|hs\\x2dboot|hsc)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.haskell',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.haskell.mdx',
+          patterns: [
+            {
+              include: 'source.haskell'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:c2hs|c2hs\\x2dhaskell|frege|haskell|(?:.*\\.)?(?:chs|dhall|hs|hs\\x2dboot|hsc)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.haskell',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.haskell.mdx',
+          patterns: [
+            {
+              include: 'source.haskell'
             }
           ]
         }
@@ -2650,6 +3559,84 @@ const grammar = {
           patterns: [
             {
               include: 'source.json'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-julia': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:julia|(?:.*\\.)?jl))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.julia',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.julia.mdx',
+          patterns: [
+            {
+              include: 'source.julia'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:julia|(?:.*\\.)?jl))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.julia',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.julia.mdx',
+          patterns: [
+            {
+              include: 'source.julia'
             }
           ]
         }
@@ -3525,6 +4512,84 @@ const grammar = {
         }
       ]
     },
+    'commonmark-code-fenced-raku': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:perl\\x2d6|perl6|pod\\x2d6|(?:.*\\.)?(?:6pl|6pm|nqp|p6|p6l|p6m|pl6|pm6|pod|pod6|raku|rakumod)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.raku',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.raku.mdx',
+          patterns: [
+            {
+              include: 'source.raku'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:perl\\x2d6|perl6|pod\\x2d6|(?:.*\\.)?(?:6pl|6pm|nqp|p6|p6l|p6m|pl6|pm6|pod|pod6|raku|rakumod)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.raku',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.raku.mdx',
+          patterns: [
+            {
+              include: 'source.raku'
+            }
+          ]
+        }
+      ]
+    },
     'commonmark-code-fenced-ruby': {
       patterns: [
         {
@@ -3681,6 +4746,84 @@ const grammar = {
         }
       ]
     },
+    'commonmark-code-fenced-scala': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:(?:.*\\.)?(?:kojo|sbt|sc|scala)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.scala',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.scala.mdx',
+          patterns: [
+            {
+              include: 'source.scala'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:(?:.*\\.)?(?:kojo|sbt|sc|scala)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.scala',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.scala.mdx',
+          patterns: [
+            {
+              include: 'source.scala'
+            }
+          ]
+        }
+      ]
+    },
     'commonmark-code-fenced-scss': {
       patterns: [
         {
@@ -3832,6 +4975,84 @@ const grammar = {
           patterns: [
             {
               include: 'source.shell'
+            }
+          ]
+        }
+      ]
+    },
+    'commonmark-code-fenced-shell-session': {
+      patterns: [
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:bash\\x2dsession|console|shellsession|(?:.*\\.)?sh\\x2dsession))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.shell-session',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.shell-session.mdx',
+          patterns: [
+            {
+              include: 'text.shell-session'
+            }
+          ]
+        },
+        {
+          begin:
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:bash\\x2dsession|console|shellsession|(?:.*\\.)?sh\\x2dsession))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+          beginCaptures: {
+            1: {
+              name: 'string.other.begin.code.fenced.mdx'
+            },
+            2: {
+              name: 'entity.name.function.mdx',
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            },
+            3: {
+              patterns: [
+                {
+                  include: '#markdown-string'
+                }
+              ]
+            }
+          },
+          contentName: 'meta.embedded.shell-session',
+          end: '(?:^|\\G)[\\t ]*(\\1)(?:[\\t ]*$)',
+          endCaptures: {
+            1: {
+              name: 'string.other.end.code.fenced.mdx'
+            }
+          },
+          name: 'markup.code.shell-session.mdx',
+          patterns: [
+            {
+              include: 'text.shell-session'
             }
           ]
         }
