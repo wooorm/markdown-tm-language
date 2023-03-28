@@ -17,6 +17,7 @@ import sourceTsx from '@wooorm/starry-night/lang/source.tsx.js'
 import sourceYaml from '@wooorm/starry-night/lang/source.yaml.js'
 import textHtmlBasic from '@wooorm/starry-night/lang/text.html.basic.js'
 import textXmlSvg from '@wooorm/starry-night/lang/text.xml.svg.js'
+import textXml from '@wooorm/starry-night/lang/text.xml.js'
 import sourceMd from '../text.md.js'
 import sourceMdx from '../source.mdx.js'
 
@@ -32,6 +33,7 @@ const grammars = [
   sourceTsx,
   sourceYaml,
   textHtmlBasic,
+  textXml,
   textXmlSvg
 ]
 
@@ -382,13 +384,12 @@ GH-123, #123, GHSA-123asdzxc, cve-123asdzxc, user#123, user/project#123.
 `
 
 const root = ReactDom.createRoot(main)
+/** @type {Awaited<ReturnType<createStarryNight>>} */
 let starryNight
 
-const starryPromise = createStarryNight(grammars)
-
 // eslint-disable-next-line unicorn/prefer-top-level-await -- XO is wrong.
-Promise.all([starryPromise]).then(([y]) => {
-  starryNight = y
+createStarryNight(grammars).then((x) => {
+  starryNight = x
   root.render(React.createElement(Playground))
 })
 
@@ -396,6 +397,11 @@ function Playground() {
   const [mdx, setMdx] = React.useState(false)
   const [text, setText] = React.useState(mdx ? sampleMdx : sampleMarkdown)
   const scope = mdx ? 'source.mdx' : 'text.md'
+
+  const missing = starryNight.missingScopes()
+  if (missing.length > 0) {
+    throw new Error('Missing scopes: `' + missing + '`')
+  }
 
   return (
     <div>
