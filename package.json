@@ -24,7 +24,7 @@
     "source.mdx.tmLanguage"
   ],
   "devDependencies": {
-    "@types/node": "^18.0.0",
+    "@types/node": "^20.0.0",
     "@types/plist": "^3.0.0",
     "@types/regexgen": "^1.0.0",
     "@wooorm/starry-night": "^2.0.0",
@@ -48,7 +48,7 @@
     "typescript": "^5.0.0",
     "undici": "^5.0.0",
     "vscode-tmgrammar-test": "^0.1.0",
-    "xo": "^0.53.0",
+    "xo": "^0.54.0",
     "yaml": "^2.0.0"
   },
   "scripts": {
