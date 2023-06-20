@@ -3,21 +3,19 @@
 const grammar = {
   scopeName: 'text.md',
   extensions: [
+    '.md',
     '.livemd',
     '.markdown',
-    '.md',
     '.mdown',
     '.mdwn',
     '.mkd',
     '.mkdn',
     '.mkdown',
-    '.qmd',
-    '.rmd',
     '.ronn',
     '.scd',
     '.workbook'
   ],
-  names: ['markdown', 'pandoc', 'rmarkdown'],
+  names: ['markdown', 'md', 'pandoc'],
   patterns: [
     {
       include: '#markdown-frontmatter'
@@ -915,7 +913,7 @@ const grammar = {
         },
         {
           begin:
-            '(?=(?:^|\\G)[ ]{0,3}</?(?i:figcaption|(?:blockquot|ifram|figur)e|(?:menuite|para)m|optgroup|c(?:olgroup|aption|enter)|(?:f(?:rame|ield)se|tfoo)t|b(?:asefont|ody)|(?:noframe|detail)s|section|summary|a(?:(?:rticl|sid)e|ddress)|l(?:egend|ink)|d(?:i(?:alog|[rv])|[dlt])|header|footer|option|frame|track|thead|tbody|t(?:it|ab)le|menu|head|base|h(?:tml|[1-6r])|form|main|col|nav|t[hr]|li|td|ol|ul|p)(?:[\\t >]|\\/>|$))',
+            '(?=(?:^|\\G)[ ]{0,3}</?(?i:figcaption|(?:blockquot|ifram|figur)e|(?:menuite|para)m|optgroup|c(?:olgroup|aption|enter)|(?:f(?:rame|ield)se|tfoo)t|b(?:asefont|ody)|(?:noframe|detail)s|section|summary|a(?:(?:rticl|sid)e|ddress)|search|l(?:egend|ink)|d(?:i(?:alog|[rv])|[dlt])|header|footer|option|frame|track|thead|tbody|t(?:it|ab)le|menu|head|base|h(?:tml|[1-6r])|form|main|col|nav|t[hr]|li|td|ol|ul|p)(?:[\\t >]|\\/>|$))',
           name: 'text.html.basic',
           patterns: [
             {
@@ -3034,7 +3032,7 @@ const grammar = {
       patterns: [
         {
           begin:
-            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:ags|ags\\x2dscript|asymptote|c\\+\\+|edje\\x2ddata\\x2dcollection|game\\x2dmaker\\x2dlanguage|swig|(?:.*\\.)?(?:asc|ash|asy|c\\+\\+|cc|cp|cpp|cppm|cxx|edc|gml|h\\+\\+|hh|hpp|hxx|inl|ino|ipp|ixx|metal|re|tcc|tpp)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:ags|ags\\x2dscript|asymptote|c\\+\\+|edje\\x2ddata\\x2dcollection|game\\x2dmaker\\x2dlanguage|swig|(?:.*\\.)?(?:asc|ash|asy|c\\+\\+|cc|cp|cpp|cppm|cxx|edc|gml|h\\+\\+|hh|hpp|hxx|inl|ino|ipp|ixx|metal|re|tcc|tpp|txx)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
               name: 'string.other.begin.code.fenced.md'
@@ -3074,7 +3072,7 @@ const grammar = {
         },
         {
           begin:
-            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:ags|ags\\x2dscript|asymptote|c\\+\\+|edje\\x2ddata\\x2dcollection|game\\x2dmaker\\x2dlanguage|swig|(?:.*\\.)?(?:asc|ash|asy|c\\+\\+|cc|cp|cpp|cppm|cxx|edc|gml|h\\+\\+|hh|hpp|hxx|inl|ino|ipp|ixx|metal|re|tcc|tpp)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:ags|ags\\x2dscript|asymptote|c\\+\\+|edje\\x2ddata\\x2dcollection|game\\x2dmaker\\x2dlanguage|swig|(?:.*\\.)?(?:asc|ash|asy|c\\+\\+|cc|cp|cpp|cppm|cxx|edc|gml|h\\+\\+|hh|hpp|hxx|inl|ino|ipp|ixx|metal|re|tcc|tpp|txx)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
               name: 'string.other.begin.code.fenced.md'
@@ -4132,7 +4130,7 @@ const grammar = {
       patterns: [
         {
           begin:
-            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:apex|chuck|unrealscript|(?:.*\\.)?(?:ck|cls|jav|java|jsh|uc)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:chuck|unrealscript|(?:.*\\.)?(?:ck|jav|java|jsh|uc)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
               name: 'string.other.begin.code.fenced.md'
@@ -4169,7 +4167,7 @@ const grammar = {
         },
         {
           begin:
-            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:apex|chuck|unrealscript|(?:.*\\.)?(?:ck|cls|jav|java|jsh|uc)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:chuck|unrealscript|(?:.*\\.)?(?:ck|jav|java|jsh|uc)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
               name: 'string.other.begin.code.fenced.md'
@@ -4756,7 +4754,7 @@ const grammar = {
       patterns: [
         {
           begin:
-            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:pandoc|rmarkdown|(?:.*\\.)?(?:livemd|markdown|mdown|mdwn|mkd|mkdn|mkdown|qmd|rmd|ronn|scd|workbook)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:md|pandoc|rmarkdown|(?:.*\\.)?(?:livemd|markdown|mdown|mdwn|mkd|mkdn|mkdown|qmd|rmd|ronn|scd|workbook)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
               name: 'string.other.begin.code.fenced.md'
@@ -4799,7 +4797,7 @@ const grammar = {
         },
         {
           begin:
-            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:pandoc|rmarkdown|(?:.*\\.)?(?:livemd|markdown|mdown|mdwn|mkd|mkdn|mkdown|qmd|rmd|ronn|scd|workbook)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:md|pandoc|rmarkdown|(?:.*\\.)?(?:livemd|markdown|mdown|mdwn|mkd|mkdn|mkdown|qmd|rmd|ronn|scd|workbook)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
               name: 'string.other.begin.code.fenced.md'
@@ -6334,7 +6332,7 @@ const grammar = {
       patterns: [
         {
           begin:
-            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:classic\\x2dvisual\\x2dbasic|fb|freebasic|realbasic|vb\\x2d\\.net|vb\\x2d6|vb\\.net|vb6|vbnet|vbscript|visual\\x2dbasic|visual\\x2dbasic\\x2d\\.net|visual\\x2dbasic\\x2d6|visual\\x2dbasic\\x2d6\\.0|visual\\x2dbasic\\x2dclassic|visual\\x2dbasic\\x2dfor\\x2dapplications|(?:.*\\.)?(?:bi|ctl|dsr|frm|frm|rbbas|rbfrm|rbmnu|rbres|rbtbar|rbuistate|vb|vba|vbhtml|vbs)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:classic\\x2dvisual\\x2dbasic|fb|freebasic|realbasic|vb\\x2d\\.net|vb\\x2d6|vb\\.net|vb6|vbnet|vbscript|visual\\x2dbasic|visual\\x2dbasic\\x2d\\.net|visual\\x2dbasic\\x2d6|visual\\x2dbasic\\x2d6\\.0|visual\\x2dbasic\\x2dclassic|(?:.*\\.)?(?:bi|ctl|dsr|rbbas|rbfrm|rbmnu|rbres|rbtbar|rbuistate|vb|vbhtml|vbs)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
               name: 'string.other.begin.code.fenced.md'
@@ -6371,7 +6369,7 @@ const grammar = {
         },
         {
           begin:
-            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:classic\\x2dvisual\\x2dbasic|fb|freebasic|realbasic|vb\\x2d\\.net|vb\\x2d6|vb\\.net|vb6|vbnet|vbscript|visual\\x2dbasic|visual\\x2dbasic\\x2d\\.net|visual\\x2dbasic\\x2d6|visual\\x2dbasic\\x2d6\\.0|visual\\x2dbasic\\x2dclassic|visual\\x2dbasic\\x2dfor\\x2dapplications|(?:.*\\.)?(?:bi|ctl|dsr|frm|frm|rbbas|rbfrm|rbmnu|rbres|rbtbar|rbuistate|vb|vba|vbhtml|vbs)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:classic\\x2dvisual\\x2dbasic|fb|freebasic|realbasic|vb\\x2d\\.net|vb\\x2d6|vb\\.net|vb6|vbnet|vbscript|visual\\x2dbasic|visual\\x2dbasic\\x2d\\.net|visual\\x2dbasic\\x2d6|visual\\x2dbasic\\x2d6\\.0|visual\\x2dbasic\\x2dclassic|(?:.*\\.)?(?:bi|ctl|dsr|rbbas|rbfrm|rbmnu|rbres|rbtbar|rbuistate|vb|vbhtml|vbs)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
               name: 'string.other.begin.code.fenced.md'
@@ -6490,7 +6488,7 @@ const grammar = {
       patterns: [
         {
           begin:
-            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:jar\\x2dmanifest|kaitai\\x2dstruct|oasv2\\x2dyaml|oasv3\\x2dyaml|unity3d\\x2dasset|yaml|yml|(?:.*\\.)?(?:anim|asset|ksy|lookml|mat|meta|mir|model\\.lkml|prefab|raml|reek|rviz|sublime\\x2dsyntax|syntax|unity|view\\.lkml|yaml\\x2dtmlanguage|yaml\\.sed|yml\\.mysql)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+            '(?:^|\\G)[ ]{0,3}(`{3,})(?:[\\t ]*((?i:jar\\x2dmanifest|kaitai\\x2dstruct|oasv2\\x2dyaml|oasv3\\x2dyaml|unity3d\\x2dasset|yaml|yml|(?:.*\\.)?(?:anim|asset|ksy|lkml|lookml|mat|meta|mir|prefab|raml|reek|rviz|sublime\\x2dsyntax|syntax|unity|yaml\\x2dtmlanguage|yaml\\.sed|yml\\.mysql)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
               name: 'string.other.begin.code.fenced.md'
@@ -6527,7 +6525,7 @@ const grammar = {
         },
         {
           begin:
-            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:jar\\x2dmanifest|kaitai\\x2dstruct|oasv2\\x2dyaml|oasv3\\x2dyaml|unity3d\\x2dasset|yaml|yml|(?:.*\\.)?(?:anim|asset|ksy|lookml|mat|meta|mir|model\\.lkml|prefab|raml|reek|rviz|sublime\\x2dsyntax|syntax|unity|view\\.lkml|yaml\\x2dtmlanguage|yaml\\.sed|yml\\.mysql)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+            '(?:^|\\G)[ ]{0,3}(~{3,})(?:[\\t ]*((?i:jar\\x2dmanifest|kaitai\\x2dstruct|oasv2\\x2dyaml|oasv3\\x2dyaml|unity3d\\x2dasset|yaml|yml|(?:.*\\.)?(?:anim|asset|ksy|lkml|lookml|mat|meta|mir|prefab|raml|reek|rviz|sublime\\x2dsyntax|syntax|unity|yaml\\x2dtmlanguage|yaml\\.sed|yml\\.mysql)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
               name: 'string.other.begin.code.fenced.md'

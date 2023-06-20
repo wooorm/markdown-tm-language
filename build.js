@@ -414,24 +414,21 @@ const languages = [
 
     // Extensions for markdown (from `github/linguist`).
     extensions: [
+      '.md',
       '.livemd',
       '.markdown',
-      '.md',
       '.mdown',
       '.mdwn',
-      // '.mdx',
       '.mkd',
       '.mkdn',
       '.mkdown',
-      '.qmd',
-      '.rmd',
       '.ronn',
       '.scd',
       '.workbook'
     ],
 
     // Names for the language (from `github/linguist`).
-    names: ['markdown', 'pandoc', 'rmarkdown'],
+    names: ['markdown', 'md', 'pandoc'],
 
     conditions: [
       // CM defaults:
