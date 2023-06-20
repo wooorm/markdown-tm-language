@@ -260,13 +260,21 @@ assert(
 const backtick = codeFencedUnknown.patterns[0]
 const tilde = codeFencedUnknown.patterns[1]
 assert(
-  'begin' in backtick && 'end' in backtick && backtick.begin && backtick.end,
+  'begin' in backtick &&
+    'end' in backtick &&
+    backtick.begin &&
+    backtick.end &&
+    !('include' in backtick),
   'expected `begin`, `end` in backtick rule'
 )
 assert(/`/.test(backtick.begin), 'expected `` ` `` in `backtick` rule')
 assert(
-  'begin' in tilde && 'end' in tilde && tilde.begin && tilde.end,
-  'expected `begin`, `end` in backtick rule'
+  'begin' in tilde &&
+    'end' in tilde &&
+    tilde.begin &&
+    tilde.end &&
+    !('include' in tilde),
+  'expected `begin`, `end` in tilde rule'
 )
 assert(/~/.test(tilde.begin), 'expected `~` in `tilde` rule')
 
