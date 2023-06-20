@@ -30,7 +30,7 @@
     "@wooorm/starry-night": "^2.0.0",
     "character-entities": "^2.0.0",
     "character-entities-legacy": "^3.0.0",
-    "esbuild": "^0.17.0",
+    "esbuild": "^0.18.0",
     "escape-string-regexp": "^5.0.0",
     "gemoji": "^8.0.0",
     "gzip-size": "^7.0.0",
