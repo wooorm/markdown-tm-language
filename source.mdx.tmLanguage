@@ -253,6 +253,8 @@
             <string>#markdown-sections</string>
           </dict>
         </array>
+        <key>name</key>
+        <string>markup.quote.mdx</string>
         <key>while</key>
         <string>(?:^|\G)[\t ]*(&gt;)[ ]?</string>
         <key>whileCaptures</key>

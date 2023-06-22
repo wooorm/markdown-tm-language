@@ -321,6 +321,8 @@
             <string>#markdown-sections</string>
           </dict>
         </array>
+        <key>name</key>
+        <string>markup.quote.md</string>
         <key>while</key>
         <string>(?:^|\G)[ ]{0,3}(&gt;)[ ]?</string>
         <key>whileCaptures</key>

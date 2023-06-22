@@ -316,6 +316,7 @@ repository:
         name: punctuation.definition.quote.begin.var(suffix)
     patterns:
       - include: '#markdown-sections'
+    name: markup.quote.var(suffix)
     # 👉 **Note**: This grammar does not support lazy lines.
     while: var(before)(>)[ ]?
     whileCaptures:

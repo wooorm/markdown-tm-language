@@ -180,6 +180,7 @@ const grammar = {
           include: '#markdown-sections'
         }
       ],
+      name: 'markup.quote.mdx',
       while: '(?:^|\\G)[\\t ]*(>)[ ]?',
       whileCaptures: {
         0: {

@@ -231,6 +231,7 @@ const grammar = {
           include: '#markdown-sections'
         }
       ],
+      name: 'markup.quote.md',
       while: '(?:^|\\G)[ ]{0,3}(>)[ ]?',
       whileCaptures: {
         0: {
