@@ -30,14 +30,14 @@
     "@wooorm/starry-night": "^2.0.0",
     "character-entities": "^2.0.0",
     "character-entities-legacy": "^3.0.0",
-    "esbuild": "^0.18.0",
+    "esbuild": "^0.19.0",
     "escape-string-regexp": "^5.0.0",
     "gemoji": "^8.0.0",
     "gzip-size": "^7.0.0",
-    "hast-util-to-jsx-runtime": "^1.0.0",
-    "micromark-util-html-tag-name": "^1.0.0",
+    "hast-util-to-jsx-runtime": "^2.0.0",
+    "micromark-util-html-tag-name": "^2.0.0",
     "plist": "^3.0.0",
-    "prettier": "^2.0.0",
+    "prettier": "^3.0.0",
     "pretty-bytes": "^6.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -48,7 +48,7 @@
     "typescript": "^5.0.0",
     "undici": "^5.0.0",
     "vscode-tmgrammar-test": "^0.1.0",
-    "xo": "^0.54.0",
+    "xo": "^0.56.0",
     "yaml": "^2.0.0"
   },
   "scripts": {
@@ -56,7 +56,7 @@
     "generate:example": "esbuild example/index.jsx --bundle --minify --target=es6 --outfile=example/index.nomodule.js && esbuild example/index.jsx --bundle --minify --target=es2020 --format=esm --outfile=example/index.module.js",
     "generate": "node --conditions development build.js",
     "build": "tsc --build --clean && tsc --build && type-coverage",
-    "format": "remark . -qfo && prettier . -w --loglevel warn && xo --fix",
+    "format": "remark . -qfo && prettier . -w --log-level warn && xo --fix",
     "#": "Do `npm run test-api -- --updateSnapshot` to update snapshots",
     "test-api": "vscode-tmgrammar-snap -s text.md -g text.md.tmLanguage -g test/source.toml.json -g test/source.yaml.json test/**/*.md",
     "test": "npm run generate && npm run generate:example && npm run build && npm run format && npm run test-api"
@@ -73,7 +73,8 @@
     "prettier": true,
     "rules": {
       "n/file-extension-in-import": "off",
-      "no-await-in-loop": "off"
+      "no-await-in-loop": "off",
+      "unicorn/prefer-string-replace-all": "off"
     }
   },
   "remarkConfig": {
