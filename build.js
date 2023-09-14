@@ -1,9 +1,10 @@
 /**
- * @typedef {import('@wooorm/starry-night/lib/index.js').Grammar} Grammar
- * @typedef {import('@wooorm/starry-night/lib/index.js').Rule} Rule
+ * @typedef {import('@wooorm/starry-night').Grammar} Grammar
  */
 
 /**
+ * @typedef {Grammar['patterns'][number]} Rule
+ *
  * @typedef {'html' | 'code-indented' | 'autolink'} ConditionCommonmark
  * @typedef {'directive' | 'frontmatter' | 'gfm' | 'github' | 'math' | 'mdx'} ConditionExtension
  * @typedef {ConditionCommonmark | ConditionExtension} Condition
@@ -48,25 +49,25 @@
 import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import {common} from '@wooorm/starry-night'
-import sourceClojure from '@wooorm/starry-night/lang/source.clojure.js'
-import sourceCoffee from '@wooorm/starry-night/lang/source.coffee.js'
-import sourceCssLess from '@wooorm/starry-night/lang/source.css.less.js'
-import sourceDockerfile from '@wooorm/starry-night/lang/source.dockerfile.js'
-import sourceElixir from '@wooorm/starry-night/lang/source.elixir.js'
-import sourceElm from '@wooorm/starry-night/lang/source.elm.js'
-import sourceErlang from '@wooorm/starry-night/lang/source.erlang.js'
-import sourceGitconfig from '@wooorm/starry-night/lang/source.gitconfig.js'
-import sourceHaskell from '@wooorm/starry-night/lang/source.haskell.js'
-import sourceJulia from '@wooorm/starry-night/lang/source.julia.js'
-import sourceRaku from '@wooorm/starry-night/lang/source.raku.js'
-import sourceScala from '@wooorm/starry-night/lang/source.scala.js'
-import sourceTsx from '@wooorm/starry-night/lang/source.tsx.js'
-import sourceToml from '@wooorm/starry-night/lang/source.toml.js'
-import textHtmlAsciidoc from '@wooorm/starry-night/lang/text.html.asciidoc.js'
-import textHtmlMarkdownSourceGfmApib from '@wooorm/starry-night/lang/text.html.markdown.source.gfm.apib.js'
-import textHtmlPhp from '@wooorm/starry-night/lang/text.html.php.js'
-import textPythonConsole from '@wooorm/starry-night/lang/text.python.console.js'
-import textShellSession from '@wooorm/starry-night/lang/text.shell-session.js'
+import sourceClojure from '@wooorm/starry-night/source.clojure'
+import sourceCoffee from '@wooorm/starry-night/source.coffee'
+import sourceCssLess from '@wooorm/starry-night/source.css.less'
+import sourceDockerfile from '@wooorm/starry-night/source.dockerfile'
+import sourceElixir from '@wooorm/starry-night/source.elixir'
+import sourceElm from '@wooorm/starry-night/source.elm'
+import sourceErlang from '@wooorm/starry-night/source.erlang'
+import sourceGitconfig from '@wooorm/starry-night/source.gitconfig'
+import sourceHaskell from '@wooorm/starry-night/source.haskell'
+import sourceJulia from '@wooorm/starry-night/source.julia'
+import sourceRaku from '@wooorm/starry-night/source.raku'
+import sourceScala from '@wooorm/starry-night/source.scala'
+import sourceTsx from '@wooorm/starry-night/source.tsx'
+import sourceToml from '@wooorm/starry-night/source.toml'
+import textHtmlAsciidoc from '@wooorm/starry-night/text.html.asciidoc'
+import textHtmlMarkdownSourceGfmApib from '@wooorm/starry-night/text.html.markdown.source.gfm.apib'
+import textHtmlPhp from '@wooorm/starry-night/text.html.php'
+import textPythonConsole from '@wooorm/starry-night/text.python.console'
+import textShellSession from '@wooorm/starry-night/text.shell-session'
 import {characterEntities} from 'character-entities'
 import {characterEntitiesLegacy} from 'character-entities-legacy'
 import escapeStringRegexp from 'escape-string-regexp'

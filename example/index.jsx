@@ -1,3 +1,7 @@
+/**
+ * @typedef {import('@wooorm/starry-night').Grammar} Grammar
+ */
+
 /// <reference lib="dom" />
 /* eslint-env browser */
 
@@ -7,24 +11,26 @@ import React from 'react'
 import ReactDom from 'react-dom/client'
 import {toJsxRuntime} from 'hast-util-to-jsx-runtime'
 import {createStarryNight} from '@wooorm/starry-night'
-import sourceCss from '@wooorm/starry-night/lang/source.css.js'
-import sourceDiff from '@wooorm/starry-night/lang/source.diff.js'
-import sourceJs from '@wooorm/starry-night/lang/source.js.js'
-import sourceJson from '@wooorm/starry-night/lang/source.json.js'
-import sourceToml from '@wooorm/starry-night/lang/source.toml.js'
-import sourceTs from '@wooorm/starry-night/lang/source.ts.js'
-import sourceTsx from '@wooorm/starry-night/lang/source.tsx.js'
-import sourceYaml from '@wooorm/starry-night/lang/source.yaml.js'
-import textHtmlBasic from '@wooorm/starry-night/lang/text.html.basic.js'
-import textXmlSvg from '@wooorm/starry-night/lang/text.xml.svg.js'
-import textXml from '@wooorm/starry-night/lang/text.xml.js'
+import sourceCss from '@wooorm/starry-night/source.css'
+import sourceDiff from '@wooorm/starry-night/source.diff'
+import sourceJs from '@wooorm/starry-night/source.js'
+import sourceJson from '@wooorm/starry-night/source.json'
+import sourceToml from '@wooorm/starry-night/source.toml'
+import sourceTs from '@wooorm/starry-night/source.ts'
+import sourceTsx from '@wooorm/starry-night/source.tsx'
+import sourceYaml from '@wooorm/starry-night/source.yaml'
+import textHtmlBasic from '@wooorm/starry-night/text.html.basic'
+import textXmlSvg from '@wooorm/starry-night/text.xml.svg'
+import textXml from '@wooorm/starry-night/text.xml'
 import sourceMd from '../text.md.js'
 import sourceMdx from '../source.mdx.js'
 
+/** @type {Array<Grammar>} */
 const grammars = [
   sourceCss,
   sourceDiff,
   sourceJs,
+  // @ts-expect-error: TS is wrong about `.json`, it’s not an extension.
   sourceJson,
   sourceMd,
   sourceMdx,
