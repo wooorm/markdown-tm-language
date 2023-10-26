@@ -232,7 +232,7 @@ const grammar = {
         }
       ],
       name: 'markup.quote.md',
-      while: '(?:^|\\G)[ ]{0,3}(>)[ ]?',
+      while: '(>)[ ]?',
       whileCaptures: {
         0: {
           name: 'markup.quote.md'
@@ -484,7 +484,7 @@ const grammar = {
             }
           },
           contentName: 'markup.raw.code.fenced.md',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -516,7 +516,7 @@ const grammar = {
             }
           },
           contentName: 'markup.raw.code.fenced.md',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -1761,7 +1761,7 @@ const grammar = {
           include: '#markdown-sections'
         }
       ],
-      end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+      end: '(\\1)(:{3,})(?:[\\t ]*$)',
       endCaptures: {
         1: {
           name: 'string.other.end.directive.md'
@@ -2018,7 +2018,7 @@ const grammar = {
         }
       },
       contentName: 'markup.raw.math.flow.md',
-      end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+      end: '(\\1)(?:[\\t ]*$)',
       endCaptures: {
         1: {
           name: 'string.other.end.math.flow.md'
@@ -2587,7 +2587,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.apib',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -2624,7 +2624,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.apib',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -2665,7 +2665,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.asciidoc',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -2702,7 +2702,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.asciidoc',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -2743,7 +2743,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.c',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -2780,7 +2780,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.c',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -2821,7 +2821,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.clojure',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -2858,7 +2858,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.clojure',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -2899,7 +2899,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.coffee',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -2936,7 +2936,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.coffee',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -2977,7 +2977,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.console',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3014,7 +3014,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.console',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3055,7 +3055,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.cpp',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3095,7 +3095,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.cpp',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3139,7 +3139,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.cs',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3176,7 +3176,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.cs',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3217,7 +3217,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.css',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3254,7 +3254,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.css',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3295,7 +3295,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.diff',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3332,7 +3332,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.diff',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3373,7 +3373,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.dockerfile',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3410,7 +3410,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.dockerfile',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3451,7 +3451,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.elixir',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3488,7 +3488,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.elixir',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3529,7 +3529,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.elm',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3566,7 +3566,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.elm',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3607,7 +3607,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.erlang',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3644,7 +3644,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.erlang',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3685,7 +3685,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.gitconfig',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3722,7 +3722,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.gitconfig',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3763,7 +3763,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.go',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3800,7 +3800,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.go',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3841,7 +3841,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.graphql',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3878,7 +3878,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.graphql',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3919,7 +3919,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.haskell',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3956,7 +3956,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.haskell',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -3997,7 +3997,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.html',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4034,7 +4034,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.html',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4075,7 +4075,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.ini',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4112,7 +4112,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.ini',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4153,7 +4153,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.java',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4190,7 +4190,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.java',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4231,7 +4231,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.js',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4268,7 +4268,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.js',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4309,7 +4309,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.json',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4346,7 +4346,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.json',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4387,7 +4387,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.julia',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4424,7 +4424,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.julia',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4465,7 +4465,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.kotlin',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4502,7 +4502,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.kotlin',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4543,7 +4543,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.less',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4580,7 +4580,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.less',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4621,7 +4621,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.lua',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4658,7 +4658,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.lua',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4699,7 +4699,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.makefile',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4736,7 +4736,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.makefile',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4777,7 +4777,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.md',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4820,7 +4820,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.md',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4867,7 +4867,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.mdx',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4904,7 +4904,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.mdx',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4945,7 +4945,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.objc',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -4982,7 +4982,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.objc',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5023,7 +5023,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.perl',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5060,7 +5060,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.perl',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5101,7 +5101,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.php',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5138,7 +5138,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.php',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5179,7 +5179,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.python',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5216,7 +5216,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.python',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5257,7 +5257,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.r',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5294,7 +5294,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.r',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5335,7 +5335,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.raku',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5372,7 +5372,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.raku',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5413,7 +5413,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.ruby',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5450,7 +5450,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.ruby',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5491,7 +5491,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.rust',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5528,7 +5528,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.rust',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5569,7 +5569,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.scala',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5606,7 +5606,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.scala',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5647,7 +5647,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.scss',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5684,7 +5684,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.scss',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5725,7 +5725,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.shell',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5762,7 +5762,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.shell',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5803,7 +5803,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.shell-session',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5840,7 +5840,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.shell-session',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5881,7 +5881,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.sql',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5918,7 +5918,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.sql',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5959,7 +5959,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.svg',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -5999,7 +5999,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.svg',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -6043,7 +6043,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.swift',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -6080,7 +6080,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.swift',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -6121,7 +6121,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.toml',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -6158,7 +6158,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.toml',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -6199,7 +6199,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.ts',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -6236,7 +6236,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.ts',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -6277,7 +6277,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.tsx',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -6314,7 +6314,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.tsx',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -6355,7 +6355,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.vbnet',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -6392,7 +6392,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.vbnet',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -6433,7 +6433,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.xml',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -6470,7 +6470,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.xml',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -6511,7 +6511,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.yaml',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'
@@ -6548,7 +6548,7 @@ const grammar = {
             }
           },
           contentName: 'meta.embedded.yaml',
-          end: '(?:^|\\G)[ ]{0,3}(\\1)(?:[\\t ]*$)',
+          end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
               name: 'string.other.end.code.fenced.md'

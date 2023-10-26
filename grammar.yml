@@ -318,7 +318,7 @@ repository:
       - include: '#markdown-sections'
     name: markup.quote.var(suffix)
     # 👉 **Note**: This grammar does not support lazy lines.
-    while: var(before)(>)[ ]?
+    while: (>)[ ]?
     whileCaptures:
       0:
         name: markup.quote.var(suffix)
@@ -397,7 +397,7 @@ repository:
             patterns:
               - include: '#markdown-string'
         contentName: markup.raw.code.fenced.var(suffix)
-        end: var(before)(\1)var(after)
+        end: (\1)var(after)
         endCaptures:
           1:
             name: string.other.end.code.fenced.var(suffix)
@@ -415,7 +415,7 @@ repository:
             patterns:
               - include: '#markdown-string'
         contentName: markup.raw.code.fenced.var(suffix)
-        end: var(before)(\1)var(after)
+        end: (\1)var(after)
         endCaptures:
           1:
             name: string.other.end.code.fenced.var(suffix)
@@ -1231,7 +1231,7 @@ repository:
         name: string.other.end.directive.attributes.var(suffix)
     patterns:
       - include: '#markdown-sections'
-    end: var(before)(\1)var(after)
+    end: (\1)(:{3,})var(after)
     endCaptures:
       1:
         name: string.other.end.directive.var(suffix)
@@ -1401,7 +1401,7 @@ repository:
     # contentName: meta.embedded.latex
     # patterns:
     #   - include: text.tex.latex
-    end: var(before)(\1)var(after)
+    end: (\1)var(after)
     endCaptures:
       1:
         name: string.other.end.math.flow.var(suffix)
