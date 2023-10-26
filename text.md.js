@@ -1761,7 +1761,7 @@ const grammar = {
           include: '#markdown-sections'
         }
       ],
-      end: '(\\1)(:{3,})(?:[\\t ]*$)',
+      end: '(\\1)(?:[\\t ]*$)',
       endCaptures: {
         1: {
           name: 'string.other.end.directive.md'

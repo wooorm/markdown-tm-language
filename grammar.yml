@@ -1231,7 +1231,7 @@ repository:
         name: string.other.end.directive.attributes.var(suffix)
     patterns:
       - include: '#markdown-sections'
-    end: (\1)(:{3,})var(after)
+    end: (\1)var(after)
     endCaptures:
       1:
         name: string.other.end.directive.var(suffix)

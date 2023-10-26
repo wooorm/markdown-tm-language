@@ -2615,7 +2615,7 @@
           </dict>
         </array>
         <key>end</key>
-        <string>(\1)(:{3,})(?:[\t ]*$)</string>
+        <string>(\1)(?:[\t ]*$)</string>
         <key>endCaptures</key>
         <dict>
           <key>1</key>
