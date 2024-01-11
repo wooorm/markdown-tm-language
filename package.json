@@ -48,7 +48,7 @@
     "remark-preset-wooorm": "^9.0.0",
     "type-coverage": "^2.0.0",
     "typescript": "^5.0.0",
-    "undici": "^5.0.0",
+    "undici": "^6.0.0",
     "vscode-tmgrammar-test": "^0.1.0",
     "xo": "^0.56.0",
     "yaml": "^2.0.0"
