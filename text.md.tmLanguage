@@ -1339,7 +1339,7 @@
               </dict>
             </array>
             <key>end</key>
-            <string>^(?=[\\t ]*$)</string>
+            <string>^(?=[\t ]*$)|$</string>
           </dict>
           <dict>
             <key>begin</key>
@@ -1354,7 +1354,7 @@
               </dict>
             </array>
             <key>end</key>
-            <string>^(?=[\t ]*$)</string>
+            <string>^(?=[\t ]*$)|$</string>
           </dict>
           <dict>
             <key>begin</key>
@@ -1369,7 +1369,7 @@
               </dict>
             </array>
             <key>end</key>
-            <string>^(?=[\t ]*$)</string>
+            <string>^(?=[\t ]*$)|$</string>
           </dict>
         </array>
       </dict>
@@ -2874,7 +2874,7 @@
           </dict>
         </array>
         <key>end</key>
-        <string>^(?=[\t ]*$)</string>
+        <string>^(?=[\t ]*$)|$</string>
       </dict>
       <key>extension-github-gemoji</key>
       <dict>

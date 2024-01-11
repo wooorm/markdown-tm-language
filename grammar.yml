@@ -690,7 +690,7 @@ repository:
         name: text.html.basic
         patterns:
           - include: '#whatwg-html'
-        end: ^(?=[\\t ]*$)
+        end: var(blank_line)|$
       # Complete (close).
       # Note: interruption not supported in this textmate grammar.
       # Note: grammar is very much like the version from `commonmark-html-text`, with the
@@ -699,7 +699,7 @@ repository:
         name: text.html.basic
         patterns:
           - include: '#whatwg-html'
-        end: var(blank_line)
+        end: var(blank_line)|$
       # Complete (open).
       # Note: interruption not supported in this textmate grammar.
       # Note: grammar is very much like the version from `commonmark-html-text`, with the
@@ -708,7 +708,7 @@ repository:
         name: text.html.basic
         patterns:
           - include: '#whatwg-html'
-        end: var(blank_line)
+        end: var(blank_line)|$
   commonmark-html-text:
     if: html
     # HTML (text).
@@ -1340,7 +1340,7 @@ repository:
               - include: '#markdown-text'
       - match: (?:\|)
         name: markup.list.table-delimiter.var(suffix)
-    end: var(blank_line)
+    end: var(blank_line)|$
   extension-github-gemoji:
     if: github
     match: (:)(var(github_gemoji_name))(:)
@@ -1426,7 +1426,8 @@ repository:
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/mdx_esm.rs>.
     # Intentional that there’s no whitespace before keyword.
     begin: (?:^|\G)(?=(?i:export|import)[ ])
-    end: var(blank_line)
+    end: var(blank_line)|$
+    # xxxxxxx
     patterns:
       # Just include all statements: The ES grammar is smart enough to stop at the correct end.
       - include: 'source.tsx#statements'

@@ -921,7 +921,7 @@ const grammar = {
               include: '#whatwg-html'
             }
           ],
-          end: '^(?=[\\\\t ]*$)'
+          end: '^(?=[\\t ]*$)|$'
         },
         {
           begin:
@@ -932,7 +932,7 @@ const grammar = {
               include: '#whatwg-html'
             }
           ],
-          end: '^(?=[\\t ]*$)'
+          end: '^(?=[\\t ]*$)|$'
         },
         {
           begin:
@@ -943,7 +943,7 @@ const grammar = {
               include: '#whatwg-html'
             }
           ],
-          end: '^(?=[\\t ]*$)'
+          end: '^(?=[\\t ]*$)|$'
         }
       ]
     },
@@ -1933,7 +1933,7 @@ const grammar = {
           name: 'markup.list.table-delimiter.md'
         }
       ],
-      end: '^(?=[\\t ]*$)'
+      end: '^(?=[\\t ]*$)|$'
     },
     'extension-github-gemoji': {
       match:

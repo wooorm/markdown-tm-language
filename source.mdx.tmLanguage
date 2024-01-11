@@ -2139,7 +2139,7 @@
           </dict>
         </array>
         <key>end</key>
-        <string>^(?=[\t ]*$)</string>
+        <string>^(?=[\t ]*$)|$</string>
       </dict>
       <key>extension-github-gemoji</key>
       <dict>
@@ -2312,7 +2312,7 @@
         <key>begin</key>
         <string>(?:^|\G)(?=(?i:export|import)[ ])</string>
         <key>end</key>
-        <string>^(?=[\t ]*$)</string>
+        <string>^(?=[\t ]*$)|$</string>
         <key>patterns</key>
         <array>
           <dict>

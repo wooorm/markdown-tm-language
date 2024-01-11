@@ -1434,7 +1434,7 @@ const grammar = {
           name: 'markup.list.table-delimiter.mdx'
         }
       ],
-      end: '^(?=[\\t ]*$)'
+      end: '^(?=[\\t ]*$)|$'
     },
     'extension-github-gemoji': {
       match:
@@ -1544,7 +1544,7 @@ const grammar = {
     'extension-mdx-esm': {
       name: 'meta.embedded.tsx',
       begin: '(?:^|\\G)(?=(?i:export|import)[ ])',
-      end: '^(?=[\\t ]*$)',
+      end: '^(?=[\\t ]*$)|$',
       patterns: [
         {
           include: 'source.tsx#statements'
