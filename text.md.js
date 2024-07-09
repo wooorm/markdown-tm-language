@@ -2586,7 +2586,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.apib',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -2596,7 +2595,14 @@ const grammar = {
           name: 'markup.code.apib.md',
           patterns: [
             {
-              include: 'text.html.markdown.source.gfm.apib'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.apib',
+              patterns: [
+                {
+                  include: 'text.html.markdown.source.gfm.apib'
+                }
+              ]
             }
           ]
         },
@@ -2623,7 +2629,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.apib',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -2633,7 +2638,14 @@ const grammar = {
           name: 'markup.code.apib.md',
           patterns: [
             {
-              include: 'text.html.markdown.source.gfm.apib'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.apib',
+              patterns: [
+                {
+                  include: 'text.html.markdown.source.gfm.apib'
+                }
+              ]
             }
           ]
         }
@@ -2664,7 +2676,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.asciidoc',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -2674,7 +2685,14 @@ const grammar = {
           name: 'markup.code.asciidoc.md',
           patterns: [
             {
-              include: 'text.html.asciidoc'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.asciidoc',
+              patterns: [
+                {
+                  include: 'text.html.asciidoc'
+                }
+              ]
             }
           ]
         },
@@ -2701,7 +2719,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.asciidoc',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -2711,7 +2728,14 @@ const grammar = {
           name: 'markup.code.asciidoc.md',
           patterns: [
             {
-              include: 'text.html.asciidoc'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.asciidoc',
+              patterns: [
+                {
+                  include: 'text.html.asciidoc'
+                }
+              ]
             }
           ]
         }
@@ -2742,7 +2766,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.c',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -2752,7 +2775,14 @@ const grammar = {
           name: 'markup.code.c.md',
           patterns: [
             {
-              include: 'source.c'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.c',
+              patterns: [
+                {
+                  include: 'source.c'
+                }
+              ]
             }
           ]
         },
@@ -2779,7 +2809,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.c',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -2789,7 +2818,14 @@ const grammar = {
           name: 'markup.code.c.md',
           patterns: [
             {
-              include: 'source.c'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.c',
+              patterns: [
+                {
+                  include: 'source.c'
+                }
+              ]
             }
           ]
         }
@@ -2820,7 +2856,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.clojure',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -2830,7 +2865,14 @@ const grammar = {
           name: 'markup.code.clojure.md',
           patterns: [
             {
-              include: 'source.clojure'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.clojure',
+              patterns: [
+                {
+                  include: 'source.clojure'
+                }
+              ]
             }
           ]
         },
@@ -2857,7 +2899,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.clojure',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -2867,7 +2908,14 @@ const grammar = {
           name: 'markup.code.clojure.md',
           patterns: [
             {
-              include: 'source.clojure'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.clojure',
+              patterns: [
+                {
+                  include: 'source.clojure'
+                }
+              ]
             }
           ]
         }
@@ -2898,7 +2946,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.coffee',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -2908,7 +2955,14 @@ const grammar = {
           name: 'markup.code.coffee.md',
           patterns: [
             {
-              include: 'source.coffee'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.coffee',
+              patterns: [
+                {
+                  include: 'source.coffee'
+                }
+              ]
             }
           ]
         },
@@ -2935,7 +2989,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.coffee',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -2945,7 +2998,14 @@ const grammar = {
           name: 'markup.code.coffee.md',
           patterns: [
             {
-              include: 'source.coffee'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.coffee',
+              patterns: [
+                {
+                  include: 'source.coffee'
+                }
+              ]
             }
           ]
         }
@@ -2976,7 +3036,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.console',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -2986,7 +3045,14 @@ const grammar = {
           name: 'markup.code.console.md',
           patterns: [
             {
-              include: 'text.python.console'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.console',
+              patterns: [
+                {
+                  include: 'text.python.console'
+                }
+              ]
             }
           ]
         },
@@ -3013,7 +3079,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.console',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3023,7 +3088,14 @@ const grammar = {
           name: 'markup.code.console.md',
           patterns: [
             {
-              include: 'text.python.console'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.console',
+              patterns: [
+                {
+                  include: 'text.python.console'
+                }
+              ]
             }
           ]
         }
@@ -3054,7 +3126,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.cpp',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3064,10 +3135,17 @@ const grammar = {
           name: 'markup.code.cpp.md',
           patterns: [
             {
-              include: 'source.c++'
-            },
-            {
-              include: 'source.cpp'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.cpp',
+              patterns: [
+                {
+                  include: 'source.c++'
+                },
+                {
+                  include: 'source.cpp'
+                }
+              ]
             }
           ]
         },
@@ -3094,7 +3172,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.cpp',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3104,10 +3181,17 @@ const grammar = {
           name: 'markup.code.cpp.md',
           patterns: [
             {
-              include: 'source.c++'
-            },
-            {
-              include: 'source.cpp'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.cpp',
+              patterns: [
+                {
+                  include: 'source.c++'
+                },
+                {
+                  include: 'source.cpp'
+                }
+              ]
             }
           ]
         }
@@ -3138,7 +3222,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.cs',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3148,7 +3231,14 @@ const grammar = {
           name: 'markup.code.cs.md',
           patterns: [
             {
-              include: 'source.cs'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.cs',
+              patterns: [
+                {
+                  include: 'source.cs'
+                }
+              ]
             }
           ]
         },
@@ -3175,7 +3265,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.cs',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3185,7 +3274,14 @@ const grammar = {
           name: 'markup.code.cs.md',
           patterns: [
             {
-              include: 'source.cs'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.cs',
+              patterns: [
+                {
+                  include: 'source.cs'
+                }
+              ]
             }
           ]
         }
@@ -3216,7 +3312,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.css',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3226,7 +3321,14 @@ const grammar = {
           name: 'markup.code.css.md',
           patterns: [
             {
-              include: 'source.css'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.css',
+              patterns: [
+                {
+                  include: 'source.css'
+                }
+              ]
             }
           ]
         },
@@ -3253,7 +3355,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.css',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3263,7 +3364,14 @@ const grammar = {
           name: 'markup.code.css.md',
           patterns: [
             {
-              include: 'source.css'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.css',
+              patterns: [
+                {
+                  include: 'source.css'
+                }
+              ]
             }
           ]
         }
@@ -3294,7 +3402,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.diff',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3304,7 +3411,14 @@ const grammar = {
           name: 'markup.code.diff.md',
           patterns: [
             {
-              include: 'source.diff'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.diff',
+              patterns: [
+                {
+                  include: 'source.diff'
+                }
+              ]
             }
           ]
         },
@@ -3331,7 +3445,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.diff',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3341,7 +3454,14 @@ const grammar = {
           name: 'markup.code.diff.md',
           patterns: [
             {
-              include: 'source.diff'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.diff',
+              patterns: [
+                {
+                  include: 'source.diff'
+                }
+              ]
             }
           ]
         }
@@ -3372,7 +3492,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.dockerfile',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3382,7 +3501,14 @@ const grammar = {
           name: 'markup.code.dockerfile.md',
           patterns: [
             {
-              include: 'source.dockerfile'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.dockerfile',
+              patterns: [
+                {
+                  include: 'source.dockerfile'
+                }
+              ]
             }
           ]
         },
@@ -3409,7 +3535,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.dockerfile',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3419,7 +3544,14 @@ const grammar = {
           name: 'markup.code.dockerfile.md',
           patterns: [
             {
-              include: 'source.dockerfile'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.dockerfile',
+              patterns: [
+                {
+                  include: 'source.dockerfile'
+                }
+              ]
             }
           ]
         }
@@ -3450,7 +3582,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.elixir',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3460,7 +3591,14 @@ const grammar = {
           name: 'markup.code.elixir.md',
           patterns: [
             {
-              include: 'source.elixir'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.elixir',
+              patterns: [
+                {
+                  include: 'source.elixir'
+                }
+              ]
             }
           ]
         },
@@ -3487,7 +3625,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.elixir',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3497,7 +3634,14 @@ const grammar = {
           name: 'markup.code.elixir.md',
           patterns: [
             {
-              include: 'source.elixir'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.elixir',
+              patterns: [
+                {
+                  include: 'source.elixir'
+                }
+              ]
             }
           ]
         }
@@ -3528,7 +3672,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.elm',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3538,7 +3681,14 @@ const grammar = {
           name: 'markup.code.elm.md',
           patterns: [
             {
-              include: 'source.elm'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.elm',
+              patterns: [
+                {
+                  include: 'source.elm'
+                }
+              ]
             }
           ]
         },
@@ -3565,7 +3715,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.elm',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3575,7 +3724,14 @@ const grammar = {
           name: 'markup.code.elm.md',
           patterns: [
             {
-              include: 'source.elm'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.elm',
+              patterns: [
+                {
+                  include: 'source.elm'
+                }
+              ]
             }
           ]
         }
@@ -3606,7 +3762,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.erlang',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3616,7 +3771,14 @@ const grammar = {
           name: 'markup.code.erlang.md',
           patterns: [
             {
-              include: 'source.erlang'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.erlang',
+              patterns: [
+                {
+                  include: 'source.erlang'
+                }
+              ]
             }
           ]
         },
@@ -3643,7 +3805,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.erlang',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3653,7 +3814,14 @@ const grammar = {
           name: 'markup.code.erlang.md',
           patterns: [
             {
-              include: 'source.erlang'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.erlang',
+              patterns: [
+                {
+                  include: 'source.erlang'
+                }
+              ]
             }
           ]
         }
@@ -3684,7 +3852,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.gitconfig',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3694,7 +3861,14 @@ const grammar = {
           name: 'markup.code.gitconfig.md',
           patterns: [
             {
-              include: 'source.gitconfig'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.gitconfig',
+              patterns: [
+                {
+                  include: 'source.gitconfig'
+                }
+              ]
             }
           ]
         },
@@ -3721,7 +3895,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.gitconfig',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3731,7 +3904,14 @@ const grammar = {
           name: 'markup.code.gitconfig.md',
           patterns: [
             {
-              include: 'source.gitconfig'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.gitconfig',
+              patterns: [
+                {
+                  include: 'source.gitconfig'
+                }
+              ]
             }
           ]
         }
@@ -3762,7 +3942,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.go',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3772,7 +3951,14 @@ const grammar = {
           name: 'markup.code.go.md',
           patterns: [
             {
-              include: 'source.go'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.go',
+              patterns: [
+                {
+                  include: 'source.go'
+                }
+              ]
             }
           ]
         },
@@ -3799,7 +3985,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.go',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3809,7 +3994,14 @@ const grammar = {
           name: 'markup.code.go.md',
           patterns: [
             {
-              include: 'source.go'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.go',
+              patterns: [
+                {
+                  include: 'source.go'
+                }
+              ]
             }
           ]
         }
@@ -3840,7 +4032,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.graphql',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3850,7 +4041,14 @@ const grammar = {
           name: 'markup.code.graphql.md',
           patterns: [
             {
-              include: 'source.graphql'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.graphql',
+              patterns: [
+                {
+                  include: 'source.graphql'
+                }
+              ]
             }
           ]
         },
@@ -3877,7 +4075,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.graphql',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3887,7 +4084,14 @@ const grammar = {
           name: 'markup.code.graphql.md',
           patterns: [
             {
-              include: 'source.graphql'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.graphql',
+              patterns: [
+                {
+                  include: 'source.graphql'
+                }
+              ]
             }
           ]
         }
@@ -3918,7 +4122,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.haskell',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3928,7 +4131,14 @@ const grammar = {
           name: 'markup.code.haskell.md',
           patterns: [
             {
-              include: 'source.haskell'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.haskell',
+              patterns: [
+                {
+                  include: 'source.haskell'
+                }
+              ]
             }
           ]
         },
@@ -3955,7 +4165,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.haskell',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -3965,7 +4174,14 @@ const grammar = {
           name: 'markup.code.haskell.md',
           patterns: [
             {
-              include: 'source.haskell'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.haskell',
+              patterns: [
+                {
+                  include: 'source.haskell'
+                }
+              ]
             }
           ]
         }
@@ -3996,7 +4212,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.html',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4006,7 +4221,14 @@ const grammar = {
           name: 'markup.code.html.md',
           patterns: [
             {
-              include: 'text.html.basic'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.html',
+              patterns: [
+                {
+                  include: 'text.html.basic'
+                }
+              ]
             }
           ]
         },
@@ -4033,7 +4255,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.html',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4043,7 +4264,14 @@ const grammar = {
           name: 'markup.code.html.md',
           patterns: [
             {
-              include: 'text.html.basic'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.html',
+              patterns: [
+                {
+                  include: 'text.html.basic'
+                }
+              ]
             }
           ]
         }
@@ -4074,7 +4302,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.ini',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4084,7 +4311,14 @@ const grammar = {
           name: 'markup.code.ini.md',
           patterns: [
             {
-              include: 'source.ini'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.ini',
+              patterns: [
+                {
+                  include: 'source.ini'
+                }
+              ]
             }
           ]
         },
@@ -4111,7 +4345,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.ini',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4121,7 +4354,14 @@ const grammar = {
           name: 'markup.code.ini.md',
           patterns: [
             {
-              include: 'source.ini'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.ini',
+              patterns: [
+                {
+                  include: 'source.ini'
+                }
+              ]
             }
           ]
         }
@@ -4152,7 +4392,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.java',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4162,7 +4401,14 @@ const grammar = {
           name: 'markup.code.java.md',
           patterns: [
             {
-              include: 'source.java'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.java',
+              patterns: [
+                {
+                  include: 'source.java'
+                }
+              ]
             }
           ]
         },
@@ -4189,7 +4435,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.java',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4199,7 +4444,14 @@ const grammar = {
           name: 'markup.code.java.md',
           patterns: [
             {
-              include: 'source.java'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.java',
+              patterns: [
+                {
+                  include: 'source.java'
+                }
+              ]
             }
           ]
         }
@@ -4230,7 +4482,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.js',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4240,7 +4491,14 @@ const grammar = {
           name: 'markup.code.js.md',
           patterns: [
             {
-              include: 'source.js'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.js',
+              patterns: [
+                {
+                  include: 'source.js'
+                }
+              ]
             }
           ]
         },
@@ -4267,7 +4525,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.js',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4277,7 +4534,14 @@ const grammar = {
           name: 'markup.code.js.md',
           patterns: [
             {
-              include: 'source.js'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.js',
+              patterns: [
+                {
+                  include: 'source.js'
+                }
+              ]
             }
           ]
         }
@@ -4308,7 +4572,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.json',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4318,7 +4581,14 @@ const grammar = {
           name: 'markup.code.json.md',
           patterns: [
             {
-              include: 'source.json'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.json',
+              patterns: [
+                {
+                  include: 'source.json'
+                }
+              ]
             }
           ]
         },
@@ -4345,7 +4615,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.json',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4355,7 +4624,14 @@ const grammar = {
           name: 'markup.code.json.md',
           patterns: [
             {
-              include: 'source.json'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.json',
+              patterns: [
+                {
+                  include: 'source.json'
+                }
+              ]
             }
           ]
         }
@@ -4386,7 +4662,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.julia',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4396,7 +4671,14 @@ const grammar = {
           name: 'markup.code.julia.md',
           patterns: [
             {
-              include: 'source.julia'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.julia',
+              patterns: [
+                {
+                  include: 'source.julia'
+                }
+              ]
             }
           ]
         },
@@ -4423,7 +4705,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.julia',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4433,7 +4714,14 @@ const grammar = {
           name: 'markup.code.julia.md',
           patterns: [
             {
-              include: 'source.julia'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.julia',
+              patterns: [
+                {
+                  include: 'source.julia'
+                }
+              ]
             }
           ]
         }
@@ -4464,7 +4752,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.kotlin',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4474,7 +4761,14 @@ const grammar = {
           name: 'markup.code.kotlin.md',
           patterns: [
             {
-              include: 'source.kotlin'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.kotlin',
+              patterns: [
+                {
+                  include: 'source.kotlin'
+                }
+              ]
             }
           ]
         },
@@ -4501,7 +4795,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.kotlin',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4511,7 +4804,14 @@ const grammar = {
           name: 'markup.code.kotlin.md',
           patterns: [
             {
-              include: 'source.kotlin'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.kotlin',
+              patterns: [
+                {
+                  include: 'source.kotlin'
+                }
+              ]
             }
           ]
         }
@@ -4542,7 +4842,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.less',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4552,7 +4851,14 @@ const grammar = {
           name: 'markup.code.less.md',
           patterns: [
             {
-              include: 'source.css.less'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.less',
+              patterns: [
+                {
+                  include: 'source.css.less'
+                }
+              ]
             }
           ]
         },
@@ -4579,7 +4885,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.less',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4589,7 +4894,14 @@ const grammar = {
           name: 'markup.code.less.md',
           patterns: [
             {
-              include: 'source.css.less'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.less',
+              patterns: [
+                {
+                  include: 'source.css.less'
+                }
+              ]
             }
           ]
         }
@@ -4620,7 +4932,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.lua',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4630,7 +4941,14 @@ const grammar = {
           name: 'markup.code.lua.md',
           patterns: [
             {
-              include: 'source.lua'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.lua',
+              patterns: [
+                {
+                  include: 'source.lua'
+                }
+              ]
             }
           ]
         },
@@ -4657,7 +4975,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.lua',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4667,7 +4984,14 @@ const grammar = {
           name: 'markup.code.lua.md',
           patterns: [
             {
-              include: 'source.lua'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.lua',
+              patterns: [
+                {
+                  include: 'source.lua'
+                }
+              ]
             }
           ]
         }
@@ -4698,7 +5022,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.makefile',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4708,7 +5031,14 @@ const grammar = {
           name: 'markup.code.makefile.md',
           patterns: [
             {
-              include: 'source.makefile'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.makefile',
+              patterns: [
+                {
+                  include: 'source.makefile'
+                }
+              ]
             }
           ]
         },
@@ -4735,7 +5065,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.makefile',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4745,7 +5074,14 @@ const grammar = {
           name: 'markup.code.makefile.md',
           patterns: [
             {
-              include: 'source.makefile'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.makefile',
+              patterns: [
+                {
+                  include: 'source.makefile'
+                }
+              ]
             }
           ]
         }
@@ -4776,7 +5112,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.md',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4786,13 +5121,20 @@ const grammar = {
           name: 'markup.code.md.md',
           patterns: [
             {
-              include: 'text.md'
-            },
-            {
-              include: 'source.gfm'
-            },
-            {
-              include: 'text.html.markdown'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.md',
+              patterns: [
+                {
+                  include: 'text.md'
+                },
+                {
+                  include: 'source.gfm'
+                },
+                {
+                  include: 'text.html.markdown'
+                }
+              ]
             }
           ]
         },
@@ -4819,7 +5161,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.md',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4829,13 +5170,20 @@ const grammar = {
           name: 'markup.code.md.md',
           patterns: [
             {
-              include: 'text.md'
-            },
-            {
-              include: 'source.gfm'
-            },
-            {
-              include: 'text.html.markdown'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.md',
+              patterns: [
+                {
+                  include: 'text.md'
+                },
+                {
+                  include: 'source.gfm'
+                },
+                {
+                  include: 'text.html.markdown'
+                }
+              ]
             }
           ]
         }
@@ -4866,7 +5214,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.mdx',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4876,7 +5223,14 @@ const grammar = {
           name: 'markup.code.mdx.md',
           patterns: [
             {
-              include: 'source.mdx'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.mdx',
+              patterns: [
+                {
+                  include: 'source.mdx'
+                }
+              ]
             }
           ]
         },
@@ -4903,7 +5257,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.mdx',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4913,7 +5266,14 @@ const grammar = {
           name: 'markup.code.mdx.md',
           patterns: [
             {
-              include: 'source.mdx'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.mdx',
+              patterns: [
+                {
+                  include: 'source.mdx'
+                }
+              ]
             }
           ]
         }
@@ -4944,7 +5304,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.objc',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4954,7 +5313,14 @@ const grammar = {
           name: 'markup.code.objc.md',
           patterns: [
             {
-              include: 'source.objc'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.objc',
+              patterns: [
+                {
+                  include: 'source.objc'
+                }
+              ]
             }
           ]
         },
@@ -4981,7 +5347,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.objc',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -4991,7 +5356,14 @@ const grammar = {
           name: 'markup.code.objc.md',
           patterns: [
             {
-              include: 'source.objc'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.objc',
+              patterns: [
+                {
+                  include: 'source.objc'
+                }
+              ]
             }
           ]
         }
@@ -5022,7 +5394,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.perl',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5032,7 +5403,14 @@ const grammar = {
           name: 'markup.code.perl.md',
           patterns: [
             {
-              include: 'source.perl'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.perl',
+              patterns: [
+                {
+                  include: 'source.perl'
+                }
+              ]
             }
           ]
         },
@@ -5059,7 +5437,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.perl',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5069,7 +5446,14 @@ const grammar = {
           name: 'markup.code.perl.md',
           patterns: [
             {
-              include: 'source.perl'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.perl',
+              patterns: [
+                {
+                  include: 'source.perl'
+                }
+              ]
             }
           ]
         }
@@ -5100,7 +5484,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.php',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5110,7 +5493,14 @@ const grammar = {
           name: 'markup.code.php.md',
           patterns: [
             {
-              include: 'text.html.php'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.php',
+              patterns: [
+                {
+                  include: 'text.html.php'
+                }
+              ]
             }
           ]
         },
@@ -5137,7 +5527,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.php',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5147,7 +5536,14 @@ const grammar = {
           name: 'markup.code.php.md',
           patterns: [
             {
-              include: 'text.html.php'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.php',
+              patterns: [
+                {
+                  include: 'text.html.php'
+                }
+              ]
             }
           ]
         }
@@ -5178,7 +5574,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.python',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5188,7 +5583,14 @@ const grammar = {
           name: 'markup.code.python.md',
           patterns: [
             {
-              include: 'source.python'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.python',
+              patterns: [
+                {
+                  include: 'source.python'
+                }
+              ]
             }
           ]
         },
@@ -5215,7 +5617,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.python',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5225,7 +5626,14 @@ const grammar = {
           name: 'markup.code.python.md',
           patterns: [
             {
-              include: 'source.python'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.python',
+              patterns: [
+                {
+                  include: 'source.python'
+                }
+              ]
             }
           ]
         }
@@ -5256,7 +5664,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.r',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5266,7 +5673,14 @@ const grammar = {
           name: 'markup.code.r.md',
           patterns: [
             {
-              include: 'source.r'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.r',
+              patterns: [
+                {
+                  include: 'source.r'
+                }
+              ]
             }
           ]
         },
@@ -5293,7 +5707,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.r',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5303,7 +5716,14 @@ const grammar = {
           name: 'markup.code.r.md',
           patterns: [
             {
-              include: 'source.r'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.r',
+              patterns: [
+                {
+                  include: 'source.r'
+                }
+              ]
             }
           ]
         }
@@ -5334,7 +5754,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.raku',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5344,7 +5763,14 @@ const grammar = {
           name: 'markup.code.raku.md',
           patterns: [
             {
-              include: 'source.raku'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.raku',
+              patterns: [
+                {
+                  include: 'source.raku'
+                }
+              ]
             }
           ]
         },
@@ -5371,7 +5797,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.raku',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5381,7 +5806,14 @@ const grammar = {
           name: 'markup.code.raku.md',
           patterns: [
             {
-              include: 'source.raku'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.raku',
+              patterns: [
+                {
+                  include: 'source.raku'
+                }
+              ]
             }
           ]
         }
@@ -5412,7 +5844,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.ruby',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5422,7 +5853,14 @@ const grammar = {
           name: 'markup.code.ruby.md',
           patterns: [
             {
-              include: 'source.ruby'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.ruby',
+              patterns: [
+                {
+                  include: 'source.ruby'
+                }
+              ]
             }
           ]
         },
@@ -5449,7 +5887,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.ruby',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5459,7 +5896,14 @@ const grammar = {
           name: 'markup.code.ruby.md',
           patterns: [
             {
-              include: 'source.ruby'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.ruby',
+              patterns: [
+                {
+                  include: 'source.ruby'
+                }
+              ]
             }
           ]
         }
@@ -5490,7 +5934,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.rust',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5500,7 +5943,14 @@ const grammar = {
           name: 'markup.code.rust.md',
           patterns: [
             {
-              include: 'source.rust'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.rust',
+              patterns: [
+                {
+                  include: 'source.rust'
+                }
+              ]
             }
           ]
         },
@@ -5527,7 +5977,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.rust',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5537,7 +5986,14 @@ const grammar = {
           name: 'markup.code.rust.md',
           patterns: [
             {
-              include: 'source.rust'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.rust',
+              patterns: [
+                {
+                  include: 'source.rust'
+                }
+              ]
             }
           ]
         }
@@ -5568,7 +6024,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.scala',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5578,7 +6033,14 @@ const grammar = {
           name: 'markup.code.scala.md',
           patterns: [
             {
-              include: 'source.scala'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.scala',
+              patterns: [
+                {
+                  include: 'source.scala'
+                }
+              ]
             }
           ]
         },
@@ -5605,7 +6067,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.scala',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5615,7 +6076,14 @@ const grammar = {
           name: 'markup.code.scala.md',
           patterns: [
             {
-              include: 'source.scala'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.scala',
+              patterns: [
+                {
+                  include: 'source.scala'
+                }
+              ]
             }
           ]
         }
@@ -5646,7 +6114,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.scss',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5656,7 +6123,14 @@ const grammar = {
           name: 'markup.code.scss.md',
           patterns: [
             {
-              include: 'source.css.scss'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.scss',
+              patterns: [
+                {
+                  include: 'source.css.scss'
+                }
+              ]
             }
           ]
         },
@@ -5683,7 +6157,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.scss',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5693,7 +6166,14 @@ const grammar = {
           name: 'markup.code.scss.md',
           patterns: [
             {
-              include: 'source.css.scss'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.scss',
+              patterns: [
+                {
+                  include: 'source.css.scss'
+                }
+              ]
             }
           ]
         }
@@ -5724,7 +6204,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.shell',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5734,7 +6213,14 @@ const grammar = {
           name: 'markup.code.shell.md',
           patterns: [
             {
-              include: 'source.shell'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.shell',
+              patterns: [
+                {
+                  include: 'source.shell'
+                }
+              ]
             }
           ]
         },
@@ -5761,7 +6247,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.shell',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5771,7 +6256,14 @@ const grammar = {
           name: 'markup.code.shell.md',
           patterns: [
             {
-              include: 'source.shell'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.shell',
+              patterns: [
+                {
+                  include: 'source.shell'
+                }
+              ]
             }
           ]
         }
@@ -5802,7 +6294,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.shell-session',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5812,7 +6303,14 @@ const grammar = {
           name: 'markup.code.shell-session.md',
           patterns: [
             {
-              include: 'text.shell-session'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.shell-session',
+              patterns: [
+                {
+                  include: 'text.shell-session'
+                }
+              ]
             }
           ]
         },
@@ -5839,7 +6337,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.shell-session',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5849,7 +6346,14 @@ const grammar = {
           name: 'markup.code.shell-session.md',
           patterns: [
             {
-              include: 'text.shell-session'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.shell-session',
+              patterns: [
+                {
+                  include: 'text.shell-session'
+                }
+              ]
             }
           ]
         }
@@ -5880,7 +6384,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.sql',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5890,7 +6393,14 @@ const grammar = {
           name: 'markup.code.sql.md',
           patterns: [
             {
-              include: 'source.sql'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.sql',
+              patterns: [
+                {
+                  include: 'source.sql'
+                }
+              ]
             }
           ]
         },
@@ -5917,7 +6427,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.sql',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5927,7 +6436,14 @@ const grammar = {
           name: 'markup.code.sql.md',
           patterns: [
             {
-              include: 'source.sql'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.sql',
+              patterns: [
+                {
+                  include: 'source.sql'
+                }
+              ]
             }
           ]
         }
@@ -5958,7 +6474,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.svg',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -5968,10 +6483,17 @@ const grammar = {
           name: 'markup.code.svg.md',
           patterns: [
             {
-              include: 'text.xml.svg'
-            },
-            {
-              include: 'text.xml'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.svg',
+              patterns: [
+                {
+                  include: 'text.xml.svg'
+                },
+                {
+                  include: 'text.xml'
+                }
+              ]
             }
           ]
         },
@@ -5998,7 +6520,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.svg',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6008,10 +6529,17 @@ const grammar = {
           name: 'markup.code.svg.md',
           patterns: [
             {
-              include: 'text.xml.svg'
-            },
-            {
-              include: 'text.xml'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.svg',
+              patterns: [
+                {
+                  include: 'text.xml.svg'
+                },
+                {
+                  include: 'text.xml'
+                }
+              ]
             }
           ]
         }
@@ -6042,7 +6570,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.swift',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6052,7 +6579,14 @@ const grammar = {
           name: 'markup.code.swift.md',
           patterns: [
             {
-              include: 'source.swift'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.swift',
+              patterns: [
+                {
+                  include: 'source.swift'
+                }
+              ]
             }
           ]
         },
@@ -6079,7 +6613,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.swift',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6089,7 +6622,14 @@ const grammar = {
           name: 'markup.code.swift.md',
           patterns: [
             {
-              include: 'source.swift'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.swift',
+              patterns: [
+                {
+                  include: 'source.swift'
+                }
+              ]
             }
           ]
         }
@@ -6120,7 +6660,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.toml',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6130,7 +6669,14 @@ const grammar = {
           name: 'markup.code.toml.md',
           patterns: [
             {
-              include: 'source.toml'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.toml',
+              patterns: [
+                {
+                  include: 'source.toml'
+                }
+              ]
             }
           ]
         },
@@ -6157,7 +6703,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.toml',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6167,7 +6712,14 @@ const grammar = {
           name: 'markup.code.toml.md',
           patterns: [
             {
-              include: 'source.toml'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.toml',
+              patterns: [
+                {
+                  include: 'source.toml'
+                }
+              ]
             }
           ]
         }
@@ -6198,7 +6750,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.ts',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6208,7 +6759,14 @@ const grammar = {
           name: 'markup.code.ts.md',
           patterns: [
             {
-              include: 'source.ts'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.ts',
+              patterns: [
+                {
+                  include: 'source.ts'
+                }
+              ]
             }
           ]
         },
@@ -6235,7 +6793,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.ts',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6245,7 +6802,14 @@ const grammar = {
           name: 'markup.code.ts.md',
           patterns: [
             {
-              include: 'source.ts'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.ts',
+              patterns: [
+                {
+                  include: 'source.ts'
+                }
+              ]
             }
           ]
         }
@@ -6276,7 +6840,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.tsx',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6286,7 +6849,14 @@ const grammar = {
           name: 'markup.code.tsx.md',
           patterns: [
             {
-              include: 'source.tsx'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.tsx',
+              patterns: [
+                {
+                  include: 'source.tsx'
+                }
+              ]
             }
           ]
         },
@@ -6313,7 +6883,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.tsx',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6323,7 +6892,14 @@ const grammar = {
           name: 'markup.code.tsx.md',
           patterns: [
             {
-              include: 'source.tsx'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.tsx',
+              patterns: [
+                {
+                  include: 'source.tsx'
+                }
+              ]
             }
           ]
         }
@@ -6354,7 +6930,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.vbnet',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6364,7 +6939,14 @@ const grammar = {
           name: 'markup.code.vbnet.md',
           patterns: [
             {
-              include: 'source.vbnet'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.vbnet',
+              patterns: [
+                {
+                  include: 'source.vbnet'
+                }
+              ]
             }
           ]
         },
@@ -6391,7 +6973,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.vbnet',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6401,7 +6982,14 @@ const grammar = {
           name: 'markup.code.vbnet.md',
           patterns: [
             {
-              include: 'source.vbnet'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.vbnet',
+              patterns: [
+                {
+                  include: 'source.vbnet'
+                }
+              ]
             }
           ]
         }
@@ -6432,7 +7020,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.xml',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6442,7 +7029,14 @@ const grammar = {
           name: 'markup.code.xml.md',
           patterns: [
             {
-              include: 'text.xml'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.xml',
+              patterns: [
+                {
+                  include: 'text.xml'
+                }
+              ]
             }
           ]
         },
@@ -6469,7 +7063,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.xml',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6479,7 +7072,14 @@ const grammar = {
           name: 'markup.code.xml.md',
           patterns: [
             {
-              include: 'text.xml'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.xml',
+              patterns: [
+                {
+                  include: 'text.xml'
+                }
+              ]
             }
           ]
         }
@@ -6510,7 +7110,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.yaml',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6520,7 +7119,14 @@ const grammar = {
           name: 'markup.code.yaml.md',
           patterns: [
             {
-              include: 'source.yaml'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.yaml',
+              patterns: [
+                {
+                  include: 'source.yaml'
+                }
+              ]
             }
           ]
         },
@@ -6547,7 +7153,6 @@ const grammar = {
               ]
             }
           },
-          contentName: 'meta.embedded.yaml',
           end: '(\\1)(?:[\\t ]*$)',
           endCaptures: {
             1: {
@@ -6557,7 +7162,14 @@ const grammar = {
           name: 'markup.code.yaml.md',
           patterns: [
             {
-              include: 'source.yaml'
+              begin: '(^|\\G)(\\s*)(.*)',
+              while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+              contentName: 'meta.embedded.yaml',
+              patterns: [
+                {
+                  include: 'source.yaml'
+                }
+              ]
             }
           ]
         }

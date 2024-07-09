@@ -334,15 +334,22 @@ for (const embedded of embeddedGrammars) {
   backtickCopy.begin = backtickCopy.begin
     .replace(/var\(char_code_info_tick\)\+/, regex)
     .replace(/\)\?\)\?/, ')?)')
-  backtickCopy.contentName = 'meta.embedded.' + embedded.id
+  delete backtickCopy.contentName
   backtickCopy.name = 'markup.code.' + embedded.id + '.var(suffix)'
-  backtickCopy.patterns = embedded.scopeNames.map((d) => ({include: d}))
+  backtickCopy.patterns = structuredClone([
+    {
+      begin: '(^|\\G)(\\s*)(.*)',
+      while: '(^|\\G)(?![\\t ]*([`~]{3,})[\\t ]*$)',
+      contentName: 'meta.embedded.' + embedded.id,
+      patterns: embedded.scopeNames.map((d) => ({include: d}))
+    }
+  ])
 
   assert(tildeCopy.begin, 'expected begin')
   tildeCopy.begin = tildeCopy.begin
     .replace(/var\(char_code_info_tilde\)\+/, regex)
     .replace(/\)\?\)\?/, ')?)')
-  tildeCopy.contentName = structuredClone(backtickCopy.contentName)
+  delete tildeCopy.contentName
   tildeCopy.name = structuredClone(backtickCopy.name)
   tildeCopy.patterns = structuredClone(backtickCopy.patterns)
 

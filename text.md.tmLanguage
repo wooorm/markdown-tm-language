@@ -3869,8 +3869,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.apib</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -3886,8 +3884,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.html.markdown.source.gfm.apib</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.apib</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.html.markdown.source.gfm.apib</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -3924,8 +3933,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.apib</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -3941,8 +3948,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.html.markdown.source.gfm.apib</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.apib</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.html.markdown.source.gfm.apib</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -3985,8 +4003,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.asciidoc</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4002,8 +4018,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.html.asciidoc</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.asciidoc</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.html.asciidoc</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4040,8 +4067,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.asciidoc</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4057,8 +4082,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.html.asciidoc</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.asciidoc</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.html.asciidoc</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4101,8 +4137,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.c</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4118,8 +4152,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.c</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.c</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.c</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4156,8 +4201,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.c</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4173,8 +4216,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.c</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.c</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.c</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4217,8 +4271,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.clojure</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4234,8 +4286,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.clojure</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.clojure</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.clojure</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4272,8 +4335,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.clojure</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4289,8 +4350,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.clojure</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.clojure</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.clojure</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4333,8 +4405,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.coffee</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4350,8 +4420,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.coffee</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.coffee</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.coffee</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4388,8 +4469,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.coffee</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4405,8 +4484,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.coffee</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.coffee</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.coffee</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4449,8 +4539,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.console</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4466,8 +4554,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.python.console</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.console</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.python.console</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4504,8 +4603,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.console</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4521,8 +4618,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.python.console</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.console</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.python.console</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4565,8 +4673,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.cpp</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4582,12 +4688,23 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.c++</string>
-              </dict>
-              <dict>
-                <key>include</key>
-                <string>source.cpp</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.cpp</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.c++</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>source.cpp</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4624,8 +4741,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.cpp</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4641,12 +4756,23 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.c++</string>
-              </dict>
-              <dict>
-                <key>include</key>
-                <string>source.cpp</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.cpp</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.c++</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>source.cpp</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4689,8 +4815,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.cs</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4706,8 +4830,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.cs</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.cs</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.cs</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4744,8 +4879,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.cs</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4761,8 +4894,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.cs</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.cs</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.cs</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4805,8 +4949,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.css</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4822,8 +4964,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.css</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.css</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.css</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4860,8 +5013,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.css</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4877,8 +5028,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.css</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.css</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.css</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4921,8 +5083,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.diff</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4938,8 +5098,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.diff</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.diff</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.diff</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -4976,8 +5147,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.diff</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -4993,8 +5162,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.diff</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.diff</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.diff</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5037,8 +5217,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.dockerfile</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5054,8 +5232,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.dockerfile</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.dockerfile</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.dockerfile</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5092,8 +5281,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.dockerfile</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5109,8 +5296,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.dockerfile</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.dockerfile</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.dockerfile</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5153,8 +5351,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.elixir</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5170,8 +5366,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.elixir</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.elixir</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.elixir</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5208,8 +5415,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.elixir</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5225,8 +5430,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.elixir</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.elixir</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.elixir</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5269,8 +5485,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.elm</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5286,8 +5500,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.elm</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.elm</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.elm</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5324,8 +5549,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.elm</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5341,8 +5564,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.elm</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.elm</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.elm</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5385,8 +5619,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.erlang</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5402,8 +5634,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.erlang</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.erlang</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.erlang</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5440,8 +5683,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.erlang</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5457,8 +5698,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.erlang</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.erlang</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.erlang</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5501,8 +5753,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.gitconfig</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5518,8 +5768,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.gitconfig</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.gitconfig</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.gitconfig</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5556,8 +5817,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.gitconfig</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5573,8 +5832,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.gitconfig</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.gitconfig</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.gitconfig</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5617,8 +5887,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.go</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5634,8 +5902,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.go</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.go</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.go</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5672,8 +5951,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.go</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5689,8 +5966,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.go</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.go</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.go</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5733,8 +6021,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.graphql</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5750,8 +6036,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.graphql</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.graphql</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.graphql</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5788,8 +6085,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.graphql</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5805,8 +6100,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.graphql</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.graphql</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.graphql</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5849,8 +6155,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.haskell</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5866,8 +6170,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.haskell</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.haskell</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.haskell</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5904,8 +6219,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.haskell</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5921,8 +6234,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.haskell</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.haskell</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.haskell</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -5965,8 +6289,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.html</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -5982,8 +6304,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.html.basic</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.html</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.html.basic</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6020,8 +6353,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.html</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6037,8 +6368,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.html.basic</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.html</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.html.basic</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6081,8 +6423,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.ini</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6098,8 +6438,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.ini</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.ini</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.ini</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6136,8 +6487,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.ini</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6153,8 +6502,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.ini</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.ini</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.ini</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6197,8 +6557,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.java</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6214,8 +6572,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.java</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.java</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.java</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6252,8 +6621,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.java</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6269,8 +6636,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.java</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.java</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.java</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6313,8 +6691,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.js</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6330,8 +6706,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.js</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.js</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.js</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6368,8 +6755,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.js</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6385,8 +6770,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.js</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.js</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.js</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6429,8 +6825,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.json</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6446,8 +6840,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.json</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.json</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.json</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6484,8 +6889,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.json</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6501,8 +6904,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.json</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.json</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.json</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6545,8 +6959,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.julia</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6562,8 +6974,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.julia</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.julia</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.julia</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6600,8 +7023,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.julia</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6617,8 +7038,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.julia</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.julia</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.julia</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6661,8 +7093,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.kotlin</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6678,8 +7108,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.kotlin</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.kotlin</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.kotlin</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6716,8 +7157,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.kotlin</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6733,8 +7172,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.kotlin</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.kotlin</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.kotlin</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6777,8 +7227,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.less</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6794,8 +7242,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.css.less</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.less</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.css.less</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6832,8 +7291,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.less</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6849,8 +7306,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.css.less</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.less</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.css.less</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6893,8 +7361,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.lua</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6910,8 +7376,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.lua</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.lua</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.lua</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -6948,8 +7425,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.lua</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -6965,8 +7440,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.lua</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.lua</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.lua</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7009,8 +7495,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.makefile</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7026,8 +7510,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.makefile</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.makefile</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.makefile</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7064,8 +7559,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.makefile</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7081,8 +7574,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.makefile</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.makefile</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.makefile</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7125,8 +7629,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.md</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7142,16 +7644,27 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.md</string>
-              </dict>
-              <dict>
-                <key>include</key>
-                <string>source.gfm</string>
-              </dict>
-              <dict>
-                <key>include</key>
-                <string>text.html.markdown</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.md</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.md</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>source.gfm</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>text.html.markdown</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7188,8 +7701,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.md</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7205,16 +7716,27 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.md</string>
-              </dict>
-              <dict>
-                <key>include</key>
-                <string>source.gfm</string>
-              </dict>
-              <dict>
-                <key>include</key>
-                <string>text.html.markdown</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.md</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.md</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>source.gfm</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>text.html.markdown</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7257,8 +7779,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.mdx</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7274,8 +7794,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.mdx</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.mdx</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.mdx</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7312,8 +7843,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.mdx</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7329,8 +7858,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.mdx</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.mdx</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.mdx</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7373,8 +7913,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.objc</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7390,8 +7928,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.objc</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.objc</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.objc</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7428,8 +7977,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.objc</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7445,8 +7992,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.objc</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.objc</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.objc</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7489,8 +8047,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.perl</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7506,8 +8062,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.perl</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.perl</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.perl</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7544,8 +8111,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.perl</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7561,8 +8126,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.perl</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.perl</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.perl</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7605,8 +8181,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.php</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7622,8 +8196,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.html.php</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.php</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.html.php</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7660,8 +8245,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.php</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7677,8 +8260,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.html.php</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.php</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.html.php</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7721,8 +8315,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.python</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7738,8 +8330,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.python</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.python</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.python</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7776,8 +8379,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.python</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7793,8 +8394,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.python</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.python</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.python</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7837,8 +8449,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.r</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7854,8 +8464,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.r</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.r</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.r</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7892,8 +8513,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.r</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7909,8 +8528,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.r</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.r</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.r</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -7953,8 +8583,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.raku</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -7970,8 +8598,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.raku</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.raku</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.raku</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8008,8 +8647,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.raku</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8025,8 +8662,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.raku</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.raku</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.raku</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8069,8 +8717,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.ruby</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8086,8 +8732,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.ruby</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.ruby</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.ruby</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8124,8 +8781,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.ruby</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8141,8 +8796,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.ruby</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.ruby</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.ruby</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8185,8 +8851,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.rust</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8202,8 +8866,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.rust</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.rust</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.rust</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8240,8 +8915,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.rust</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8257,8 +8930,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.rust</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.rust</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.rust</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8301,8 +8985,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.scala</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8318,8 +9000,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.scala</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.scala</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.scala</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8356,8 +9049,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.scala</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8373,8 +9064,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.scala</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.scala</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.scala</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8417,8 +9119,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.scss</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8434,8 +9134,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.css.scss</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.scss</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.css.scss</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8472,8 +9183,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.scss</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8489,8 +9198,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.css.scss</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.scss</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.css.scss</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8533,8 +9253,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.shell</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8550,8 +9268,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.shell</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.shell</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.shell</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8588,8 +9317,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.shell</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8605,8 +9332,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.shell</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.shell</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.shell</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8649,8 +9387,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.shell-session</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8666,8 +9402,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.shell-session</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.shell-session</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.shell-session</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8704,8 +9451,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.shell-session</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8721,8 +9466,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.shell-session</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.shell-session</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.shell-session</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8765,8 +9521,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.sql</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8782,8 +9536,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.sql</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.sql</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.sql</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8820,8 +9585,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.sql</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8837,8 +9600,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.sql</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.sql</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.sql</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8881,8 +9655,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.svg</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8898,12 +9670,23 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.xml.svg</string>
-              </dict>
-              <dict>
-                <key>include</key>
-                <string>text.xml</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.svg</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.xml.svg</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>text.xml</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -8940,8 +9723,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.svg</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -8957,12 +9738,23 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.xml.svg</string>
-              </dict>
-              <dict>
-                <key>include</key>
-                <string>text.xml</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.svg</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.xml.svg</string>
+                  </dict>
+                  <dict>
+                    <key>include</key>
+                    <string>text.xml</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -9005,8 +9797,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.swift</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -9022,8 +9812,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.swift</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.swift</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.swift</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -9060,8 +9861,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.swift</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -9077,8 +9876,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.swift</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.swift</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.swift</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -9121,8 +9931,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.toml</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -9138,8 +9946,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.toml</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.toml</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.toml</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -9176,8 +9995,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.toml</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -9193,8 +10010,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.toml</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.toml</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.toml</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -9237,8 +10065,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.ts</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -9254,8 +10080,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.ts</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.ts</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.ts</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -9292,8 +10129,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.ts</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -9309,8 +10144,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.ts</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.ts</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.ts</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -9353,8 +10199,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.tsx</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -9370,8 +10214,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.tsx</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.tsx</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.tsx</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -9408,8 +10263,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.tsx</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -9425,8 +10278,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.tsx</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.tsx</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.tsx</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -9469,8 +10333,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.vbnet</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -9486,8 +10348,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.vbnet</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.vbnet</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.vbnet</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -9524,8 +10397,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.vbnet</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -9541,8 +10412,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.vbnet</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.vbnet</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.vbnet</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -9585,8 +10467,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.xml</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -9602,8 +10482,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.xml</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.xml</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.xml</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -9640,8 +10531,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.xml</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -9657,8 +10546,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>text.xml</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.xml</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>text.xml</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -9701,8 +10601,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.yaml</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -9718,8 +10616,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.yaml</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.yaml</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.yaml</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
@@ -9756,8 +10665,6 @@
                 </array>
               </dict>
             </dict>
-            <key>contentName</key>
-            <string>meta.embedded.yaml</string>
             <key>end</key>
             <string>(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
@@ -9773,8 +10680,19 @@
             <key>patterns</key>
             <array>
               <dict>
-                <key>include</key>
-                <string>source.yaml</string>
+                <key>begin</key>
+                <string>(^|\G)(\s*)(.*)</string>
+                <key>while</key>
+                <string>(^|\G)(?![\t ]*([`~]{3,})[\t ]*$)</string>
+                <key>contentName</key>
+                <string>meta.embedded.yaml</string>
+                <key>patterns</key>
+                <array>
+                  <dict>
+                    <key>include</key>
+                    <string>source.yaml</string>
+                  </dict>
+                </array>
               </dict>
             </array>
           </dict>
