@@ -32,21 +32,21 @@ Really good syntax highlighting for [markdown][] and [MDX][].
 
 ## Contents
 
-*   [What is this?](#what-is-this)
-*   [When should I use this?](#when-should-i-use-this)
-*   [Install](#install)
-    *   [`starry-night`](#starry-night)
-    *   [`shiki`](#shiki)
-    *   [VS Code](#vs-code)
-    *   [Sublime and TextMate](#sublime-and-textmate)
-*   [Use](#use)
-*   [API](#api)
-*   [Syntax](#syntax)
-*   [Compatibility](#compatibility)
-*   [Security](#security)
-*   [Related](#related)
-*   [Contribute](#contribute)
-*   [License](#license)
+* [What is this?](#what-is-this)
+* [When should I use this?](#when-should-i-use-this)
+* [Install](#install)
+  * [`starry-night`](#starry-night)
+  * [`shiki`](#shiki)
+  * [VS Code](#vs-code)
+  * [Sublime and TextMate](#sublime-and-textmate)
+* [Use](#use)
+* [API](#api)
+* [Syntax](#syntax)
+* [Compatibility](#compatibility)
+* [Security](#security)
+* [Related](#related)
+* [Contribute](#contribute)
+* [License](#license)
 
 ## What is this?
 
@@ -109,12 +109,12 @@ extensions (such as `gfm`) in the existing ones.
 
 Markdown is handled according to CommonMark and common extensions:
 
-*   directives
-*   frontmatter (YAML, TOML)
-*   GFM (autolink literals, footnotes, strikethrough, tables, tasklists)
-*   GitHub (gemoji, mentions, references)
-*   math<sup>(†)</sup>
-*   MDX (ESM, expressions, JSX)
+* directives
+* frontmatter (YAML, TOML)
+* GFM (autolink literals, footnotes, strikethrough, tables, tasklists)
+* GitHub (gemoji, mentions, references)
+* math<sup>(†)</sup>
+* MDX (ESM, expressions, JSX)
 
 <sup>(†)</sup> — with two or more dollars.
 
@@ -131,10 +131,10 @@ Should be good!
 
 ## Related
 
-*   [`micromark`](https://github.com/micromark/micromark)
-    — markdown parser in JavaScript
-*   [`markdown-rs`](https://github.com/wooorm/markdown-rs)
-    — markdown parser in Rust
+* [`micromark`](https://github.com/micromark/micromark)
+  — markdown parser in JavaScript
+* [`markdown-rs`](https://github.com/wooorm/markdown-rs)
+  — markdown parser in Rust
 
 ## Contribute
 

@@ -5,7 +5,6 @@
 /// <reference lib="dom" />
 /* eslint-env browser */
 
-// @ts-expect-error: TypeScript is wrong.
 import {Fragment, jsx, jsxs} from 'react/jsx-runtime'
 import React from 'react'
 import ReactDom from 'react-dom/client'
@@ -445,7 +444,9 @@ function Playground() {
       <div className="editor">
         <div className="draw">
           {toJsxRuntime(starryNight.highlight(text, scope), {
+            // @ts-expect-error: TypeScript is wrong.
             jsx,
+            // @ts-expect-error: TypeScript is wrong.
             jsxs,
             Fragment
           })}

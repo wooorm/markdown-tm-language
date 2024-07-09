@@ -109,10 +109,10 @@ const dynamicVariables = {
 }
 /* eslint-enable camelcase */
 
-const doc = String(await fs.readFile('grammar.yml'))
+const document = String(await fs.readFile('grammar.yml'))
 
 /** @type {Grammar} */
-const grammar = parse(doc)
+const grammar = parse(document)
 
 // Rule injection
 // Figure out embedded grammars.
