@@ -1,8 +1,3 @@
-name: main
-on:
-  push:
-    branches:
-      - main
 jobs:
   main:
     runs-on: ubuntu-latest
@@ -16,8 +11,13 @@ jobs:
       - uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           branch: gh-pages
-          folder: example
-          single-commit: true
           commit-message: .
-          git-config-name: Titus Wormer
+          folder: example
           git-config-email: tituswormer@gmail.com
+          git-config-name: Titus Wormer
+          single-commit: true
+name: main
+on:
+  push:
+    branches:
+      - main
