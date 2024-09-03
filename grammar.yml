@@ -397,7 +397,7 @@ repository:
             patterns:
               - include: '#markdown-string'
         contentName: markup.raw.code.fenced.var(suffix)
-        end: (\1)var(after)
+        end: var(before)(\1)var(after)
         endCaptures:
           1:
             name: string.other.end.code.fenced.var(suffix)
@@ -415,7 +415,7 @@ repository:
             patterns:
               - include: '#markdown-string'
         contentName: markup.raw.code.fenced.var(suffix)
-        end: (\1)var(after)
+        end: var(before)(\1)var(after)
         endCaptures:
           1:
             name: string.other.end.code.fenced.var(suffix)

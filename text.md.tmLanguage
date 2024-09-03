@@ -679,7 +679,7 @@
             <key>contentName</key>
             <string>markup.raw.code.fenced.md</string>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -727,7 +727,7 @@
             <key>contentName</key>
             <string>markup.raw.code.fenced.md</string>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -3868,7 +3868,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -3932,7 +3932,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4002,7 +4002,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4066,7 +4066,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4136,7 +4136,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4200,7 +4200,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4270,7 +4270,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4334,7 +4334,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4404,7 +4404,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4468,7 +4468,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4538,7 +4538,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4602,7 +4602,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4672,7 +4672,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4740,7 +4740,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4814,7 +4814,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4878,7 +4878,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -4948,7 +4948,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5012,7 +5012,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5082,7 +5082,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5146,7 +5146,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5216,7 +5216,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5280,7 +5280,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5350,7 +5350,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5414,7 +5414,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5484,7 +5484,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5548,7 +5548,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5618,7 +5618,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5682,7 +5682,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5752,7 +5752,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5816,7 +5816,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5886,7 +5886,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -5950,7 +5950,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6020,7 +6020,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6084,7 +6084,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6154,7 +6154,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6218,7 +6218,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6288,7 +6288,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6352,7 +6352,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6422,7 +6422,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6486,7 +6486,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6556,7 +6556,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6620,7 +6620,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6690,7 +6690,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6754,7 +6754,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6824,7 +6824,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6888,7 +6888,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -6958,7 +6958,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7022,7 +7022,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7092,7 +7092,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7156,7 +7156,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7226,7 +7226,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7290,7 +7290,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7360,7 +7360,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7424,7 +7424,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7494,7 +7494,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7558,7 +7558,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7628,7 +7628,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7700,7 +7700,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7778,7 +7778,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7842,7 +7842,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7912,7 +7912,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -7976,7 +7976,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8046,7 +8046,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8110,7 +8110,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8180,7 +8180,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8244,7 +8244,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8314,7 +8314,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8378,7 +8378,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8448,7 +8448,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8512,7 +8512,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8582,7 +8582,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8646,7 +8646,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8716,7 +8716,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8780,7 +8780,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8850,7 +8850,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8914,7 +8914,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -8984,7 +8984,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9048,7 +9048,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9118,7 +9118,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9182,7 +9182,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9252,7 +9252,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9316,7 +9316,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9386,7 +9386,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9450,7 +9450,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9520,7 +9520,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9584,7 +9584,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9654,7 +9654,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9722,7 +9722,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9796,7 +9796,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9860,7 +9860,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9930,7 +9930,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -9994,7 +9994,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -10064,7 +10064,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -10128,7 +10128,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -10198,7 +10198,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -10262,7 +10262,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -10332,7 +10332,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -10396,7 +10396,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -10466,7 +10466,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -10530,7 +10530,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -10600,7 +10600,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
@@ -10664,7 +10664,7 @@
               </dict>
             </dict>
             <key>end</key>
-            <string>(\1)(?:[\t ]*$)</string>
+            <string>(?:^|\G)[ ]{0,3}(\1)(?:[\t ]*$)</string>
             <key>endCaptures</key>
             <dict>
               <key>1</key>
