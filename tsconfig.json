@@ -1,22 +1,22 @@
 {
-  "include": ["**/**.js", "**/**.jsx"],
-  "exclude": [
-    "coverage/",
-    "node_modules/",
-    "example/index.module.js",
-    "example/index.nomodule.js"
-  ],
   "compilerOptions": {
     "checkJs": true,
     "declaration": true,
     "emitDeclarationOnly": true,
     "exactOptionalPropertyTypes": true,
     "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
     "lib": ["es2020"],
     "module": "node16",
     "newLine": "lf",
     "strict": true,
-    "target": "es2020",
-    "jsx": "react-jsx"
-  }
+    "target": "es2020"
+  },
+  "exclude": [
+    "coverage/",
+    "node_modules/",
+    "example/index.module.js",
+    "example/index.nomodule.js"
+  ],
+  "include": ["**/**.js", "**/**.jsx"]
 }
