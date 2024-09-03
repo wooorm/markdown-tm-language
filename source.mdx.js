@@ -6113,7 +6113,7 @@ const grammar = {
       patterns: [
         {
           begin:
-            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:classic\\x2dvisual\\x2dbasic|fb|freebasic|realbasic|vb\\x2d\\.net|vb\\x2d6|vb\\.net|vb6|vbnet|vbscript|visual\\x2dbasic|visual\\x2dbasic\\x2d\\.net|visual\\x2dbasic\\x2d6|visual\\x2dbasic\\x2d6\\.0|visual\\x2dbasic\\x2dclassic|(?:.*\\.)?(?:bi|ctl|dsr|rbbas|rbfrm|rbmnu|rbres|rbtbar|rbuistate|vb|vbhtml|vbs)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
+            '(?:^|\\G)[\\t ]*(`{3,})(?:[\\t ]*((?i:fb|freebasic|realbasic|vb\\x2d\\.net|vb\\.net|vbnet|vbscript|visual\\x2dbasic|visual\\x2dbasic\\x2d\\.net|(?:.*\\.)?(?:bi|rbbas|rbfrm|rbmnu|rbres|rbtbar|rbuistate|vb|vbhtml|vbs)))(?:[\\t ]+((?:[^\\n\\r`])+))?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
               name: 'string.other.begin.code.fenced.mdx'
@@ -6156,7 +6156,7 @@ const grammar = {
         },
         {
           begin:
-            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:classic\\x2dvisual\\x2dbasic|fb|freebasic|realbasic|vb\\x2d\\.net|vb\\x2d6|vb\\.net|vb6|vbnet|vbscript|visual\\x2dbasic|visual\\x2dbasic\\x2d\\.net|visual\\x2dbasic\\x2d6|visual\\x2dbasic\\x2d6\\.0|visual\\x2dbasic\\x2dclassic|(?:.*\\.)?(?:bi|ctl|dsr|rbbas|rbfrm|rbmnu|rbres|rbtbar|rbuistate|vb|vbhtml|vbs)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
+            '(?:^|\\G)[\\t ]*(~{3,})(?:[\\t ]*((?i:fb|freebasic|realbasic|vb\\x2d\\.net|vb\\.net|vbnet|vbscript|visual\\x2dbasic|visual\\x2dbasic\\x2d\\.net|(?:.*\\.)?(?:bi|rbbas|rbfrm|rbmnu|rbres|rbtbar|rbuistate|vb|vbhtml|vbs)))(?:[\\t ]+((?:[^\\n\\r])+))?)(?:[\\t ]*$)',
           beginCaptures: {
             1: {
               name: 'string.other.begin.code.fenced.mdx'
