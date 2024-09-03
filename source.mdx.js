@@ -1,7 +1,10 @@
 /* eslint-disable no-template-curly-in-string */
-/** @type {import("@wooorm/starry-night").Grammar} */
+/**
+ * @import {Grammar} from "@wooorm/starry-night"
+ */
+
+/** @type {Grammar} */
 const grammar = {
-  scopeName: 'source.mdx',
   extensions: ['.mdx'],
   names: ['mdx'],
   patterns: [
@@ -6379,6 +6382,7 @@ const grammar = {
         }
       ]
     }
-  }
+  },
+  scopeName: 'source.mdx'
 }
 export default grammar

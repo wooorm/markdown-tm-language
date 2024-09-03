@@ -1,9 +1,10 @@
+/* eslint-env browser */
+
 /**
- * @typedef {import('@wooorm/starry-night').Grammar} Grammar
+ * @import {Grammar} from '@wooorm/starry-night'
  */
 
 /// <reference lib="dom" />
-/* eslint-env browser */
 
 import {Fragment, jsx, jsxs} from 'react/jsx-runtime'
 import React from 'react'
@@ -389,7 +390,7 @@ GH-123, #123, GHSA-123asdzxc, cve-123asdzxc, user#123, user/project#123.
 `
 
 const root = ReactDom.createRoot(main)
-/** @type {Awaited<ReturnType<createStarryNight>>} */
+/** @type {Awaited<ReturnType<typeof createStarryNight>>} */
 let starryNight
 
 // eslint-disable-next-line unicorn/prefer-top-level-await -- XO is wrong.

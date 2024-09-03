@@ -1,47 +1,42 @@
 /**
- * @typedef {import('@wooorm/starry-night').Grammar} Grammar
+ * @import {Grammar} from '@wooorm/starry-night'
  */
 
 /**
  * @typedef {Grammar['patterns'][number]} Rule
  *
- * @typedef {'html' | 'code-indented' | 'autolink'} ConditionCommonmark
+ * @typedef {'autolink' | 'code-indented' | 'html'} ConditionCommonmark
  * @typedef {'directive' | 'frontmatter' | 'gfm' | 'github' | 'math' | 'mdx'} ConditionExtension
  * @typedef {ConditionCommonmark | ConditionExtension} Condition
  * @typedef {`!${Condition}`} NegatedCondition
  *
  * @typedef LanguageInfo
  *   Configuration for a language.
- * @property {string} name
- *   Name of language.
- *
- *   Used in the `tmLanguage` file.
- * @property {string} uuid
- *   UUID to use for language.
- *
- *   Used in the `tmLanguage` file.
- * @property {string} scopeName
- *   Name of scope, such as `text.md`.
- *
- *   When `source.mdx`, the suffix of all rules will be `.mdx`.
- * @property {string | undefined} [filename]
- *   Name of file, such as `text.md`.
- *
- *   Defaults to `scopeName`.
- * @property {Array<string>} extensions
- *   List of file extensions, with dots.
- *
- *   Used in `starry-night` and `tmLanguage` file.
- * @property {Array<string>} names
- *   Names of language, used in the `starry-night` grammar.
  * @property {Array<Condition>} conditions
  *   Conditions found in `grammar.yml` to choose.
  * @property {boolean | undefined} [embedTsx]
- *   Whether to embed a copy of the TypeScript grammar.
- *
- *   The TypeScript grammar is required for MDX to work.
- *   This is normally assumed to be used  by the end user, but if that can’t
- *   be guaranteed, enable this flag.
+ *   Whether to embed a copy of the TypeScript grammar;
+ *   the TypeScript grammar is required for MDX to work;
+ *   this is normally assumed to be used  by the end user,
+ *   but if that can’t be guaranteed,
+ *   enable this flag.
+ * @property {Array<string>} extensions
+ *   List of file extensions, with dots;
+ *   used in `starry-night` and `tmLanguage` file.
+ * @property {string | undefined} [filename]
+ *   Name of file, such as `text.md`;
+ *   defaults to `scopeName`.
+ * @property {Array<string>} names
+ *   Names of language, used in the `starry-night` grammar.
+ * @property {string} name
+ *   Name of language;
+ *   used in the `tmLanguage` file.
+ * @property {string} scopeName
+ *   Name of scope, such as `text.md`;
+ *   when `source.mdx`, the suffix of all rules will be `.mdx`.
+ * @property {string} uuid
+ *   UUID to use for language;
+ *   used in the `tmLanguage` file.
  */
 
 /* eslint-disable complexity */
@@ -195,13 +190,13 @@ embeddedGrammars.sort((a, b) => a.id.localeCompare(b.id))
  * <https://github.com/atom/language-gfm>
  */
 const gfm = [
-  'source.c',
   'source.clojure',
   'source.coffee',
   'source.cpp',
   'source.cs',
-  'source.css',
   'source.css.less',
+  'source.css',
+  'source.c',
   'source.diff',
   'source.dockerfile',
   'source.elixir',
@@ -213,16 +208,16 @@ const gfm = [
   'source.graphql',
   'source.haskell',
   'source.java',
-  'source.js',
   'source.json',
+  'source.js',
   'source.julia',
   'source.kotlin',
   'source.makefile',
   'source.objc',
   'source.perl',
   'source.python',
-  'source.r',
   'source.raku',
+  'source.r',
   'source.ruby',
   'source.rust',
   'source.scala',
@@ -403,23 +398,6 @@ assert(tsx.repository, 'expected repository in `ecmascript` grammar')
 /** @type {Array<LanguageInfo>} */
 const languages = [
   {
-    name: 'markdown',
-    // See: <https://superuser.com/questions/258770/how-to-change-the-default-file-format-for-saving-files-in-text-mate>
-    uuid: '0A1D9874-B448-11D9-BD50-000D93B6E43C',
-
-    // Which scope to use?
-    // In Atom, GitHub used `source.gfm`, which is often included in the
-    // grammars from `github/linguist`, and the `source.*` prefix is the
-    // most common prefix.
-    // In VS Code, Microsoft uses `text.html.markdown`.
-    // The latter was also used before Atom.
-    // But it has a problem: it “inherits” from HTML.
-    // Which we specifically don’t want.
-    // Especially, because we also care about MDX.
-    //
-    // So, we go with the same mechanism, but don’t force GFM:
-    scopeName: 'text.md',
-
     // Extensions for markdown (from `github/linguist`).
     extensions: [
       '.md',
@@ -434,31 +412,38 @@ const languages = [
       '.scd',
       '.workbook'
     ],
-
-    // Names for the language (from `github/linguist`).
-    names: ['markdown', 'md', 'pandoc'],
-
     conditions: [
       // CM defaults:
-      'html',
-      'code-indented',
       'autolink',
+      'code-indented',
+      'html',
       // Extensions:
       'directive',
       'frontmatter',
       'gfm',
       'github',
       'math'
-    ]
+    ],
+    // Names for the language (from `github/linguist`).
+    names: ['markdown', 'md', 'pandoc'],
+    name: 'markdown',
+    // Which scope to use?
+    // In Atom, GitHub used `source.gfm`, which is often included in the
+    // grammars from `github/linguist`, and the `source.*` prefix is the
+    // most common prefix.
+    // In VS Code, Microsoft uses `text.html.markdown`.
+    // The latter was also used before Atom.
+    // But it has a problem: it “inherits” from HTML.
+    // Which we specifically don’t want.
+    // Especially, because we also care about MDX.
+    //
+    // So, we go with the same mechanism, but don’t force GFM:
+    scopeName: 'text.md',
+    // See: <https://superuser.com/questions/258770/how-to-change-the-default-file-format-for-saving-files-in-text-mate>
+    uuid: '0A1D9874-B448-11D9-BD50-000D93B6E43C'
   },
   {
-    name: 'MDX',
-    // Just a random ID I created just now!
-    uuid: 'fe65e2cd-7c73-4a27-8b5e-5902893626aa',
-
-    scopeName: 'source.mdx',
     extensions: ['.mdx'],
-    names: ['mdx'],
     conditions: [
       // Extensions:
       'frontmatter',
@@ -466,7 +451,12 @@ const languages = [
       'github',
       'math',
       'mdx'
-    ]
+    ],
+    names: ['mdx'],
+    name: 'MDX',
+    scopeName: 'source.mdx',
+    // Just a random ID I created just now!
+    uuid: 'fe65e2cd-7c73-4a27-8b5e-5902893626aa'
   }
 ]
 
@@ -597,24 +587,24 @@ for (const language of languages) {
   }
 
   const tmLanguage = {
-    name: language.name,
-    uuid: language.uuid,
     fileTypes: language.extensions.map((d) => {
       assert(d.startsWith('.'), 'expected `.`')
       return d.slice(1)
     }),
+    name: language.name,
     patterns: generatedGrammar.patterns,
     repository: generatedGrammar.repository,
-    scopeName: language.scopeName
+    scopeName: language.scopeName,
+    uuid: language.uuid
   }
 
   /** @typedef {Grammar} */
   const starryNightGrammar = {
-    scopeName: language.scopeName,
     extensions: language.extensions,
     names: language.names,
     patterns: generatedGrammar.patterns,
-    repository: generatedGrammar.repository
+    repository: generatedGrammar.repository,
+    scopeName: language.scopeName
   }
 
   const filename = language.filename || language.scopeName
@@ -632,7 +622,11 @@ for (const language of languages) {
     new URL(filename + '.js', import.meta.url),
     [
       '/* eslint-disable no-template-curly-in-string */',
-      '/** @type {import("@wooorm/starry-night").Grammar} */',
+      '/**',
+      ' * @import {Grammar} from "@wooorm/starry-night"',
+      ' */',
+      '',
+      '/** @type {Grammar} */',
       'const grammar = ' + JSON.stringify(starryNightGrammar, null, 2),
       'export default grammar',
       ''

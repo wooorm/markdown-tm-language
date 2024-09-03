@@ -2,14 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>name</key>
-    <string>MDX</string>
-    <key>uuid</key>
-    <string>fe65e2cd-7c73-4a27-8b5e-5902893626aa</string>
     <key>fileTypes</key>
     <array>
       <string>mdx</string>
     </array>
+    <key>name</key>
+    <string>MDX</string>
     <key>patterns</key>
     <array>
       <dict>
@@ -9523,5 +9521,7 @@
     </dict>
     <key>scopeName</key>
     <string>source.mdx</string>
+    <key>uuid</key>
+    <string>fe65e2cd-7c73-4a27-8b5e-5902893626aa</string>
   </dict>
 </plist>

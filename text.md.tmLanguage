@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
-    <key>name</key>
-    <string>markdown</string>
-    <key>uuid</key>
-    <string>0A1D9874-B448-11D9-BD50-000D93B6E43C</string>
     <key>fileTypes</key>
     <array>
       <string>md</string>
@@ -20,6 +16,8 @@
       <string>scd</string>
       <string>workbook</string>
     </array>
+    <key>name</key>
+    <string>markdown</string>
     <key>patterns</key>
     <array>
       <dict>
@@ -10701,5 +10699,7 @@
     </dict>
     <key>scopeName</key>
     <string>text.md</string>
+    <key>uuid</key>
+    <string>0A1D9874-B448-11D9-BD50-000D93B6E43C</string>
   </dict>
 </plist>
