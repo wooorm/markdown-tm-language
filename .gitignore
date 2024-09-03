@@ -1,9 +1,9 @@
+coverage/
+node_modules/
 .DS_Store
 *.d.ts
 *.log
-coverage/
-node_modules/
 yarn.lock
-example/index.module.js
-example/index.nomodule.js
-typescript-react.xml
+/example/index.module.js
+/example/index.nomodule.js
+/typescript-react.xml
