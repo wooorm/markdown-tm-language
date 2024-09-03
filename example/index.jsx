@@ -6,24 +6,24 @@
 
 /// <reference lib="dom" />
 
-import {Fragment, jsx, jsxs} from 'react/jsx-runtime'
-import React from 'react'
-import ReactDom from 'react-dom/client'
-import {toJsxRuntime} from 'hast-util-to-jsx-runtime'
-import {createStarryNight} from '@wooorm/starry-night'
 import sourceCss from '@wooorm/starry-night/source.css'
 import sourceDiff from '@wooorm/starry-night/source.diff'
-import sourceJs from '@wooorm/starry-night/source.js'
 import sourceJson from '@wooorm/starry-night/source.json'
+import sourceJs from '@wooorm/starry-night/source.js'
 import sourceToml from '@wooorm/starry-night/source.toml'
-import sourceTs from '@wooorm/starry-night/source.ts'
 import sourceTsx from '@wooorm/starry-night/source.tsx'
+import sourceTs from '@wooorm/starry-night/source.ts'
 import sourceYaml from '@wooorm/starry-night/source.yaml'
 import textHtmlBasic from '@wooorm/starry-night/text.html.basic'
 import textXmlSvg from '@wooorm/starry-night/text.xml.svg'
 import textXml from '@wooorm/starry-night/text.xml'
-import sourceMd from '../text.md.js'
+import {createStarryNight} from '@wooorm/starry-night'
+import {toJsxRuntime} from 'hast-util-to-jsx-runtime'
+import ReactDom from 'react-dom/client'
+import {Fragment, jsx, jsxs} from 'react/jsx-runtime'
+import React from 'react'
 import sourceMdx from '../source.mdx.js'
+import textMarkdown from '../text.md.js'
 
 /** @type {Array<Grammar>} */
 const grammars = [
@@ -32,13 +32,13 @@ const grammars = [
   sourceJs,
   // @ts-expect-error: TS is wrong about `.json`, it’s not an extension.
   sourceJson,
-  sourceMd,
   sourceMdx,
   sourceToml,
   sourceTs,
   sourceTsx,
   sourceYaml,
   textHtmlBasic,
+  textMarkdown,
   textXml,
   textXmlSvg
 ]
