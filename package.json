@@ -1,28 +1,10 @@
 {
-  "private": true,
-  "name": "markdown-tm-language",
-  "version": "0.0.0",
-  "description": "really good syntax highlighting for markdown and MDX",
-  "license": "MIT",
-  "keywords": [],
-  "repository": "wooorm/markdown-tm-language",
-  "bugs": "https://github.com/wooorm/markdown-tm-language/issues",
-  "funding": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/unified"
-  },
   "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
+  "bugs": "https://github.com/wooorm/markdown-tm-language/issues",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
-  "sideEffects": false,
-  "type": "module",
-  "files": [
-    "text.md.js",
-    "text.md.tmLanguage",
-    "source.mdx.js",
-    "source.mdx.tmLanguage"
-  ],
+  "description": "really good syntax highlighting for markdown and MDX",
   "devDependencies": {
     "@types/node": "^22.0.0",
     "@types/plist": "^3.0.0",
@@ -53,6 +35,38 @@
     "xo": "^0.59.0",
     "yaml": "^2.0.0"
   },
+  "files": [
+    "source.mdx.js",
+    "source.mdx.tmLanguage",
+    "text.md.js",
+    "text.md.tmLanguage"
+  ],
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/unified"
+  },
+  "keywords": [],
+  "license": "MIT",
+  "name": "markdown-tm-language",
+  "prettier": {
+    "bracketSpacing": false,
+    "semi": false,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "none",
+    "useTabs": false
+  },
+  "private": true,
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-wooorm",
+      [
+        "remark-lint-no-html",
+        false
+      ]
+    ]
+  },
+  "repository": "wooorm/markdown-tm-language",
   "scripts": {
     "prepack": "npm run generate && npm run build && npm run format",
     "generate:example": "esbuild example/index.jsx --bundle --minify --target=es6 --outfile=example/index.nomodule.js && esbuild example/index.jsx --bundle --minify --target=es2020 --format=esm --outfile=example/index.module.js",
@@ -63,14 +77,14 @@
     "test-api": "vscode-tmgrammar-snap --scope text.md --grammar text.md.tmLanguage --grammar test/source.toml.json --grammar test/source.yaml.json test/**/*.md",
     "test": "npm run generate && npm run generate:example && npm run build && npm run format && npm run test-api"
   },
-  "prettier": {
-    "tabWidth": 2,
-    "useTabs": false,
-    "singleQuote": true,
-    "bracketSpacing": false,
-    "semi": false,
-    "trailingComma": "none"
+  "sideEffects": false,
+  "typeCoverage": {
+    "atLeast": 100,
+    "detail": true,
+    "strict": true
   },
+  "type": "module",
+  "version": "0.0.0",
   "xo": {
     "prettier": true,
     "rules": {
@@ -79,19 +93,5 @@
       "no-await-in-loop": "off",
       "unicorn/prefer-string-replace-all": "off"
     }
-  },
-  "remarkConfig": {
-    "plugins": [
-      "remark-preset-wooorm",
-      [
-        "remark-lint-no-html",
-        false
-      ]
-    ]
-  },
-  "typeCoverage": {
-    "atLeast": 100,
-    "detail": true,
-    "strict": true
   }
 }
