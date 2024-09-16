@@ -1434,7 +1434,7 @@ repository:
   extension-mdx-expression-flow:
     if: mdx
     # See <https://github.com/wooorm/markdown-rs/blob/2498e31/src/construct/mdx_expression_flow.rs>.
-    begin: var(before)(\{)
+    begin: var(before)(\{)(?!.*\}[\t ]*.)
     beginCaptures:
       1:
         name: string.other.begin.expression.var(suffix).js

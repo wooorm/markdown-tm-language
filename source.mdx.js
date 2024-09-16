@@ -1555,7 +1555,7 @@ const grammar = {
       ]
     },
     'extension-mdx-expression-flow': {
-      begin: '(?:^|\\G)[\\t ]*(\\{)',
+      begin: '(?:^|\\G)[\\t ]*(\\{)(?!.*\\}[\\t ]*.)',
       beginCaptures: {
         1: {
           name: 'string.other.begin.expression.mdx.js'

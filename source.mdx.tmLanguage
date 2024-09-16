@@ -2322,7 +2322,7 @@
       <key>extension-mdx-expression-flow</key>
       <dict>
         <key>begin</key>
-        <string>(?:^|\G)[\t ]*(\{)</string>
+        <string>(?:^|\G)[\t ]*(\{)(?!.*\}[\t ]*.)</string>
         <key>beginCaptures</key>
         <dict>
           <key>1</key>
