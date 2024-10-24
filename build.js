@@ -75,8 +75,6 @@ import regexgen from 'regexgen'
 import {fetch} from 'undici'
 import {parse} from 'yaml'
 
-const hasOwn = {}.hasOwnProperty
-
 /** @type {string | undefined} */
 let file
 
@@ -370,7 +368,7 @@ visit(tsx, '#', (rule) => {
     let key
 
     for (key in rule.repository) {
-      if (hasOwn.call(rule.repository, key)) {
+      if (Object.hasOwn(rule.repository, key)) {
         replacement['source-ts-' + key] = rule.repository[key]
       }
     }
@@ -713,7 +711,7 @@ function visit(rule, key, callback) {
     let key
 
     for (key in values) {
-      if (hasOwn.call(values, key)) {
+      if (Object.hasOwn(values, key)) {
         const result = visit(values[key], parentKey + '.' + key, callback)
         if (result === false) {
           delete values[key]
@@ -752,7 +750,7 @@ function expand(value, variables) {
    * @returns {string}
    */
   function replacer(_, key) {
-    if (!hasOwn.call(variables, key)) {
+    if (!Object.hasOwn(variables, key)) {
       throw new Error('Cannot expand variable `' + key + '`')
     }
 

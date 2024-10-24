@@ -68,11 +68,12 @@
   },
   "repository": "wooorm/markdown-tm-language",
   "scripts": {
-    "prepack": "npm run generate && npm run build && npm run format",
-    "generate:example": "esbuild example/index.jsx --bundle --minify --target=es6 --outfile=example/index.nomodule.js && esbuild example/index.jsx --bundle --minify --target=es2020 --format=esm --outfile=example/index.module.js",
-    "generate": "node --conditions development build.js",
     "build": "tsc --build --clean && tsc --build && type-coverage",
-    "format": "remark . -qfo && prettier . -w --log-level warn && xo --fix",
+    "format": "remark --frail --quiet --output -- . && prettier --log-level warn --write -- . && xo --fix",
+    "generate:example:module": "esbuild example/index.jsx --bundle --conditions=browser,production --define:process.env.NODE_ENV=\\\"production\\\" --format=esm --log-level=warning --minify --outfile=example/index.module.js --target=es2020",
+    "generate:example:nomodule": "esbuild example/index.jsx --bundle --conditions=browser,production --define:process.env.NODE_ENV=\\\"production\\\" --log-level=warning --minify --outfile=example/index.nomodule.js --target=es6",
+    "generate:example": "npm run generate:example:module && npm run generate:example:nomodule",
+    "generate": "node --conditions development build.js",
     "#1": "Do `npm run test-api -- --updateSnapshot` to update snapshots",
     "test-api": "vscode-tmgrammar-snap --scope text.md --grammar text.md.tmLanguage --grammar test/source.toml.json --grammar test/source.yaml.json test/**/*.md",
     "#2": "# && npm run test-api -- for some reason tests are failing right now",
@@ -81,7 +82,6 @@
   "sideEffects": false,
   "typeCoverage": {
     "atLeast": 100,
-    "detail": true,
     "strict": true
   },
   "type": "module",

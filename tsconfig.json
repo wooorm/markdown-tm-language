@@ -1,17 +1,17 @@
 {
   "compilerOptions": {
     "checkJs": true,
-    "declaration": true,
     "declarationMap": true,
+    "declaration": true,
     "emitDeclarationOnly": true,
     "exactOptionalPropertyTypes": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
-    "lib": ["es2020"],
+    "lib": ["es2023"],
     "module": "node16",
     "newLine": "lf",
     "strict": true,
-    "target": "es2020"
+    "target": "es2023"
   },
   "exclude": [
     "coverage/",

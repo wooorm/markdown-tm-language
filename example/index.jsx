@@ -20,7 +20,7 @@ import textXml from '@wooorm/starry-night/text.xml'
 import {createStarryNight} from '@wooorm/starry-night'
 import {toJsxRuntime} from 'hast-util-to-jsx-runtime'
 import ReactDom from 'react-dom/client'
-import {Fragment, jsx, jsxs} from 'react/jsx-runtime'
+import {Fragment, jsxs, jsx} from 'react/jsx-runtime'
 import React from 'react'
 import sourceMdx from '../source.mdx.js'
 import textMarkdown from '../text.md.js'
@@ -34,108 +34,18 @@ const grammars = [
   sourceJson,
   sourceMdx,
   sourceToml,
-  sourceTs,
   sourceTsx,
+  sourceTs,
   sourceYaml,
   textHtmlBasic,
   textMarkdown,
-  textXml,
-  textXmlSvg
+  textXmlSvg,
+  textXml
 ]
 
 const main = document.querySelectorAll('main')[0]
-const sampleMdx = `---
-title: Hello!
----
 
-import {Chart} from './chart.js'
-import population from './population.js'
-import {External} from './some/place.js'
-
-export const year = 2018
-export const pi = 3.14
-
-export function SomeComponent(props) {
-  const name = (props || {}).name || 'world'
-
-  return <div>
-    <p>Hi, {name}!</p>
-
-    <p>and some more things</p>
-  </div>
-}
-
-export function Local(props) {
-  return <span style={{color: 'red'}} {...props} />
-}
-
-# Last year’s snowfall
-
-In {year}, the snowfall was above average.
-It was followed by a warm spring which caused
-flood conditions in many of the nearby rivers.
-
-<Chart year={year} color="#fcb32c" />
-
-<div className="note">
-  > Some notable things in a block quote!
-</div>
-
-# Heading (rank 1)
-## Heading 2
-### 3
-#### 4
-##### 5
-###### 6
-
-> Block quote
-
-* Unordered
-* List
-
-1. Ordered
-2. List
-
-A paragraph, introducing a thematic break:
-
----
-
-\`\`\`js
-// Get an element.
-const element = document.querySelectorAll('#hi')
-
-// Add a class.
-element.classList.add('asd')
-\`\`\`
-
-a [link](https://example.com), an ![image](./image.png), some *emphasis*,
-something **strong**, and finally a little \`code()\`.
-
-<Component
-  open
-  x={1}
-  label={'this is a string, *not* markdown!'}
-  icon={<Icon />}
-/>
-
-Two 🍰 is: {Math.PI * 2}
-
-{(function () {
-  const guess = Math.random()
-
-  if (guess > 0.66) {
-    return <span style={{color: 'tomato'}}>Look at us.</span>
-  }
-
-  if (guess > 0.33) {
-    return <span style={{color: 'violet'}}>Who would have guessed?!</span>
-  }
-
-  return <span style={{color: 'goldenrod'}}>Not me.</span>
-})()}
-
-{/* A comment! */}
-`
+const root = ReactDom.createRoot(main)
 
 const sampleMarkdown = `---
 yaml: 1
@@ -389,25 +299,118 @@ what&not; | qweeeeeeeeeee
 GH-123, #123, GHSA-123asdzxc, cve-123asdzxc, user#123, user/project#123.
 `
 
-const root = ReactDom.createRoot(main)
+const sampleMdx = `---
+title: Hello!
+---
+
+import {Chart} from './chart.js'
+import population from './population.js'
+import {External} from './some/place.js'
+
+export const year = 2018
+export const pi = 3.14
+
+export function SomeComponent(props) {
+  const name = (props || {}).name || 'world'
+
+  return <div>
+    <p>Hi, {name}!</p>
+
+    <p>and some more things</p>
+  </div>
+}
+
+export function Local(props) {
+  return <span style={{color: 'red'}} {...props} />
+}
+
+# Last year’s snowfall
+
+In {year}, the snowfall was above average.
+It was followed by a warm spring which caused
+flood conditions in many of the nearby rivers.
+
+<Chart year={year} color="#fcb32c" />
+
+<div className="note">
+  > Some notable things in a block quote!
+</div>
+
+# Heading (rank 1)
+## Heading 2
+### 3
+#### 4
+##### 5
+###### 6
+
+> Block quote
+
+* Unordered
+* List
+
+1. Ordered
+2. List
+
+A paragraph, introducing a thematic break:
+
+---
+
+\`\`\`js
+// Get an element.
+const element = document.querySelectorAll('#hi')
+
+// Add a class.
+element.classList.add('asd')
+\`\`\`
+
+a [link](https://example.com), an ![image](./image.png), some *emphasis*,
+something **strong**, and finally a little \`code()\`.
+
+<Component
+  open
+  x={1}
+  label={'this is a string, *not* markdown!'}
+  icon={<Icon />}
+/>
+
+Two 🍰 is: {Math.PI * 2}
+
+{(function () {
+  const guess = Math.random()
+
+  if (guess > 0.66) {
+    return <span style={{color: 'tomato'}}>Look at us.</span>
+  }
+
+  if (guess > 0.33) {
+    return <span style={{color: 'violet'}}>Who would have guessed?!</span>
+  }
+
+  return <span style={{color: 'goldenrod'}}>Not me.</span>
+})()}
+
+{/* A comment! */}
+`
 /** @type {Awaited<ReturnType<typeof createStarryNight>>} */
 let starryNight
 
 // eslint-disable-next-line unicorn/prefer-top-level-await -- XO is wrong.
-createStarryNight(grammars).then((x) => {
+createStarryNight(grammars).then(function (x) {
   starryNight = x
+
+  const missing = starryNight.missingScopes()
+  if (missing.length > 0) {
+    throw new Error('Missing scopes: `' + missing + '`')
+  }
+
   root.render(React.createElement(Playground))
 })
 
 function Playground() {
   const [mdx, setMdx] = React.useState(false)
   const [text, setText] = React.useState(mdx ? sampleMdx : sampleMarkdown)
-  const scope = mdx ? 'source.mdx' : 'text.md'
 
-  const missing = starryNight.missingScopes()
-  if (missing.length > 0) {
-    throw new Error('Missing scopes: `' + missing + '`')
-  }
+  const scope = mdx ? 'source.mdx' : 'text.md'
 
   return (
     <div>
@@ -418,25 +421,25 @@ function Playground() {
         <fieldset>
           <label>
             <input
-              type="radio"
-              name="language"
               checked={!mdx}
-              onChange={() => {
+              name="language"
+              onChange={function () {
                 setMdx(false)
                 if (text === sampleMdx) setText(sampleMarkdown)
               }}
+              type="radio"
             />{' '}
             Use <code>markdown</code>
           </label>
           <label>
             <input
-              type="radio"
-              name="language"
               checked={mdx}
-              onChange={() => {
+              name="language"
+              onChange={function () {
                 setMdx(true)
                 if (text === sampleMarkdown) setText(sampleMdx)
               }}
+              type="radio"
             />{' '}
             Use <code>mdx</code>
           </label>
@@ -445,9 +448,9 @@ function Playground() {
       <div className="editor">
         <div className="draw">
           {toJsxRuntime(starryNight.highlight(text, scope), {
-            jsx,
+            Fragment,
             jsxs,
-            Fragment
+            jsx
           })}
           {/* Trailing whitespace in a `textarea` is shown, but not in a `div`
           with `white-space: pre-wrap`.
@@ -455,18 +458,20 @@ function Playground() {
           {/\n[ \t]*$/.test(text) ? <br /> : undefined}
         </div>
         <textarea
-          spellCheck="false"
           className="write"
-          value={text}
-          onChange={(event) => setText(event.target.value)}
+          onChange={function (event) {
+            setText(event.target.value)
+          }}
           rows={text.split('\n').length + 1}
+          spellCheck="false"
+          value={text}
         />
       </div>
       <section className="highlight">
         <p>
           The above playground has the following scopes enabled in{' '}
           <code>starry-night</code>:{' '}
-          {grammars.map((d, index) => {
+          {grammars.map(function (d, index) {
             const result = <code>{d.scopeName}</code>
             return index ? [', ', result] : result
           })}
@@ -479,7 +484,7 @@ function Playground() {
             Fork this website
           </a>{' '}
           •{' '}
-          <a href="https://github.com/wooorm/markdown-tm-language/blob/src/license">
+          <a href="https://github.com/wooorm/markdown-tm-language/blob/main/license">
             MIT
           </a>{' '}
           • <a href="https://github.com/wooorm">@wooorm</a>
