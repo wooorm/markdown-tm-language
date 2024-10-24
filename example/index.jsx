@@ -445,9 +445,7 @@ function Playground() {
       <div className="editor">
         <div className="draw">
           {toJsxRuntime(starryNight.highlight(text, scope), {
-            // @ts-expect-error: TypeScript is wrong.
             jsx,
-            // @ts-expect-error: TypeScript is wrong.
             jsxs,
             Fragment
           })}

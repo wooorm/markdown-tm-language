@@ -1,9 +1,10 @@
 coverage/
 node_modules/
 .DS_Store
-*.d.ts.map
 *.d.ts
 *.log
+*.map
+*.tsbuildinfo
 yarn.lock
 /example/index.module.js
 /example/index.nomodule.js
