@@ -64,22 +64,17 @@ You can use these grammars in your code editor or with
 
 ### `starry-night`
 
-You can currently use the `text.md.js` and `source.mdx.js` files in this repo
-with [`starry-night`][starry-night].
-The plan is to get these grammars into GitHub, at which point they’ll be in
-`starry-night` proper.
+These grammars are in [`github-linguist/linguist`][linguist],
+which means that they are also in [`starry-night`][starry-night].
 
 ### `shiki`
 
-The plan is to get these grammars into Shiki, at which point you can use them
-from there.
-Tracking issue for the MDX grammar:
-[shikijs/shiki#447](https://github.com/shikijs/shiki/pull/447).
+These grammars are in [Shiki][].
 
 ### VS Code
 
-For the MDX grammar, use:
-[`vscode-mdx`](https://github.com/mdx-js/mdx-analyzer/tree/main/packages/vscode-mdx).
+For the MDX grammar,
+use: [`vscode-mdx`][vscode-mdx].
 
 ### Sublime and TextMate
 
@@ -161,22 +156,26 @@ script/grammar-compiler add markdown-tm-language
 
 <!-- Definitions -->
 
+[author]: https://wooorm.com
+
 [build-badge]: https://github.com/wooorm/markdown-tm-language/workflows/main/badge.svg
 
 [build]: https://github.com/wooorm/markdown-tm-language/actions
 
+[contribute]: https://opensource.guide/how-to-contribute/
+
+[demo]: https://wooorm.com/markdown-tm-language/
+
 [license]: license
 
-[author]: https://wooorm.com
-
-[contribute]: https://opensource.guide/how-to-contribute/
+[linguist]: https://github.com/github-linguist/linguist
 
 [markdown]: https://commonmark.org
 
 [mdx]: https://mdxjs.com
 
-[demo]: https://wooorm.com/markdown-tm-language/
+[shiki]: https://github.com/shikijs/shiki
 
 [starry-night]: https://github.com/wooorm/starry-night
 
-[shiki]: https://github.com/shikijs/shiki
+[vscode-mdx]: https://github.com/mdx-js/mdx-analyzer/tree/main/packages/vscode-mdx
