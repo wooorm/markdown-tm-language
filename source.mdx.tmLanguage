@@ -919,7 +919,7 @@
             <key>match</key>
             <string>(?:^|\G)[\t ]*(#{3}(?!#))(?:[ \t]+([^\r\n]+?)(?:[ \t]+(#+?))?)?[ \t]*$</string>
             <key>name</key>
-            <string>markup.heading.atx.2.mdx</string>
+            <string>markup.heading.atx.3.mdx</string>
             <key>captures</key>
             <dict>
               <key>1</key>
@@ -950,7 +950,7 @@
             <key>match</key>
             <string>(?:^|\G)[\t ]*(#{4}(?!#))(?:[ \t]+([^\r\n]+?)(?:[ \t]+(#+?))?)?[ \t]*$</string>
             <key>name</key>
-            <string>markup.heading.atx.2.mdx</string>
+            <string>markup.heading.atx.4.mdx</string>
             <key>captures</key>
             <dict>
               <key>1</key>
@@ -981,7 +981,7 @@
             <key>match</key>
             <string>(?:^|\G)[\t ]*(#{5}(?!#))(?:[ \t]+([^\r\n]+?)(?:[ \t]+(#+?))?)?[ \t]*$</string>
             <key>name</key>
-            <string>markup.heading.atx.2.mdx</string>
+            <string>markup.heading.atx.5.mdx</string>
             <key>captures</key>
             <dict>
               <key>1</key>
@@ -1012,7 +1012,7 @@
             <key>match</key>
             <string>(?:^|\G)[\t ]*(#{6}(?!#))(?:[ \t]+([^\r\n]+?)(?:[ \t]+(#+?))?)?[ \t]*$</string>
             <key>name</key>
-            <string>markup.heading.atx.2.mdx</string>
+            <string>markup.heading.atx.6.mdx</string>
             <key>captures</key>
             <dict>
               <key>1</key>

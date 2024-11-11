@@ -563,7 +563,7 @@ repository:
           3:
             name: punctuation.definition.heading.var(suffix)
       - match: var(before)(#{3}(?!#))(?:[ \t]+([^\r\n]+?)(?:[ \t]+(#+?))?)?[ \t]*$
-        name: markup.heading.atx.2.var(suffix)
+        name: markup.heading.atx.3.var(suffix)
         captures:
           1:
             name: punctuation.definition.heading.var(suffix)
@@ -574,7 +574,7 @@ repository:
           3:
             name: punctuation.definition.heading.var(suffix)
       - match: var(before)(#{4}(?!#))(?:[ \t]+([^\r\n]+?)(?:[ \t]+(#+?))?)?[ \t]*$
-        name: markup.heading.atx.2.var(suffix)
+        name: markup.heading.atx.4.var(suffix)
         captures:
           1:
             name: punctuation.definition.heading.var(suffix)
@@ -585,7 +585,7 @@ repository:
           3:
             name: punctuation.definition.heading.var(suffix)
       - match: var(before)(#{5}(?!#))(?:[ \t]+([^\r\n]+?)(?:[ \t]+(#+?))?)?[ \t]*$
-        name: markup.heading.atx.2.var(suffix)
+        name: markup.heading.atx.5.var(suffix)
         captures:
           1:
             name: punctuation.definition.heading.var(suffix)
@@ -596,7 +596,7 @@ repository:
           3:
             name: punctuation.definition.heading.var(suffix)
       - match: var(before)(#{6}(?!#))(?:[ \t]+([^\r\n]+?)(?:[ \t]+(#+?))?)?[ \t]*$
-        name: markup.heading.atx.2.var(suffix)
+        name: markup.heading.atx.6.var(suffix)
         captures:
           1:
             name: punctuation.definition.heading.var(suffix)

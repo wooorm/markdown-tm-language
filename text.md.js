@@ -696,7 +696,7 @@ const grammar = {
         {
           match:
             '(?:^|\\G)[ ]{0,3}(#{3}(?!#))(?:[ \\t]+([^\\r\\n]+?)(?:[ \\t]+(#+?))?)?[ \\t]*$',
-          name: 'markup.heading.atx.2.md',
+          name: 'markup.heading.atx.3.md',
           captures: {
             1: {
               name: 'punctuation.definition.heading.md'
@@ -717,7 +717,7 @@ const grammar = {
         {
           match:
             '(?:^|\\G)[ ]{0,3}(#{4}(?!#))(?:[ \\t]+([^\\r\\n]+?)(?:[ \\t]+(#+?))?)?[ \\t]*$',
-          name: 'markup.heading.atx.2.md',
+          name: 'markup.heading.atx.4.md',
           captures: {
             1: {
               name: 'punctuation.definition.heading.md'
@@ -738,7 +738,7 @@ const grammar = {
         {
           match:
             '(?:^|\\G)[ ]{0,3}(#{5}(?!#))(?:[ \\t]+([^\\r\\n]+?)(?:[ \\t]+(#+?))?)?[ \\t]*$',
-          name: 'markup.heading.atx.2.md',
+          name: 'markup.heading.atx.5.md',
           captures: {
             1: {
               name: 'punctuation.definition.heading.md'
@@ -759,7 +759,7 @@ const grammar = {
         {
           match:
             '(?:^|\\G)[ ]{0,3}(#{6}(?!#))(?:[ \\t]+([^\\r\\n]+?)(?:[ \\t]+(#+?))?)?[ \\t]*$',
-          name: 'markup.heading.atx.2.md',
+          name: 'markup.heading.atx.6.md',
           captures: {
             1: {
               name: 'punctuation.definition.heading.md'
