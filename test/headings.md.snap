@@ -1,0 +1,30 @@
+># H1
+#^ text.md markup.heading.atx.1.md punctuation.definition.heading.md
+# ^ text.md markup.heading.atx.1.md
+#  ^^ text.md markup.heading.atx.1.md entity.name.section.md
+>
+>## H2
+#^^ text.md markup.heading.atx.2.md punctuation.definition.heading.md
+#  ^ text.md markup.heading.atx.2.md
+#   ^^ text.md markup.heading.atx.2.md entity.name.section.md
+>
+>### H3
+#^^^ text.md markup.heading.atx.3.md punctuation.definition.heading.md
+#   ^ text.md markup.heading.atx.3.md
+#    ^^ text.md markup.heading.atx.3.md entity.name.section.md
+>
+>#### H4
+#^^^^ text.md markup.heading.atx.4.md punctuation.definition.heading.md
+#    ^ text.md markup.heading.atx.4.md
+#     ^^ text.md markup.heading.atx.4.md entity.name.section.md
+>
+>##### H5
+#^^^^^ text.md markup.heading.atx.5.md punctuation.definition.heading.md
+#     ^ text.md markup.heading.atx.5.md
+#      ^^ text.md markup.heading.atx.5.md entity.name.section.md
+>
+>###### H6
+#^^^^^^ text.md markup.heading.atx.6.md punctuation.definition.heading.md
+#      ^ text.md markup.heading.atx.6.md
+#       ^^ text.md markup.heading.atx.6.md entity.name.section.md
+>
