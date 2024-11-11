@@ -1,0 +1,195 @@
+* {
+  box-sizing: border-box;
+  line-height: calc(1 * (1em + 1ex));
+}
+
+a {
+  color: var(--color-hl);
+  text-decoration: none;
+  transition: 200ms;
+
+  transition-property: color;
+}
+
+a:focus,
+a:hover,
+a:target {
+  color: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+code,
+kbd,
+.draw,
+.write {
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace;
+  font-feature-settings: normal;
+}
+
+code,
+kbd {
+  font-size: smaller;
+}
+
+fieldset {
+  border-width: 0;
+  margin: calc(0.25 * (1em + 1ex)) 0;
+}
+
+h1,
+p {
+  margin-bottom: calc(1 * (1em + 1ex));
+  margin-top: calc(1 * (1em + 1ex));
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 100;
+  text-align: center;
+}
+
+html {
+  --color-border: #d0d7de;
+  --color-canvas-back: #f6f8fa;
+  --color-canvas-front: #ffffff;
+  --color-fg: #0d1117;
+  --color-hl: #0969da;
+
+  background-color: var(--color-canvas-back);
+  color-scheme: light dark;
+  color: var(--color-fg);
+  font-family: system-ui;
+  word-break: break-word;
+}
+
+label {
+  margin: 0 calc(0.25 * (1em + 1ex));
+}
+
+main {
+  background-color: var(--color-canvas-back);
+  margin: 0 auto;
+  max-width: calc(40 * (1em + 1ex));
+  padding: 0 calc(2 * (1em + 1ex));
+  position: relative;
+}
+
+main > div {
+  border-radius: inherit;
+}
+
+section {
+  border: 0 solid var(--color-border);
+  margin: calc(2 * (1em + 1ex)) calc(-2 * (1em + 1ex));
+  padding: calc(2 * (1em + 1ex));
+
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+
+section:first-child {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  border-top-width: 0;
+  margin-top: 0;
+}
+
+section:last-child {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+  border-bottom-width: 0;
+  margin-bottom: 0;
+}
+
+section + section {
+  margin-top: calc(-2 * (1em + 1ex) - 1px);
+}
+
+section > :first-child {
+  margin-top: 0;
+}
+
+section > :last-child {
+  margin-bottom: 0;
+}
+
+template {
+  display: none;
+}
+
+.credits {
+  text-align: center;
+}
+
+.draw,
+.write {
+  background: transparent;
+  border: none;
+  box-sizing: border-box;
+  font-size: 14px;
+  height: 100%;
+  letter-spacing: normal;
+  line-height: calc(1 * (1em + 1ex));
+  margin: 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0;
+  resize: none;
+  tab-size: 4;
+  white-space: pre-wrap;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.editor {
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.highlight {
+  background-color: var(--color-canvas-front);
+}
+
+.write {
+  -webkit-print-color-adjust: exact;
+  caret-color: var(--color-hl);
+  color: transparent;
+  position: absolute;
+  print-color-adjust: exact;
+  top: 0;
+}
+
+.write::selection {
+  background-color: hsl(42.22 74.31% 57.25% / 66%);
+  color: var(--color-fg);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --color-border: #30363d;
+    --color-canvas-back: #0d1117;
+    --color-canvas-front: #161b22;
+    --color-fg: #f6f8fa;
+    --color-hl: #58a6ff;
+  }
+}
+
+@media (min-width: calc(30 * (1em + 1ex))) and (min-height: calc(30 * (1em + 1ex))) {
+  main {
+    /* Go all Tschichold when supported */
+    border-radius: 3px;
+    border: 1px solid var(--color-border);
+    margin: 11vh 22.2vw 22.2vh 11.1vw;
+  }
+}
